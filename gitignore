@@ -1,0 +1,32 @@
+# saídas da coleta (publicadas como anexos de release, não no Git)
+coleta_*.jsonl
+coleta_*.jsonl.gz
+teste_*.jsonl
+corpus.jsonl.gz
+
+# arquivos gerados a cada execução
+sementes_*.txt
+exclusoes_*.txt
+escopo_*.txt
+katana_*.log
+erros_*.log
+resume-*.cfg
+
+# binário do Katana baixado para a pasta
+katana
+katana.exe
+
+__pycache__/
+
+# arquivos auxiliares e de verificação
+retomada.json
+urls.txt
+amostra*.html
+amostras*
+*.tar.gz
+*.parte*
+
+# credenciais (nunca publicar)
+*.pem
+*.ppk
+.env
