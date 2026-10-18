@@ -22,7 +22,8 @@ __pycache__/
 retomada.json
 urls.txt
 amostra*.html
-amostras*
+amostras_extrator/
+amostras_extrator.zip
 *.tar.gz
 *.parte*
 
@@ -30,3 +31,14 @@ amostras*
 *.pem
 *.ppk
 .env
+
+# índice e experimentos da etapa 2 (gerados por indexar.py / medir.py)
+indice/
+tmp_blocos/
+resultados/campos.jsonl.gz
+resultados/indices/
+resultados/logs/
+
+# relatório de passagem da etapa 2 e seu pacote (uso interno do grupo)
+RESULTADOS_ETAPA2.md
+resultados_etapa2.zip

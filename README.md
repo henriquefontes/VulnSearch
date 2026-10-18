@@ -1,15 +1,128 @@
-# VulnSearch — coletor
+# VulnSearch
 
-Coletor de páginas sobre vulnerabilidades de *software* e *hardware*, primeira
-etapa do **VulnSearch**, um mecanismo de busca vertical desenvolvido no trabalho
-da disciplina de Recuperação da Informação na Web e Redes Sociais (PUC Minas).
+Mecanismo de busca vertical sobre vulnerabilidades de *software* e *hardware*,
+desenvolvido no trabalho da disciplina de Recuperação da Informação na Web e Redes
+Sociais (PUC Minas). O projeto é feito em etapas:
+
+1. **Coleta** (concluída): coletor sobre o Katana; ver [Etapa 1](#etapa-1--coleta).
+2. **Representação e indexação** (atual): limpeza do HTML, análise léxica e índice
+   invertido; ver [Etapa 2](#etapa-2--indexação).
+3. Ranqueamento, interface de busca e avaliação (próximas etapas).
+
+## Etapa 2 — indexação
+
+### Instalação
+
+Python 3.8+ e dois pacotes:
+
+```bash
+pip install selectolax snowballstemmer
+```
+
+O `graficos.py` precisa também do `matplotlib` (opcional: as tabelas em CSV/Markdown
+saem sem ele). Não há banco de dados: o índice é um conjunto de arquivos próprios.
+
+### Como executar
+
+Com o `corpus.jsonl.gz` (release `coleta-v1`) nesta pasta:
+
+```bash
+python indexar.py                      # índice principal em indice/ (~4 min, ~350 MB de RAM)
+python buscar.py "sql injection wordpress"
+python buscar.py                       # modo interativo
+```
+
+Teste rápido, com 1 página a cada 30 (o corpus está agrupado por site, então
+`--limite` sozinho pegaria só os primeiros sites):
+
+```bash
+python indexar.py --passo 30 --saida indice_teste --salvar-campos campos_teste.jsonl.gz
+python verificar_indice.py campos_teste.jsonl.gz --indice indice_teste
+```
+
+Experimentos para o relatório (todas as variações, ~45 min):
+
+```bash
+python medir.py          # tabelas em resultados/*.csv e *.md
+python graficos.py       # gráficos em resultados/*.png
+```
+
+`medir.py --passo 50` roda tudo numa amostra em poucos minutos.
+
+### Sintaxe da busca (`buscar.py`)
+
+| Consulta | Significado |
+|---|---|
+| `sql injection` | AND implícito |
+| `wordpress OR joomla` | OR entre termos vizinhos |
+| `xss -wordpress` ou `xss NOT wordpress` | exclusão |
+| `"denial of service"` | frase (usa as posições) |
+| `codigo:strcpy` | só no código dos *exploits*/exemplos |
+| `CVE-2021-44228`, `GHSA-...`, `CWE-79`, `2.4.1` | identificadores e versões inteiros |
+
+A busca é booleana e serve para verificar o índice; o ranqueamento é a próxima etapa.
+
+### Arquivos
+
+| Arquivo | Função |
+|---|---|
+| `extrair.py` | Limpeza: HTML → campos (título, descrição, palavras-chave, texto, código), com um perfil por site |
+| `lexico.py` | Análise léxica: tokenização, acentos, caixa, stopwords, stemming; regras próprias para o código |
+| `stopwords_en.txt` | 150 stopwords em inglês, em ordem de frequência |
+| `indexar.py` | Construção do índice por ordenação externa (blocos + *k-way merge*) |
+| `indice.py` | Formato do índice: *variable byte*, leitura das listas, medição de memória |
+| `buscar.py` | Busca booleana (interseção de listas ordenadas, frases) |
+| `verificar_indice.py` | Confere as listas gravadas contra um índice montado em memória |
+| `etapas.py` | Tabela no modelo Reuters-RCV1 (vocabulário/ocorrências após cada etapa) |
+| `medir.py` | Experimentos: tempo, espaço, Heaps e variações dos hiperparâmetros |
+| `graficos.py` | Gráficos PNG a partir de `resultados/` |
+| `amostras_extrator.py` | Separa páginas de amostra de cada site, usadas para calibrar o `extrair.py` |
+
+### Como funciona
+
+```
+corpus.jsonl.gz ─► leitura em ─► extrair.py ─► lexico.py ─► inversão em blocos ─► k-way merge ─► indice/
+                   streaming     (campos)      (termos e    (até --bloco MB;      (heapq.merge)
+                                               posições)    ordena e grava)
+```
+
+- **Campos**: título, descrição (meta), palavras-chave (meta) e texto formam o texto
+  indexado; o código (*exploits*, exemplos das CWEs, blocos `<pre>`) vai para um campo
+  separado, gravado com prefixo `c:` no vocabulário (`c:strcpy`).
+- **Análise léxica do texto**: minúsculas, sem acentos e pontuação; hífen separa palavras
+  (`use-after-free` vira três termos, e a busca por frase os reencontra); 150 stopwords;
+  stemming Snowball (inglês). **Números não são removidos** e identificadores do domínio
+  ficam inteiros: CVE, GHSA, CWE, SA-CORE/SA-CONTRIB, MS17-010, versões (`2.4.1`) e
+  pacotes (`@scope/nome`).
+- **Código**: sem stopwords e sem *stemming*; tokens de 2 a 24 caracteres (`--tam-max-codigo`),
+  para que *shellcode*, hexadecimais e base64 não inflem o vocabulário.
+- **Granularidade**: documento com posições (permite frase); as posições contam também as
+  stopwords. Variações: sem posições e trechos de N tokens (`--granularidade trecho`).
+- **Construção**: as ocorrências são acumuladas em memória, já codificadas, até o bloco
+  atingir `--bloco` MB; então os termos são ordenados e o bloco vai para o disco. No final,
+  os blocos são intercalados (*k-way merge*) e apagados.
+- **Compressão**: diferenças (*gaps*) entre documentos e entre posições + *variable byte*.
+  `--sem-compressao` grava inteiros de 4 bytes.
+
+### Formato do índice (`indice/`)
+
+| Arquivo | Conteúdo |
+|---|---|
+| `vocabulario.tsv` | `termo, df, cf, offset, bytes` (carregado inteiro na memória) |
+| `ocorrencias.bin` | listas ⟨doc, tf, pos₁…pos_tf⟩ de cada termo, doc crescente |
+| `documentos.tsv` | `id, url, site, nº de termos do texto, nº de termos do código, título` |
+| `trechos.tsv` | só na granularidade por trecho: trecho → página |
+| `estatisticas.json` | parâmetros, contagens, tempo por etapa, pico de memória, tamanhos |
+| `heaps.csv` | (tokens, vocabulário) a cada 250 páginas |
+
+## Etapa 1 — coleta
 
 A coleta usa o [Katana](https://github.com/projectdiscovery/katana) e scripts
 Python (somente biblioteca padrão) que implementam as políticas de boas maneiras
 (`robots.txt`, *Crawl-delay*, limite de requisições por servidor) e a seleção de
 documentos.
 
-## Resultado da coleta
+### Resultado da coleta
 
 **64.180 páginas** de 6 sites especializados, com 11,1 GB de HTML (1,4 GB compactado).
 A coleta levou cerca de 6 horas.
@@ -27,7 +140,7 @@ A coleta levou cerca de 6 horas.
 Das 64.474 URLs distintas visitadas, 294 (0,5%) foram descartadas na seleção de
 documentos (HTTP diferente de 200 ou conteúdo que não é HTML).
 
-## Download do corpus
+### Download do corpus
 
 O corpus está na [release **coleta-v1**](../../releases/latest), e não no Git,
 porque o GitHub não aceita arquivos acima de 100 MiB no repositório.
@@ -57,7 +170,7 @@ with gzip.open("corpus.jsonl.gz", "rt", encoding="utf-8") as f:
         print(pagina["url"], len(pagina["html"]))
 ```
 
-## Como funciona
+### Como funciona
 
 ```
 sites.py ──► robots_escopo.py ──► Katana (um processo por site, em paralelo) ──► coleta_<site>_<n>.jsonl ──► processar.py ──► corpus.jsonl.gz
@@ -89,9 +202,9 @@ Principais decisões:
 - **Seleção de documentos** (`processar.py`): mantém só respostas HTTP 200 em HTML e
   remove *soft*-404 e páginas repetidas (pela URL e pelo *hash* do conteúdo).
 
-## Como executar
+### Como executar
 
-### Instalação
+#### Instalação
 
 1. **Python 3.8+**: não precisa instalar pacotes.
 2. **Katana**: baixe o `.zip` do seu sistema na página de
@@ -101,7 +214,7 @@ Principais decisões:
 3. Edite `CONTATO` no início de `coletar.py` com um e-mail de contato. Ele vai no
    *User-Agent*, para que os administradores dos sites saibam quem está coletando.
 
-### Teste rápido (~5 minutos)
+#### Teste rápido (~5 minutos)
 
 ```bash
 python coletar.py --teste
@@ -111,7 +224,7 @@ python processar.py "teste_*.jsonl"
 O teste coleta no máximo 50 páginas por site. Para testar um site só:
 `python coletar.py --teste --sites ghsa`.
 
-### Coleta completa
+#### Coleta completa
 
 ```bash
 python coletar.py
@@ -125,7 +238,7 @@ python processar.py "coleta_*.jsonl*"
 - Em um servidor remoto, rode dentro de `screen` ou `tmux`, para que a coleta
   continue se a conexão SSH cair.
 
-### Interrupções
+#### Interrupções
 
 - **Ctrl+C**: o Katana grava um arquivo de retomada para cada site, e o resumo
   mostra o comando para continuar (`python coletar.py --sites <site> --retomar <arquivo>`).
@@ -138,7 +251,7 @@ Cada execução grava arquivos próprios (`coleta_<site>_1.jsonl`, `_2`, ...), p
 o Katana sobrescreve o arquivo de saída. As páginas coletadas mais de uma vez são
 removidas pelo `processar.py`.
 
-## Adicionar um site
+### Adicionar um site
 
 Crie um perfil em `SITES` (`sites.py`), seguindo os comentários do arquivo.
 Antes, verifique se a listagem do site é HTML estático (links no código-fonte)

@@ -1,0 +1,12 @@
+Campo código: efeito do limite de tamanho de token (tokens de 1 caractere sempre descartados). Para comparação, o texto tem vocabulário 261881 e 8420197 tokens.
+
+| limite de tamanho | vocabulário | postings | tokens | % vocabulário sem limite |
+|---|---:|---:|---:|---:|
+| 8 | 278358 | 5447805 | 18358037 | 45.6 |
+| 16 | 509873 | 6472762 | 20188811 | 83.6 |
+| 24 | 559187 | 6549517 | 20320385 | 91.7 |
+| 32 | 579080 | 6573284 | 20355596 | 95.0 |
+| 48 | 587723 | 6586112 | 20372256 | 96.4 |
+| 64 | 594161 | 6593074 | 20380359 | 97.4 |
+| sem limite | 609845 | 6609429 | 20400049 | 100.0 |
+| texto + código (limite 24) | 821068 | 11238559 | 28740582 | - |

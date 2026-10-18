@@ -1,0 +1,19 @@
+Variações da representação. Texto = campos de texto + código extraídos (219 MB). As variações leem os campos já extraídos, então o tempo delas não inclui a extração do HTML.
+
+| variação | descrição | unidades | vocabulário | postings | ocorrências | vocabulário (MB) | ocorrências (MB) | documentos (MB) | total (MB) | ocorrências/texto (%) | índice/texto (%) | tempo (s) | pico de memória (MB) | blocos | temporários (MB) |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| principal | índice principal, a partir do corpus (inclui a extração do HTML) | 64180 | 821068 | 11238559 | 28740582 | 21.3 | 60.0 | 8.5 | 89.7 | 27.3 | 40.9 | 215 | 332 | 5 | 95.2 |
+| base | documento + posições, comprimido (principal, a partir dos campos) | 64180 | 821068 | 11238559 | 28740582 | 21.3 | 60.0 | 8.5 | 89.7 | 27.3 | 40.9 | 64 | 314 | 5 | 95.2 |
+| sem_compressao | sem compressão (inteiros de 4 bytes) | 64180 | 821068 | 11238559 | 28740582 | 22.3 | 195.4 | 8.5 | 226.2 | 89.1 | 103.1 | 60 | 322 | 7 | 232.5 |
+| sem_posicoes | documento sem posições | 64180 | 821068 | 11238559 | 28740582 | 20.9 | 24.1 | 8.5 | 53.6 | 11.0 | 24.4 | 57 | 300 | 4 | 58.3 |
+| trecho_500 | trechos de 500 tokens, sem posições | 144190 | 821068 | 13737813 | 28740582 | 21.0 | 29.8 | 10.6 | 61.4 | 13.6 | 28.0 | 63 | 311 | 4 | 63.7 |
+| trecho_200 | trechos de 200 tokens, sem posições | 228134 | 821068 | 16050327 | 28740582 | 21.1 | 34.6 | 12.0 | 67.7 | 15.8 | 30.9 | 66 | 314 | 4 | 68.6 |
+| trecho_200_pos | trechos de 200 tokens, com posições | 228134 | 821068 | 16050327 | 28740582 | 21.4 | 73.6 | 12.0 | 107.0 | 33.6 | 48.8 | 72 | 303 | 5 | 109.4 |
+| sem_codigo | sem o campo código | 64180 | 261881 | 4689042 | 8420197 | 6.4 | 20.2 | 8.4 | 35.0 | 30.4 | 52.7 | 26 | 162 | 2 | 29.2 |
+| sem_stopwords | sem remover stopwords | 64180 | 821175 | 11899010 | 30874596 | 21.3 | 63.8 | 8.5 | 93.6 | 29.1 | 42.7 | 63 | 316 | 5 | 99.2 |
+| sem_stemming | sem stemming | 64180 | 832027 | 11540298 | 28740582 | 21.6 | 60.9 | 8.5 | 91.0 | 27.8 | 41.5 | 59 | 312 | 5 | 97.0 |
+| codigo_16 | limite de token do código = 16 | 64180 | 771754 | 11161804 | 28609008 | 19.5 | 59.6 | 8.5 | 87.5 | 27.1 | 39.9 | 62 | 305 | 4 | 91.4 |
+| codigo_64 | limite de token do código = 64 | 64180 | 856042 | 11282116 | 28800556 | 23.1 | 60.2 | 8.5 | 91.8 | 27.5 | 41.9 | 63 | 324 | 5 | 98.1 |
+| codigo_sem_limite | código sem limite de tamanho de token | 64180 | 871726 | 11298471 | 28820246 | 26.6 | 60.3 | 8.5 | 95.4 | 27.5 | 43.5 | 62 | 325 | 5 | 102.5 |
+| bloco_16 | bloco (MAX_TAMANHO) de 16 MB | 64180 | 821068 | 11238559 | 28740582 | 21.3 | 60.0 | 8.5 | 89.7 | 27.3 | 40.9 | 68 | 268 | 22 | 106.8 |
+| bloco_256 | bloco (MAX_TAMANHO) de 256 MB | 64180 | 821068 | 11238559 | 28740582 | 21.3 | 60.0 | 8.5 | 89.7 | 27.3 | 40.9 | 61 | 476 | 1 | 87.4 |
