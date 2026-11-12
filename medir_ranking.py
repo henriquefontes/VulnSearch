@@ -38,7 +38,7 @@ CURTO = {"www.exploit-db.com": "exploit-db", "github.com": "github", "www.rapid7
          "cwe.mitre.org": "cwe", "www.drupal.org": "drupal", "developer.joomla.org": "joomla"}
 # consultas extras para o experimento do IDF (termos com df > N/2)
 EXTRAS_IDF = ["wordpress vulnerability", "exploit linux kernel", "cve sql injection",
-              "vulnerability", "source code disclosure"]
+              "vulnerability", "source code disclosure", "exploit", "cve"]
 QUALITATIVAS = ["q01", "q05", "q12", "q18"]  # uma de cada tipo
 
 
@@ -277,22 +277,28 @@ def idf_variantes(r, consultas, saida):
             continue
         for mod in ("bm25", "bm25f"):
             res = {v: r.ranquear(None, mod, K, prep=prep, idf=v) for v in
-                   ("limitado", "log1p", "bruto")}
+                   ("limitado+recurso", "limitado", "log1p", "bruto")}
             tops = {v: [d for d, _ in x.top] for v, x in res.items()}
+            padrao = res["limitado+recurso"]
             linhas.append([cid, consulta, mod,
                            " ".join(f"{t}({q.df(t)}; {idf_bm(q.df(t), N, variante='bruto'):.2f})"
                                     for t in altos),
+                           "sim" if padrao.recurso else "não", padrao.n_positivos,
                            res["limitado"].n_positivos, res["log1p"].n_positivos,
                            res["bruto"].n_positivos,
-                           sobrep_txt(tops["limitado"], tops["log1p"]),
-                           sobrep_txt(tops["limitado"], tops["bruto"])])
-    grava(saida, "idf_variantes", ["id", "consulta", "modelo", "termos com df > N/2 (df; idf sem correção)",
-                                   "escore > 0 (limitado)", "escore > 0 (log1p)",
-                                   "escore > 0 (sem correção)", "sobreposição limitado × log1p",
-                                   "sobreposição limitado × sem correção"], linhas,
+                           sobrep_txt(tops["limitado+recurso"], tops["limitado"]),
+                           sobrep_txt(tops["limitado+recurso"], tops["log1p"]),
+                           sobrep_txt(tops["limitado+recurso"], tops["bruto"])])
+    grava(saida, "idf_variantes", ["id", "consulta", "modelo",
+                                   "termos com df > N/2 (df; idf sem correção)", "recurso usado",
+                                   "escore > 0 (limitado+recurso)", "escore > 0 (limitado)",
+                                   "escore > 0 (log1p)", "escore > 0 (sem correção)",
+                                   "sobreposição padrão × limitado", "sobreposição padrão × log1p",
+                                   "sobreposição padrão × sem correção"], linhas,
           "IDF da família BM: log((N − n + 0,5)/(n + 0,5)) é negativo para n > N/2 (D10). "
-          "Padrão: limitado a 0; variante: log(1 + ·); 'sem correção' é a fórmula do slide. "
-          "Consultas x1-x5 são extras, só para este experimento.")
+          "Padrão: 'limitado+recurso' (limitado a 0; se todas as palavras ficarem com idf 0, "
+          "a consulta usa log(1 + ·)). 'sem correção' é a fórmula do slide. Consultas x1-x7 "
+          "são extras, só para este experimento.")
     return linhas
 
 

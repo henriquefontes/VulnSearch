@@ -1,7 +1,7 @@
 url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
-https://www.exploit-db.com/exploits/50590	Apache Log4j2 2.14.1 - Information Disclosure	www.exploit-db.com			38157	jaccard:1 tfidf:1 vetorial:1 bm1:2 bm15:1 bm11:1 bm25:1 bm25f:1	1
-https://www.exploit-db.com/exploits/51183	AD Manager Plus 7122 - Remote Code Execution (RCE)	www.exploit-db.com			11826	jaccard:3 tfidf:3 vetorial:2 bm1:1 bm15:3 bm11:3 bm25:3 bm25f:3	1
-https://www.exploit-db.com/exploits/50592	Apache Log4j 2 - Remote Code Execution (RCE)	www.exploit-db.com			38165	jaccard:2 tfidf:2 vetorial:3 bm1:3 bm15:2 bm11:2 bm25:2 bm25f:2	2
-https://cwe.mitre.org/data/definitions/1395.html	CWE-1395: Dependency on Vulnerable Third-Party Component	cwe.mitre.org			621	jaccard:5 tfidf:4 vetorial:5 bm1:4 bm15:4 bm11:5 bm25:5 bm25f:5	4
-https://cwe.mitre.org/data/definitions/917.html	CWE-917: Improper Neutralization of Special Elements used in an Expression Language Statement ('Expression Language Injection')	cwe.mitre.org			734	jaccard:4 tfidf:5 vetorial:4 bm1:5 bm15:5 bm11:4 bm25:4 bm25f:4	4
-https://cwe.mitre.org/data/definitions/74.html	CWE-74: Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection')	cwe.mitre.org			745	jaccard:6 tfidf:6 vetorial:6 bm1:6 bm15:6 bm11:6 bm25:6 bm25f:6	6
+https://www.exploit-db.com/exploits/50590	Apache Log4j2 2.14.1 - Information Disclosure	www.exploit-db.com			38157	tfidf:1 vetorial:1 bm25:1 bm25f:1	1
+https://www.exploit-db.com/exploits/50592	Apache Log4j 2 - Remote Code Execution (RCE)	www.exploit-db.com			38165	tfidf:2 vetorial:3 bm25:2 bm25f:2	2
+https://www.exploit-db.com/exploits/51183	AD Manager Plus 7122 - Remote Code Execution (RCE)	www.exploit-db.com			11826	tfidf:3 vetorial:2 bm25:3 bm25f:3	2
+https://cwe.mitre.org/data/definitions/1395.html	CWE-1395: Dependency on Vulnerable Third-Party Component	cwe.mitre.org			621	tfidf:4 vetorial:5 bm25:5 bm25f:5	4
+https://cwe.mitre.org/data/definitions/917.html	CWE-917: Improper Neutralization of Special Elements used in an Expression Language Statement ('Expression Language Injection')	cwe.mitre.org			734	tfidf:5 vetorial:4 bm25:4 bm25f:4	4
+https://cwe.mitre.org/data/definitions/74.html	CWE-74: Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection')	cwe.mitre.org			745	tfidf:6 vetorial:6 bm25:6 bm25f:6	6

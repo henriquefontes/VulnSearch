@@ -20,7 +20,7 @@ import inspect
 import sys
 import time
 
-from ranqueamento import MODELOS, MODELO_PADRAO, Ranqueador
+from ranqueamento import MODELOS, MODELO_PADRAO, VARIANTES_IDF, Ranqueador
 
 LARGURA_TITULO = 80
 
@@ -144,8 +144,9 @@ def main():
                         "BM25F (padrão: 1)")
     p.add_argument("--esquema", type=int, choices=[1, 2, 3], help="vetorial (padrão: 3)")
     p.add_argument("--tf", choices=["log", "bruto"], help="TF-IDF (padrão: log)")
-    p.add_argument("--idf", choices=["limitado", "log1p", "bruto"],
-                   help="IDF da família BM (padrão: limitado a 0)")
+    p.add_argument("--idf", choices=list(VARIANTES_IDF),
+                   help="IDF da família BM (padrão: limitado+recurso = limitado a 0, mas "
+                        "log(1 + ·) se todas as palavras da consulta tiverem n > N/2)")
     p.add_argument("--frase", action="append", default=[],
                    help="acrescenta uma frase entre aspas à consulta (útil no PowerShell)")
     p.add_argument("--explicar", action="store_true", help="parcelas de cada termo e campo")

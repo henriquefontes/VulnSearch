@@ -1,47 +1,26 @@
 url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
-https://www.exploit-db.com/exploits/49621	CatDV 9.2 - RMI Authentication Bypass	www.exploit-db.com			31180	tfidf:9 bm15:9 bm11:5 bm25:1 bm25f:1	1
-https://www.exploit-db.com/exploits/41983	LG G4 MRA58K - 'mkvparser::Block::Block' Heap Buffer Overflow	www.exploit-db.com			25053	tfidf:2 bm15:2 bm25:2 bm25f:2	2
-https://www.exploit-db.com/exploits/15945	Zwii 2.1.1 - Remote File Inclusion	www.exploit-db.com			31823	vetorial:3 bm11:4 bm25:7 bm25f:7	3
-https://www.exploit-db.com/exploits/41981	LG G4 MRA58K - 'liblg_parser_mkv.so' Bad Allocation Calls	www.exploit-db.com			25067	tfidf:8 bm15:8 bm25:3 bm25f:3	3
-https://www.exploit-db.com/exploits/49379	WinAVR Version 20100110 - Insecure Folder Permissions	www.exploit-db.com			27087	tfidf:3 bm15:3 bm25:4 bm25f:4	3
-https://www.exploit-db.com/exploits/2496	WebYep 1.1.9 - 'webyep_sIncludePath' File Inclusion	www.exploit-db.com			16756	bm11:10 bm25:5 bm25f:5	5
-https://www.exploit-db.com/exploits/9814	CDBurnerXP 4.2.4.1351 - Local Crash (Denial of Service)	www.exploit-db.com			18037	bm11:9 bm25:10 bm25f:10	9
-https://cwe.mitre.org/data/definitions/11.html	CWE-11: ASP.NET Misconfiguration: Creating Debug Binary	cwe.mitre.org			615	jaccard:3 bm11:1	1
-https://github.com/advisories/GHSA-qvhc-9v3j-5rfw	Microsoft Security Advisory CVE-2026-21218 | .NET Security Feature Bypass Vulnerability	github.com			45556	jaccard:1 bm11:2	1
-https://www.exploit-db.com/exploits/48588	Netgear R7000 Router - Remote Code Execution	www.exploit-db.com			42986	tfidf:1 bm15:1	1
-https://cwe.mitre.org/data/definitions/1025.html	CWE-1025: Comparison Using Wrong Factors	cwe.mitre.org			401	jaccard:2 bm11:8	2
-https://www.exploit-db.com/exploits/47442	Cisco Small Business 220 Series - Multiple Vulnerabilities	www.exploit-db.com			34152	tfidf:4 bm15:4	4
-https://www.exploit-db.com/exploits/43937	WebKit - 'detachWrapper' Use-After-Free	www.exploit-db.com			11494	tfidf:5 bm15:5	5
-https://cwe.mitre.org/data/definitions/360.html	CWE-360: Trust of System Event Data	cwe.mitre.org			285	jaccard:6 bm11:7	6
+https://www.exploit-db.com/exploits/49621	CatDV 9.2 - RMI Authentication Bypass	www.exploit-db.com			31180	tfidf:9 bm25:1 bm25f:1	1
+https://www.exploit-db.com/exploits/41983	LG G4 MRA58K - 'mkvparser::Block::Block' Heap Buffer Overflow	www.exploit-db.com			25053	tfidf:2 bm25:2 bm25f:2	2
+https://www.exploit-db.com/exploits/15945	Zwii 2.1.1 - Remote File Inclusion	www.exploit-db.com			31823	vetorial:3 bm25:7 bm25f:7	3
+https://www.exploit-db.com/exploits/41981	LG G4 MRA58K - 'liblg_parser_mkv.so' Bad Allocation Calls	www.exploit-db.com			25067	tfidf:8 bm25:3 bm25f:3	3
+https://www.exploit-db.com/exploits/49379	WinAVR Version 20100110 - Insecure Folder Permissions	www.exploit-db.com			27087	tfidf:3 bm25:4 bm25f:4	3
+https://www.exploit-db.com/exploits/2496	WebYep 1.1.9 - 'webyep_sIncludePath' File Inclusion	www.exploit-db.com			16756	bm25:5 bm25f:5	5
 https://www.exploit-db.com/exploits/41982	LG G4 MRA58K - 'mkvparser::Tracks constructor' Failure to Initialise Pointers	www.exploit-db.com			25060	bm25:6 bm25f:6	6
-https://www.exploit-db.com/exploits/44289	Spring Data REST < 2.6.9 (Ingalls SR9) / 3.0.1 (Kay SR1) - PATCH Request Remote Code Execution	www.exploit-db.com			8814	tfidf:6 bm15:6	6
-https://www.exploit-db.com/exploits/43173	WebKit - 'WebCore::Style::TreeResolver::styleForElement' Use-After-Free	www.exploit-db.com			17311	tfidf:7 bm15:7	7
-https://cwe.mitre.org/data/definitions/13.html	CWE-13: ASP.NET Misconfiguration: Password in Configuration File	cwe.mitre.org			76	jaccard:10 bm1:8	8
 https://www.exploit-db.com/exploits/24774	Open DC Hub 0.7.14 - Remote Buffer Overflow	www.exploit-db.com			19672	bm25:8 bm25f:8	8
 https://www.exploit-db.com/exploits/42171	LG MRA58K - 'ASFParser::ParseHeaderExtensionObjects' Missing Bounds-Checking	www.exploit-db.com			24738	bm25:9 bm25f:9	9
-https://www.exploit-db.com/exploits/20536	ProFTPd 1.2 - 'SIZE' Remote Denial of Service	www.exploit-db.com			9249	tfidf:10 bm15:10	10
-https://cwe.mitre.org/data/definitions/269.html	CWE-269: Improper Privilege Management	cwe.mitre.org			36	bm1:1	1
+https://www.exploit-db.com/exploits/9814	CDBurnerXP 4.2.4.1351 - Local Crash (Denial of Service)	www.exploit-db.com			18037	bm25:10 bm25f:10	10
+https://www.exploit-db.com/exploits/48588	Netgear R7000 Router - Remote Code Execution	www.exploit-db.com			42986	tfidf:1	1
 https://www.exploit-db.com/exploits/50625	Library System in PHP 1.0 - 'publisher name' Stored Cross-Site Scripting (XSS)	www.exploit-db.com			38338	vetorial:1	1
-https://cwe.mitre.org/data/definitions/522.html	CWE-522: Insufficiently Protected Credentials	cwe.mitre.org			50	bm1:2	2
 https://www.exploit-db.com/exploits/24148	Sun Java System Application Server 7.0/8.0 - Remote Installation Full Path Disclosure	www.exploit-db.com			21833	vetorial:2	2
-https://cwe.mitre.org/data/definitions/214.html	CWE-214: Invocation of Process Using Visible Sensitive Information	cwe.mitre.org			1065	bm11:3	3
-https://cwe.mitre.org/data/definitions/427.html	CWE-427: Uncontrolled Search Path Element	cwe.mitre.org			55	bm1:3	3
-https://cwe.mitre.org/data/definitions/337.html	CWE-337: Predictable Seed in Pseudo-Random Number Generator (PRNG)	cwe.mitre.org			199	jaccard:4	4
-https://cwe.mitre.org/data/definitions/482.html	CWE-482: Comparing instead of Assigning	cwe.mitre.org			61	bm1:4	4
+https://www.exploit-db.com/exploits/47442	Cisco Small Business 220 Series - Multiple Vulnerabilities	www.exploit-db.com			34152	tfidf:4	4
 https://www.exploit-db.com/exploits/49550	Adobe Connect 10 - Username Disclosure	www.exploit-db.com			31545	vetorial:4	4
-https://cwe.mitre.org/data/definitions/338.html	CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator (PRNG)	cwe.mitre.org			208	jaccard:5	5
-https://cwe.mitre.org/data/definitions/597.html	CWE-597: Use of Wrong Operator in String Comparison	cwe.mitre.org			63	bm1:5	5
+https://www.exploit-db.com/exploits/43937	WebKit - 'detachWrapper' Use-After-Free	www.exploit-db.com			11494	tfidf:5	5
 https://www.exploit-db.com/exploits/49152	Student Result Management System 1.0 - Authentication Bypass SQL Injection	www.exploit-db.com			27569	vetorial:5	5
-https://cwe.mitre.org/data/definitions/1257.html	CWE-1257: Improper Access Control Applied to Mirrored or Aliased Memory Regions	cwe.mitre.org			67	bm1:6	6
-https://github.com/advisories/GHSA-vvpj-8cmc-gx39	PickleScan's pkgutil.resolve_name has a universal blocklist bypass	github.com			44315	bm11:6	6
 https://www.exploit-db.com/exploits/25571	video cam server 1.0 - Directory Traversal	www.exploit-db.com			20762	vetorial:6	6
-https://cwe.mitre.org/data/definitions/1276.html	CWE-1276: Hardware Child Block Incorrectly Connected to Parent System	cwe.mitre.org			70	bm1:7	7
-https://github.com/advisories/GHSA-8v9p-g828-v98f	Shopware: Admin Account Takeover via User Recovery Hash Exposure	github.com			47342	jaccard:7	7
+https://www.exploit-db.com/exploits/44289	Spring Data REST < 2.6.9 (Ingalls SR9) / 3.0.1 (Kay SR1) - PATCH Request Remote Code Execution	www.exploit-db.com			8814	tfidf:6	6
+https://www.exploit-db.com/exploits/43173	WebKit - 'WebCore::Style::TreeResolver::styleForElement' Use-After-Free	www.exploit-db.com			17311	tfidf:7	7
 https://www.exploit-db.com/exploits/49575	Comment System 1.0 - 'multiple' Stored Cross-Site Scripting	www.exploit-db.com			31409	vetorial:7	7
-https://github.com/advisories/GHSA-g985-wjh9-qxxc	PraisonAI Vulnerable to RCE via Automatic tools.py Import	github.com			52504	jaccard:8	8
 https://www.exploit-db.com/exploits/22186	MyRoom 3.5 GOLD - 'save_item.php' Arbitrary File Upload	www.exploit-db.com			28653	vetorial:8	8
-https://cwe.mitre.org/data/definitions/705.html	CWE-705: Incorrect Control Flow Scoping	cwe.mitre.org			80	bm1:9	9
-https://github.com/advisories/GHSA-hfvc-g4fc-pqhx	opentelemetry-go: BSD kenv command not using absolute path enables PATH hijacking	github.com			50915	jaccard:9	9
 https://www.exploit-db.com/exploits/8687	MRCGIGUY The Ticket System 2.0 - Insecure Cookie Handling	www.exploit-db.com			24379	vetorial:9	9
-https://cwe.mitre.org/data/definitions/382.html	CWE-382: J2EE Bad Practices: Use of System.exit()	cwe.mitre.org			92	bm1:10	10
+https://www.exploit-db.com/exploits/20536	ProFTPd 1.2 - 'SIZE' Remote Denial of Service	www.exploit-db.com			9249	tfidf:10	10
 https://www.exploit-db.com/exploits/51501	Enrollment System Project v1.0 - SQL Injection Authentication Bypass (SQLI)	www.exploit-db.com			14188	vetorial:10	10

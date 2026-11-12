@@ -37,6 +37,12 @@ MODELO_PADRAO = "bm25f"
 # parâmetros padrão (D2): K₁ e b usuais da literatura; pesos do BM25F (D7)
 K1, B = 1.2, 0.75
 PESOS_BM25F = {"titulo": 2.0, "corpo": 1.0, "codigo": 1.0}
+# IDF da família BM (D10): limitado a 0; se TODAS as palavras da consulta ficarem
+# com idf 0 (todas com n > N/2), a consulta é recalculada com log(1 + ·)
+IDF_PADRAO = "limitado+recurso"
+VARIANTES_IDF = ("limitado+recurso", "limitado", "log1p", "bruto")
+AVISO_RECURSO = ("recurso do IDF: todas as palavras têm n > N/2 (idf limitado = 0); "
+                 "escores calculados com idf log(1 + ·)")
 
 
 # ======================================================== funções de peso
@@ -94,8 +100,10 @@ def jaccard(n_inter, n_q, n_d):
 
 def idf_bm(n, N, base=2, variante="limitado"):
     """IDF da família BM: log((N − n + 0,5)/(n + 0,5)). Fica negativo quando
-    n > N/2 (D10). 'limitado': max(0, ·) [padrão]; 'log1p': log(1 + ·);
-    'bruto': a fórmula do slide, sem correção."""
+    n > N/2 (D10). 'limitado': max(0, ·); 'log1p': log(1 + ·); 'bruto': a
+    fórmula do slide, sem correção. A variante padrão, 'limitado+recurso', é
+    decidida por consulta no Ranqueador (_resolve_idf) e chega aqui já como
+    'limitado' ou 'log1p'."""
     x = (N - n + 0.5) / (n + 0.5)
     if variante == "limitado":
         return max(0.0, log(x, base))
@@ -310,8 +318,9 @@ class ProcessadorConsulta:
 # ============================================================ resultado
 class Resultado:
     def __init__(self, modelo, consulta, top, n_candidatos, n_positivos, postings, ms,
-                 avisos, detalhes=None, params=None):
+                 avisos, detalhes=None, params=None, recurso=False):
         self.modelo = modelo
+        self.recurso = recurso          # o recurso do IDF (log1p) foi usado
         self.consulta = consulta
         self.top = top                  # [(doc, escore)]
         self.n_candidatos = n_candidatos
@@ -329,6 +338,7 @@ class _Prep:
     def __init__(self, ind, consulta):
         self.ind = ind
         self.avisos = []
+        self.recurso = False  # marcado por _resolve_idf na última chamada de um modelo BM
         self.listas = {}
         self.texto, self.codigo, self.palavras = {}, {}, {}
         voc = ind.vocabulario
@@ -409,7 +419,9 @@ class Ranqueador:
         else:
             consulta, q = prep
         metodo = getattr(self, modelo)
+        q.recurso = False
         escores = metodo(q, **params)
+        recurso = q.recurso
         n_candidatos = len(escores)
         # filtros: frases (D11) e termos negados
         permitidos = None
@@ -428,8 +440,9 @@ class Ranqueador:
         if explicar and top:
             detalhes = {}
             metodo(q, alvo={d for d, _ in top}, detalhes=detalhes, **params)
+        avisos = q.avisos + ([AVISO_RECURSO] if recurso else [])
         return Resultado(modelo, consulta, top, n_candidatos, len(filtrados), q.postings(), ms,
-                         q.avisos, detalhes, params)
+                         avisos, detalhes, params, recurso)
 
     def _campos(self, q, alpha):
         """(nome, termos {termo: f_q}, peso) dos dois 'campos' dos modelos sem campos."""
@@ -511,12 +524,27 @@ class Ranqueador:
         return escores
 
     # ---------------------------------------------------------- aula 09
+    def _resolve_idf(self, q, idf, ns):
+        """Variante 'limitado+recurso': 'limitado', salvo quando todas as
+        palavras da consulta (ns = seus n) têm idf limitado = 0; aí 'log1p'.
+        As demais variantes passam direto."""
+        if idf not in VARIANTES_IDF:
+            raise ValueError(f"variante de IDF desconhecida: {idf}")
+        if idf != "limitado+recurso":
+            return idf
+        if ns and all(idf_bm(n, self.N, self.base, "limitado") == 0 for n in ns):
+            q.recurso = True
+            return "log1p"
+        return "limitado"
+
     def _bm(self, q, parcela, peso_codigo, idf, alvo, detalhes):
         """Laço comum de BM1/BM15/BM11/BM25: cada termo é normalizado pelo
         tamanho do seu campo (texto ou código). A consulta é um conjunto."""
         base, N, col = self.base, self.N, self.col
         escores = defaultdict(float)
-        for campo, termos, peso in self._campos(q, peso_codigo):
+        campos = self._campos(q, peso_codigo)
+        idf = self._resolve_idf(q, idf, [q.df(t) for _, termos, _ in campos for t in termos])
+        for campo, termos, peso in campos:
             lens = col.n_texto if campo == "texto" else col.n_codigo
             media = col.medias[campo]
             for t in termos:
@@ -530,21 +558,21 @@ class Ranqueador:
                                                "parcela": peso * p})
         return escores
 
-    def bm1(self, q, peso_codigo=1.0, idf="limitado", alvo=None, detalhes=None):
+    def bm1(self, q, peso_codigo=1.0, idf=IDF_PADRAO, alvo=None, detalhes=None):
         return self._bm(q, lambda f, i, r: bm1(i), peso_codigo, idf, alvo, detalhes)
 
-    def bm15(self, q, k1=K1, peso_codigo=1.0, idf="limitado", alvo=None, detalhes=None):
+    def bm15(self, q, k1=K1, peso_codigo=1.0, idf=IDF_PADRAO, alvo=None, detalhes=None):
         return self._bm(q, lambda f, i, r: bm15(f, i, k1), peso_codigo, idf, alvo, detalhes)
 
-    def bm11(self, q, k1=K1, peso_codigo=1.0, idf="limitado", alvo=None, detalhes=None):
+    def bm11(self, q, k1=K1, peso_codigo=1.0, idf=IDF_PADRAO, alvo=None, detalhes=None):
         return self._bm(q, lambda f, i, r: bm11(f, i, k1, r), peso_codigo, idf, alvo, detalhes)
 
-    def bm25(self, q, k1=K1, b=B, peso_codigo=1.0, idf="limitado", alvo=None, detalhes=None):
+    def bm25(self, q, k1=K1, b=B, peso_codigo=1.0, idf=IDF_PADRAO, alvo=None, detalhes=None):
         return self._bm(q, lambda f, i, r: bm25(f, i, k1, b, r), peso_codigo, idf, alvo,
                         detalhes)
 
     def bm25f(self, q, k1=K1, peso_titulo=None, peso_corpo=None, peso_codigo=None,
-              b_titulo=B, b_corpo=B, b_codigo=B, idf="limitado", alvo=None, detalhes=None):
+              b_titulo=B, b_corpo=B, b_codigo=B, idf=IDF_PADRAO, alvo=None, detalhes=None):
         """BM25F (Robertson e Zaragoza): por palavra da consulta,
         t̃f = Σ_f w_f·tf_f / ((1 − b_f) + b_f·len_f/avg_f), e o escore é
         (K₁ + 1)·t̃f/(K₁ + t̃f)·idf, com n = documentos com a palavra em
@@ -560,6 +588,7 @@ class Ranqueador:
         limite = col.limite_titulo
         posicoes = getattr(self.ind, "posicoes", True)
         escores = defaultdict(float)
+        palavras = []
         for (t, c), _fq in q.palavras.items():
             lt = q.lista(t) if t else []
             lc = q.lista(c) if c else []
@@ -567,6 +596,9 @@ class Ranqueador:
                 n = len({d for d, _, _ in lt} | {d for d, _, _ in lc})
             else:
                 n = len(lt) or len(lc)
+            palavras.append((t, c, lt, lc, n))
+        idf = self._resolve_idf(q, idf, [n for *_, n in palavras])
+        for t, c, lt, lc, n in palavras:
             w_idf = idf_bm(n, N, base, idf)
             tfs = defaultdict(lambda: [0, 0, 0])  # doc -> tf título, corpo, código
             for d, f, pos in lt:

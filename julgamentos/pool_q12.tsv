@@ -1,16 +1,11 @@
 url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
-https://www.exploit-db.com/exploits/50592	Apache Log4j 2 - Remote Code Execution (RCE)	www.exploit-db.com			38165	jaccard:1 tfidf:1 vetorial:3 bm1:1 bm15:1 bm11:1 bm25:1 bm25f:2	1
-https://www.exploit-db.com/exploits/51183	AD Manager Plus 7122 - Remote Code Execution (RCE)	www.exploit-db.com			11826	jaccard:4 tfidf:3 vetorial:2 bm1:2 bm15:2 bm11:2 bm25:2 bm25f:3	2
-https://github.com/advisories/GHSA-6hg6-v5c8-fphq	Apache Log4j Core: `verifyHostName` attribute silently ignored in TLS configuration	github.com			48825	jaccard:5 tfidf:5 vetorial:4 bm1:8 bm15:5 bm11:7 bm25:6 bm25f:4	4
-https://github.com/advisories/GHSA-445c-vh5m-36rj	Apache Log4j Core: log injection in `Rfc5424Layout` due to silent configuration incompatibility	github.com			48827	jaccard:6 tfidf:7 vetorial:6 bm1:10 bm15:7 bm11:8 bm25:7 bm25f:6	6
-https://github.com/advisories/GHSA-h383-gmxw-35v2	Apache Log4j 1 to Log4j 2 bridge: silent log event loss in Log4j1XmlLayout due to unescaped XML 1.0 forbidden characters	github.com			48849	jaccard:9 tfidf:2 vetorial:1 bm15:3 bm11:3 bm25:3 bm25f:1	1
-https://www.exploit-db.com/exploits/50590	Apache Log4j2 2.14.1 - Information Disclosure	www.exploit-db.com			38157	jaccard:2 tfidf:10 vetorial:9 bm1:4 bm11:4 bm25:4 bm25f:9	2
-https://github.com/advisories/GHSA-w35j-pv5h-q9q9	Apache Log4j JSON Template Layout: Improper serialization of non-finite floating-point values in JsonTemplateLayout	github.com			48828	jaccard:3 tfidf:8 vetorial:5 bm15:8 bm11:10 bm25:9 bm25f:8	3
-https://www.exploit-db.com/exploits/52306	ABB Cylon Aspect Studio 3.08.03 - Binary Planting	www.exploit-db.com			22383	tfidf:9 vetorial:10 bm1:3 bm15:10 bm11:6 bm25:10 bm25f:10	3
-https://github.com/advisories/GHSA-qv9r-c865-cp47	Apache Log4j API: Improper encoding of non-finite floating-point values during MapMessage JSON serialization	github.com			45677	tfidf:4 vetorial:8 bm1:7 bm15:4 bm11:5 bm25:5 bm25f:5	4
-https://github.com/advisories/GHSA-3pxv-7cmr-fjr4	Apache Log4j Core: Silent log event loss in XmlLayout due to unescaped XML 1.0 forbidden characters	github.com			48826	tfidf:6 vetorial:7 bm1:9 bm15:6 bm11:9 bm25:8 bm25f:7	6
-https://cwe.mitre.org/data/definitions/1395.html	CWE-1395: Dependency on Vulnerable Third-Party Component	cwe.mitre.org			621	bm1:5 bm15:9	5
-https://cwe.mitre.org/data/definitions/917.html	CWE-917: Improper Neutralization of Special Elements used in an Expression Language Statement ('Expression Language Injection')	cwe.mitre.org			734	bm1:6	6
-https://www.rapid7.com/db/vulnerabilities/cve-2026-49363/	CVE-2026-49363: Missing Authentication for Critical Function	www.rapid7.com			57319	jaccard:7	7
-https://www.rapid7.com/db/vulnerabilities/cve-2026-57967/	CVE-2026-57967: Missing Authentication for Critical Function	www.rapid7.com			57338	jaccard:8	8
-https://www.rapid7.com/db/vulnerabilities/cve-2026-49364/	CVE-2026-49364: Missing Authentication for Critical Function	www.rapid7.com			57322	jaccard:10	10
+https://github.com/advisories/GHSA-h383-gmxw-35v2	Apache Log4j 1 to Log4j 2 bridge: silent log event loss in Log4j1XmlLayout due to unescaped XML 1.0 forbidden characters	github.com			48849	tfidf:2 vetorial:1 bm25:3 bm25f:1	1
+https://www.exploit-db.com/exploits/50592	Apache Log4j 2 - Remote Code Execution (RCE)	www.exploit-db.com			38165	tfidf:1 vetorial:3 bm25:1 bm25f:2	1
+https://www.exploit-db.com/exploits/51183	AD Manager Plus 7122 - Remote Code Execution (RCE)	www.exploit-db.com			11826	tfidf:3 vetorial:2 bm25:2 bm25f:3	2
+https://github.com/advisories/GHSA-6hg6-v5c8-fphq	Apache Log4j Core: `verifyHostName` attribute silently ignored in TLS configuration	github.com			48825	tfidf:5 vetorial:4 bm25:6 bm25f:4	4
+https://github.com/advisories/GHSA-qv9r-c865-cp47	Apache Log4j API: Improper encoding of non-finite floating-point values during MapMessage JSON serialization	github.com			45677	tfidf:4 vetorial:8 bm25:5 bm25f:5	4
+https://www.exploit-db.com/exploits/50590	Apache Log4j2 2.14.1 - Information Disclosure	www.exploit-db.com			38157	tfidf:10 vetorial:9 bm25:4 bm25f:9	4
+https://github.com/advisories/GHSA-w35j-pv5h-q9q9	Apache Log4j JSON Template Layout: Improper serialization of non-finite floating-point values in JsonTemplateLayout	github.com			48828	tfidf:8 vetorial:5 bm25:9 bm25f:8	5
+https://github.com/advisories/GHSA-3pxv-7cmr-fjr4	Apache Log4j Core: Silent log event loss in XmlLayout due to unescaped XML 1.0 forbidden characters	github.com			48826	tfidf:6 vetorial:7 bm25:8 bm25f:7	6
+https://github.com/advisories/GHSA-445c-vh5m-36rj	Apache Log4j Core: log injection in `Rfc5424Layout` due to silent configuration incompatibility	github.com			48827	tfidf:7 vetorial:6 bm25:7 bm25f:6	6
+https://www.exploit-db.com/exploits/52306	ABB Cylon Aspect Studio 3.08.03 - Binary Planting	www.exploit-db.com			22383	tfidf:9 vetorial:10 bm25:10 bm25f:10	9

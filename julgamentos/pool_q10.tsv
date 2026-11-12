@@ -1,23 +1,17 @@
 url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
-https://www.exploit-db.com/exploits/25	OpenSSH/PAM 3.6.1p1 - Remote Users Discovery Tool	www.exploit-db.com			2630	jaccard:10 tfidf:3 vetorial:7 bm1:1 bm15:2 bm11:3 bm25:3 bm25f:3	1
-https://www.exploit-db.com/exploits/40888	OpenSSH 7.2 - Denial of Service	www.exploit-db.com			25662	jaccard:1 tfidf:6 vetorial:4 bm1:6 bm15:5 bm11:2 bm25:2 bm25f:5	1
-https://www.exploit-db.com/exploits/6094	Debian OpenSSH - (Authenticated) Remote SELinux Privilege Escalation	www.exploit-db.com			24967	jaccard:4 tfidf:5 vetorial:3 bm1:5 bm15:4 bm11:1 bm25:1 bm25f:1	1
-https://www.exploit-db.com/exploits/17462	FreeBSD OpenSSH 3.5p1 - Remote Command Execution	www.exploit-db.com			6607	jaccard:8 tfidf:2 bm1:3 bm15:1 bm11:8 bm25:6 bm25f:7	1
-https://www.exploit-db.com/exploits/21578	OpenSSH 3.x - Challenge-Response Buffer Overflow (1)	www.exploit-db.com			23599	tfidf:1 vetorial:8 bm15:3 bm11:6 bm25:5 bm25f:4	1
-https://www.exploit-db.com/exploits/21579	OpenSSH 3.x - Challenge-Response Buffer Overflow (2)	www.exploit-db.com			23592	tfidf:4 vetorial:1 bm15:6 bm11:4 bm25:4 bm25f:2	1
-https://www.exploit-db.com/exploits/21314	OpenSSH 2.x/3.0.1/3.0.2 - Channel Code Off-by-One	www.exploit-db.com			42033	jaccard:3 vetorial:2 bm1:8 bm11:5 bm25:7 bm25f:10	2
-https://www.exploit-db.com/exploits/26	OpenSSH/PAM 3.6.1p1 - 'gossh.sh' Remote Users Ident	www.exploit-db.com			2639	tfidf:9 bm1:9 bm15:8 bm11:9 bm25:8 bm25f:8	8
-https://www.exploit-db.com/exploits/21402	OpenSSH 2.x/3.x - Kerberos 4 TGT/AFS Token Buffer Overflow	www.exploit-db.com			41501	jaccard:2 vetorial:6 bm1:7 bm11:7	2
-https://www.exploit-db.com/exploits/45233	OpenSSH 2.3 < 7.7 - Username Enumeration	www.exploit-db.com			13104	tfidf:8 bm15:7 bm25:9 bm25f:9	7
-https://www.exploit-db.com/exploits/52269	OpenSSH server (sshd) 9.8p1 - Race Condition	www.exploit-db.com			22653	tfidf:10 bm1:4 bm15:9	4
-https://www.exploit-db.com/exploits/3303	Portable OpenSSH 3.6.1p-PAM/4.1-SuSE - Timing Attack	www.exploit-db.com			10220	vetorial:9 bm11:10 bm25:10	9
-https://github.com/advisories/GHSA-wwx6-x28x-8259	russh: Post-decompression SSH packet size was not bounded, allowing remote oversized compressed packets	github.com			44690	tfidf:7 bm15:10	7
-https://www.exploit-db.com/exploits/14866	Novell Netware 6.5 - OpenSSH Remote Stack Overflow	www.exploit-db.com			4704	bm1:2	2
-https://www.exploit-db.com/exploits/14201	PHPaaCMS - 'list.php?id' SQL Injection	www.exploit-db.com			4544	jaccard:5	5
+https://www.exploit-db.com/exploits/21578	OpenSSH 3.x - Challenge-Response Buffer Overflow (1)	www.exploit-db.com			23599	tfidf:1 vetorial:8 bm25:5 bm25f:4	1
+https://www.exploit-db.com/exploits/21579	OpenSSH 3.x - Challenge-Response Buffer Overflow (2)	www.exploit-db.com			23592	tfidf:4 vetorial:1 bm25:4 bm25f:2	1
+https://www.exploit-db.com/exploits/6094	Debian OpenSSH - (Authenticated) Remote SELinux Privilege Escalation	www.exploit-db.com			24967	tfidf:5 vetorial:3 bm25:1 bm25f:1	1
+https://www.exploit-db.com/exploits/40888	OpenSSH 7.2 - Denial of Service	www.exploit-db.com			25662	tfidf:6 vetorial:4 bm25:2 bm25f:5	2
+https://www.exploit-db.com/exploits/25	OpenSSH/PAM 3.6.1p1 - Remote Users Discovery Tool	www.exploit-db.com			2630	tfidf:3 vetorial:7 bm25:3 bm25f:3	3
+https://www.exploit-db.com/exploits/17462	FreeBSD OpenSSH 3.5p1 - Remote Command Execution	www.exploit-db.com			6607	tfidf:2 bm25:6 bm25f:7	2
+https://www.exploit-db.com/exploits/21314	OpenSSH 2.x/3.0.1/3.0.2 - Channel Code Off-by-One	www.exploit-db.com			42033	vetorial:2 bm25:7 bm25f:10	2
+https://www.exploit-db.com/exploits/26	OpenSSH/PAM 3.6.1p1 - 'gossh.sh' Remote Users Ident	www.exploit-db.com			2639	tfidf:9 bm25:8 bm25f:8	8
+https://www.exploit-db.com/exploits/45233	OpenSSH 2.3 < 7.7 - Username Enumeration	www.exploit-db.com			13104	tfidf:8 bm25:9 bm25f:9	8
+https://www.exploit-db.com/exploits/3303	Portable OpenSSH 3.6.1p-PAM/4.1-SuSE - Timing Attack	www.exploit-db.com			10220	vetorial:9 bm25:10	9
 https://www.exploit-db.com/exploits/40962	OpenSSH < 7.4 - 'UsePrivilegeSeparation Disabled' Forwarded Unix Domain Sockets Privilege Escalation	www.exploit-db.com			25941	vetorial:5	5
 https://github.com/advisories/GHSA-3m6q-h5gj-7mrw	Gitea has insecure default SSH settings	github.com			46090	bm25f:6	6
-https://www.exploit-db.com/exploits/4509	TikiWiki 1.9.8 - Remote PHP Injection	www.exploit-db.com			35576	jaccard:6	6
-https://www.exploit-db.com/exploits/4942	TikiWiki Project < 1.9.9 - 'tiki-listmovies.php' Directory Traversal	www.exploit-db.com			29160	jaccard:7	7
-https://www.exploit-db.com/exploits/45001	OpenSSH < 6.6 SFTP - Command Execution	www.exploit-db.com			12934	jaccard:9	9
-https://www.exploit-db.com/exploits/258	glibc-2.2 / openssh-2.3.0p1 / glibc 2.1.9x - File Read	www.exploit-db.com			4636	bm1:10	10
+https://www.exploit-db.com/exploits/21402	OpenSSH 2.x/3.x - Kerberos 4 TGT/AFS Token Buffer Overflow	www.exploit-db.com			41501	vetorial:6	6
+https://github.com/advisories/GHSA-wwx6-x28x-8259	russh: Post-decompression SSH packet size was not bounded, allowing remote oversized compressed packets	github.com			44690	tfidf:7	7
 https://www.exploit-db.com/exploits/40963	OpenSSH < 7.4 - agent Protocol Arbitrary Library Loading	www.exploit-db.com			25947	vetorial:10	10
+https://www.exploit-db.com/exploits/52269	OpenSSH server (sshd) 9.8p1 - Race Condition	www.exploit-db.com			22653	tfidf:10	10

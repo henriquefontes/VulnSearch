@@ -45,6 +45,8 @@ python graficos.py --etapa3                   # PNG (requer matplotlib)
 
 # 5. avaliação (julgamentos feitos pelo grupo)
 python pool.py                                # julgamentos/pool_<id>.tsv, coluna 'relevante' vazia
+#    padrão: top-10 de tfidf, vetorial, bm25 e bm25f (447 documentos); o script mostra
+#    o total de outras combinações. Ex.: --modelos bm25,bm25f --profundidade 5
 #    preencher 'relevante' com 0, 1 ou 2 em cada pool_<id>.tsv
 python avaliar.py --juntar                    # -> julgamentos/qrels.tsv
 python avaliar.py                             # P@10, MAP, nDCG@10 e busca em grade
@@ -68,8 +70,11 @@ interativo, em que a linha é lida como foi digitada, ou `--frase "denial of ser
 - No BM25F, título e corpo são separados pela posição: o título vem primeiro no índice, e
   `limite_titulo` marca onde ele acaba.
 - O IDF da família BM, log₂((N − n + 0,5)/(n + 0,5)), fica negativo quando n > N/2
-  (`cve`, `vulner`, `exploit`...). Por padrão ele é limitado a 0; `--idf log1p` usa
-  log₂(1 + ·) e `--idf bruto` usa a fórmula sem correção.
+  (`cve`, `vulner`, `exploit`...). Padrão (`--idf limitado+recurso`): limitado a 0, mas,
+  se **todas** as palavras da consulta ficarem com idf 0, a consulta é recalculada com
+  log₂(1 + ·), e a saída avisa. Assim `ranquear.py vulnerability` tem resultados.
+  `--idf limitado` (sem recurso), `--idf log1p` e `--idf bruto` (fórmula do slide, sem
+  correção) continuam disponíveis.
 - Candidatos são os documentos com ao menos um termo da consulta (união das listas). Só
   entram no resultado os que têm escore > 0.
 - O top-k é escolhido com um min-heap de tamanho k (`ranqueamento.top_k`). Em caso de
@@ -87,7 +92,7 @@ interativo, em que a linha é lida como foi digitada, ou `--frase "denial of ser
 | `testar_ranking.py` | exemplos dos slides 07, 08 e 09 em índices em memória; consistência com o índice real |
 | `medir_ranking.py` | custo, sobreposição entre modelos, sensibilidade de K₁/b, pesos do BM25F, α, variantes do IDF, exemplos |
 | `consultas.tsv` | as 20 consultas dos experimentos (id, tipo, consulta) |
-| `pool.py`, `avaliar.py` | *pooling* para os julgamentos; P@10, MAP, nDCG@10 e busca em grade |
+| `pool.py`, `avaliar.py` | *pooling* para os julgamentos (`--modelos`, `--profundidade`); P@10, MAP, nDCG@10 e busca em grade |
 | `julgamentos/` | `pool_<id>.tsv` (a preencher pelo grupo) e `qrels.tsv` |
 | `resultados_etapa3/` | tabelas (CSV/Markdown), gráficos (PNG) e `resumo.json` |
 

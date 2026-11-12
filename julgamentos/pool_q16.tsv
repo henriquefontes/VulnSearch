@@ -1,46 +1,28 @@
 url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
-https://github.com/advisories/GHSA-wxq7-x3qp-vcr8	Budibase: Unanchored Regex in `matchers.ts` Allows CSRF Bypass via Query String Injection in Budibase Worker	github.com			46189	tfidf:2 bm1:1 bm15:1 bm11:1 bm25:1 bm25f:2	1
-https://github.com/advisories/GHSA-8cr7-r8qw-gp3c	baserCMS has Mail Form Acceptance Bypass via Public API	github.com			48474	bm1:2 bm15:7 bm11:2 bm25:2 bm25f:4	2
-https://github.com/advisories/GHSA-4rwm-c5mj-wh7x	Admidio has CSRF and Form Validation Bypass in Inventory Item Save via `imported` Parameter	github.com			49925	tfidf:3 bm15:3 bm11:3 bm25:3 bm25f:3	3
-https://github.com/advisories/GHSA-xx6v-rp6x-q39c	Axios: XSRF Token Cross-Origin Leakage via Prototype Pollution Gadget in `withXSRFToken` Boolean Coercion	github.com			44409	tfidf:5 bm1:3 bm15:6 bm11:8 bm25:7	3
-https://github.com/advisories/GHSA-xpr4-8vp6-c87j	Froxlor has CSRF Vulnerability in AJAX Endpoint — Missing Cross-Site Request Forgery Protection	github.com			53656	tfidf:1 bm15:2 bm11:7 bm25:4	1
-https://www.exploit-db.com/exploits/50525	PHP Laravel 8.70.1 - Cross Site Scripting (XSS) to Cross Site Request Forgery (CSRF)	www.exploit-db.com			37860	vetorial:7 bm11:4 bm25:5 bm25f:1	1
-https://github.com/advisories/GHSA-ph84-r98x-2j22	Admidio has Missing CSRF Protection on Registration Approval Actions	github.com			49924	tfidf:4 bm15:4 bm11:5 bm25:6	4
-https://github.com/advisories/GHSA-xw54-c3mx-9pm3	Admidio: Any logged-in user can delete inventory fields via `mode=field_delete` — incomplete fix of #2024	github.com			49533	tfidf:6 bm1:10 bm15:5	5
-https://github.com/advisories/GHSA-rw74-vc9h-534j	Admidio has CSRF on Admin Preferences that Triggers Unauthorized Backup, .htaccess Write, and Email Send	github.com			52017	vetorial:8 bm11:9 bm25:9	8
-https://github.com/advisories/GHSA-h8gr-qwr6-m9gx	Admidio is Missing CSRF Protection on Role Membership Date Changes	github.com			44839	tfidf:10 bm11:10 bm25:10	10
-https://github.com/advisories/GHSA-4q27-4rrq-fx95	AVideo: CSRF on Player Skin Configuration via admin/playerUpdate.json.php	github.com			50070	bm11:6 bm25:8	6
-https://github.com/advisories/GHSA-rmpj-3x5m-9m5f	Admidio is Missing Authorization and CSRF Protection on Document and Folder Deletion	github.com			44841	bm1:6 bm15:9	6
+https://github.com/advisories/GHSA-wxq7-x3qp-vcr8	Budibase: Unanchored Regex in `matchers.ts` Allows CSRF Bypass via Query String Injection in Budibase Worker	github.com			46189	tfidf:2 bm25:1 bm25f:2	1
+https://www.exploit-db.com/exploits/50525	PHP Laravel 8.70.1 - Cross Site Scripting (XSS) to Cross Site Request Forgery (CSRF)	www.exploit-db.com			37860	vetorial:7 bm25:5 bm25f:1	1
+https://github.com/advisories/GHSA-4rwm-c5mj-wh7x	Admidio has CSRF and Form Validation Bypass in Inventory Item Save via `imported` Parameter	github.com			49925	tfidf:3 bm25:3 bm25f:3	3
+https://github.com/advisories/GHSA-xpr4-8vp6-c87j	Froxlor has CSRF Vulnerability in AJAX Endpoint — Missing Cross-Site Request Forgery Protection	github.com			53656	tfidf:1 bm25:4	1
+https://github.com/advisories/GHSA-8cr7-r8qw-gp3c	baserCMS has Mail Form Acceptance Bypass via Public API	github.com			48474	bm25:2 bm25f:4	2
+https://github.com/advisories/GHSA-ph84-r98x-2j22	Admidio has Missing CSRF Protection on Registration Approval Actions	github.com			49924	tfidf:4 bm25:6	4
+https://github.com/advisories/GHSA-xx6v-rp6x-q39c	Axios: XSRF Token Cross-Origin Leakage via Prototype Pollution Gadget in `withXSRFToken` Boolean Coercion	github.com			44409	tfidf:5 bm25:7	5
 https://www.exploit-db.com/exploits/41501	pfSense 2.3.2 - Cross-Site Scripting / Cross-Site Request Forgery	www.exploit-db.com			38836	tfidf:8 bm25f:7	7
-https://github.com/advisories/GHSA-6xcx-7qmg-vjfq	NocoDB: Reflected Cross-Site Scripting via Password Reset Token	github.com			50850	jaccard:1	1
+https://github.com/advisories/GHSA-rw74-vc9h-534j	Admidio has CSRF on Admin Preferences that Triggers Unauthorized Backup, .htaccess Write, and Email Send	github.com			52017	vetorial:8 bm25:9	8
+https://github.com/advisories/GHSA-h8gr-qwr6-m9gx	Admidio is Missing CSRF Protection on Role Membership Date Changes	github.com			44839	tfidf:10 bm25:10	10
 https://www.exploit-db.com/exploits/49369	Advanced Webhost Billing System 3.7.0 - Cross-Site Request Forgery (CSRF)	www.exploit-db.com			27024	vetorial:1	1
-https://github.com/advisories/GHSA-q855-8rh5-jfgq	ha-mcp: Add-on settings and policy routes are reachable without authentication at the bare root path	github.com			45143	jaccard:2	2
 https://www.rapid7.com/db/vulnerabilities/cve-2026-90903/	CVE-2026-90903: Cross-Site Request Forgery (CSRF)	www.rapid7.com			59668	vetorial:2	2
-https://github.com/advisories/GHSA-vq2f-vcc9-j8mv	Python Liquid: Infinite loop when parsing malformed `{% case %}` tags	github.com			45786	jaccard:3	3
 https://www.rapid7.com/db/vulnerabilities/cve-2026-84084/	CVE-2026-84084: Cross-Site Request Forgery (CSRF)	www.rapid7.com			60695	vetorial:3	3
-https://github.com/advisories/GHSA-2453-mppf-46cj	Craft CMS Vulnerable to SQL Injection in Element Indexes via `criteria[orderBy]`	github.com			44420	bm1:4	4
-https://github.com/advisories/GHSA-9pg3-25fq-p6cc	nebula-mesh: Newly-minted operator API key exposed in redirect URL (Referer, history, proxy logs)	github.com			52938	jaccard:4	4
 https://www.rapid7.com/db/vulnerabilities/cve-2026-78083/	CVE-2026-78083: Cross-Site Request Forgery (CSRF)	www.rapid7.com			59515	vetorial:4	4
 https://github.com/advisories/GHSA-gxx6-h3g6-vwjh	SillyTavern has Authentication Bypass via SSO Header Injection	github.com			44938	bm25f:5	5
-https://github.com/advisories/GHSA-vvfw-4m39-fjqf	WWBN AVideo has CSRF in configurationUpdate.json.php Enables Full Site Configuration Takeover Including Encoder URL and SMTP Credentials	github.com			44823	bm1:5	5
-https://github.com/advisories/GHSA-xmf8-cvqr-rfgj	Auth.js: getToken() throws an uncaught exception on malformed Bearer authorization headers	github.com			52752	jaccard:5	5
 https://www.rapid7.com/db/vulnerabilities/cve-2026-81090/	CVE-2026-81090: Cross-Site Request Forgery (CSRF)	www.rapid7.com			57120	vetorial:5	5
 https://developer.joomla.org/security-centre/1037-20260505-core-csrf-in-user-activation-endpoint.html	[20260505] - Core - CSRF in user activation endpoint	developer.joomla.org			54243	vetorial:6	6
 https://github.com/advisories/GHSA-6h5j-32cf-4253	Apostrophe has Server-Side Prototype Pollution in apos.util.set via patch operators that leads to process-wide authorization bypass	github.com			50104	bm25f:6	6
-https://github.com/advisories/GHSA-ghmh-jhmj-wcmf	nebula-mesh's stores enrollment tokens unhashed in SQLite	github.com			45469	jaccard:6	6
-https://github.com/advisories/GHSA-8mxv-9xhp-86h4	rclone: S3 Redirect Sanitization Omits IBM IAM Bearer Tokens and SSE-C Keys	github.com			52125	jaccard:7	7
-https://github.com/advisories/GHSA-mqhr-6j6h-74p5	Budibase: Unauthenticated REST Datasource Credential Theft via Cross-Origin Auth Leak	github.com			47811	bm1:7	7
+https://github.com/advisories/GHSA-xw54-c3mx-9pm3	Admidio: Any logged-in user can delete inventory fields via `mode=field_delete` — incomplete fix of #2024	github.com			49533	tfidf:6	6
 https://github.com/advisories/GHSA-v9xm-ffx2-7h35	ApostropheCMS MFA/TOTP Bypass via Incorrect MongoDB Query in Bearer Token Middleware	github.com			51840	tfidf:7	7
-https://github.com/advisories/GHSA-38m8-xrfj-v38x	phpMyFAQ: Path Traversal - Arbitrary File Deletion in MediaBrowserController	github.com			52668	bm15:8	8
-https://github.com/advisories/GHSA-g8x9-7mgh-7cvj	AVideo's GET-Based CSRF in setPermission.json.php Enables Privilege Escalation via Arbitrary Permission Modification	github.com			48657	bm1:8	8
-https://github.com/advisories/GHSA-hv93-r4j3-q65f	OpenClaw Hook Session Key Override Enables Targeted Cross-Session Routing	github.com			52227	jaccard:8	8
+https://github.com/advisories/GHSA-4q27-4rrq-fx95	AVideo: CSRF on Player Skin Configuration via admin/playerUpdate.json.php	github.com			50070	bm25:8	8
 https://www.exploit-db.com/exploits/44645	Healwire Online Pharmacy 3.0 - Cross-Site Scripting / Cross-Site Request Forgery	www.exploit-db.com			8112	bm25f:8	8
-https://developer.joomla.org/security-centre/241-20080801-core-password-remind-functionality.html	[20080801] - Core - Password Remind Functionality	developer.joomla.org			54112	jaccard:9	9
 https://github.com/advisories/GHSA-2v2f-mvfg-ph56	meta-ads-mcp: X-Pipeboard-Token Header Auth Bypass Reuses Operator Meta Token	github.com			52554	tfidf:9	9
-https://github.com/advisories/GHSA-8rh5-4mvx-xj7j	CI4MS Vulnerable to Post-Installation Re-entry via Cache-Dependent Install Guard Bypass	github.com			49222	bm1:9	9
 https://github.com/advisories/GHSA-gv7r-3mr9-h5x8	AzuraCast has Password Reset Poisoning via Untrusted X-Forwarded-Host Header that Leads to Account Takeover and 2FA Bypass	github.com			51528	bm25f:9	9
 https://www.exploit-db.com/exploits/50425	Company's Recruitment Management System 1.0 - 'Add New user' Cross-Site Request Forgery (CSRF)	www.exploit-db.com			38143	vetorial:9	9
-https://github.com/advisories/GHSA-2724-6cpj-gf3v	Open WebUI: Non-admin users can delete admin-owned external knowledge connections via knowledge base deletion	github.com			49678	jaccard:10	10
-https://github.com/advisories/GHSA-hv36-p4w4-6vmj	AVideo Affected by CSRF on Plugin Import Endpoint Enables Unauthenticated Remote Code Execution via Malicious Plugin Upload	github.com			53521	bm15:10	10
 https://www.exploit-db.com/exploits/41141	NTOPNG 2.4 Web Interface - Cross-Site Request Forgery	www.exploit-db.com			37165	bm25f:10	10
 https://www.exploit-db.com/exploits/50409	Pharmacy Point of Sale System 1.0 - 'Add New User' Cross-Site Request Forgery (CSRF)	www.exploit-db.com			38214	vetorial:10	10

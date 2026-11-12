@@ -1,16 +1,20 @@
-IDF da família BM: log((N − n + 0,5)/(n + 0,5)) é negativo para n > N/2 (D10). Padrão: limitado a 0; variante: log(1 + ·); 'sem correção' é a fórmula do slide. Consultas x1-x5 são extras, só para este experimento.
+IDF da família BM: log((N − n + 0,5)/(n + 0,5)) é negativo para n > N/2 (D10). Padrão: 'limitado+recurso' (limitado a 0; se todas as palavras ficarem com idf 0, a consulta usa log(1 + ·)). 'sem correção' é a fórmula do slide. Consultas x1-x7 são extras, só para este experimento.
 
-| id | consulta | modelo | termos com df > N/2 (df; idf sem correção) | escore > 0 (limitado) | escore > 0 (log1p) | escore > 0 (sem correção) | sobreposição limitado × log1p | sobreposição limitado × sem correção |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| q10 | openssh vulnerability | bm25 | vulner(59469; -3.66) | 20709 | 59469 | 57 | 0.90 | 1.00 |
-| q10 | openssh vulnerability | bm25f | vulner(59469; -3.66) | 62 | 59469 | 56 | 1.00 | 0.80 |
-| x1 | wordpress vulnerability | bm25 | vulner(59469; -3.66) | 21954 | 59852 | 2169 | 0.90 | 0.80 |
-| x1 | wordpress vulnerability | bm25f | vulner(59469; -3.66) | 2239 | 59852 | 2110 | 0.80 | 0.00 |
-| x2 | exploit linux kernel | bm25 | exploit(50272; -1.85) | 32493 | 52583 | 9949 | 0.70 | 1.00 |
-| x2 | exploit linux kernel | bm25f | exploit(50272; -1.85) | 10149 | 52583 | 8252 | 0.70 | 0.00 |
-| x3 | cve sql injection | bm25 | cve(62311; -5.06) | 21056 | 62637 | 9896 | 1.00 | 0.60 |
-| x3 | cve sql injection | bm25f | cve(62311; -5.06) | 15623 | 62637 | 3712 | 0.90 | 0.00 |
-| x4 | vulnerability | bm25 | vulner(59469; -3.66) | 20665 | 59469 | 0 | 0.80 | 0.00 |
-| x4 | vulnerability | bm25f | vulner(59469; -3.66) | 0 | 59469 | 0 | 0.00 | - |
-| x5 | source code disclosure | bm25 | sourc(52879; -2.23) | 40363 | 55276 | 20087 | 1.00 | 0.90 |
-| x5 | source code disclosure | bm25f | sourc(52879; -2.23) | 33961 | 55276 | 6979 | 0.30 | 0.00 |
+| id | consulta | modelo | termos com df > N/2 (df; idf sem correção) | recurso usado | escore > 0 (limitado+recurso) | escore > 0 (limitado) | escore > 0 (log1p) | escore > 0 (sem correção) | sobreposição padrão × limitado | sobreposição padrão × log1p | sobreposição padrão × sem correção |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| q10 | openssh vulnerability | bm25 | vulner(59469; -3.66) | não | 20709 | 20709 | 59469 | 57 | 1.00 | 0.90 | 1.00 |
+| q10 | openssh vulnerability | bm25f | vulner(59469; -3.66) | não | 62 | 62 | 59469 | 56 | 1.00 | 1.00 | 0.80 |
+| x1 | wordpress vulnerability | bm25 | vulner(59469; -3.66) | não | 21954 | 21954 | 59852 | 2169 | 1.00 | 0.90 | 0.80 |
+| x1 | wordpress vulnerability | bm25f | vulner(59469; -3.66) | não | 2239 | 2239 | 59852 | 2110 | 1.00 | 0.80 | 0.00 |
+| x2 | exploit linux kernel | bm25 | exploit(50272; -1.85) | não | 32493 | 32493 | 52583 | 9949 | 1.00 | 0.70 | 1.00 |
+| x2 | exploit linux kernel | bm25f | exploit(50272; -1.85) | não | 10149 | 10149 | 52583 | 8252 | 1.00 | 0.70 | 0.00 |
+| x3 | cve sql injection | bm25 | cve(62311; -5.06) | não | 21056 | 21056 | 62637 | 9896 | 1.00 | 1.00 | 0.60 |
+| x3 | cve sql injection | bm25f | cve(62311; -5.06) | não | 15623 | 15623 | 62637 | 3712 | 1.00 | 0.90 | 0.00 |
+| x4 | vulnerability | bm25 | vulner(59469; -3.66) | não | 20665 | 20665 | 59469 | 0 | 1.00 | 0.80 | 0.00 |
+| x4 | vulnerability | bm25f | vulner(59469; -3.66) | sim | 59469 | 0 | 59469 | 0 | 0.00 | 1.00 | 0.00 |
+| x5 | source code disclosure | bm25 | sourc(52879; -2.23) | não | 40363 | 40363 | 55276 | 20087 | 1.00 | 1.00 | 0.90 |
+| x5 | source code disclosure | bm25f | sourc(52879; -2.23) | não | 33961 | 33961 | 55276 | 6979 | 1.00 | 0.30 | 0.00 |
+| x6 | exploit | bm25 | exploit(50272; -1.85) | não | 28350 | 28350 | 50304 | 34 | 1.00 | 0.60 | 0.00 |
+| x6 | exploit | bm25f | exploit(50272; -1.85) | sim | 50304 | 0 | 50304 | 0 | 0.00 | 1.00 | 0.00 |
+| x7 | cve | bm25 | cve(62311; -5.06) | não | 7497 | 7497 | 62311 | 31 | 1.00 | 0.90 | 0.30 |
+| x7 | cve | bm25f | cve(62311; -5.06) | sim | 62311 | 0 | 62311 | 0 | 0.00 | 1.00 | 0.00 |

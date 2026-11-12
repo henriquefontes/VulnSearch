@@ -1,8 +1,8 @@
 url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
-https://www.drupal.org/psa-2018-002	Drupal Core - Highly Critical - Public Service announcement - PSA-2018-002	www.drupal.org			1713	jaccard:3 tfidf:1 vetorial:1 bm1:4 bm15:1 bm11:1 bm25:1 bm25f:1	1
-https://www.drupal.org/sa-core-2018-004	Drupal core - Highly critical - Remote Code Execution - SA-CORE-2018-004	www.drupal.org			1719	jaccard:1 tfidf:3 vetorial:2 bm1:7 bm15:3 bm11:3 bm25:2 bm25f:3	1
-https://www.exploit-db.com/exploits/44482	Drupal < 8.3.9 / < 8.4.6 / < 8.5.1 - 'Drupalgeddon2' Remote Code Execution (Metasploit)	www.exploit-db.com			7088	jaccard:6 tfidf:4 vetorial:3 bm1:1 bm15:4 bm11:2 bm25:3 bm25f:4	1
-https://www.drupal.org/psa-2018-003	Drupal 7 and 8 core critical release on April 25th, 2018 - PSA-2018-003	www.drupal.org			1717	jaccard:2 tfidf:6 vetorial:4 bm1:5 bm15:6 bm11:5 bm25:5 bm25f:6	2
-https://www.drupal.org/sa-core-2018-002	Drupal core - Highly critical - Remote Code Execution - SA-CORE-2018-002	www.drupal.org			1718	jaccard:5 tfidf:7 vetorial:6 bm1:6 bm15:7 bm11:6 bm25:6 bm25f:2	2
-https://www.exploit-db.com/exploits/44449	Drupal < 7.58 / < 8.3.9 / < 8.4.6 / < 8.5.1 - 'Drupalgeddon2' Remote Code Execution	www.exploit-db.com			7394	jaccard:7 tfidf:2 vetorial:7 bm1:2 bm15:2 bm11:4 bm25:4 bm25f:5	2
-https://www.drupal.org/psa-2018-001	Drupal 7 and 8 core highly critical release on March 28th, 2018 - PSA-2018-001	www.drupal.org			1712	jaccard:4 tfidf:5 vetorial:5 bm1:3 bm15:5 bm11:7 bm25:7 bm25f:7	3
+https://www.drupal.org/psa-2018-002	Drupal Core - Highly Critical - Public Service announcement - PSA-2018-002	www.drupal.org			1713	tfidf:1 vetorial:1 bm25:1 bm25f:1	1
+https://www.drupal.org/sa-core-2018-002	Drupal core - Highly critical - Remote Code Execution - SA-CORE-2018-002	www.drupal.org			1718	tfidf:7 vetorial:6 bm25:6 bm25f:2	2
+https://www.drupal.org/sa-core-2018-004	Drupal core - Highly critical - Remote Code Execution - SA-CORE-2018-004	www.drupal.org			1719	tfidf:3 vetorial:2 bm25:2 bm25f:3	2
+https://www.exploit-db.com/exploits/44449	Drupal < 7.58 / < 8.3.9 / < 8.4.6 / < 8.5.1 - 'Drupalgeddon2' Remote Code Execution	www.exploit-db.com			7394	tfidf:2 vetorial:7 bm25:4 bm25f:5	2
+https://www.exploit-db.com/exploits/44482	Drupal < 8.3.9 / < 8.4.6 / < 8.5.1 - 'Drupalgeddon2' Remote Code Execution (Metasploit)	www.exploit-db.com			7088	tfidf:4 vetorial:3 bm25:3 bm25f:4	3
+https://www.drupal.org/psa-2018-003	Drupal 7 and 8 core critical release on April 25th, 2018 - PSA-2018-003	www.drupal.org			1717	tfidf:6 vetorial:4 bm25:5 bm25f:6	4
+https://www.drupal.org/psa-2018-001	Drupal 7 and 8 core highly critical release on March 28th, 2018 - PSA-2018-001	www.drupal.org			1712	tfidf:5 vetorial:5 bm25:7 bm25f:7	5

@@ -5,6 +5,8 @@
 #   montados em memória (sem stemming e sem stopwords, com a base de log de cada
 #   exemplo). Os documentos passam pelo mesmo cálculo de estatísticas do
 #   preparar_ranking.py e pelos mesmos métodos do Ranqueador do índice real.
+# Teste 13: recurso do IDF (padrão 'limitado+recurso'): consulta só com termos de
+#   n > N/2 passa a usar log(1 + ·); com algum termo raro, nada muda.
 # Teste 12: métricas de avaliação (avaliar.py), com qrels inventado só no teste.
 # Teste 11: consistência com o índice real. Para documentos sorteados, recalcula
 #   BM25, BM25F e cosseno "na força bruta" a partir dos campos
@@ -192,11 +194,13 @@ def teste_8():
     # BM25F com dois campos: conta à mão para um documento
     r2 = ranqueador([{"titulo": "casa verde", "corpo": "casa feia"}, {"corpo": "verde"},
                      {"titulo": "feia", "corpo": "velha casa casa"}])
-    e = r2.escores(Consulta.de_termos(["casa"]), "bm25f", k1=1.2, peso_titulo=2.0)
+    # "casa" está em 2 de 3 documentos (n > N/2): com o idf limitado daria 0
+    e = r2.escores(Consulta.de_termos(["casa"]), "bm25f", k1=1.2, peso_titulo=2.0, idf="log1p")
     m = r2.col.medias
     tft = (bm25f_tf_campo(1, 2.0, 0.75, 2 / m["titulo"])
            + bm25f_tf_campo(1, 1.0, 0.75, 2 / m["corpo"]))
-    confere("T8 BM25F título+corpo d1", e[0], bm25f(tft, idf_bm(2, 3), 1.2), 1e-12)
+    confere("T8 BM25F título+corpo d1", e[0], bm25f(tft, idf_bm(2, 3, variante="log1p"), 1.2),
+            1e-12)
 
 
 def teste_9():
@@ -347,16 +351,64 @@ def teste_11(pasta, n_docs):
           + ", ".join(f"{k} dif. máx. {v:.1e}" for k, v in piores.items()))
 
 
+MODELOS_BM = ("bm1", "bm15", "bm11", "bm25", "bm25f")
+
+
+def teste_13_memoria():
+    # "x" está em 3 de 4 documentos (n > N/2 -> idf limitado 0); "raro" em 1
+    r = ranqueador(["x x a", "x b", "x raro c", "d e"])
+    for m in MODELOS_BM:
+        so_comum = r.ranquear(Consulta.de_termos(["x"]), m, 10)
+        limitado = r.ranquear(Consulta.de_termos(["x"]), m, 10, idf="limitado")
+        log1p = r.ranquear(Consulta.de_termos(["x"]), m, 10, idf="log1p")
+        verdadeiro(f"T13 {m}: só termo comum -> recurso, = log1p, com resultados",
+                   so_comum.recurso and so_comum.top == log1p.top and len(so_comum.top) == 3
+                   and not limitado.top and any("recurso" in a for a in so_comum.avisos))
+        com_raro = r.escores(Consulta.de_termos(["x", "raro"]), m)
+        verdadeiro(f"T13 {m}: com termo raro = limitado (sem recurso)",
+                   com_raro == r.escores(Consulta.de_termos(["x", "raro"]), m, idf="limitado"))
+
+
+def teste_13_indice(pasta):
+    r = Ranqueador.abre(pasta)
+    for consulta in ("vulnerability", "exploit", "cve"):
+        for m in MODELOS_BM:
+            res = r.ranquear(consulta, m, 10)
+            ok = bool(res.top)
+            if res.recurso:
+                ok = ok and res.top == r.ranquear(consulta, m, 10, idf="log1p").top
+            verdadeiro(f"T13 '{consulta}' {m}: tem resultados (recurso={res.recurso})", ok)
+    # o recurso só entra quando o padrão anterior ('limitado') daria zero
+    # resultados; nos demais casos (algum termo raro), o top-10 é idêntico
+    from avaliar import le_consultas
+    consultas = CONSULTAS_11 + [c["consulta"] for c in le_consultas()]
+    iguais, so_quando_vazio, n_recurso = True, True, 0
+    for consulta in consultas:
+        prep = r.prepara(consulta)
+        for m in MODELOS_BM:
+            novo = r.ranquear(None, m, 10, prep=prep)
+            antigo = r.ranquear(None, m, 10, prep=prep, idf="limitado")
+            if novo.recurso:
+                n_recurso += 1
+                so_quando_vazio &= antigo.n_positivos == 0
+            else:
+                iguais &= novo.top == antigo.top and novo.n_positivos == antigo.n_positivos
+    verdadeiro(f"T13 recurso só quando o limitado daria 0 resultados ({n_recurso} casos)",
+               so_quando_vazio)
+    verdadeiro(f"T13 {len(consultas)} consultas × 5 modelos BM sem recurso: top-10 = padrão "
+               "anterior", iguais)
+
+
 def main():
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     a = argparse.ArgumentParser()
     a.add_argument("--indice", default="indice_teste")
     a.add_argument("--docs", type=int, default=200)
-    a.add_argument("--sem-indice", action="store_true", help="pula o teste 11")
+    a.add_argument("--sem-indice", action="store_true", help="pula os testes 11 e 13 no índice real")
     args = a.parse_args()
     for teste in (teste_1, teste_2, teste_3, teste_4, teste_5, teste_6, teste_7, teste_8,
-                  teste_10, teste_9):
+                  teste_10, teste_13_memoria, teste_9):
         teste()
     import avaliar
     for falha in avaliar.testes():
@@ -364,6 +416,7 @@ def main():
     verdadeiro("T12 P@k, AP, nDCG e leitura dos julgamentos (avaliar.py)", True)
     if not args.sem_indice:
         teste_11(args.indice, args.docs)
+        teste_13_indice(args.indice)
     print(f"\n{N_OK} verificações OK, {len(FALHAS)} falhas")
     for f in FALHAS:
         print("  FALHA:", f)

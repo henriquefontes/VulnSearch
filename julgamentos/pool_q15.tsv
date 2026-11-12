@@ -1,55 +1,30 @@
 url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
-https://www.exploit-db.com/exploits/11717	PHP (Multiple Functions) - Local Denial of Service	www.exploit-db.com			15199	tfidf:1 bm15:1 bm11:1 bm25:1 bm25f:1	1
-https://www.exploit-db.com/exploits/46261	Sricam gSOAP 2.8 - Denial of Service	www.exploit-db.com			40393	bm11:10 bm25:2 bm25f:2	2
-https://www.exploit-db.com/exploits/18691	FoxPlayer 2.6.0 - Denial of Service	www.exploit-db.com			13364	bm11:5 bm25:5 bm25f:3	3
-https://www.exploit-db.com/exploits/6394	Samsung DVR SHR2040 - HTTPd Remote Denial of Service Denial of Service (PoC)	www.exploit-db.com			35795	bm15:6 bm25:3 bm25f:4	3
-https://www.exploit-db.com/exploits/18976	PHP 5.3.10 - 'spl_autoload()' Local Denial of Service	www.exploit-db.com			40957	jaccard:5 bm11:2	2
-https://www.exploit-db.com/exploits/20473	Cisco Catalyst 4000 4.x/5.x / Catalyst 5000 4.5/5.x / Catalyst 6000 5.x - Memory Leak Denial of Service	www.exploit-db.com			9162	tfidf:2 bm15:2	2
-https://www.exploit-db.com/exploits/18978	PHP 5.3.10 - 'spl_autoload_call()' Local Denial of Service	www.exploit-db.com			40965	jaccard:6 bm11:3	3
+https://www.exploit-db.com/exploits/11717	PHP (Multiple Functions) - Local Denial of Service	www.exploit-db.com			15199	tfidf:1 bm25:1 bm25f:1	1
+https://www.exploit-db.com/exploits/46261	Sricam gSOAP 2.8 - Denial of Service	www.exploit-db.com			40393	bm25:2 bm25f:2	2
+https://www.exploit-db.com/exploits/18691	FoxPlayer 2.6.0 - Denial of Service	www.exploit-db.com			13364	bm25:5 bm25f:3	3
 https://www.exploit-db.com/exploits/20225	Alt-N MDaemon 3.1.1 - Denial of Service	www.exploit-db.com			25877	tfidf:3 bm25f:10	3
-https://www.exploit-db.com/exploits/20509	Cisco Catalyst 4000/5000/6000 6.1 - SSH Protocol Mismatch Denial of Service	www.exploit-db.com			9033	tfidf:4 bm15:3	3
-https://www.exploit-db.com/exploits/21028	Cisco IOS 12 - UDP Denial of Service	www.exploit-db.com			40346	tfidf:5 bm15:4	4
+https://www.exploit-db.com/exploits/6394	Samsung DVR SHR2040 - HTTPd Remote Denial of Service Denial of Service (PoC)	www.exploit-db.com			35795	bm25:3 bm25f:4	3
 https://www.exploit-db.com/exploits/45424	Netis ADSL Router DL4322D RTK 2.1.1 - Denial of Service (PoC)	www.exploit-db.com			33694	bm25:4 bm25f:8	4
 https://www.exploit-db.com/exploits/11397	PHP Captcha Security Images - Denial of Service	www.exploit-db.com			37374	bm25:6 bm25f:5	5
-https://www.exploit-db.com/exploits/14511	ChordPulse 1.4 - Denial of Service	www.exploit-db.com			2461	jaccard:7 bm1:5	5
-https://www.exploit-db.com/exploits/22962	Cisco Aironet AP1x00 - GET Denial of Service	www.exploit-db.com			41891	tfidf:6 bm15:5	5
 https://www.exploit-db.com/exploits/30110	Bochs 2.3 - Buffer Overflow (Denial of Service) (PoC)	www.exploit-db.com			38524	bm25:7 bm25f:6	6
-https://www.exploit-db.com/exploits/23638	Cisco IOS 12 MSFC2 - Layer 2 Frame Denial of Service	www.exploit-db.com			12050	tfidf:7 bm15:7	7
 https://www.exploit-db.com/exploits/37518	Arora Browser - Remote Denial of Service	www.exploit-db.com			16180	bm25:8 bm25f:7	7
-https://www.exploit-db.com/exploits/21472	Cisco CBOS 2.x - Broadband Operating System TCP/IP Stack Denial of Service	www.exploit-db.com			24435	tfidf:8 bm15:8	8
-https://www.exploit-db.com/exploits/44057	Oracle Java JDK/JRE < 1.8.0.131 / Apache Xerces 2.11.0 - 'PDF/Docx' Server Side Denial of Service	www.exploit-db.com			29771	tfidf:9 bm15:9	9
 https://www.exploit-db.com/exploits/7685	SeaMonkey 1.1.14 - Denial of Service	www.exploit-db.com			32438	bm25:10 bm25f:9	9
-https://www.exploit-db.com/exploits/15498	Mozilla Firefox 3.6.12 - Remote Denial of Service	www.exploit-db.com			2341	bm1:1	1
-https://www.exploit-db.com/exploits/1782	Empire 4.3.2 - 'strncat' Denial of Service	www.exploit-db.com			22827	jaccard:1	1
 https://www.exploit-db.com/exploits/34158	Chrome Engine 4 - Denial of Service	www.exploit-db.com			29314	vetorial:1	1
-https://www.exploit-db.com/exploits/15495	Power Audio Editor 7.4.3.230 - '.cda' Denial of Service	www.exploit-db.com			2363	bm1:2	2
-https://www.exploit-db.com/exploits/1792	GNUnet 0.7.0d - Empty UDP Packet Remote Denial of Service	www.exploit-db.com			22756	jaccard:2	2
+https://www.exploit-db.com/exploits/20473	Cisco Catalyst 4000 4.x/5.x / Catalyst 5000 4.5/5.x / Catalyst 6000 5.x - Memory Leak Denial of Service	www.exploit-db.com			9162	tfidf:2	2
 https://www.exploit-db.com/exploits/33841	HTTP File Server 2.2 - Security Bypass / Denial of Service	www.exploit-db.com			29320	vetorial:2	2
-https://www.exploit-db.com/exploits/12344	Apple iPhone 3.1.2 - '7D11' Model MB702LL Mobile Safari Denial of Service	www.exploit-db.com			23255	jaccard:3	3
-https://www.exploit-db.com/exploits/15508	Camtron CMNC-200 IP Camera - Denial of Service	www.exploit-db.com			2365	bm1:3	3
 https://www.exploit-db.com/exploits/30188	Apple Safari - Feed URI Denial of Service	www.exploit-db.com			38062	vetorial:3	3
+https://www.exploit-db.com/exploits/20509	Cisco Catalyst 4000/5000/6000 6.1 - SSH Protocol Mismatch Denial of Service	www.exploit-db.com			9033	tfidf:4	4
 https://www.exploit-db.com/exploits/25219	Spinworks Application Server 3.0 - Remote Denial of Service	www.exploit-db.com			11130	vetorial:4	4
-https://www.exploit-db.com/exploits/2912	Sophos / Trend Micro AntiVirus - '.RAR' File Denial of Service (PoC)	www.exploit-db.com			26258	jaccard:4	4
-https://www.exploit-db.com/exploits/36007	AzeoTech DaqFactory - Denial of Service	www.exploit-db.com			2366	bm1:4	4
-https://www.exploit-db.com/exploits/37487	Apache Sling - Denial of Service	www.exploit-db.com			16407	bm11:4	4
+https://www.exploit-db.com/exploits/21028	Cisco IOS 12 - UDP Denial of Service	www.exploit-db.com			40346	tfidf:5	5
 https://www.exploit-db.com/exploits/34027	Sun Solaris 10 - Nested Directory Tree Local Denial of Service	www.exploit-db.com			28563	vetorial:5	5
-https://www.exploit-db.com/exploits/18006	Opera 11.52 - Denial of Service (PoC)	www.exploit-db.com			2469	bm1:6	6
+https://www.exploit-db.com/exploits/22962	Cisco Aironet AP1x00 - GET Denial of Service	www.exploit-db.com			41891	tfidf:6	6
 https://www.exploit-db.com/exploits/31984	Mozilla Firefox 3.0 - '.JPEG' File Denial of Service	www.exploit-db.com			6434	vetorial:6	6
-https://www.exploit-db.com/exploits/38249	MiniUPnP 1.4 - Multiple Denial of Service Vulnerabilities	www.exploit-db.com			20247	bm11:6	6
-https://www.exploit-db.com/exploits/13	Chindi Server 1.0 - Denial of Service	www.exploit-db.com			2528	bm1:7	7
-https://www.exploit-db.com/exploits/22117	iCal 3.7 - HTTP Request Denial of Service	www.exploit-db.com			29168	bm11:7	7
+https://www.exploit-db.com/exploits/23638	Cisco IOS 12 MSFC2 - Layer 2 Frame Denial of Service	www.exploit-db.com			12050	tfidf:7	7
 https://www.exploit-db.com/exploits/36405	Serv-U FTP Server 11.1.0.3 - Denial of Service / Security Bypass	www.exploit-db.com			8017	vetorial:7	7
-https://www.exploit-db.com/exploits/1783	Genecys 0.2 - Buffer Overflow / NULL Pointer (Denial of Service)	www.exploit-db.com			22821	jaccard:8	8
-https://www.exploit-db.com/exploits/26985	Microsoft Internet Explorer 5.0.1 - HTML Parsing Denial of Service	www.exploit-db.com			2558	bm1:8	8
+https://www.exploit-db.com/exploits/21472	Cisco CBOS 2.x - Broadband Operating System TCP/IP Stack Denial of Service	www.exploit-db.com			24435	tfidf:8	8
 https://www.exploit-db.com/exploits/33608	Apple Safari 4.0.4 - Remote Denial of Service	www.exploit-db.com			39136	vetorial:8	8
-https://www.exploit-db.com/exploits/37061	Sony Bravia KDL-32CX525 - 'hping' Remote Denial of Service	www.exploit-db.com			40263	bm11:8	8
-https://www.exploit-db.com/exploits/17982	BlueZone Desktop - '.zap' file Local Denial of Service	www.exploit-db.com			2562	bm1:9	9
-https://www.exploit-db.com/exploits/18977	PHP 5.3.10 - 'spl_autoload_register()' Local Denial of Service	www.exploit-db.com			40961	bm11:9	9
-https://www.exploit-db.com/exploits/20682	Michael Lamont Savant Web Server 3.0 - Denial of Service	www.exploit-db.com			43395	jaccard:9	9
 https://www.exploit-db.com/exploits/30194	Apple Safari 3 for Windows - 'Document.Location' Denial of Service	www.exploit-db.com			38022	vetorial:9	9
+https://www.exploit-db.com/exploits/44057	Oracle Java JDK/JRE < 1.8.0.131 / Apache Xerces 2.11.0 - 'PDF/Docx' Server Side Denial of Service	www.exploit-db.com			29771	tfidf:9	9
 https://www.exploit-db.com/exploits/46484	FileZilla 3.40.0 - 'Local search' / 'Local site' Denial of Service (PoC)	www.exploit-db.com			9839	bm25:9	9
-https://www.exploit-db.com/exploits/17981	Microsoft Windows - TCP/IP Stack Denial of Service (MS11-064)	www.exploit-db.com			2573	bm1:10	10
 https://www.exploit-db.com/exploits/18817	Mikrotik Router - Denial of Service	www.exploit-db.com			13752	tfidf:10	10
-https://www.exploit-db.com/exploits/20610	Allaire JRun 3.0 Servlet - Denial of Service	www.exploit-db.com			9819	jaccard:10	10
 https://www.exploit-db.com/exploits/22110	PHP-Nuke 6.0 - 'modules.php' Denial of Service	www.exploit-db.com			29215	vetorial:10	10
-https://www.exploit-db.com/exploits/50484	RDP Manager 4.9.9.3 - Denial-of-Service (PoC)	www.exploit-db.com			37827	bm15:10	10

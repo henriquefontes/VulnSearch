@@ -1,49 +1,29 @@
 url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
-https://www.exploit-db.com/exploits/32799	Nokia Phoenix 2008.4.7 Service Software - ActiveX Controls Multiple Buffer Overflow Vulnerabilities	www.exploit-db.com			14446	tfidf:5 bm15:5 bm11:4 bm25:1 bm25f:1	1
-https://www.exploit-db.com/exploits/32997	Acunetix 8 build 20120704 - Remote Stack Overflow	www.exploit-db.com			13153	tfidf:3 bm15:3 bm25:4 bm25f:4	3
-https://www.exploit-db.com/exploits/4978	Apple iOS 1.1.2 - Remote Denial of Service	www.exploit-db.com			15207	jaccard:1 vetorial:1 bm11:1	1
-https://www.exploit-db.com/exploits/51892	KiTTY 0.76.1.13 - Command Injection	www.exploit-db.com			38332	bm11:2 bm25:2 bm25f:2	2
-https://www.exploit-db.com/exploits/12673	ComponentOne VSFlexGrid 7/8 - 'Archive()' method Remote Buffer Overflow	www.exploit-db.com			17856	bm11:6 bm25:3 bm25f:3	3
-https://www.exploit-db.com/exploits/42078	Google Chrome 60.0.3080.5 V8 JavaScript Engine - Out-of-Bounds Write	www.exploit-db.com			24326	bm11:5 bm25:8 bm25f:8	5
-https://www.exploit-db.com/exploits/48461	LanSend 3.2 - Buffer Overflow (SEH)	www.exploit-db.com			42899	bm11:8 bm25:7 bm25f:7	7
-https://www.exploit-db.com/exploits/48465	Remote Desktop Audit 2.3.0.157 - Buffer Overflow (SEH)	www.exploit-db.com			42893	bm11:10 bm25:10 bm25f:10	10
-https://www.exploit-db.com/exploits/40125	Axis Communications MPQT/PACS 5.20.x - Server-Side Include Daemon Remote Format String	www.exploit-db.com			34044	tfidf:1 bm15:1	1
-https://www.exploit-db.com/exploits/31057	Apple iOS Mobile Safari - Memory Exhaustion Remote Denial of Service	www.exploit-db.com			6039	vetorial:2 bm11:7	2
-https://www.exploit-db.com/exploits/47442	Cisco Small Business 220 Series - Multiple Vulnerabilities	www.exploit-db.com			34152	tfidf:2 bm15:2	2
-https://www.exploit-db.com/exploits/32522	VirusChaser 8.0 - Stack Buffer Overflow	www.exploit-db.com			33693	vetorial:3 bm11:3	3
-https://www.exploit-db.com/exploits/35273	Microsoft Internet Explorer 8 - Fixed Col Span ID (Full ASLR + DEP + EMET 5.1 Bypass) (MS12-037)	www.exploit-db.com			42596	tfidf:4 bm15:4	4
+https://www.exploit-db.com/exploits/32799	Nokia Phoenix 2008.4.7 Service Software - ActiveX Controls Multiple Buffer Overflow Vulnerabilities	www.exploit-db.com			14446	tfidf:5 bm25:1 bm25f:1	1
+https://www.exploit-db.com/exploits/32997	Acunetix 8 build 20120704 - Remote Stack Overflow	www.exploit-db.com			13153	tfidf:3 bm25:4 bm25f:4	3
+https://www.exploit-db.com/exploits/51892	KiTTY 0.76.1.13 - Command Injection	www.exploit-db.com			38332	bm25:2 bm25f:2	2
+https://www.exploit-db.com/exploits/12673	ComponentOne VSFlexGrid 7/8 - 'Archive()' method Remote Buffer Overflow	www.exploit-db.com			17856	bm25:3 bm25f:3	3
 https://www.exploit-db.com/exploits/46009	LanSpy 2.0.1.159 - Local Buffer Overflow	www.exploit-db.com			20798	bm25:5 bm25f:5	5
-https://www.exploit-db.com/exploits/33944	Microsoft Internet Explorer 8 - Fixed Col Span ID (Full ASLR + DEP + EMET 4.1.x Bypass) (MS12-037)	www.exploit-db.com			28775	tfidf:6 bm15:6	6
 https://www.exploit-db.com/exploits/47394	docPrint Pro 8.0 - SEH Buffer Overflow	www.exploit-db.com			33991	bm25:6 bm25f:6	6
-https://www.exploit-db.com/exploits/34815	Microsoft Internet Explorer 8 - Fixed Col Span ID (Full ASLR + DEP + EMET 5.0 Bypass) (MS12-037)	www.exploit-db.com			8741	tfidf:7 bm15:7	7
-https://www.exploit-db.com/exploits/44828	Zip-n-Go 4.9 - Buffer Overflow (SEH)	www.exploit-db.com			19871	tfidf:8 bm15:8	8
-https://www.exploit-db.com/exploits/15287	Winamp 5.5.8 (in_mod plugin) - Local Stack Overflow	www.exploit-db.com			25465	tfidf:9 bm15:9	9
+https://www.exploit-db.com/exploits/48461	LanSend 3.2 - Buffer Overflow (SEH)	www.exploit-db.com			42899	bm25:7 bm25f:7	7
+https://www.exploit-db.com/exploits/42078	Google Chrome 60.0.3080.5 V8 JavaScript Engine - Out-of-Bounds Write	www.exploit-db.com			24326	bm25:8 bm25f:8	8
 https://www.exploit-db.com/exploits/46797	Xitami Web Server 2.5 - Remote Buffer Overflow (SEH + Egghunter)	www.exploit-db.com			14906	bm25:9 bm25f:9	9
-https://www.exploit-db.com/exploits/44680	R 3.4.4 - Local Buffer Overflow (DEP Bypass)	www.exploit-db.com			8384	tfidf:10 bm15:10	10
-https://www.exploit-db.com/exploits/24505	Photodex ProShow Producer 5.0.3297 - '.pxs' Memory Corruption	www.exploit-db.com			2350	bm1:1	1
-https://www.exploit-db.com/exploits/24495	Microsoft Internet Explorer - SLayoutRun Use-After-Free (MS13-009) (Metasploit) (1)	www.exploit-db.com			2367	bm1:2	2
-https://www.exploit-db.com/exploits/5348	PhpBlock a8.4 - 'PATH_TO_CODE' Remote File Inclusion	www.exploit-db.com			27664	jaccard:2	2
-https://www.exploit-db.com/exploits/11255	Winamp 5.572 - 'whatsnew.txt' Local Stack Overflow	www.exploit-db.com			37929	jaccard:3	3
-https://www.exploit-db.com/exploits/35994	BullGuard (Multiple Products) - Arbitrary Write Privilege Escalation	www.exploit-db.com			2369	bm1:3	3
-https://www.exploit-db.com/exploits/35993	AVG Internet Security 2015.0.5315 - Arbitrary Write Privilege Escalation	www.exploit-db.com			2377	bm1:4	4
+https://www.exploit-db.com/exploits/48465	Remote Desktop Audit 2.3.0.157 - Buffer Overflow (SEH)	www.exploit-db.com			42893	bm25:10 bm25f:10	10
+https://www.exploit-db.com/exploits/40125	Axis Communications MPQT/PACS 5.20.x - Server-Side Include Daemon Remote Format String	www.exploit-db.com			34044	tfidf:1	1
+https://www.exploit-db.com/exploits/4978	Apple iOS 1.1.2 - Remote Denial of Service	www.exploit-db.com			15207	vetorial:1	1
+https://www.exploit-db.com/exploits/31057	Apple iOS Mobile Safari - Memory Exhaustion Remote Denial of Service	www.exploit-db.com			6039	vetorial:2	2
+https://www.exploit-db.com/exploits/47442	Cisco Small Business 220 Series - Multiple Vulnerabilities	www.exploit-db.com			34152	tfidf:2	2
+https://www.exploit-db.com/exploits/32522	VirusChaser 8.0 - Stack Buffer Overflow	www.exploit-db.com			33693	vetorial:3	3
+https://www.exploit-db.com/exploits/35273	Microsoft Internet Explorer 8 - Fixed Col Span ID (Full ASLR + DEP + EMET 5.1 Bypass) (MS12-037)	www.exploit-db.com			42596	tfidf:4	4
 https://www.exploit-db.com/exploits/37771	Microsoft HTML Help Compiler 4.74.8702.0 - Local Overflow (SEH)	www.exploit-db.com			9924	vetorial:4	4
-https://www.exploit-db.com/exploits/8173	Belkin BullDog Plus - UPS-Service Buffer Overflow	www.exploit-db.com			28035	jaccard:4	4
-https://www.exploit-db.com/exploits/12614	Apple Safari 4.0.5 - 'parent.close()' Memory Corruption (ASLR + DEP Bypass)	www.exploit-db.com			32596	jaccard:5	5
-https://www.exploit-db.com/exploits/35992	K7 Computing (Multiple Products) - Arbitrary Write Privilege Escalation	www.exploit-db.com			2385	bm1:5	5
 https://www.exploit-db.com/exploits/46346	River Past Video Cleaner 7.6.3 - Local Buffer Overflow (SEH)	www.exploit-db.com			40444	vetorial:5	5
 https://www.exploit-db.com/exploits/15483	Free CD to MP3 Converter 3.1 - Local Buffer Overflow (SEH)	www.exploit-db.com			27063	vetorial:6	6
-https://www.exploit-db.com/exploits/24490	Novell Groupwise Client - 'gwcls1.dll' ActiveX Remote Code Execution (Metasploit)	www.exploit-db.com			2389	bm1:6	6
-https://www.exploit-db.com/exploits/39037	Apache 2.4.17 - Denial of Service	www.exploit-db.com			34665	jaccard:6	6
-https://www.exploit-db.com/exploits/15489	MP3-Nator 2.0 - Local Buffer Overflow (SEH)	www.exploit-db.com			2412	bm1:7	7
+https://www.exploit-db.com/exploits/33944	Microsoft Internet Explorer 8 - Fixed Col Span ID (Full ASLR + DEP + EMET 4.1.x Bypass) (MS12-037)	www.exploit-db.com			28775	tfidf:6	6
+https://www.exploit-db.com/exploits/34815	Microsoft Internet Explorer 8 - Fixed Col Span ID (Full ASLR + DEP + EMET 5.0 Bypass) (MS12-037)	www.exploit-db.com			8741	tfidf:7	7
 https://www.exploit-db.com/exploits/44649	Prime95 29.4b8 - Stack Buffer Overflow (SEH)	www.exploit-db.com			8149	vetorial:7	7
-https://www.exploit-db.com/exploits/476	glFTPd (Slackware 9.0/9.1/10.0) - Local Stack Overflow	www.exploit-db.com			6213	jaccard:7	7
-https://www.exploit-db.com/exploits/1	Microsoft IIS - WebDAV 'ntdll.dll' Remote Overflow	www.exploit-db.com			2432	bm1:8	8
-https://www.exploit-db.com/exploits/20861	Microsoft Windows Kernel - Intel x64 SYSRET (MS12-042)	www.exploit-db.com			41041	jaccard:8	8
 https://www.exploit-db.com/exploits/43179	ALLPlayer 7.5 - Local Buffer Overflow (SEH Unicode)	www.exploit-db.com			17263	vetorial:8	8
-https://www.exploit-db.com/exploits/2	Microsoft IIS 5.0 - WebDAV Remote	www.exploit-db.com			2438	bm1:9	9
-https://www.exploit-db.com/exploits/23288	IrfanView 4.33 - 'IMXCF.dll' Plugin Code Execution	www.exploit-db.com			16461	jaccard:9	9
+https://www.exploit-db.com/exploits/44828	Zip-n-Go 4.9 - Buffer Overflow (SEH)	www.exploit-db.com			19871	tfidf:8	8
+https://www.exploit-db.com/exploits/15287	Winamp 5.5.8 (in_mod plugin) - Local Stack Overflow	www.exploit-db.com			25465	tfidf:9	9
 https://www.exploit-db.com/exploits/44337	Easy CD DVD Copy 1.3.24 - Local Buffer Overflow (SEH)	www.exploit-db.com			8415	vetorial:9	9
-https://www.exploit-db.com/exploits/51699	Ivanti Avalanche <v6.4.0.0 - Remote Code Execution	www.exploit-db.com			41218	bm11:9	9
-https://www.exploit-db.com/exploits/14503	HTML Email Creator 2.42 build 718 - Local Buffer Overflow (SEH)	www.exploit-db.com			2441	bm1:10	10
 https://www.exploit-db.com/exploits/255	RedHat 6.1 - 'man' Local Overflow / Local Privilege Escalation	www.exploit-db.com			4609	vetorial:10	10
-https://www.exploit-db.com/exploits/4811	kontakt formular 1.4 - Remote File Inclusion	www.exploit-db.com			28354	jaccard:10	10
+https://www.exploit-db.com/exploits/44680	R 3.4.4 - Local Buffer Overflow (DEP Bypass)	www.exploit-db.com			8384	tfidf:10	10

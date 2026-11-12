@@ -1,48 +1,35 @@
 url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
-https://www.exploit-db.com/exploits/186	xsplumber - 'strcpy()' Local Buffer Overflow	www.exploit-db.com			4047	tfidf:6 vetorial:3 bm1:5 bm15:9 bm11:1 bm25:1	1
-https://cwe.mitre.org/data/definitions/676.html	CWE-676: Use of Potentially Dangerous Function	cwe.mitre.org			625	jaccard:7 tfidf:1 vetorial:5 bm15:5	1
-https://www.exploit-db.com/exploits/47254	ABC2MTEX 1.6.1 - Command Line Stack Overflow	www.exploit-db.com			13590	bm1:10 bm11:3 bm25:3 bm25f:3	3
-https://www.exploit-db.com/exploits/4223	IPSwitch IMail Server 2006 - SEARCH Remote Stack Overflow	www.exploit-db.com			18937	bm15:6 bm11:7 bm25:5 bm25f:8	5
-https://cwe.mitre.org/data/definitions/120.html	CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')	cwe.mitre.org			1066	tfidf:2 bm1:4 bm15:1	1
-https://cwe.mitre.org/data/definitions/754.html	CWE-754: Improper Check for Unusual or Exceptional Conditions	cwe.mitre.org			823	tfidf:3 bm1:1 bm15:4	1
-https://cwe.mitre.org/data/definitions/119.html	CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer	cwe.mitre.org			883	tfidf:9 bm1:2 bm15:7	2
-https://cwe.mitre.org/data/definitions/787.html	CWE-787: Out-of-bounds Write	cwe.mitre.org			1064	tfidf:4 bm1:3 bm15:2	2
-https://www.exploit-db.com/exploits/3495	CA BrightStor ARCserve - 'msgeng.exe' Remote Stack Overflow	www.exploit-db.com			36505	bm15:3 bm11:9 bm25:6	3
-https://www.exploit-db.com/exploits/1028	Crob FTP Server 3.6.1 - Remote Stack Overflow	www.exploit-db.com			7192	bm1:8 bm11:8 bm25:8	8
-https://www.exploit-db.com/exploits/8390	Xilisoft Video Converter Wizard 3 - '.cue' Stack Buffer Overflow (PoC)	www.exploit-db.com			31947	bm11:2 bm25:2	2
-https://www.exploit-db.com/exploits/42703	Dameware Mini Remote Control 4.0 - Username Stack Buffer Overflow (Metasploit)	www.exploit-db.com			14041	bm11:4 bm25:4	4
-https://www.exploit-db.com/exploits/22928	mcrypt 2.5.8 - Local Stack Overflow	www.exploit-db.com			41642	bm11:5 bm25:7	5
-https://www.exploit-db.com/exploits/41670	APNGDis 2.8 - 'filename' Stack Buffer Overflow (PoC)	www.exploit-db.com			38600	bm11:6 bm25:9	6
-https://www.exploit-db.com/exploits/12653	NetBSD 5.0 - Hack PATH Environment Overflow (PoC)	www.exploit-db.com			32816	bm11:10 bm25f:7	7
+https://www.exploit-db.com/exploits/186	xsplumber - 'strcpy()' Local Buffer Overflow	www.exploit-db.com			4047	tfidf:6 vetorial:3 bm25:1	1
+https://cwe.mitre.org/data/definitions/676.html	CWE-676: Use of Potentially Dangerous Function	cwe.mitre.org			625	tfidf:1 vetorial:5	1
+https://www.exploit-db.com/exploits/47254	ABC2MTEX 1.6.1 - Command Line Stack Overflow	www.exploit-db.com			13590	bm25:3 bm25f:3	3
+https://www.exploit-db.com/exploits/4223	IPSwitch IMail Server 2006 - SEARCH Remote Stack Overflow	www.exploit-db.com			18937	bm25:5 bm25f:8	5
 https://cwe.mitre.org/data/definitions/1177.html	CWE-1177: Use of Prohibited Code	cwe.mitre.org			630	tfidf:8 vetorial:8	8
-https://www.exploit-db.com/exploits/1035	IPSwitch IMAP Server - LOGON Remote Stack Overflow	www.exploit-db.com			7264	bm1:9 bm15:8	8
 https://cwe.mitre.org/data/definitions/121.html	CWE-121: Stack-based Buffer Overflow	cwe.mitre.org			1069	bm25f:1	1
-https://www.exploit-db.com/exploits/8826	Adobe Acrobat 9.1.1 (OSX/Windows) - Stack Overflow Crash (PoC)	www.exploit-db.com			25213	jaccard:1	1
 https://www.rapid7.com/db/vulnerabilities/cve-2026-98097/	CVE-2026-98097: Linux: In the Linux kernel, the following vulnerability has been resolved: tipc: Dont send random pad bytes in RESET/ACTIVATE…	www.rapid7.com			57416	vetorial:1	1
+https://cwe.mitre.org/data/definitions/120.html	CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')	cwe.mitre.org			1066	tfidf:2	2
 https://www.exploit-db.com/exploits/14254	Apple Mac OSX EvoCam Web Server (Snow Leopard) - ROP Remote Overflow	www.exploit-db.com			4184	bm25f:2	2
-https://www.exploit-db.com/exploits/8568	mpegable Player 2.12 - '.yuv' Local Stack Overflow (PoC)	www.exploit-db.com			25293	jaccard:2	2
+https://www.exploit-db.com/exploits/8390	Xilisoft Video Converter Wizard 3 - '.cue' Stack Buffer Overflow (PoC)	www.exploit-db.com			31947	bm25:2	2
 https://www.rapid7.com/db/vulnerabilities/cve-2026-90680/	CVE-2026-90680: Stack-based Buffer Overflow	www.rapid7.com			60291	vetorial:2	2
-https://www.exploit-db.com/exploits/6994	Adobe Reader - 'util.printf()' JavaScript Function Stack Overflow (1)	www.exploit-db.com			40182	jaccard:3	3
+https://cwe.mitre.org/data/definitions/754.html	CWE-754: Improper Check for Unusual or Exceptional Conditions	cwe.mitre.org			823	tfidf:3	3
+https://cwe.mitre.org/data/definitions/787.html	CWE-787: Out-of-bounds Write	cwe.mitre.org			1064	tfidf:4	4
 https://www.exploit-db.com/exploits/20495	Oops Proxy Server 1.4.22 - Remote Buffer Overflow (1)	www.exploit-db.com			9000	bm25f:4	4
-https://www.exploit-db.com/exploits/8625	Sorinara Streaming Audio Player 0.9 - '.pla' Local Stack Overflow (PoC)	www.exploit-db.com			24909	jaccard:4	4
+https://www.exploit-db.com/exploits/42703	Dameware Mini Remote Control 4.0 - Username Stack Buffer Overflow (Metasploit)	www.exploit-db.com			14041	bm25:4	4
 https://www.rapid7.com/db/vulnerabilities/cve-2025-64031/	CVE-2025-64031: Heap-based Buffer Overflow	www.rapid7.com			58258	vetorial:4	4
 https://cwe.mitre.org/data/definitions/252.html	CWE-252: Unchecked Return Value	cwe.mitre.org			118	tfidf:5	5
 https://www.exploit-db.com/exploits/15259	DATAC RealWin SCADA Server 2.0 (Build 6.1.8.10) - Buffer Overflow	www.exploit-db.com			25394	bm25f:5	5
-https://www.exploit-db.com/exploits/9147	MixVibes Pro 7.043 - '.vib' Local Stack Overflow (PoC)	www.exploit-db.com			23780	jaccard:5	5
-https://www.exploit-db.com/exploits/18186	StoryBoard Quick 6 - Local Stack Buffer Overflow (Metasploit)	www.exploit-db.com			3807	bm1:6	6
+https://www.exploit-db.com/exploits/3495	CA BrightStor ARCserve - 'msgeng.exe' Remote Stack Overflow	www.exploit-db.com			36505	bm25:6	6
 https://www.exploit-db.com/exploits/39939	iSQL 1.0 - 'isql_main.c' Buffer Overflow (PoC)	www.exploit-db.com			37775	bm25f:6	6
-https://www.exploit-db.com/exploits/8578	Mercury Audio Player 1.21 - '.m3u' Local Stack Overflow (PoC)	www.exploit-db.com			25225	jaccard:6	6
 https://www.rapid7.com/db/vulnerabilities/cve-2026-91843/	CVE-2026-91843: Stack-based Buffer Overflow	www.rapid7.com			60794	vetorial:6	6
 https://cwe.mitre.org/data/definitions/170.html	CWE-170: Improper Null Termination	cwe.mitre.org			776	tfidf:7	7
-https://www.exploit-db.com/exploits/164	Foxmail 5.0 - 'PunyLib.dll' Remote Stack Overflow	www.exploit-db.com			3842	bm1:7	7
+https://www.exploit-db.com/exploits/12653	NetBSD 5.0 - Hack PATH Environment Overflow (PoC)	www.exploit-db.com			32816	bm25f:7	7
+https://www.exploit-db.com/exploits/22928	mcrypt 2.5.8 - Local Stack Overflow	www.exploit-db.com			41642	bm25:7	7
 https://www.rapid7.com/db/vulnerabilities/cve-2026-75676/	CVE-2026-75676: Stack-based Buffer Overflow	www.rapid7.com			61760	vetorial:7	7
-https://www.exploit-db.com/exploits/15558	Apple Safari 5.02 - Stack Overflow Denial of Service	www.exploit-db.com			26731	jaccard:8	8
-https://www.exploit-db.com/exploits/11255	Winamp 5.572 - 'whatsnew.txt' Local Stack Overflow	www.exploit-db.com			37929	jaccard:9	9
+https://www.exploit-db.com/exploits/1028	Crob FTP Server 3.6.1 - Remote Stack Overflow	www.exploit-db.com			7192	bm25:8	8
+https://cwe.mitre.org/data/definitions/119.html	CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer	cwe.mitre.org			883	tfidf:9	9
 https://www.exploit-db.com/exploits/12652	NetBSD 5.0 - Hack GENOCIDE Environment Overflow (PoC)	www.exploit-db.com			32809	bm25f:9	9
+https://www.exploit-db.com/exploits/41670	APNGDis 2.8 - 'filename' Stack Buffer Overflow (PoC)	www.exploit-db.com			38600	bm25:9	9
 https://www.rapid7.com/db/vulnerabilities/cve-2026-83962/	CVE-2026-83962: Stack-based Buffer Overflow	www.rapid7.com			59393	vetorial:9	9
 https://www.exploit-db.com/exploits/32435	Immunity Debugger 1.85 - Stack Overflow (PoC)	www.exploit-db.com			33208	bm25f:10	10
 https://www.exploit-db.com/exploits/47442	Cisco Small Business 220 Series - Multiple Vulnerabilities	www.exploit-db.com			34152	tfidf:10	10
-https://www.exploit-db.com/exploits/9141	Icarus 2.0 - '.ICP' Local Stack Overflow (PoC)	www.exploit-db.com			23729	jaccard:10	10
 https://www.exploit-db.com/exploits/9595	HTMLDOC 1.8.27 - '.html' File Handling Stack Buffer Overflow	www.exploit-db.com			18981	bm25:10	10
-https://www.exploit-db.com/exploits/9659	Portable E.M Magic Morph 1.95b - '.MOR' File Stack Buffer Overflow	www.exploit-db.com			18432	bm15:10	10
 https://www.rapid7.com/db/vulnerabilities/cve-2026-86358/	CVE-2026-86358: Stack-based Buffer Overflow	www.rapid7.com			56851	vetorial:10	10
