@@ -1,0 +1,6 @@
+consulta,candidatos (N),min-heap ms,sorted ms,heapq.nlargest ms,sorted / min-heap
+exploit,50304,5.57,20.01,5.79,3.60
+vulnerability,59469,6.58,24.01,6.91,3.65
+cve,62311,6.91,23.05,7.38,3.34
+remote code execution,42142,4.67,17.56,4.98,3.76
+sql injection,15623,1.72,5.74,1.85,3.34

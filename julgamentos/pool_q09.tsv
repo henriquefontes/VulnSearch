@@ -1,0 +1,35 @@
+url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
+https://www.exploit-db.com/exploits/21746	Microsoft Windows XP/2000/NT 4.0 - Network Share Provider SMB Request Buffer Overflow (1)	www.exploit-db.com			24580	tfidf:4 bm1:2 bm15:1 bm11:6 bm25:5 bm25f:6	1
+https://www.exploit-db.com/exploits/21747	Microsoft Windows XP/2000/NT 4.0 - Network Share Provider SMB Request Buffer Overflow (2)	www.exploit-db.com			24590	vetorial:1 bm1:3 bm15:5 bm11:2 bm25:2 bm25f:2	1
+https://www.exploit-db.com/exploits/9029	VideoLAN VLC Media Player 0.9.9 - 'smb://' URI Stack Buffer Overflow (PoC)	www.exploit-db.com			22860	vetorial:2 bm1:1 bm15:7 bm11:1 bm25:1 bm25f:1	1
+https://www.exploit-db.com/exploits/16678	VideoLAN VLC Client (Windows x86) - 'smb://' URI Buffer Overflow (Metasploit)	www.exploit-db.com			42376	vetorial:7 bm1:4 bm15:4 bm11:3 bm25:3 bm25f:5	3
+https://www.exploit-db.com/exploits/9303	VideoLAN VLC Media Player 0.8.6f - 'smb://' URI Handling Remote Buffer Overflow	www.exploit-db.com			26604	vetorial:3 bm1:5 bm15:9 bm11:4 bm25:4 bm25f:3	3
+https://www.exploit-db.com/exploits/42031	Microsoft Windows 7/2008 R2 - 'EternalBlue' SMB Remote Code Execution (MS17-010)	www.exploit-db.com			24734	tfidf:1 bm15:2 bm11:8 bm25:7 bm25f:10	1
+https://www.exploit-db.com/exploits/42030	Microsoft Windows 8/8.1/2012 R2 (x64) - 'EternalBlue' SMB Remote Code Execution (MS17-010)	www.exploit-db.com			24741	tfidf:2 bm15:3 bm11:9 bm25:8 bm25f:9	2
+https://www.exploit-db.com/exploits/9427	VideoLAN VLC Media Player 1.0.0/1.0.1 - 'smb://' URI Handling Buffer Overflow (PoC)	www.exploit-db.com			26167	bm1:6 bm15:10 bm11:5 bm25:6 bm25f:7	5
+https://www.exploit-db.com/exploits/16366	Microsoft DNS RPC Service - 'extractQuotedChar()' Remote Overflow 'SMB' (MS07-029) (Metasploit)	www.exploit-db.com			17343	bm1:7 bm15:6 bm11:10 bm25:9	6
+https://www.exploit-db.com/exploits/9816	VideoLAN VLC Media Player 1.0.2 - 'smb://' URI Stack Overflow	www.exploit-db.com			18053	bm1:9 bm11:7 bm25:10	7
+https://www.exploit-db.com/exploits/43517	Microsoft Windows SMB Server (v1/v2) - Mount Point Arbitrary Device Open Privilege Escalation	www.exploit-db.com			10790	tfidf:9 vetorial:4	4
+https://www.exploit-db.com/exploits/1065	Microsoft Windows - 'SMB' Transaction Response Handling (MS05-011)	www.exploit-db.com			7540	tfidf:5 bm15:8	5
+https://www.exploit-db.com/exploits/6463	Microsoft Windows - 'WRITE_ANDX' SMB Command Handling Kernel Denial of Service (Metasploit)	www.exploit-db.com			35366	tfidf:7 vetorial:6	6
+https://www.exploit-db.com/exploits/16363	Microsoft Windows - 'srv2.sys' SMB Negotiate ProcessID Function Table Dereference (MS09-050) (Metasploit)	www.exploit-db.com			17320	tfidf:8 vetorial:8	8
+https://www.exploit-db.com/exploits/4948	Microsoft Windows RSH daemon 1.8 - Remote Buffer Overflow	www.exploit-db.com			15442	jaccard:1	1
+https://www.exploit-db.com/exploits/8102	Counter Strike Source ManiAdminPlugin 1.x - Remote Buffer Overflow (PoC)	www.exploit-db.com			27601	jaccard:2	2
+https://www.exploit-db.com/exploits/16360	Microsoft Windows - SMB Relay Code Execution (MS08-068) (Metasploit)	www.exploit-db.com			17296	tfidf:3	3
+https://www.exploit-db.com/exploits/27010	VbsEdit 5.9.3 - '.smi' Buffer Overflow (PoC)	www.exploit-db.com			2493	jaccard:3	3
+https://www.exploit-db.com/exploits/48216	Microsoft Windows 10 (1903/1909) - 'SMBGhost' SMB3.1.1 'SMB2_COMPRESSION_CAPABILITIES' Buffer Overflow (PoC)	www.exploit-db.com			18716	bm25f:4	4
+https://www.exploit-db.com/exploits/4906	QuickTime Player 7.3.1.70 - 'RTSP' Remote Buffer Overflow	www.exploit-db.com			28919	jaccard:4	4
+https://www.exploit-db.com/exploits/15669	MediaMonkey 3.2.4.1304 - '.mp3' Buffer Overflow (PoC)	www.exploit-db.com			26904	jaccard:5	5
+https://www.rapid7.com/db/vulnerabilities/cve-2026-63448/	CVE-2026-63448: Uncontrolled Resource Consumption	www.rapid7.com			54922	vetorial:5	5
+https://www.exploit-db.com/exploits/15266	Microsoft Windows - NTLM Weak Nonce (MS10-012)	www.exploit-db.com			25420	tfidf:6	6
+https://www.exploit-db.com/exploits/15635	Provj 5.1.5.5 - '.m3u' Buffer Overflow (PoC)	www.exploit-db.com			26665	jaccard:6	6
+https://www.exploit-db.com/exploits/8173	Belkin BullDog Plus - UPS-Service Buffer Overflow	www.exploit-db.com			28035	jaccard:7	7
+https://www.exploit-db.com/exploits/14832	SnackAmp 3.1.2 - '.wav' Buffer Overflow (PoC)	www.exploit-db.com			4515	jaccard:8	8
+https://www.exploit-db.com/exploits/14892	VideoLAN VLC Media Player < 1.1.4 - '.xspf smb://' URI Handling Remote Stack Overflow (PoC)	www.exploit-db.com			4841	bm1:8	8
+https://www.exploit-db.com/exploits/20288	Microsoft Windows 9x - File Handle Buffer Overflow	www.exploit-db.com			41795	bm25f:8	8
+https://www.exploit-db.com/exploits/24880	IconCool MP3 WAV Converter 3.00 Build 120518 - Stack Buffer Overflow	www.exploit-db.com			20041	jaccard:9	9
+https://www.rapid7.com/db/vulnerabilities/cve-2026-89634/	CVE-2026-89634: Undefined Security Weakness	www.rapid7.com			59779	vetorial:9	9
+https://www.exploit-db.com/exploits/12273	Microsoft Windows 7/2008 R2 - SMB Client Trans2 Stack Overflow (MS10-020) (PoC)	www.exploit-db.com			23730	bm1:10	10
+https://www.exploit-db.com/exploits/24556	Hanso Player 2.1.0 - '.m3u' Buffer Overflow	www.exploit-db.com			29780	jaccard:10	10
+https://www.exploit-db.com/exploits/28482	Microsoft Windows Theme File Handling - Arbitrary Code Execution (MS13-071) (Metasploit)	www.exploit-db.com			31163	tfidf:10	10
+https://www.exploit-db.com/exploits/47115	Microsoft Windows 10.0.17134.648 - HTTP -> SMB NTLM Reflection Leads to Privilege Elevation	www.exploit-db.com			13766	vetorial:10	10

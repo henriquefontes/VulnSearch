@@ -1,0 +1,29 @@
+grupo,termo,df,% dos docs,idf log₂(N/n),idf BM limitado,idf BM log1p,idf BM sem correção
+rótulo da ficha do exploit-db,edb,41633,64.9,0.624,0.000,0.624,-0.885
+rótulo da ficha do exploit-db,author,46194,72.0,0.474,0.000,0.474,-1.361
+rótulo da ficha do exploit-db,type,45127,70.3,0.508,0.000,0.508,-1.244
+rótulo da ficha do exploit-db,platform,43433,67.7,0.563,0.000,0.563,-1.066
+rótulo da ficha do exploit-db,date,43115,67.2,0.574,0.000,0.574,-1.033
+rótulo da ficha do exploit-db,verifi,44187,68.8,0.539,0.000,0.539,-1.144
+rótulo da ficha do exploit-db,exploit,50272,78.3,0.352,0.000,0.352,-1.854
+rótulo da ficha do exploit-db,tag,46675,72.7,0.459,0.000,0.459,-1.415
+comum no corpus,cve,62311,97.1,0.043,0.000,0.043,-5.059
+comum no corpus,vulner,59469,92.7,0.110,0.000,0.110,-3.658
+comum no corpus,advisori,53346,83.1,0.267,0.000,0.267,-2.300
+comum no corpus,sourc,52879,82.4,0.279,0.000,0.279,-2.226
+comum no corpus,id,54010,84.2,0.249,0.000,0.249,-2.409
+comum no corpus,link,43703,68.1,0.554,0.000,0.554,-1.094
+letra do vetor CVSS,av,18525,28.9,1.793,1.301,1.793,1.301
+letra do vetor CVSS,ac,19413,30.2,1.725,1.205,1.725,1.205
+letra do vetor CVSS,pr,18510,28.8,1.794,1.303,1.794,1.303
+letra do vetor CVSS,ui,18613,29.0,1.786,1.292,1.786,1.292
+letra do vetor CVSS,n,33020,51.4,0.959,0.000,0.959,-0.084
+letra do vetor CVSS,l,17696,27.6,1.859,1.393,1.859,1.393
+letra do vetor CVSS,h,14034,21.9,2.193,1.837,2.193,1.837
+letra do vetor CVSS,u,12644,19.7,2.344,2.027,2.344,2.027
+termo raro (consulta),log4j,13,0.0,12.269,12.215,12.215,12.215
+termo raro (consulta),strcpi,18,0.0,11.800,11.760,11.760,11.760
+termo raro (consulta),strut,71,0.1,9.820,9.808,9.810,9.808
+termo raro (consulta),deseri,517,0.8,6.956,6.943,6.954,6.943
+termo raro (consulta),openssh,41,0.1,10.612,10.594,10.595,10.594
+termo raro (consulta),csrf,774,1.2,6.374,6.355,6.373,6.355

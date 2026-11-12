@@ -1,0 +1,28 @@
+url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
+https://www.exploit-db.com/exploits/42756	HPE < 7.2 - Java Deserialization	www.exploit-db.com			14303	jaccard:3 tfidf:3 vetorial:4 bm1:5 bm15:2 bm11:1 bm25:1 bm25f:1	1
+https://www.exploit-db.com/exploits/16293	Sun Java - Calendar Deserialization (Metasploit)	www.exploit-db.com			16948	jaccard:9 tfidf:10 vetorial:8 bm1:7 bm15:5 bm11:10 bm25:8 bm25f:6	5
+https://www.exploit-db.com/exploits/16305	Java - RMIConnectionImpl Deserialization Privilege Escalation (Metasploit)	www.exploit-db.com			16914	jaccard:8 vetorial:2 bm1:6 bm15:10 bm11:3 bm25:3 bm25f:3	2
+https://www.exploit-db.com/exploits/43927	HPE iMC 7.3 - RMI Java Deserialization	www.exploit-db.com			11406	jaccard:1 vetorial:3 bm1:3 bm11:2 bm25:4 bm25f:7	1
+https://www.exploit-db.com/exploits/47792	OpenMRS - Java Deserialization RCE (Metasploit)	www.exploit-db.com			11037	jaccard:5 bm1:2 bm15:8 bm11:7 bm25:5 bm25f:8	2
+https://www.exploit-db.com/exploits/45952	HP Intelligent Management - Java Deserialization Remote Code Execution (Metasploit)	www.exploit-db.com			20631	tfidf:5 bm15:4 bm11:5 bm25:2 bm25f:9	2
+https://www.exploit-db.com/exploits/41965	CloudBees Jenkins 2.32.1 - Java Deserialization	www.exploit-db.com			25154	jaccard:2 vetorial:5 bm11:9 bm25f:5	2
+https://www.exploit-db.com/exploits/38983	Jenkins CLI - RMI Java Deserialization (Metasploit)	www.exploit-db.com			34946	tfidf:7 bm15:3 bm25:7 bm25f:4	3
+https://www.exploit-db.com/exploits/43993	Adobe Coldfusion 11.0.03.292866 - BlazeDS Java Object Deserialization Remote Code Execution	www.exploit-db.com			30158	jaccard:7 vetorial:10 bm11:4 bm25:9	4
+https://www.exploit-db.com/exploits/41613	IBM WebSphere - RCE Java Deserialization (Metasploit)	www.exploit-db.com			38275	jaccard:10 bm11:8 bm25:6 bm25f:10	6
+https://www.exploit-db.com/exploits/50781	Adobe ColdFusion 11 - LDAP Java Object Deserialization Remode Code Execution (RCE)	www.exploit-db.com			18396	bm1:8 bm11:6 bm25:10	6
+https://www.exploit-db.com/exploits/9948	Sun Java Runtime and Development Kit 6 Update 10 - Calendar Deserialization (Metasploit)	www.exploit-db.com			18994	vetorial:7 bm1:10 bm15:6	6
+https://github.com/advisories/GHSA-9jjc-fw8x-fmwx	io.moquette:moquette-broker has a Missing Authorization issue	github.com			43992	tfidf:1 bm15:1	1
+https://www.exploit-db.com/exploits/44642	Jenkins CLI - HTTP Java Deserialization (Metasploit)	www.exploit-db.com			8084	bm1:1 bm15:7	1
+https://www.exploit-db.com/exploits/46327	OpenMRS Platform < 2.24.0 - Insecure Object Deserialization	www.exploit-db.com			40291	jaccard:6 bm25f:2	2
+https://www.rapid7.com/db/vulnerabilities/cve-2026-10751/	CVE-2026-10751: Deserialization of Untrusted Data	www.rapid7.com			60241	vetorial:1	1
+https://github.com/advisories/GHSA-7mqr-33rv-p3mp	Expression Injection in OpenRemote	github.com			45106	tfidf:2	2
+https://github.com/advisories/GHSA-qx7j-jv8m-fppr	RabbitMQ Java client malformed body frame triggers raw command assembler exception	github.com			48247	jaccard:4	4
+https://www.exploit-db.com/exploits/41145	Oracle OpenJDK Runtime Environment 1.8.0_112-b15 - Java Serialization Denial Of Service	www.exploit-db.com			37150	tfidf:4	4
+https://www.exploit-db.com/exploits/44998	Oracle WebLogic 12.1.2.0 - RMI Registry UnicastRef Object Java Deserialization Remote Code Execution	www.exploit-db.com			12949	bm1:4	4
+https://cwe.mitre.org/data/definitions/502.html	CWE-502: Deserialization of Untrusted Data	cwe.mitre.org			971	tfidf:6	6
+https://www.rapid7.com/db/vulnerabilities/cve-2026-67615/	CVE-2026-67615: Deserialization of Untrusted Data	www.rapid7.com			62479	vetorial:6	6
+https://www.exploit-db.com/exploits/46969	IBM Websphere Application Server - Network Deployment Untrusted Data Deserialization Remote Code Execution (Metasploit)	www.exploit-db.com			14441	tfidf:8	8
+https://www.exploit-db.com/exploits/42806	Oracle WebLogic Server 10.3.6.0 - Java Deserialization Remote Code Execution	www.exploit-db.com			22993	bm15:9	9
+https://www.exploit-db.com/exploits/48224	ManageEngine Desktop Central - Java Deserialization (Metasploit)	www.exploit-db.com			18787	bm1:9	9
+https://www.exploit-db.com/exploits/48508	WebLogic Server - Deserialization RCE - BadAttributeValueExpException (Metasploit)	www.exploit-db.com			42841	tfidf:9	9
+https://www.exploit-db.com/exploits/52396	Cisco ISE 3.0 - Remote Code Execution (RCE)	www.exploit-db.com			21498	vetorial:9	9

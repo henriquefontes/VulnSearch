@@ -1,0 +1,6 @@
+url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
+https://www.exploit-db.com/exploits/41987	Microsoft Windows Server 2008 R2 (x64) - 'SrvOs2FeaToNt' SMB Remote Code Execution (MS17-010)	www.exploit-db.com			25024	jaccard:4 tfidf:1 vetorial:4 bm1:3 bm15:1 bm11:4 bm25:4 bm25f:4	1
+https://www.exploit-db.com/exploits/42031	Microsoft Windows 7/2008 R2 - 'EternalBlue' SMB Remote Code Execution (MS17-010)	www.exploit-db.com			24734	jaccard:1 tfidf:3 vetorial:2 bm1:1 bm15:3 bm11:2 bm25:2 bm25f:2	1
+https://www.exploit-db.com/exploits/43970	Microsoft Windows - 'EternalRomance'/'EternalSynergy'/'EternalChampion' SMB Remote Code Execution (Metasploit) (MS17-010)	www.exploit-db.com			30281	jaccard:2 tfidf:2 vetorial:1 bm1:4 bm15:2 bm11:1 bm25:1 bm25f:1	1
+https://www.exploit-db.com/exploits/42030	Microsoft Windows 8/8.1/2012 R2 (x64) - 'EternalBlue' SMB Remote Code Execution (MS17-010)	www.exploit-db.com			24741	jaccard:3 tfidf:4 vetorial:3 bm1:2 bm15:4 bm11:3 bm25:3 bm25f:3	2
+https://www.exploit-db.com/exploits/47456	DOUBLEPULSAR - Payload Execution and Neutralization (Metasploit)	www.exploit-db.com			34251	jaccard:5 tfidf:5 vetorial:5 bm1:5 bm15:5 bm11:5 bm25:5 bm25f:5	5

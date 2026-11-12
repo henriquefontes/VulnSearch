@@ -1,0 +1,36 @@
+url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
+https://www.exploit-db.com/exploits/44205	Linux Kernel - 'BadIRET' Local Privilege Escalation	www.exploit-db.com			30198	jaccard:2 vetorial:1 bm15:5 bm11:1 bm25:1 bm25f:1	1
+https://www.exploit-db.com/exploits/45147	Linux Kernel - UDP Fragmentation Offset 'UFO' Privilege Escalation (Metasploit)	www.exploit-db.com			12708	tfidf:3 bm1:10 bm15:3 bm11:8 bm25:5 bm25f:7	3
+https://www.exploit-db.com/exploits/29714	Linux Kernel 2.6.17 - 'Sys_Tee' Local Privilege Escalation	www.exploit-db.com			9826	jaccard:5 vetorial:9 bm1:7 bm11:6 bm25:6 bm25f:6	5
+https://www.exploit-db.com/exploits/38559	Linux Kernel 3.3.5 - 'b43' Wireless Driver Privilege Escalation	www.exploit-db.com			20259	jaccard:1 vetorial:3 bm11:2 bm25:2 bm25f:2	1
+https://www.exploit-db.com/exploits/33395	Linux Kernel 2.6.x - Ext4 'move extents' ioctl Privilege Escalation	www.exploit-db.com			16094	jaccard:3 vetorial:2 bm11:3 bm25:3 bm25f:4	2
+https://www.exploit-db.com/exploits/33523	Linux Kernel < 2.6.28 - 'fasync_helper()' Local Privilege Escalation	www.exploit-db.com			39453	jaccard:6 vetorial:7 bm11:4 bm25:4 bm25f:3	3
+https://www.exploit-db.com/exploits/30604	Linux Kernel 2.6.x - Ptrace Privilege Escalation	www.exploit-db.com			29763	jaccard:10 bm11:9 bm25:8 bm25f:9	8
+https://www.exploit-db.com/exploits/17787	Linux Kernel < 2.6.36.2 (Ubuntu 10.04) - 'Half-Nelson.c' Econet Privilege Escalation	www.exploit-db.com			4137	tfidf:5 bm1:1 bm15:4	1
+https://www.exploit-db.com/exploits/33824	Linux Kernel 3.13 - SGID Privilege Escalation	www.exploit-db.com			29412	jaccard:4 bm11:7 bm25:10	4
+https://www.exploit-db.com/exploits/9844	Linux Kernel 2.4.1 < 2.4.37 / 2.6.1 < 2.6.32-rc5 - 'pipe.c' Local Privilege Escalation (3)	www.exploit-db.com			18241	jaccard:8 bm11:5 bm25:7	5
+https://www.exploit-db.com/exploits/52549	Linux nf_tables 6.19.3 - Local Privilege Escalation	www.exploit-db.com			22804	tfidf:1 bm15:2	1
+https://www.exploit-db.com/exploits/52550	Linux Kernel proc_readdir_de() 6.18-rc5 - Local Privilege Escalation	www.exploit-db.com			22810	tfidf:2 bm15:1	1
+https://www.exploit-db.com/exploits/40503	Linux Kernel 3.13.1 - 'Recvmmsg' Local Privilege Escalation (Metasploit)	www.exploit-db.com			6833	bm1:3 bm15:10	3
+https://www.exploit-db.com/exploits/40688	Linux Kernel (Ubuntu / Fedora / RedHat) - 'Overlayfs' Local Privilege Escalation (Metasploit)	www.exploit-db.com			8455	tfidf:6 bm1:5	5
+https://www.exploit-db.com/exploits/45058	Linux - BPF Sign Extension Local Privilege Escalation (Metasploit)	www.exploit-db.com			12716	tfidf:8 bm25f:5	5
+https://www.exploit-db.com/exploits/50135	Linux Kernel 2.6.19 < 5.9 - 'Netfilter Local Privilege Escalation	www.exploit-db.com			27491	tfidf:7 bm15:6	6
+https://www.exploit-db.com/exploits/41999	Linux Kernel 3.x (Ubuntu 14.04 / Mint 17.3 / Fedora 22) - Double-free usb-midi SMEP Privilege Escalation	www.exploit-db.com			24938	tfidf:10 bm15:7	7
+https://www.exploit-db.com/exploits/25202	Linux Kernel 2.6.x - 'SYS_EPoll_Wait' Local Integer Overflow / Local Privilege Escalation (1)	www.exploit-db.com			11291	bm1:8 bm15:9	8
+https://www.exploit-db.com/exploits/718	Linux Kernel < 2.6.7-rc3 (Slackware 9.1 / Debian 3.0) - 'sys_chown()' Group Ownership Alteration Privilege Escalation	www.exploit-db.com			42704	bm11:10 bm25:9	9
+https://www.exploit-db.com/exploits/14814	Linux Kernel < 2.6.36-rc1 (Ubuntu 10.04 / 2.6.32) - 'CAN BCM' Local Privilege Escalation	www.exploit-db.com			4377	bm1:2	2
+https://www.exploit-db.com/exploits/21248	User-Mode Linux (Linux Kernel 2.4.17-8) - Memory Access Privilege Escalation	www.exploit-db.com			42204	vetorial:4	4
+https://www.exploit-db.com/exploits/40435	Linux Kernel 4.6.3 (x86) - 'Netfilter' Local Privilege Escalation (Metasploit)	www.exploit-db.com			7359	bm1:4	4
+https://www.exploit-db.com/exploits/44806	Procps-ng - Multiple Vulnerabilities	www.exploit-db.com			19978	tfidf:4	4
+https://www.exploit-db.com/exploits/29683	Linux Kernel 2.6.x - Audit Subsystems Local Denial of Service	www.exploit-db.com			9610	vetorial:5	5
+https://www.exploit-db.com/exploits/38465	Linux Kernel 3.2.1 - Tracing Multiple Local Denial of Service Vulnerabilities	www.exploit-db.com			19665	vetorial:6	6
+https://www.exploit-db.com/exploits/44303	Linux Kernel 4.13 (Debian 9) - Local Privilege Escalation	www.exploit-db.com			8687	bm1:6	6
+https://www.exploit-db.com/exploits/40270	Watchguard Firewalls - 'ESCALATEPLOWMAN' ifconfig Privilege Escalation	www.exploit-db.com			8863	jaccard:7	7
+https://www.exploit-db.com/exploits/31585	Microsoft Windows XP/Vista/2000/2003/2008 Kernel - Usermode Callback Privilege Escalation (MS08-025) (1)	www.exploit-db.com			3108	vetorial:8	8
+https://www.exploit-db.com/exploits/40489	Linux Kernel 4.6.2 (Ubuntu 16.04.1) - 'IP6T_SO_SET_REPLACE' Local Privilege Escalation	www.exploit-db.com			6906	bm25f:8	8
+https://www.exploit-db.com/exploits/40759	Linux Kernel 4.4 (Ubuntu 16.04) - 'BPF' Local Privilege Escalation (Metasploit)	www.exploit-db.com			20235	bm15:8	8
+https://www.exploit-db.com/exploits/23674	Samba 2.2.8 (Linux Kernel 2.6 / Debian / Mandrake) - Share Privilege Escalation	www.exploit-db.com			12215	bm1:9	9
+https://www.exploit-db.com/exploits/29446	Grsecurity Kernel PaX - Local Privilege Escalation	www.exploit-db.com			10102	jaccard:9	9
+https://www.exploit-db.com/exploits/52386	Linux PAM Environment - Variable Injection Local Privilege Escalation	www.exploit-db.com			21589	tfidf:9	9
+https://www.exploit-db.com/exploits/36425	Linux Kernel 2.6.35 - Network Namespace Remote Denial of Service	www.exploit-db.com			7841	vetorial:10	10
+https://www.exploit-db.com/exploits/40504	Allwinner 3.4 Legacy Kernel - Local Privilege Escalation (Metasploit)	www.exploit-db.com			6842	bm25f:10	10

@@ -5,9 +5,103 @@ desenvolvido no trabalho da disciplina de Recuperação da Informação na Web e
 Sociais (PUC Minas). O projeto é feito em etapas:
 
 1. **Coleta** (concluída): coletor sobre o Katana; ver [Etapa 1](#etapa-1--coleta).
-2. **Representação e indexação** (atual): limpeza do HTML, análise léxica e índice
+2. **Representação e indexação** (concluída): limpeza do HTML, análise léxica e índice
    invertido; ver [Etapa 2](#etapa-2--indexação).
-3. Ranqueamento, interface de busca e avaliação (próximas etapas).
+3. **Ranqueamento** (atual): Jaccard, TF-IDF, modelo vetorial, BM1/BM15/BM11/BM25 e
+   BM25F; ver [Etapa 3](#etapa-3--ranqueamento).
+4. Interface de busca e avaliação (próximas etapas).
+
+## Etapa 3 — ranqueamento
+
+Ordena os resultados por relevância sobre o índice da etapa 2, sem alterar o formato dele:
+esta etapa só acrescenta dois arquivos em `indice/`. Os modelos são implementados no
+próprio projeto, sem bibliotecas de RI. As dependências são as mesmas (`selectolax` e
+`snowballstemmer`), e o `matplotlib` é opcional, só para os gráficos.
+
+### Como executar
+
+```
+# 1. estatísticas por documento (~30 s; o indexar.py já chama no final, salvo --sem-ranking)
+python preparar_ranking.py
+
+# 2. busca ranqueada
+python ranquear.py "sql injection wordpress"                 # BM25F, top 10
+python ranquear.py "buffer overflow" --modelo vetorial -k 20
+python ranquear.py "log4j" --modelo bm25 --k1 1.2 --b 0.75
+python ranquear.py "log4j" --modelo bm25f --peso-titulo 3 --peso-codigo 0.5
+python ranquear.py "CVE-2021-44228" --explicar               # parcelas de cada termo e campo
+python ranquear.py --comparar "remote code execution"        # top 10 dos 8 modelos lado a lado
+python ranquear.py                                           # modo interativo
+python buscar.py sql injection wordpress --ranking           # booleana, ordenada pelo BM25F
+
+# 3. testes (exemplos dos slides + consistência com o índice real, ~10 s)
+python indexar.py resultados/campos.jsonl.gz --passo 30 --saida indice_teste
+python testar_ranking.py                      # usa indice_teste/
+python testar_ranking.py --indice indice      # teste 11 no índice completo
+
+# 4. experimentos (~1,5 min) e gráficos
+python medir_ranking.py                       # tabelas em resultados_etapa3/
+python graficos.py --etapa3                   # PNG (requer matplotlib)
+
+# 5. avaliação (julgamentos feitos pelo grupo)
+python pool.py                                # julgamentos/pool_<id>.tsv, coluna 'relevante' vazia
+#    preencher 'relevante' com 0, 1 ou 2 em cada pool_<id>.tsv
+python avaliar.py --juntar                    # -> julgamentos/qrels.tsv
+python avaliar.py                             # P@10, MAP, nDCG@10 e busca em grade
+```
+
+No PowerShell, as aspas de uma frase passada como argumento se perdem. Use o modo
+interativo, em que a linha é lida como foi digitada, ou `--frase "denial of service"`.
+
+### Modelos e parâmetros (`ranquear.py --modelo`)
+
+| Modelo | Escore | Parâmetros |
+|---|---|---|
+| `jaccard` | \|q ∩ d\| / \|q ∪ d\| (conjuntos de termos) | `--peso-codigo` (α) |
+| `tfidf` | Σ w_q·w_d, w = (1 + log₂ tf)·log₂(N/n), sem normalização | `--tf log\|bruto`, α |
+| `vetorial` | cosseno com os esquemas 1, 2 e 3 de TF-IDF (padrão: 3) | `--esquema`, α |
+| `bm1`, `bm15`, `bm11`, `bm25` | família BM (BM25 com b = 0 é o BM15; com b = 1, o BM11) | `--k1` (1,2), `--b` (0,75), `--idf`, α |
+| `bm25f` (padrão) | BM25 com campos título, corpo e código | `--k1`, `--b`, `--peso-titulo` (2), `--peso-corpo` (1), `--peso-codigo` (1), `--idf` |
+
+- Nos modelos sem campos, termos de texto e de código são dimensões separadas:
+  escore = texto + α·código (`--peso-codigo`, padrão 1).
+- No BM25F, título e corpo são separados pela posição: o título vem primeiro no índice, e
+  `limite_titulo` marca onde ele acaba.
+- O IDF da família BM, log₂((N − n + 0,5)/(n + 0,5)), fica negativo quando n > N/2
+  (`cve`, `vulner`, `exploit`...). Por padrão ele é limitado a 0; `--idf log1p` usa
+  log₂(1 + ·) e `--idf bruto` usa a fórmula sem correção.
+- Candidatos são os documentos com ao menos um termo da consulta (união das listas). Só
+  entram no resultado os que têm escore > 0.
+- O top-k é escolhido com um min-heap de tamanho k (`ranqueamento.top_k`). Em caso de
+  empate, vence o menor id de documento.
+- Sintaxe da consulta: palavras soltas, `"frase"` (filtro por posição), `-palavra` ou
+  `NOT palavra` (exclusão) e `codigo:termo` (só no código).
+
+### Arquivos
+
+| Arquivo | Função |
+|---|---|
+| `ranqueamento.py` | fórmulas (funções separadas), `top_k`, `Colecao`, `ProcessadorConsulta`, `Ranqueador` |
+| `preparar_ranking.py` | limite do título e passada única sobre as ocorrências; grava as estatísticas e confere o título |
+| `ranquear.py` | linha de comando: busca, `--explicar`, `--comparar`, modo interativo |
+| `testar_ranking.py` | exemplos dos slides 07, 08 e 09 em índices em memória; consistência com o índice real |
+| `medir_ranking.py` | custo, sobreposição entre modelos, sensibilidade de K₁/b, pesos do BM25F, α, variantes do IDF, exemplos |
+| `consultas.tsv` | as 20 consultas dos experimentos (id, tipo, consulta) |
+| `pool.py`, `avaliar.py` | *pooling* para os julgamentos; P@10, MAP, nDCG@10 e busca em grade |
+| `julgamentos/` | `pool_<id>.tsv` (a preencher pelo grupo) e `qrels.tsv` |
+| `resultados_etapa3/` | tabelas (CSV/Markdown), gráficos (PNG) e `resumo.json` |
+
+### Arquivos novos em `indice/`
+
+- `documentos_ranking.bin` (4,4 MB): um registro de tamanho fixo por documento
+  (`<6I6d>`, little-endian, precedido do N em 4 bytes). Campos: `limite_titulo`,
+  `n_titulo`, `n_corpo`, `n_codigo`, `distintos_texto`, `distintos_codigo` e
+  `norma2_{texto,codigo}_e{1,2,3}` (soma dos quadrados dos pesos de cada esquema). A
+  ordem das colunas está em `colecao.json`. Com `preparar_ranking.py --formato tsv`, sai
+  um TSV equivalente (7,0 MB, leitura 4× mais lenta).
+- `colecao.json`: N, base do log, esquemas, médias de tamanho por campo (sobre os
+  documentos que têm o campo), nº de documentos com cada campo, tempos, pico de memória
+  e resultado das verificações.
 
 ## Etapa 2 — indexação
 

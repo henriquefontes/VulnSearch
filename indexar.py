@@ -7,6 +7,8 @@
 #                       variações podem ler campos.jsonl.gz no lugar do corpus
 #                       e pular a extração do HTML
 #   python indexar.py --help                   todas as opções
+#   Ao final, roda o pré-processamento do ranqueamento (preparar_ranking.py,
+#   etapa 3) na granularidade 'documento' com posições; --sem-ranking pula.
 #
 # Etapas (os tempos de cada uma vão para estatisticas.json):
 #   1. leitura do corpus em streaming (gzip + JSON, linha a linha)
@@ -386,6 +388,8 @@ def argumentos(lista=None):
                    help=f"maior token aceito no código (padrão: {lexico.TAM_MAX_CODIGO}; 0 = sem limite)")
     p.add_argument("--salvar-campos", metavar="ARQ",
                    help="grava os campos extraídos em ARQ (.jsonl.gz) para reuso")
+    p.add_argument("--sem-ranking", action="store_true",
+                   help="não roda o pré-processamento do ranqueamento (preparar_ranking.py)")
     return p.parse_args(lista)
 
 
@@ -408,6 +412,14 @@ def main():
           f"{m['ocorrencias']:.1f}, documentos {m['documentos']:.1f}) = "
           f"{e['indice_pct_texto'] or 0:.1f}% do texto extraído ({e['texto_mb']:.1f} MB)")
     print(f"Gravado em {args.saida}{os.sep}")
+    if not args.sem_ranking and args.granularidade == "documento" and not args.sem_posicoes:
+        from preparar_ranking import CAMPOS_PADRAO, preparar
+        fonte = args.salvar_campos or (CAMPOS_PADRAO if os.path.exists(CAMPOS_PADRAO)
+                                       else args.entrada)
+        m = preparar(args.saida, fonte)
+        v = m["verificacao"]
+        print(f"Ranqueamento: estatísticas em {m['tempos_s']['total']} s; limite do título "
+              f"{v['amostra_titulo_iguais']}/{v['amostra_titulo']} conferidos")
 
 
 if __name__ == "__main__":

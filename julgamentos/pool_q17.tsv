@@ -1,0 +1,60 @@
+url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
+https://www.exploit-db.com/exploits/39831	Adobe Flash - SetNative Use-After-Free	www.exploit-db.com			37932	bm11:1 bm25:8 bm25f:10	1
+https://www.exploit-db.com/exploits/46246	Lua 5.3.5 - 'debug.upvaluejoin' Use After Free	www.exploit-db.com			37480	bm15:8 bm25:1 bm25f:1	1
+https://www.exploit-db.com/exploits/37865	Adobe Flash - attachMovie Use-After-Free	www.exploit-db.com			9232	bm11:2 bm25:5 bm25f:6	2
+https://www.exploit-db.com/exploits/39055	Adobe Flash MovieClip.attachMovie - Use-After-Free	www.exploit-db.com			34555	bm11:3 bm25:6 bm25f:7	3
+https://www.exploit-db.com/exploits/40308	Adobe Flash - Stage.align Setter Use-After-Free	www.exploit-db.com			8500	bm11:6 bm25:3 bm25f:5	3
+https://cwe.mitre.org/data/definitions/416.html	CWE-416: Use After Free	cwe.mitre.org			1090	tfidf:1 bm25f:2	1
+https://www.exploit-db.com/exploits/41422	Adobe Flash - Use-After-Free in Applying Bitmap Filter	www.exploit-db.com			36917	jaccard:1 bm11:4	1
+https://www.exploit-db.com/exploits/46356	Android - binder Use-After-Free via fdget() Optimization	www.exploit-db.com			40504	tfidf:5 bm15:1	1
+https://www.exploit-db.com/exploits/38123	PHP Session Deserializer - Use-After-Free	www.exploit-db.com			28208	bm25:2 bm25f:3	2
+https://github.com/advisories/GHSA-xphw-cqx3-667j	thin-vec: Use-After-Free and Double Free in IntoIter::drop When Element Drop Panics	github.com			45600	tfidf:4 bm15:3	3
+https://www.exploit-db.com/exploits/41609	Adobe Flash - MovieClip Attach init Object Use-After-Free	www.exploit-db.com			38249	jaccard:3 bm11:10	3
+https://www.exploit-db.com/exploits/39072	Adobe Flash Sound.setTransform - Use-After-Free	www.exploit-db.com			34432	bm25:4 bm25f:4	4
+https://www.exploit-db.com/exploits/38121	PHP GMP - 'unserialize()' Use-After-Free	www.exploit-db.com			28220	bm25:7 bm25f:9	7
+https://www.exploit-db.com/exploits/39054	Adobe Flash TextField.tabIndex Setter - Use-After-Free	www.exploit-db.com			34562	bm11:8 bm25:10	8
+https://www.exploit-db.com/exploits/39779	Adobe Flash - MovieClip.duplicateMovieClip Use-After-Free	www.exploit-db.com			38219	jaccard:8 bm11:9	8
+https://www.exploit-db.com/exploits/38265	Microsoft Windows Kernel - Bitmap Handling Use-After-Free (MS15-061) (2)	www.exploit-db.com			20133	vetorial:10 bm25:9	9
+https://www.exploit-db.com/exploits/24495	Microsoft Internet Explorer - SLayoutRun Use-After-Free (MS13-009) (Metasploit) (1)	www.exploit-db.com			2367	bm1:1	1
+https://www.rapid7.com/db/vulnerabilities/cve-2026-56960/	CVE-2026-56960: Use After Free	www.rapid7.com			59691	vetorial:1	1
+https://cwe.mitre.org/data/definitions/1000.html	CWE-1000: Research Concepts	cwe.mitre.org			4	tfidf:2	2
+https://github.com/advisories/GHSA-q95x-7g78-rccv	OneRingBuf has a Use After Free Vulnerability	github.com			50944	jaccard:2	2
+https://www.exploit-db.com/exploits/18014	Opera 11.51 - Use-After-Free Crash (PoC)	www.exploit-db.com			2532	bm1:2	2
+https://www.exploit-db.com/exploits/47416	Microsoft Windows - BlueKeep RDP Remote Windows Kernel Use After Free (Metasploit)	www.exploit-db.com			34031	bm15:2	2
+https://www.rapid7.com/db/vulnerabilities/cve-2026-91816/	CVE-2026-91816: Use After Free	www.rapid7.com			62909	vetorial:2	2
+https://cwe.mitre.org/data/definitions/415.html	CWE-415: Double Free	cwe.mitre.org			1088	tfidf:3	3
+https://www.exploit-db.com/exploits/17964	IRAI AUTOMGEN 8.0.0.7 - Use-After-Free	www.exploit-db.com			2705	bm1:3	3
+https://www.rapid7.com/db/vulnerabilities/cve-2026-84593/	CVE-2026-84593: Use After Free	www.rapid7.com			63765	vetorial:3	3
+https://github.com/advisories/GHSA-fpvf-frm6-625q	ImageMagick has Heap Use-After-Free in ImageMagick MSL decoder	github.com			51769	jaccard:4	4
+https://www.exploit-db.com/exploits/18078	Microsoft Excel 2003 11.8335.8333 - Use-After-Free	www.exploit-db.com			3042	bm1:4	4
+https://www.exploit-db.com/exploits/46503	Android - binder Use-After-Free via racy Initialization of ->allow_user_free	www.exploit-db.com			9724	bm15:4	4
+https://www.rapid7.com/db/vulnerabilities/cve-2026-56914/	CVE-2026-56914: Use After Free	www.rapid7.com			61800	vetorial:4	4
+https://github.com/advisories/GHSA-2gq3-ww97-wfjm	ImageMagick has a possible heap Use After Free vulnerability in its meta coder	github.com			47164	jaccard:5	5
+https://www.exploit-db.com/exploits/17836	Equis MetaStock 11 - Use-After-Free	www.exploit-db.com			3734	bm1:5	5
+https://www.exploit-db.com/exploits/39056	Adobe Flash MovieClip.localToGlobal - Use-After-Free	www.exploit-db.com			34548	bm11:5	5
+https://www.exploit-db.com/exploits/45480	WebKit - 'WebCore::SVGAnimateElementBase::resetAnimatedType' Use-After-Free	www.exploit-db.com			33876	bm15:5	5
+https://www.rapid7.com/db/vulnerabilities/cve-2026-91806/	CVE-2026-91806: Use After Free	www.rapid7.com			62900	vetorial:5	5
+https://cwe.mitre.org/data/definitions/672.html	CWE-672: Operation on a Resource after Expiration or Release	cwe.mitre.org			860	tfidf:6	6
+https://www.exploit-db.com/exploits/14156	Microsoft Windows Vista/2008 - NtUserCheckAccessForIntegrityLevel Use-After-Free	www.exploit-db.com			4862	bm1:6	6
+https://www.exploit-db.com/exploits/39221	Adobe Flash - Use-After-Free When Setting Stage	www.exploit-db.com			34920	jaccard:6	6
+https://www.exploit-db.com/exploits/46892	Apple macOS < 10.14.5 / iOS < 12.3 XNU - 'in6_pcbdetach' Stale Pointer Use-After-Free	www.exploit-db.com			14149	bm15:6	6
+https://www.rapid7.com/db/vulnerabilities/cve-2026-97504/	CVE-2026-97504: Undefined Security Weakness	www.rapid7.com			54739	vetorial:6	6
+https://cwe.mitre.org/data/definitions/1400.html	CWE-1400: Comprehensive Categorization for Software Assurance Trends	cwe.mitre.org			568	tfidf:7	7
+https://www.exploit-db.com/exploits/18377	Mozilla Firefox 3.6.16 (OSX) - mChannel Use-After-Free (Metasploit) (2)	www.exploit-db.com			5007	bm1:7	7
+https://www.exploit-db.com/exploits/37873	Adobe Flash - createTextField Use-After-Free	www.exploit-db.com			9171	bm11:7	7
+https://www.exploit-db.com/exploits/38796	Microsoft Windows Kernel - Device Contexts and NtGdiSelectBitmap Use-After-Free (MS15-115)	www.exploit-db.com			41093	jaccard:7	7
+https://www.exploit-db.com/exploits/46474	Google Chrome < M72 - Use-After-Free in RenderProcessHostImpl Binding for P2PSocketDispatcherHost	www.exploit-db.com			9918	bm15:7	7
+https://www.rapid7.com/db/vulnerabilities/cve-2026-91809/	CVE-2026-91809: Use After Free	www.rapid7.com			62902	vetorial:7	7
+https://cwe.mitre.org/data/definitions/888.html	CWE-888: Software Fault Pattern (SFP) Clusters	cwe.mitre.org			395	tfidf:8	8
+https://www.exploit-db.com/exploits/17672	Mozilla Firefox 3.6.16 (Windows 7) - mChannel Object Use-After-Free	www.exploit-db.com			5107	bm1:8	8
+https://www.exploit-db.com/exploits/38125	PHP 5.4/5.5/5.6 - 'Unserialize()' Use-After-Free	www.exploit-db.com			28195	bm25f:8	8
+https://www.rapid7.com/db/vulnerabilities/cve-2026-58751/	CVE-2026-58751: Use After Free	www.rapid7.com			60319	vetorial:8	8
+https://cwe.mitre.org/data/definitions/763.html	CWE-763: Release of Invalid Pointer or Reference	cwe.mitre.org			1144	tfidf:9	9
+https://github.com/advisories/GHSA-8mv7-9c27-98vc	Astro: composable `astro/hono` pipeline bypasses `security.checkOrigin` when `middleware()` is absent or misordered	github.com			51885	jaccard:9	9
+https://www.exploit-db.com/exploits/17650	Mozilla Firefox 3.6.16 (Windows) - mChannel Use-After-Free (Metasploit) (1)	www.exploit-db.com			5247	bm1:9	9
+https://www.exploit-db.com/exploits/45485	WebKit - 'WebCore::SVGTRefElement::updateReferencedText' Use-After-Free	www.exploit-db.com			41179	bm15:9	9
+https://www.rapid7.com/db/vulnerabilities/cve-2026-91792/	CVE-2026-91792: Use After Free	www.rapid7.com			56064	vetorial:9	9
+https://cwe.mitre.org/data/definitions/1305.html	CWE-1305: CISQ Quality Measures (2020)	cwe.mitre.org			1372	tfidf:10	10
+https://www.exploit-db.com/exploits/27429	Mozilla Firefox - onreadystatechange Event DocumentViewerImpl Use-After-Free (Metasploit)	www.exploit-db.com			6133	bm1:10	10
+https://www.exploit-db.com/exploits/39027	win32k Clipboard Bitmap - Use-After-Free	www.exploit-db.com			34723	jaccard:10	10
+https://www.exploit-db.com/exploits/40931	Apple macOS 10.12 16A323 XNU Kernel / iOS 10.1.1 - 'set_dp_control_port' Lack of Locking Use-After-Free	www.exploit-db.com			25774	bm15:10	10

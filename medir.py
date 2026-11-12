@@ -63,7 +63,8 @@ def roda(args, log):
     print("  $ indexar.py " + " ".join(args), flush=True)
     t = time.perf_counter()
     with open(log, "w", encoding="utf-8") as f:
-        r = subprocess.run([PY, "indexar.py"] + args, stdout=f, stderr=subprocess.STDOUT)
+        r = subprocess.run([PY, "indexar.py", "--sem-ranking"] + args, stdout=f,
+                           stderr=subprocess.STDOUT)
     if r.returncode:
         sys.exit(f"Falhou (veja {log})")
     print(f"    {time.perf_counter() - t:.0f} s", flush=True)

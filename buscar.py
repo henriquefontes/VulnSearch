@@ -10,7 +10,9 @@
 #   codigo:strcpy          só no campo código (sem stemming)
 #   cve-2021-44228         identificadores, versões e pacotes são termos inteiros
 # Uma palavra comum é buscada no texto (com stemming) OU no código.
-# Os resultados saem na ordem dos documentos: o ranqueamento é a próxima etapa.
+# Os resultados saem na ordem dos documentos. Com --ranking [MODELO], os
+# documentos que casam com a consulta booleana são ordenados pelo modelo
+# (padrão: bm25f; requer o preparar_ranking.py da etapa 3).
 import argparse
 import re
 import sys
@@ -142,14 +144,21 @@ class Buscador:
         return resultado
 
 
-def mostra(buscador, consulta, n):
+def mostra(buscador, consulta, n, ranqueador=None, modelo=None):
     t = time.perf_counter()
     docs = buscador.busca(consulta)
+    escores = None
+    if ranqueador is not None:
+        from ranqueamento import top_k
+        todos = ranqueador.escores(consulta, modelo)
+        escores = {d: todos.get(d, 0.0) for d in docs}
+        docs = [d for d, _ in top_k(escores, len(docs))]
     ms = (time.perf_counter() - t) * 1000
     print(f"{len(docs)} documentos ({ms:.1f} ms)")
     for d in docs[:n]:
         doc = buscador.ind.documentos[d]
-        print(f"  [{d}] {doc['site']}  {doc['titulo'][:90]}\n        {doc['url']}")
+        esc = f"{escores[d]:.4f}  " if escores is not None else ""
+        print(f"  [{d}] {esc}{doc['site']}  {doc['titulo'][:90]}\n        {doc['url']}")
     if len(docs) > n:
         print(f"  ... e mais {len(docs) - n}")
 
@@ -161,13 +170,19 @@ def main():
     p.add_argument("consulta", nargs="*")
     p.add_argument("--indice", default="indice")
     p.add_argument("-n", type=int, default=10, help="resultados mostrados (padrão: 10)")
+    p.add_argument("--ranking", nargs="?", const="bm25f", metavar="MODELO",
+                   help="ordena os resultados pelo modelo (padrão: bm25f)")
     a = p.parse_args()
     t = time.perf_counter()
     buscador = Buscador(a.indice)
     print(f"Índice carregado: {len(buscador.ind.vocabulario)} termos, "
           f"{len(buscador.ind.documentos)} documentos ({time.perf_counter() - t:.1f} s)")
+    ranqueador = None
+    if a.ranking:
+        from ranqueamento import Colecao, Ranqueador
+        ranqueador = Ranqueador(buscador.ind, Colecao.carrega(a.indice))
     if a.consulta:
-        mostra(buscador, " ".join(a.consulta), a.n)
+        mostra(buscador, " ".join(a.consulta), a.n, ranqueador, a.ranking)
         return
     while True:
         try:
@@ -176,7 +191,7 @@ def main():
             break
         if not consulta:
             break
-        mostra(buscador, consulta, a.n)
+        mostra(buscador, consulta, a.n, ranqueador, a.ranking)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,21 @@
+id	tipo	consulta
+q01	identificador	CVE-2021-44228
+q02	identificador	MS17-010
+q03	identificador	CWE-79
+q04	identificador	SA-CORE-2018-002
+q05	produto+falha	sql injection wordpress plugin
+q06	produto+falha	remote code execution apache struts
+q07	produto+falha	cross site scripting drupal
+q08	produto+falha	joomla sql injection
+q09	produto+falha	buffer overflow windows smb
+q10	produto+falha	openssh vulnerability
+q11	produto+falha	privilege escalation linux kernel
+q12	conceito	log4j
+q13	conceito	path traversal
+q14	conceito	java deserialization
+q15	conceito	denial of service
+q16	conceito	csrf token bypass
+q17	conceito	use after free
+q18	codigo	strcpy stack overflow
+q19	codigo	codigo:shellcode
+q20	codigo	codigo:system

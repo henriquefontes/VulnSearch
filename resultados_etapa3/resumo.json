@@ -1,0 +1,51 @@
+{
+  "indice": "indice",
+  "consultas": 20,
+  "repeticoes": 5,
+  "carga_s": 0.674,
+  "memoria_pico_mb": 412.9140625,
+  "memoria_apos_carga_mb": 253.109375,
+  "latencia_ms_media": {
+    "jaccard": 37.67,
+    "tfidf": 44.47,
+    "vetorial": 46.02,
+    "bm1": 37.77,
+    "bm15": 40.12,
+    "bm11": 41.27,
+    "bm25": 43.0,
+    "bm25f": 62.97
+  },
+  "heap_sorted": [
+    {
+      "consulta": "exploit",
+      "candidatos": 50304,
+      "heap_ms": 5.57,
+      "sorted_ms": 20.01
+    },
+    {
+      "consulta": "vulnerability",
+      "candidatos": 59469,
+      "heap_ms": 6.58,
+      "sorted_ms": 24.01
+    },
+    {
+      "consulta": "cve",
+      "candidatos": 62311,
+      "heap_ms": 6.91,
+      "sorted_ms": 23.05
+    },
+    {
+      "consulta": "remote code execution",
+      "candidatos": 42142,
+      "heap_ms": 4.67,
+      "sorted_ms": 17.56
+    },
+    {
+      "consulta": "sql injection",
+      "candidatos": 15623,
+      "heap_ms": 1.72,
+      "sorted_ms": 5.74
+    }
+  ],
+  "tempo_total_s": 83.3
+}

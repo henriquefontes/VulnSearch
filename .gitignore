@@ -42,3 +42,7 @@ resultados/logs/
 # relatório de passagem da etapa 2 e seu pacote (uso interno do grupo)
 RESULTADOS_ETAPA2.md
 resultados_etapa2.zip
+
+# etapa 3: índice de teste (indexar.py --passo 30 --saida indice_teste)
+indice_teste/
+RESULTADOS_ETAPA3.md

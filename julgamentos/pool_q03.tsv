@@ -1,0 +1,34 @@
+url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
+https://github.com/advisories/GHSA-75mw-h36v-2jv7	Dosage Vulnerable to Stored Cross-Site Scripting (XSS) in HTML/RSS Output Handlers	github.com			50645	jaccard:6 tfidf:6 bm1:1 bm15:1 bm11:7 bm25:2 bm25f:7	1
+https://www.exploit-db.com/exploits/16975	SmarterMail 8.0 - Multiple Cross-Site Scripting Vulnerabilities	www.exploit-db.com			26105	tfidf:9 vetorial:1 bm15:9 bm11:1 bm25:1 bm25f:1	1
+https://www.exploit-db.com/exploits/16955	SmarterMail 7.3/7.4 - Multiple Vulnerabilities	www.exploit-db.com			26194	tfidf:10 vetorial:4 bm15:10 bm11:6 bm25:3 bm25f:2	2
+https://www.exploit-db.com/exploits/26624	OpenX 2.8.10 - Multiple Vulnerabilities	www.exploit-db.com			5811	tfidf:4 vetorial:2 bm1:7 bm15:5 bm25:6 bm25f:6	2
+https://www.exploit-db.com/exploits/51713	SPA-Cart eCommerce CMS 1.9.0.3 - Reflected XSS	www.exploit-db.com			41273	jaccard:5 vetorial:7 bm11:2 bm25:4 bm25f:3	2
+https://www.exploit-db.com/exploits/31425	D-Link DIR-100 - Multiple Vulnerabilities	www.exploit-db.com			3119	tfidf:7 vetorial:8 bm1:2 bm15:7	2
+https://www.exploit-db.com/exploits/50759	Fortinet Fortimail 7.0.1 - Reflected Cross-Site Scripting (XSS)	www.exploit-db.com			18569	jaccard:3 bm11:3 bm25:5 bm25f:4	3
+https://www.exploit-db.com/exploits/47184	WordPress Theme Real Estate 2.8.9 - Cross-Site Scripting	www.exploit-db.com			13475	vetorial:6 bm11:5 bm25:8 bm25f:9	5
+https://www.exploit-db.com/exploits/51074	Webgrind 1.1 - Reflected Cross-Site Scripting (XSS) & Remote Command Execution (RCE)	www.exploit-db.com			11836	vetorial:9 bm11:8 bm25:9 bm25f:10	8
+https://www.exploit-db.com/exploits/51103	Online shopping system advanced 1.0 - Multiple Vulnerabilities	www.exploit-db.com			11699	tfidf:2 vetorial:3 bm15:3	2
+https://www.exploit-db.com/exploits/49122	Best Support System 3.0.4 - 'ticket_body' Persistent XSS (Authenticated)	www.exploit-db.com			37272	bm11:4 bm25:7 bm25f:8	4
+https://www.exploit-db.com/exploits/44039	Dell EMC Isilon OneFS - Multiple Vulnerabilities	www.exploit-db.com			29872	tfidf:1 bm15:2	1
+https://www.exploit-db.com/exploits/40065	OpenFire 3.10.2 < 4.0.1 - Multiple Vulnerabilities	www.exploit-db.com			34286	tfidf:3 bm15:4	3
+https://www.exploit-db.com/exploits/44166	Trend Micro Email Encryption Gateway 5.5 (Build 1111.00) - Multiple Vulnerabilities	www.exploit-db.com			29970	tfidf:5 bm15:6	5
+https://www.exploit-db.com/exploits/51702	Academy LMS 6.1 - Arbitrary File Upload	www.exploit-db.com			41214	vetorial:5 bm11:10	5
+https://www.exploit-db.com/exploits/45533	D-Link Central WiFiManager Software Controller 1.03 - Multiple Vulnerabilities	www.exploit-db.com			16890	tfidf:8 bm15:8	8
+https://www.exploit-db.com/exploits/48682	WordPress Theme NexosReal Estate 1.7 - 'search_order' SQL Injection	www.exploit-db.com			43779	bm11:9 bm25:10	9
+https://www.rapid7.com/db/vulnerabilities/cve-2026-73192/	CVE-2026-73192: Improper Neutralization of Input During Web Page Generation	www.rapid7.com			61945	jaccard:1	1
+https://www.rapid7.com/db/vulnerabilities/cve-2026-18872/	CVE-2026-18872: Improper Neutralization of Input During Web Page Generation	www.rapid7.com			59005	jaccard:2	2
+https://www.exploit-db.com/exploits/17766	NetSaro Enterprise Messenger 2.0 - Multiple Vulnerabilities	www.exploit-db.com			4301	bm1:3	3
+https://www.exploit-db.com/exploits/31174	Joomla! Component Komento 1.7.2 - Persistent Cross-Site Scripting	www.exploit-db.com			5093	bm1:4	4
+https://www.rapid7.com/db/vulnerabilities/cve-2026-73169/	CVE-2026-73169: Improper Neutralization of Input During Web Page Generation	www.rapid7.com			61896	jaccard:4	4
+https://cwe.mitre.org/data/definitions/79.html	CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')	cwe.mitre.org			735	bm25f:5	5
+https://www.exploit-db.com/exploits/18447	MailEnable Webmail - Cross-Site Scripting	www.exploit-db.com			5527	bm1:5	5
+https://www.exploit-db.com/exploits/17586	ManageEngine ServiceDesk Plus 8.0 Build 8013 - Multiple Cross-Site Scripting Vulnerabilities	www.exploit-db.com			5703	bm1:6	6
+https://github.com/advisories/GHSA-pw6f-3999-xp7g	Drupal core allows Cross-Site Scripting (XSS)	github.com			52729	jaccard:7	7
+https://github.com/advisories/GHSA-2887-f3v6-6rjf	Alkacon OpenCms is vulnerable to XSS via updateModelGroups.jsp	github.com			46586	jaccard:8	8
+https://www.exploit-db.com/exploits/26623	Kasseler CMS 2 r1223 - Multiple Vulnerabilities	www.exploit-db.com			5820	bm1:8	8
+https://github.com/advisories/GHSA-8gpv-c454-3hfc	Alkacon OpenCms is vulnerable to XSS via cmis-online/type	github.com			46585	jaccard:9	9
+https://www.exploit-db.com/exploits/27406	McAfee SuperScan 4.0 - Cross-Site Scripting	www.exploit-db.com			5935	bm1:9	9
+https://github.com/advisories/GHSA-h4hv-92pp-pcjg	CyberChef has a Cross-site Scripting issue	github.com			48724	jaccard:10	10
+https://www.exploit-db.com/exploits/27431	BigTree CMS 4.0 RC2 - Multiple Vulnerabilities	www.exploit-db.com			6148	bm1:10	10
+https://www.exploit-db.com/exploits/47289	Neo Billing 3.5 - Persistent Cross-Site Scripting	www.exploit-db.com			13760	vetorial:10	10

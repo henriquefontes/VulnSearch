@@ -8,6 +8,12 @@
 #   etapas.png         % de vocabulário, postings e tokens após cada etapa
 #   variacoes.png      tamanho do índice em cada variação, por arquivo
 #   codigo_limite.png  vocabulário do código x limite de tamanho de token
+# Com --etapa3, gera em resultados_etapa3/ (a partir de medir_ranking.py):
+#   latencia_modelos.png   latência média por modelo
+#   heap_sorted.png        top-k com min-heap × sorted
+#   sobreposicao.png       sobreposição do top-10 entre modelos (mapa de calor)
+#   tamanho_top10.png      tamanho médio dos documentos no top-10 de cada modelo
+#   sensibilidade_bm25.png sobreposição com o padrão para K₁ × b (mapa de calor)
 import argparse
 import csv
 import math
@@ -32,7 +38,7 @@ plt.rcParams.update({
     "grid.color": GRADE, "grid.linewidth": 0.8, "axes.spines.top": False,
     "axes.spines.right": False, "font.size": 10, "axes.titlesize": 11,
     "axes.titleweight": "bold", "axes.titlelocation": "left", "legend.frameon": False,
-    "lines.linewidth": 2,
+    "lines.linewidth": 2, "axes.axisbelow": True,
 })
 
 
@@ -168,11 +174,135 @@ def grafico_codigo(res):
     salva(fig, res, "codigo_limite.png")
 
 
+# ------------------------------------------------------------------ etapa 3
+def _mapa_calor(ax, matriz, rotulos_x, rotulos_y, fmt="{:.2f}"):
+    from matplotlib.colors import LinearSegmentedColormap
+    cmap = LinearSegmentedColormap.from_list("seq", ["#eef4fc", AZUL, "#0d3d75"])
+    vmin = math.floor(10 * min(min(l) for l in matriz)) / 10  # escala a partir do menor valor
+    im = ax.imshow(matriz, cmap=cmap, vmin=vmin, vmax=1, aspect="auto")
+    ax.set_xticks(range(len(rotulos_x)), rotulos_x)
+    ax.set_yticks(range(len(rotulos_y)), rotulos_y)
+    ax.grid(False)
+    for i, linha in enumerate(matriz):
+        for j, v in enumerate(linha):
+            ax.text(j, i, fmt.format(v), ha="center", va="center", fontsize=8,
+                    color="#ffffff" if (v - vmin) / (1 - vmin) > 0.4 else TINTA)
+    for lado in ax.spines.values():
+        lado.set_visible(False)
+    return im
+
+
+def grafico_latencia(res):
+    linhas = le_csv(os.path.join(res, "custo_modelos.csv"))
+    nomes = [l["modelo"] for l in linhas]
+    media = [float(l["ms média"]) for l in linhas]
+    mediana = [float(l["ms mediana (das medianas)"]) for l in linhas]
+    fig, ax = plt.subplots(figsize=(7, 3.8))
+    y = range(len(nomes))
+    ax.barh([i + 0.2 for i in y], media, height=0.38, color=AZUL, label="média")
+    ax.barh([i - 0.2 for i in y], mediana, height=0.38, color=LARANJA, label="mediana")
+    for i, v in enumerate(media):
+        ax.annotate(f"{v:.0f}", (v, i + 0.2), xytext=(3, 0), textcoords="offset points",
+                    va="center", fontsize=8, color=TINTA2)
+    ax.set_yticks(list(y), nomes)
+    ax.invert_yaxis()
+    ax.set_xlabel("ms por consulta (20 consultas, 5 repetições)")
+    ax.set_title("Latência por modelo", pad=22)
+    ax.grid(axis="y", visible=False)
+    ax.set_xlim(0, max(media) * 1.1)
+    ax.legend(loc="lower left", bbox_to_anchor=(0, 1.0), ncol=2, fontsize=9)
+    salva(fig, res, "latencia_modelos.png")
+
+
+def grafico_heap(res):
+    linhas = le_csv(os.path.join(res, "heap_sorted.csv"))
+    rot = [f"{l['consulta']}\n(N = {int(l['candidatos (N)']):,})".replace(",", ".")
+           for l in linhas]
+    h = [float(l["min-heap ms"]) for l in linhas]
+    s_ = [float(l["sorted ms"]) for l in linhas]
+    fig, ax = plt.subplots(figsize=(7.5, 3.8))
+    x = range(len(rot))
+    ax.bar([i - 0.2 for i in x], h, width=0.38, color=AZUL, label="min-heap (O(N log k))")
+    ax.bar([i + 0.2 for i in x], s_, width=0.38, color=LARANJA, label="sorted (O(N log N))")
+    for i, (a, b) in enumerate(zip(h, s_)):
+        ax.annotate(f"{b / a:.1f}×", (i + 0.2, b), xytext=(0, 3), textcoords="offset points",
+                    ha="center", fontsize=8, color=TINTA2)
+    ax.set_xticks(list(x), rot, fontsize=8)
+    ax.set_ylabel("ms para selecionar o top-10")
+    ax.set_title("Seleção do top-k: min-heap × ordenação completa")
+    ax.grid(axis="x", visible=False)
+    ax.legend(loc="upper right")
+    salva(fig, res, "heap_sorted.png")
+
+
+def grafico_sobreposicao(res):
+    linhas = le_csv(os.path.join(res, "sobreposicao.csv"))
+    nomes = [l["modelo"] for l in linhas]
+    matriz = [[float(l[n]) for n in nomes] for l in linhas]
+    fig, ax = plt.subplots(figsize=(6, 5))
+    _mapa_calor(ax, matriz, nomes, nomes)
+    ax.set_title("Sobreposição média do top-10 entre modelos")
+    ax.tick_params(axis="x", rotation=45)
+    salva(fig, res, "sobreposicao.png")
+
+
+def grafico_tamanho(res):
+    linhas = le_csv(os.path.join(res, "perfil_top10.csv"))
+    nomes = [l["modelo"] for l in linhas]
+    texto = [float(l["termos de texto (média)"]) for l in linhas]
+    cod = [float(l["termos de código (média)"]) for l in linhas]
+    fig, ax = plt.subplots(figsize=(7, 4))
+    y = list(range(len(nomes)))
+    ax.barh(y, texto, height=0.6, color=AZUL, label="texto")
+    ax.barh(y, cod, left=[t + 15 for t in texto], height=0.6, color=LARANJA,
+            label="código")  # +15: espaço entre os segmentos
+    for i, (t, c) in enumerate(zip(texto, cod)):
+        ax.annotate(f"{t + c:.0f}", (t + c + 15, i), xytext=(3, 0), textcoords="offset points",
+                    va="center", fontsize=8, color=TINTA2)
+    ax.set_yticks(y, nomes)
+    ax.invert_yaxis()
+    ax.set_xlabel("termos indexados por documento (média do top-10, 20 consultas)")
+    ax.set_title("Tamanho dos documentos no top-10: TF-IDF e BM15 favorecem os longos")
+    ax.grid(axis="y", visible=False)
+    ax.legend(loc="lower right")
+    salva(fig, res, "tamanho_top10.png")
+
+
+def grafico_sensibilidade(res):
+    linhas = le_csv(os.path.join(res, "sensibilidade_bm25.csv"))
+    k1s = sorted({l["K1"] for l in linhas}, key=float)
+    bs = sorted({l["b"] for l in linhas}, key=float)
+    v = {(l["K1"], l["b"]): float(l["sobreposição com K1=1,2 b=0,75"]) for l in linhas}
+    fig, ax = plt.subplots(figsize=(6, 4))
+    _mapa_calor(ax, [[v[(k, b)] for b in bs] for k in k1s], bs, k1s)
+    ax.set_xlabel("b  (0 = BM15, 1 = BM11)")
+    ax.set_ylabel("K₁")
+    ax.set_title("BM25: sobreposição do top-10 com K₁ = 1,2 e b = 0,75")
+    salva(fig, res, "sensibilidade_bm25.png")
+
+
+def etapa3(res):
+    print("Gráficos da etapa 3:")
+    for nome, f in (("custo_modelos.csv", grafico_latencia), ("heap_sorted.csv", grafico_heap),
+                    ("sobreposicao.csv", grafico_sobreposicao),
+                    ("perfil_top10.csv", grafico_tamanho),
+                    ("sensibilidade_bm25.csv", grafico_sensibilidade)):
+        if os.path.exists(os.path.join(res, nome)):
+            f(res)
+        else:
+            print(f"  (sem {nome}; rode medir_ranking.py antes)")
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--resultados", default="resultados")
     p.add_argument("--indice", default="indice")
+    p.add_argument("--etapa3", action="store_true",
+                   help="gráficos do ranqueamento, em resultados_etapa3/")
     a = p.parse_args()
+    if a.etapa3:
+        etapa3("resultados_etapa3" if a.resultados == "resultados" else a.resultados)
+        return
     print("Gráficos:")
     for nome, f in (("heaps_curva_aleatoria.csv", lambda: grafico_heaps(
                         a.resultados, a.indice, "heaps_curva_aleatoria.csv", "aleatória",

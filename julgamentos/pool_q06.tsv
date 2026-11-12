@@ -1,0 +1,31 @@
+url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
+https://www.exploit-db.com/exploits/44643	Apache Struts 2 - Struts 1 Plugin Showcase OGNL Code Execution (Metasploit)	www.exploit-db.com			8093	jaccard:10 tfidf:3 vetorial:8 bm1:2 bm15:1 bm11:1 bm25:1 bm25f:1	1
+https://www.exploit-db.com/exploits/39756	Apache Struts - Dynamic Method Invocation Remote Code Execution (Metasploit)	www.exploit-db.com			38391	jaccard:9 bm1:7 bm15:4 bm11:2 bm25:2 bm25f:7	2
+https://www.exploit-db.com/exploits/41690	Apache Struts < 1.3.10 / < 2.3.16.2 - ClassLoader Manipulation Remote Code Execution (Metasploit)	www.exploit-db.com			38701	tfidf:5 bm1:8 bm15:2 bm11:6 bm25:3 bm25f:5	2
+https://www.exploit-db.com/exploits/25980	Apache Struts - includeParams Remote Code Execution (Metasploit)	www.exploit-db.com			19716	tfidf:9 bm1:4 bm15:3 bm11:10 bm25:8 bm25f:8	3
+https://www.exploit-db.com/exploits/31434	Apache Struts - Developer Mode OGNL Execution (Metasploit)	www.exploit-db.com			3049	tfidf:7 bm1:9 bm15:8 bm11:3 bm25:4 bm25f:4	3
+https://www.exploit-db.com/exploits/33142	Apache Struts - ClassLoader Manipulation Remote Code Execution (Metasploit)	www.exploit-db.com			12822	bm1:3 bm15:7 bm11:7 bm25:6 bm25f:10	3
+https://www.exploit-db.com/exploits/24874	Apache Struts - 'ParametersInterceptor' Remote Code Execution (Metasploit)	www.exploit-db.com			20005	jaccard:8 bm1:5 bm15:9 bm11:8 bm25:9	5
+https://www.exploit-db.com/exploits/48917	Apache Struts 2 - DefaultActionMapper Prefixes OGNL Code Execution	www.exploit-db.com			37125	tfidf:10 vetorial:10 bm11:4 bm25:7	4
+https://www.exploit-db.com/exploits/39919	Apache Struts - REST Plugin With Dynamic Method Invocation Remote Code Execution (Metasploit)	www.exploit-db.com			37648	bm1:6 bm15:6 bm11:5 bm25:5	5
+https://www.exploit-db.com/exploits/17691	Apache Struts < 2.2.0 - Remote Command Execution (Metasploit)	www.exploit-db.com			4939	bm1:10 bm11:9 bm25:10 bm25f:6	6
+https://www.exploit-db.com/exploits/18329	Apache Struts 2 < 2.3.1 - Multiple Vulnerabilities	www.exploit-db.com			4654	tfidf:1 bm15:5 bm25f:2	1
+https://www.exploit-db.com/exploits/27135	Apache Struts 2 - DefaultActionMapper Prefixes OGNL Code Execution (Metasploit)	www.exploit-db.com			3594	bm1:1 bm15:10	1
+https://www.exploit-db.com/exploits/37647	Apache Struts 2 - Skill Name Remote Code Execution	www.exploit-db.com			15863	jaccard:1 vetorial:7	1
+https://www.exploit-db.com/exploits/42627	Apache Struts 2.5 < 2.5.12 - REST Plugin XStream Remote Code Execution	www.exploit-db.com			13658	tfidf:8 bm25f:3	3
+https://cwe.mitre.org/data/definitions/106.html	CWE-106: Struts: Plug-in Framework not in Use	cwe.mitre.org			764	tfidf:4 vetorial:9	4
+https://www.exploit-db.com/exploits/26542	Apache Struts 1.2.7 - Error Response Cross-Site Scripting	www.exploit-db.com			6518	vetorial:1	1
+https://www.exploit-db.com/exploits/18452	Apache Struts - Multiple Persistent Cross-Site Scripting Vulnerabilities	www.exploit-db.com			5563	tfidf:2	2
+https://www.exploit-db.com/exploits/36426	Apache Struts 2.0.9/2.1.8 - Session Tampering Security Bypass	www.exploit-db.com			7829	vetorial:2	2
+https://www.exploit-db.com/exploits/6544	WebPortal CMS 0.7.4 - 'code' Remote Code Execution	www.exploit-db.com			35426	jaccard:2	2
+https://www.exploit-db.com/exploits/38549	Apache Struts - OGNL Expression Injection	www.exploit-db.com			20185	vetorial:3	3
+https://www.exploit-db.com/exploits/40276	Fortigate Firewalls - 'EGREGIOUSBLUNDER' Remote Code Execution	www.exploit-db.com			8803	jaccard:3	3
+https://www.exploit-db.com/exploits/35735	Apache Struts 2.0.0 < 2.2.1.1 - XWork 's:submit' HTML Tag Cross-Site Scripting	www.exploit-db.com			10528	vetorial:4	4
+https://www.exploit-db.com/exploits/40274	TOPSEC Firewalls - 'ELIGIBLEBOMBSHELL' Remote Code Execution	www.exploit-db.com			8823	jaccard:4	4
+https://www.exploit-db.com/exploits/38666	Apache Struts 2.2.3 - Multiple Open Redirections	www.exploit-db.com			34559	vetorial:5	5
+https://www.exploit-db.com/exploits/40273	TOPSEC Firewalls - 'ELIGIBLECANDIDATE' Remote Code Execution	www.exploit-db.com			8834	jaccard:5	5
+https://www.exploit-db.com/exploits/32565	Struts 2.0.11 - Multiple Directory Traversal Vulnerabilities	www.exploit-db.com			35505	vetorial:6	6
+https://www.exploit-db.com/exploits/36275	Hyperic HQ Enterprise 4.5.1 - Cross-Site Scripting / Multiple Security Vulnerabilities	www.exploit-db.com			36265	tfidf:6	6
+https://www.exploit-db.com/exploits/40272	TOPSEC Firewalls - 'ELIGIBLECONTESTANT' Remote Code Execution	www.exploit-db.com			8843	jaccard:6	6
+https://www.exploit-db.com/exploits/50446	Apache HTTP Server 2.4.50 - Remote Code Execution (RCE) (2)	www.exploit-db.com			38040	jaccard:7	7
+https://www.exploit-db.com/exploits/18984	Apache Struts 2.2.1.1 - Remote Command Execution (Metasploit)	www.exploit-db.com			40990	bm25f:9	9

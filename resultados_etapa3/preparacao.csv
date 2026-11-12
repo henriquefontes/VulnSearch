@@ -1,0 +1,23 @@
+item,valor
+documentos (N),64180
+tempo: títulos (s),4.31
+tempo: passada nas ocorrências (s),21.9
+tempo: gravação (s),0.7
+tempo total (s),26.91
+pico de memória (MB),326
+formato escolhido,bin
+documentos_ranking.bin (MB),4.41
+documentos_ranking.tsv (MB),7.00
+leitura .bin (s),0.05
+leitura .tsv (s),0.213
+arquivos novos no índice (MB),4.41
+carga do Ranqueador (s),0.67
+pico de memória após a carga (MB),253
+média de len: titulo,7.58
+média de len: corpo,123.62
+média de len: texto,131.20
+média de len: codigo,439.08
+documentos com titulo,64180
+documentos com corpo,64179
+documentos com texto,64180
+documentos com codigo,46279
