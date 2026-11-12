@@ -1,0 +1,152 @@
+<!doctype html>
+<!--
+  PÁGINA MÍNIMA DE TESTE DO BACKEND. NÃO É A INTERFACE FINAL.
+  Serve para testar a API sozinha e de referência para o frontend:
+  - os textos da API são sempre inseridos com textContent (nunca innerHTML),
+    porque os documentos contêm <script>, código etc.;
+  - só os segmentos com destaque viram <mark>.
+  A interface final fica em web/index.html (quando existir, é ela que / serve).
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VulnSearch (teste da API)</title>
+<style>
+  :root { --tinta: #1b1b1b; --tinta2: #5a5a5a; --linha: #e2e2e2; --fundo: #ffffff;
+          --link: #1a56b0; --marca: #fff1a8; --aviso: #8a5a00; }
+  @media (prefers-color-scheme: dark) {
+    :root { --tinta: #ececec; --tinta2: #a8a8a8; --linha: #333; --fundo: #161616;
+            --link: #8ab4f8; --marca: #5c4d00; --aviso: #e0b050; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 15px/1.5 system-ui, sans-serif; color: var(--tinta);
+         background: var(--fundo); }
+  main { max-width: 860px; margin: 0 auto; padding: 16px; }
+  .faixa { background: #b00020; color: #fff; padding: 4px 16px; font-size: 13px; }
+  form { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+  input[type=search] { flex: 1 1 280px; padding: 8px; font-size: 16px; }
+  select, button { padding: 8px; font-size: 15px; }
+  #sites { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 14px; color: var(--tinta2); }
+  #info { color: var(--tinta2); font-size: 14px; margin: 10px 0; }
+  .aviso { color: var(--aviso); font-size: 14px; }
+  .res { border-top: 1px solid var(--linha); padding: 12px 0; }
+  .res a.tit { color: var(--link); font-size: 17px; text-decoration: none; }
+  .res a.tit:hover { text-decoration: underline; }
+  .meta { color: var(--tinta2); font-size: 13px; word-break: break-all; }
+  .trecho { margin: 4px 0; }
+  pre { background: rgba(127,127,127,.12); padding: 8px; overflow-x: auto; font-size: 13px;
+        margin: 6px 0 0; white-space: pre; }
+  mark { background: var(--marca); color: inherit; padding: 0 1px; }
+  #paginas { display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 0; }
+  #paginas button[disabled] { font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="faixa">Página de teste do backend — não é a interface final.</div>
+<main>
+  <h1>VulnSearch</h1>
+  <form id="f">
+    <input type="search" id="q" placeholder='ex.: sql injection wordpress, "denial of service", codigo:strcpy' maxlength="200" autofocus>
+    <select id="modelo"></select>
+    <button>Buscar</button>
+  </form>
+  <div id="sites"></div>
+  <div id="info"></div>
+  <div id="avisos"></div>
+  <div id="lista"></div>
+  <div id="paginas"></div>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+let estado = { pagina: 1, sites: new Set() };
+
+function el(tag, props = {}, ...filhos) {
+  const e = document.createElement(tag);
+  Object.assign(e, props);
+  for (const f of filhos) e.append(f);
+  return e;
+}
+
+// segmentos {texto, destaque} -> nós de texto e <mark>, sem innerHTML
+function segmentos(segs) {
+  const frag = document.createDocumentFragment();
+  for (const s of segs || []) {
+    frag.append(s.destaque ? el("mark", { textContent: s.texto }) : document.createTextNode(s.texto));
+  }
+  return frag;
+}
+
+async function api(caminho, params = {}) {
+  const u = new URL(caminho, location.origin);
+  for (const [k, v] of Object.entries(params)) {
+    for (const x of [].concat(v)) u.searchParams.append(k, x);
+  }
+  const r = await fetch(u);
+  const js = await r.json();
+  if (!r.ok) throw new Error(js.erro || r.statusText);
+  return js;
+}
+
+async function inicia() {
+  const m = await api("/api/modelos");
+  for (const x of m.modelos) {
+    $("modelo").append(el("option", { value: x.id, textContent: `${x.nome} (aula ${x.aula})`,
+                                      selected: x.id === m.padrao }));
+  }
+  const s = await api("/api/sites");
+  for (const x of s.sites) {
+    const cb = el("input", { type: "checkbox", value: x.id });
+    cb.addEventListener("change", () => {
+      cb.checked ? estado.sites.add(x.id) : estado.sites.delete(x.id);
+      estado.pagina = 1; busca();
+    });
+    $("sites").append(el("label", {}, cb, " ", x.nome, el("span", { id: "n-" + x.id })));
+  }
+}
+
+async function busca() {
+  const q = $("q").value.trim();
+  if (!q) return;
+  $("info").textContent = "Buscando…";
+  $("avisos").replaceChildren(); $("lista").replaceChildren(); $("paginas").replaceChildren();
+  let r;
+  try {
+    r = await api("/api/busca", { q, modelo: $("modelo").value, pagina: estado.pagina,
+                                  site: [...estado.sites] });
+  } catch (e) {
+    $("info").textContent = "Erro: " + e.message; return;
+  }
+  $("info").textContent = `${r.total.toLocaleString("pt-BR")} resultados · ${r.modelo} · ` +
+    `${r.tempo_ms.total} ms no servidor${r.cache ? " (cache)" : ""}`;
+  for (const a of r.avisos) $("avisos").append(el("div", { className: "aviso", textContent: "⚠ " + a }));
+  for (const span of document.querySelectorAll("#sites span")) {
+    const n = r.facetas.sites[span.id.slice(2)] || 0;
+    span.textContent = ` (${n.toLocaleString("pt-BR")})`;
+  }
+  for (const x of r.resultados) {
+    const div = el("div", { className: "res" },
+      el("a", { className: "tit", href: x.url, target: "_blank", rel: "noopener" }, segmentos(x.titulo)),
+      el("div", { className: "meta", textContent:
+        `${x.posicao}. ${x.site} · escore ${x.escore.toFixed(4)} · ${x.url}` +
+        (x.cves.length ? " · " + x.cves.slice(0, 3).join(", ") : "") }),
+      el("div", { className: "trecho" }, segmentos(x.trecho)));
+    if (x.trecho_codigo) div.append(el("pre", {}, segmentos(x.trecho_codigo)));
+    $("lista").append(div);
+  }
+  const ult = r.paginas;
+  const ini = Math.max(1, r.pagina - 4), fim = Math.min(ult, ini + 9);
+  const vai = (p) => () => { estado.pagina = p; busca(); scrollTo(0, 0); };
+  if (r.pagina > 1) $("paginas").append(el("button", { textContent: "‹ anterior", onclick: vai(r.pagina - 1) }));
+  for (let p = ini; p <= fim; p++) {
+    $("paginas").append(el("button", { textContent: p, disabled: p === r.pagina, onclick: vai(p) }));
+  }
+  if (r.pagina < ult) $("paginas").append(el("button", { textContent: "próxima ›", onclick: vai(r.pagina + 1) }));
+}
+
+$("f").addEventListener("submit", (e) => { e.preventDefault(); estado.pagina = 1; busca(); });
+$("modelo").addEventListener("change", () => { estado.pagina = 1; busca(); });
+inicia();
+</script>
+</body>
+</html>

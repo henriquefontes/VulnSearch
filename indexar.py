@@ -9,6 +9,8 @@
 #   python indexar.py --help                   todas as opções
 #   Ao final, roda o pré-processamento do ranqueamento (preparar_ranking.py,
 #   etapa 3) na granularidade 'documento' com posições; --sem-ranking pula.
+#   Depois, o armazenamento dos textos da interface Web (preparar_textos.py);
+#   --sem-textos pula.
 #
 # Etapas (os tempos de cada uma vão para estatisticas.json):
 #   1. leitura do corpus em streaming (gzip + JSON, linha a linha)
@@ -390,6 +392,9 @@ def argumentos(lista=None):
                    help="grava os campos extraídos em ARQ (.jsonl.gz) para reuso")
     p.add_argument("--sem-ranking", action="store_true",
                    help="não roda o pré-processamento do ranqueamento (preparar_ranking.py)")
+    p.add_argument("--sem-textos", action="store_true",
+                   help="não gera o armazenamento de textos da interface Web "
+                        "(preparar_textos.py)")
     return p.parse_args(lista)
 
 
@@ -420,6 +425,14 @@ def main():
         v = m["verificacao"]
         print(f"Ranqueamento: estatísticas em {m['tempos_s']['total']} s; limite do título "
               f"{v['amostra_titulo_iguais']}/{v['amostra_titulo']} conferidos")
+    if not args.sem_textos and args.granularidade == "documento":
+        from preparar_ranking import CAMPOS_PADRAO
+        from preparar_textos import preparar as preparar_textos
+        fonte = args.salvar_campos or (CAMPOS_PADRAO if os.path.exists(CAMPOS_PADRAO)
+                                       else args.entrada)
+        m = preparar_textos(args.saida, fonte)
+        print(f"Textos da interface Web: {m['tamanhos_mb']['textos_bin']:.1f} MB em "
+              f"{m['tempo_preparacao_s']} s")
 
 
 if __name__ == "__main__":

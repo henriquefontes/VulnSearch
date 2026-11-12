@@ -46,3 +46,7 @@ resultados_etapa2.zip
 # etapa 3: índice de teste (indexar.py --passo 30 --saida indice_teste)
 indice_teste/
 RESULTADOS_ETAPA3.md
+
+# interface Web: registro das consultas (servidor.py) e relatório de passagem
+logs/
+RESULTADOS_WEB.md

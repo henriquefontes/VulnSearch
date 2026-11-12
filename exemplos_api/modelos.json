@@ -1,0 +1,88 @@
+{
+  "requisicao": "GET /api/modelos",
+  "status": 200,
+  "resposta": {
+    "padrao": "bm25f",
+    "modelos": [
+      {
+        "id": "jaccard",
+        "nome": "Jaccard",
+        "aula": "07",
+        "descricao": "Similaridade de conjuntos de termos: |q ∩ d| / |q ∪ d|.",
+        "parametros": {
+          "peso_codigo": 1.0
+        }
+      },
+      {
+        "id": "tfidf",
+        "nome": "TF-IDF",
+        "aula": "07",
+        "descricao": "Soma de w_q·w_d com w = (1 + log tf)·log(N/n), sem normalização.",
+        "parametros": {
+          "peso_codigo": 1.0
+        }
+      },
+      {
+        "id": "vetorial",
+        "nome": "Modelo vetorial (cosseno)",
+        "aula": "08",
+        "descricao": "Cosseno entre os vetores TF-IDF da consulta e do documento.",
+        "parametros": {
+          "peso_codigo": 1.0
+        }
+      },
+      {
+        "id": "bm1",
+        "nome": "BM1",
+        "aula": "09",
+        "descricao": "Só o IDF dos termos em comum.",
+        "parametros": {
+          "peso_codigo": 1.0
+        }
+      },
+      {
+        "id": "bm15",
+        "nome": "BM15",
+        "aula": "09",
+        "descricao": "TF saturado por K1, sem normalização pelo tamanho.",
+        "parametros": {
+          "k1": 1.2,
+          "peso_codigo": 1.0
+        }
+      },
+      {
+        "id": "bm11",
+        "nome": "BM11",
+        "aula": "09",
+        "descricao": "TF saturado e normalizado pelo tamanho do documento.",
+        "parametros": {
+          "k1": 1.2,
+          "peso_codigo": 1.0
+        }
+      },
+      {
+        "id": "bm25",
+        "nome": "BM25",
+        "aula": "09",
+        "descricao": "Normalização parcial do tamanho, controlada por b.",
+        "parametros": {
+          "k1": 1.2,
+          "b": 0.75,
+          "peso_codigo": 1.0
+        }
+      },
+      {
+        "id": "bm25f",
+        "nome": "BM25F",
+        "aula": "09",
+        "descricao": "BM25 com campos: título, corpo e código, com pesos por campo. Padrão.",
+        "parametros": {
+          "k1": 1.2,
+          "b": 0.75,
+          "peso_titulo": 2.0,
+          "peso_codigo": 1.0
+        }
+      }
+    ]
+  }
+}

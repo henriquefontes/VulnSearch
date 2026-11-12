@@ -1,0 +1,208 @@
+{
+  "requisicao": "GET /api/busca?q=codigo:strcpy&por_pagina=3",
+  "status": 200,
+  "resposta": {
+    "consulta": "codigo:strcpy",
+    "modelo": "bm25f",
+    "parametros": {
+      "k1": 1.2,
+      "b": 0.75,
+      "peso_titulo": 2.0,
+      "peso_codigo": 1.0
+    },
+    "total": 590,
+    "pagina": 1,
+    "por_pagina": 3,
+    "paginas": 167,
+    "tempo_ms": {
+      "ranqueamento": 1.56,
+      "trechos": 2.23,
+      "total": 4.01
+    },
+    "cache": false,
+    "avisos": [],
+    "filtros": {
+      "site": [],
+      "cve": [],
+      "cwe": []
+    },
+    "facetas": {
+      "sites": {
+        "www.exploit-db.com": 568,
+        "cwe.mitre.org": 22
+      }
+    },
+    "resultados": [
+      {
+        "posicao": 1,
+        "id": 32673,
+        "url": "https://www.exploit-db.com/exploits/29160",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "GNU Tar 1.1x - 'GNUTYPE_NAMES' Directory Traversal",
+            "destaque": false
+          }
+        ],
+        "escore": 13.43117,
+        "trecho": [
+          {
+            "texto": "… memset(&b, 0, sizeof(b)); ",
+            "destaque": false
+          },
+          {
+            "texto": "strcpy",
+            "destaque": true
+          },
+          {
+            "texto": "(b.header.name, \"xyz\"); ",
+            "destaque": false
+          },
+          {
+            "texto": "strcpy",
+            "destaque": true
+          },
+          {
+            "texto": "(b.header.mode, \"0000777\"); ",
+            "destaque": false
+          },
+          {
+            "texto": "strcpy",
+            "destaque": true
+          },
+          {
+            "texto": "(b.header.uid, \"0000000 …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "         }\n         memset(&b, 0, sizeof(b));\n         ",
+            "destaque": false
+          },
+          {
+            "texto": "strcpy",
+            "destaque": true
+          },
+          {
+            "texto": "(b.header.name, \"xyz\");\n         ",
+            "destaque": false
+          },
+          {
+            "texto": "strcpy",
+            "destaque": true
+          },
+          {
+            "texto": "(b.header.mode, \"0000777\");\n         ",
+            "destaque": false
+          },
+          {
+            "texto": "strcpy",
+            "destaque": true
+          },
+          {
+            "texto": "(b.header.uid, \"0000000\");",
+            "destaque": false
+          }
+        ],
+        "cves": [
+          "CVE-2006-6097"
+        ],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 2,
+        "id": 25463,
+        "url": "https://www.exploit-db.com/exploits/20060",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "BitchX IRC Client 75p1/75p3/1.0 c16 - '/INVITE' Format String",
+            "destaque": false
+          }
+        ],
+        "escore": 13.371188,
+        "trecho": [
+          {
+            "texto": "… for (n = 0; n < nx ; n += 3) ",
+            "destaque": false
+          },
+          {
+            "texto": "strcpy",
+            "destaque": true
+          },
+          {
+            "texto": "(&xx[n], \"%8x\"); sprintf(formatbuf …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "  for (n = 0; n < nx ; n += 3)\n    ",
+            "destaque": false
+          },
+          {
+            "texto": "strcpy",
+            "destaque": true
+          },
+          {
+            "texto": "(&xx[n], \"%8x\");\n\n  sprintf(formatbuf,",
+            "destaque": false
+          }
+        ],
+        "cves": [
+          "CVE-2000-0594"
+        ],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 3,
+        "id": 6917,
+        "url": "https://www.exploit-db.com/exploits/649",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "wodFtpDLX Client - ActiveX Control Buffer Overflow Crash",
+            "destaque": false
+          }
+        ],
+        "escore": 12.927512,
+        "trecho": [
+          {
+            "texto": "… ",
+            "destaque": false
+          },
+          {
+            "texto": "strcpy",
+            "destaque": true
+          },
+          {
+            "texto": "(addr, \"\\0\"); for(i=0; (i < 4) && (token[i]!= NULL); i …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "\t\t}\n\n\t\t",
+            "destaque": false
+          },
+          {
+            "texto": "strcpy",
+            "destaque": true
+          },
+          {
+            "texto": "(addr, \"\\0\");\n\n\t\tfor(i=0; (i < 4) && (token[i]!= NULL); i++){",
+            "destaque": false
+          }
+        ],
+        "cves": [
+          "CVE-2004-1118"
+        ],
+        "cwes": [],
+        "explicacao": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "requisicao": "GET /api/busca?q=x&pagina=0",
+  "status": 400,
+  "resposta": {
+    "erro": "O parâmetro 'pagina' deve ser ≥ 1."
+  }
+}

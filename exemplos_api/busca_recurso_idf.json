@@ -1,0 +1,204 @@
+{
+  "requisicao": "GET /api/busca?q=vulnerability&por_pagina=3",
+  "status": 200,
+  "resposta": {
+    "consulta": "vulnerability",
+    "modelo": "bm25f",
+    "parametros": {
+      "k1": 1.2,
+      "b": 0.75,
+      "peso_titulo": 2.0,
+      "peso_codigo": 1.0
+    },
+    "total": 59469,
+    "pagina": 1,
+    "por_pagina": 3,
+    "paginas": 167,
+    "tempo_ms": {
+      "ranqueamento": 182.64,
+      "trechos": 1.35,
+      "total": 193.5
+    },
+    "cache": false,
+    "avisos": [
+      "recurso do IDF: todas as palavras têm n > N/2 (idf limitado = 0); escores calculados com idf log(1 + ·)"
+    ],
+    "filtros": {
+      "site": [],
+      "cve": [],
+      "cwe": []
+    },
+    "facetas": {
+      "sites": {
+        "www.exploit-db.com": 41633,
+        "github.com": 9989,
+        "www.rapid7.com": 5444,
+        "cwe.mitre.org": 1375,
+        "www.drupal.org": 916,
+        "developer.joomla.org": 112
+      }
+    },
+    "resultados": [
+      {
+        "posicao": 1,
+        "id": 42980,
+        "url": "https://www.exploit-db.com/exploits/35899",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "Mangallam CMS - SQL Injection",
+            "destaque": false
+          }
+        ],
+        "escore": 0.233784,
+        "trecho": [
+          {
+            "texto": "… SQL Injection EDB-ID: 35899 CVE: N/A EDB Verified: Author: ",
+            "destaque": false
+          },
+          {
+            "texto": "Vulnerability",
+            "destaque": true
+          },
+          {
+            "texto": "-Lab Type: webapps Exploit: / Platform: PHP Date: 2015-01-26 ",
+            "destaque": false
+          },
+          {
+            "texto": "Vulnerable",
+            "destaque": true
+          },
+          {
+            "texto": " App: Tags: Advisory/Source: Link",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "Document Title:\n===============\nMangallam CMS - SQL Injection Web ",
+            "destaque": false
+          },
+          {
+            "texto": "Vulnerability",
+            "destaque": true
+          }
+        ],
+        "cves": [],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 2,
+        "id": 38237,
+        "url": "https://www.exploit-db.com/exploits/30146",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "Print n Share 5.5 iOS - Multiple Web ",
+            "destaque": false
+          },
+          {
+            "texto": "Vulnerabilities",
+            "destaque": true
+          }
+        ],
+        "escore": 0.233508,
+        "trecho": [
+          {
+            "texto": "Print n Share 5.5 iOS - Multiple Web ",
+            "destaque": false
+          },
+          {
+            "texto": "Vulnerabilities",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 30146 CVE: N/A EDB Verified: Author: ",
+            "destaque": false
+          },
+          {
+            "texto": "Vulnerability",
+            "destaque": true
+          },
+          {
+            "texto": "-Lab Type: webapps Exploit: / Platform: iOS Date: 2013-12-08 ",
+            "destaque": false
+          },
+          {
+            "texto": "Vulnerable",
+            "destaque": true
+          },
+          {
+            "texto": " App: Tags: Advisory/Source: Link",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "References (Source):\n====================\nhttp://www.",
+            "destaque": false
+          },
+          {
+            "texto": "vulnerability",
+            "destaque": true
+          },
+          {
+            "texto": "-lab.com/get_content.php?id=1154",
+            "destaque": false
+          }
+        ],
+        "cves": [],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 3,
+        "id": 9689,
+        "url": "https://www.exploit-db.com/exploits/37997",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "Photo Transfer (2) 1.0 iOS - Denial of Service",
+            "destaque": false
+          }
+        ],
+        "escore": 0.233373,
+        "trecho": [
+          {
+            "texto": "… Denial of Service EDB-ID: 37997 CVE: EDB Verified: Author: ",
+            "destaque": false
+          },
+          {
+            "texto": "Vulnerability",
+            "destaque": true
+          },
+          {
+            "texto": "-Lab Type: dos Exploit: / Platform: iOS Date: 2015-08-28 ",
+            "destaque": false
+          },
+          {
+            "texto": "Vulnerable",
+            "destaque": true
+          },
+          {
+            "texto": " App: Tags: Advisory/Source: Link",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "Document Title:\n===============\nPhoto Transfer (2) v1.0 iOS - Denial of Service ",
+            "destaque": false
+          },
+          {
+            "texto": "Vulnerability",
+            "destaque": true
+          }
+        ],
+        "cves": [],
+        "cwes": [],
+        "explicacao": null
+      }
+    ]
+  }
+}

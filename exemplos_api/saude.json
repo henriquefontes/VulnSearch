@@ -1,0 +1,10 @@
+{
+  "requisicao": "GET /api/saude",
+  "status": 200,
+  "resposta": {
+    "ok": true,
+    "documentos": 64180,
+    "carregado_em_s": 0.808,
+    "memoria_mb": 316.5
+  }
+}

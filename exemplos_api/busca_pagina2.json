@@ -1,0 +1,748 @@
+{
+  "requisicao": "GET /api/busca?q=sql injection wordpress&pagina=2",
+  "status": 200,
+  "resposta": {
+    "consulta": "sql injection wordpress",
+    "modelo": "bm25f",
+    "parametros": {
+      "k1": 1.2,
+      "b": 0.75,
+      "peso_titulo": 2.0,
+      "peso_codigo": 1.0
+    },
+    "total": 17143,
+    "pagina": 2,
+    "por_pagina": 10,
+    "paginas": 50,
+    "tempo_ms": {
+      "ranqueamento": 1.86,
+      "trechos": 3.69,
+      "total": 7.57
+    },
+    "cache": true,
+    "avisos": [],
+    "filtros": {
+      "site": [],
+      "cve": [],
+      "cwe": []
+    },
+    "facetas": {
+      "sites": {
+        "www.exploit-db.com": 12680,
+        "github.com": 2491,
+        "www.rapid7.com": 1560,
+        "cwe.mitre.org": 307,
+        "www.drupal.org": 73,
+        "developer.joomla.org": 32
+      }
+    },
+    "resultados": [
+      {
+        "posicao": 11,
+        "id": 2872,
+        "url": "https://www.exploit-db.com/exploits/18055",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Glossary - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          }
+        ],
+        "escore": 17.763233,
+        "trecho": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Glossary - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 18055 CVE: EDB Verified: Author: longrifle0x Type: webapps Exploit: / Platform: PHP Date: 2011-10-31 Vulnerable App: Tags: ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Advisory/Source: Link",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "######################################################\n# Exploit Title: ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " WP Glossary plugin ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " Vulnerability\n# Date: 2011-30-10\n# Author: longrifle0x\n# software: ",
+            "destaque": false
+          },
+          {
+            "texto": "Wordpress",
+            "destaque": true
+          }
+        ],
+        "cves": [],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 12,
+        "id": 28753,
+        "url": "https://www.exploit-db.com/exploits/4721",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Core 2.3.1 - Charset ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          }
+        ],
+        "escore": 17.757966,
+        "trecho": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Core 2.3.1 - Charset ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 4721 CVE: 2007-6318 EDB Verified: Author: Abel Cheung Type: webapps Exploit: / Platform: PHP Date: 2007-12-11 Vulnerable App: Tags: Advisory/Source: Link",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "=== ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Charset ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " Vulnerability ===\n\nRelease date: 2007-12-10\nLast modified: 2007-12-12\nSource: Abel Cheung <abelcheung at gmail dot com>",
+            "destaque": false
+          }
+        ],
+        "cves": [
+          "CVE-2007-6318"
+        ],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 13,
+        "id": 22278,
+        "url": "https://www.exploit-db.com/exploits/39498",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Ocim MP3 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          }
+        ],
+        "escore": 17.721595,
+        "trecho": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Ocim MP3 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 39498 CVE: N/A EDB Verified: Author: xevil & Blankon33 Type: webapps Exploit: / Platform: PHP Date: 2016-02-26 Vulnerable App: Tags: ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Advisory/Source …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "========\nOcim MP3 Plugin ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " Vulnerability\n========\n\n:----------------------------------------------------------------------------------------------------:",
+            "destaque": false
+          }
+        ],
+        "cves": [],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 14,
+        "id": 32272,
+        "url": "https://www.exploit-db.com/exploits/10929",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Events - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          }
+        ],
+        "escore": 17.718379,
+        "trecho": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Events - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 10929 CVE: EDB Verified: Author: Red-D3v1L Type: webapps Exploit: / Platform: PHP Date: 2010-01-02 Vulnerable App: Tags: ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Advisory/Source: Link",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "        [?] ~ Note : sEc-r1z CrEw# r0x !\n==============================================================================\n        [?] ",
+            "destaque": false
+          },
+          {
+            "texto": "Wordpress",
+            "destaque": true
+          },
+          {
+            "texto": " script <== x.x.x (Events Plugins)",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " Vulnerability\n==============================================================================\n    [?] My home:              [ http://sec-r1z.com ]",
+            "destaque": false
+          }
+        ],
+        "cves": [],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 15,
+        "id": 8777,
+        "url": "https://www.exploit-db.com/exploits/36677",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Traffic Analyzer 3.4.2 - Blind ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          }
+        ],
+        "escore": 17.714523,
+        "trecho": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Traffic Analyzer 3.4.2 - Blind ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 36677 CVE: EDB Verified: Author: Dan King Type: webapps Exploit: / Platform: PHP Date: 2015-04-08 Vulnerable App: Tags: ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Advisory …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "# Exploit Title: ",
+            "destaque": false
+          },
+          {
+            "texto": "Wordpress",
+            "destaque": true
+          },
+          {
+            "texto": " plugin 'Traffic Analyzer' Blind ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": "\n# Google Dork: inurl:/plugins/trafficanalyzer/js/\n# Date: 4/7/2015\n# Exploit Author: Dan King (@fuzztester)\n# Vendor Homepage: http://wptrafficanalyzer.in/",
+            "destaque": false
+          }
+        ],
+        "cves": [],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 16,
+        "id": 24751,
+        "url": "https://www.exploit-db.com/exploits/42173",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Event List < 0.7.8 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          }
+        ],
+        "escore": 17.701246,
+        "trecho": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Event List < 0.7.8 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 42173 CVE: 2017-9429 EDB Verified: Author: Dimitrios Tsagkarakis Type: webapps Exploit: / Platform: PHP Date: 2017-06-04 Vulnerable App: Tags: Advisory/Source …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "# Exploit Title: ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Event List <= 0.7.8 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": "\n# Date: 04-06-2017\n# Exploit Author: Dimitrios Tsagkarakis\n# Website: dtsa.eu \n# Software Link: https://",
+            "destaque": false
+          },
+          {
+            "texto": "wordpress",
+            "destaque": true
+          },
+          {
+            "texto": ".org/plugins/event-list/",
+            "destaque": false
+          }
+        ],
+        "cves": [
+          "CVE-2017-9429"
+        ],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 17,
+        "id": 34385,
+        "url": "https://www.exploit-db.com/exploits/38639",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin miniBB - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " / Multiple Cross-Site Scripting Vulnerabilities",
+            "destaque": false
+          }
+        ],
+        "escore": 17.684109,
+        "trecho": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin miniBB - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " / Multiple Cross-Site Scripting Vulnerabilities EDB-ID: 38639 CVE: 2013-5020 EDB Verified: Author: Netsparker Type: webapps Exploit: / Platform: PHP Date: 2013-07-11 Vulnerable App …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "source: https://www.securityfocus.com/bid/61116/info\n\nminiBB is prone to an ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL-injection",
+            "destaque": true
+          },
+          {
+            "texto": " vulnerability and multiple cross-site scripting vulnerabilities.\n\nSuccessful exploits could allow an attacker to steal cookie-based authentication credentials, compromise the application…",
+            "destaque": false
+          }
+        ],
+        "cves": [
+          "CVE-2013-5020"
+        ],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 18,
+        "id": 34077,
+        "url": "https://www.exploit-db.com/exploits/47371",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Photo Gallery 1.5.34 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          }
+        ],
+        "escore": 17.672107,
+        "trecho": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Photo Gallery 1.5.34 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 47371 CVE: 2019-16119 EDB Verified: Author: MTK Type: webapps Exploit: / Platform: PHP Date: 2019-09-10 Vulnerable App: Tags: ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " (SQLi) Advisory …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "# Exploit Title: ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Photo Gallery by 10Web <= 1.5.34 - Blind ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL injection",
+            "destaque": true
+          },
+          {
+            "texto": "\n# inurl:\"\\wp-content\\plugins\\photo-gallery\"\n# Date: 09-10-2019\n# Exploit Author: MTK (http://mtk911.cf/)\n# Vendor Homepage: https://10web.io/",
+            "destaque": false
+          }
+        ],
+        "cves": [
+          "CVE-2019-16119"
+        ],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 19,
+        "id": 12743,
+        "url": "https://www.exploit-db.com/exploits/35459",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Cart66 Lite eCommerce 1.5.1.17 - Blind ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          }
+        ],
+        "escore": 17.667348,
+        "trecho": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Cart66 Lite eCommerce 1.5.1.17 - Blind ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 35459 CVE: 2014-9305 EDB Verified: Author: Kacper Szurek Type: webapps Exploit: / Platform: PHP Date: 2014-12-03 Vulnerable App: Tags …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "# Exploit Title: Cart66 Lite ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Ecommerce 1.5.1.17 Blind ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": "\n# Date: 29-10-2014\n# Exploit Author: Kacper Szurek - http://security.szurek.pl/ http://twitter.com/KacperSzurek\n# Software Link: https://downloads.",
+            "destaque": false
+          },
+          {
+            "texto": "wordpress",
+            "destaque": true
+          },
+          {
+            "texto": ".org/plugin/cart66-lite.1.5.1.17.zip\n# Category: webapps",
+            "destaque": false
+          }
+        ],
+        "cves": [
+          "CVE-2014-9305"
+        ],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 20,
+        "id": 4843,
+        "url": "https://www.exploit-db.com/exploits/18353",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin wp-autoyoutube - Blind ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          }
+        ],
+        "escore": 17.661417,
+        "trecho": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin wp-autoyoutube - Blind ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 18353 CVE: EDB Verified: Author: longrifle0x Type: webapps Exploit: / Platform: PHP Date: 2012-01-12 Vulnerable App: Tags: ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Advisory/Source …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "######################################################\n# Exploit Title: ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " wp-autoyoutube plugin Blind ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": "\nVulnerability\n# Date: 2012-11-01\n# Author: longrifle0x",
+            "destaque": false
+          }
+        ],
+        "cves": [],
+        "cwes": [],
+        "explicacao": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+# VulnSearch - dependências (Python 3.9+; o servidor Web precisa do FastAPI)
+# coleta, indexação e ranqueamento
+selectolax
+snowballstemmer
+# backend da interface Web (servidor.py)
+fastapi
+uvicorn
+# opcional, só para os gráficos (graficos.py): pip install matplotlib

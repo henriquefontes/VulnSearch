@@ -1,0 +1,830 @@
+{
+  "requisicao": "GET /api/busca?q=sql injection wordpress",
+  "status": 200,
+  "resposta": {
+    "consulta": "sql injection wordpress",
+    "modelo": "bm25f",
+    "parametros": {
+      "k1": 1.2,
+      "b": 0.75,
+      "peso_titulo": 2.0,
+      "peso_codigo": 1.0
+    },
+    "total": 17143,
+    "pagina": 1,
+    "por_pagina": 10,
+    "paginas": 50,
+    "tempo_ms": {
+      "ranqueamento": 116.15,
+      "trechos": 5.67,
+      "total": 127.28
+    },
+    "cache": false,
+    "avisos": [],
+    "filtros": {
+      "site": [],
+      "cve": [],
+      "cwe": []
+    },
+    "facetas": {
+      "sites": {
+        "www.exploit-db.com": 12680,
+        "github.com": 2491,
+        "www.rapid7.com": 1560,
+        "cwe.mitre.org": 307,
+        "www.drupal.org": 73,
+        "developer.joomla.org": 32
+      }
+    },
+    "resultados": [
+      {
+        "posicao": 1,
+        "id": 6579,
+        "url": "https://www.exploit-db.com/exploits/17465",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Core 3.1.3 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          }
+        ],
+        "escore": 18.044772,
+        "trecho": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Core 3.1.3 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 17465 CVE: EDB Verified: Author: SEC Consult Type: webapps Exploit: / Platform: PHP Date: 2011-07-01 Vulnerable App: Tags: Advisory/Source: Link",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "SEC Consult Vulnerability Lab Security Advisory < 20110701-0 >\n=======================================================================\n              title: Multiple ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " Vulnerabilities\n            product: ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": "\n vulnerable version: 3.1.3/3.2-RC1 and probably earlier versions",
+            "destaque": false
+          }
+        ],
+        "cves": [],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 2,
+        "id": 40625,
+        "url": "https://www.exploit-db.com/exploits/46377",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Booking Calendar 8.4.3 - (Authenticated) ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          }
+        ],
+        "escore": 17.9979,
+        "trecho": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Booking Calendar 8.4.3 - (Authenticated) ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 46377 CVE: 2018-20556 EDB Verified: Author: B0UG Type: webapps Exploit: / Platform: PHP Date: 2019-02-14 Vulnerable App: Tags: ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "# Exploit Title: ",
+            "destaque": false
+          },
+          {
+            "texto": "Wordpress",
+            "destaque": true
+          },
+          {
+            "texto": " Booking Calendar v8.4.3 - Authenticated ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " Vulnerability\n# Date: 2018-12-28\n# Exploit Author: B0UG\n# Vendor Homepage: https://wpbookingcalendar.com/\n# Software Link: https://",
+            "destaque": false
+          },
+          {
+            "texto": "wordpress",
+            "destaque": true
+          },
+          {
+            "texto": ".org/plugins/booking/",
+            "destaque": false
+          }
+        ],
+        "cves": [
+          "CVE-2018-20556"
+        ],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 3,
+        "id": 24058,
+        "url": "https://www.exploit-db.com/exploits/36243",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin cp-multi-view-calendar 1.1.4 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          }
+        ],
+        "escore": 17.98108,
+        "trecho": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin cp-multi-view-calendar 1.1.4 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 36243 CVE: EDB Verified: Author: i0akiN SEC-LABORATORY Type: webapps Exploit: / Platform: PHP Date: 2015-03-03 Vulnerable App: Tags: Advisory/Source …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "# Exploit Title: ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": ": cp-multi-view-calendar.1.1.4  [",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": "\nvulnerabilities]\n# Date: 2015-02-28\n# Google Dork: Index of /",
+            "destaque": false
+          },
+          {
+            "texto": "wordpress",
+            "destaque": true
+          },
+          {
+            "texto": "/wp-content/plugins/cp-multi-view-calendar\n# Exploit Author: Joaquin Ramirez Martinez [ i0akiN SEC-LABORATORY ]",
+            "destaque": false
+          }
+        ],
+        "cves": [],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 4,
+        "id": 15850,
+        "url": "https://www.exploit-db.com/exploits/37560",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin CP Multi View Event Calendar 1.1.7 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          }
+        ],
+        "escore": 17.941011,
+        "trecho": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin CP Multi View Event Calendar 1.1.7 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 37560 CVE: EDB Verified: Author: i0akiN SEC-LABORATORY Type: webapps Exploit: / Platform: PHP Date: 2015-07-10 Vulnerable App: Tags: ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "# Exploit Title: ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " cp-multi-view-calendar.1.1.7  [Unauthenticated ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL injection",
+            "destaque": true
+          },
+          {
+            "texto": " vulnerabilities]\n# Date: 2015-07-10\n# Google Dork: Index of /",
+            "destaque": false
+          },
+          {
+            "texto": "wordpress",
+            "destaque": true
+          },
+          {
+            "texto": "/wp-content/plugins/cp-multi-view-calendar\n# Exploit Author: Joaquin Ramirez Martinez [ i0akiN SEC-LABORATORY ]\n# Vendor Homepage: http://",
+            "destaque": false
+          },
+          {
+            "texto": "wordpress",
+            "destaque": true
+          },
+          {
+            "texto": ".dwbooster.com/",
+            "destaque": false
+          }
+        ],
+        "cves": [],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 5,
+        "id": 34716,
+        "url": "https://www.exploit-db.com/exploits/47540",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Sliced Invoices 3.8.2 - 'post' ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          }
+        ],
+        "escore": 17.93681,
+        "trecho": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Sliced Invoices 3.8.2 - 'post' ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 47540 CVE: N/A EDB Verified: Author: Lucian Ioan Nitescu Type: webapps Exploit: / Platform: PHP Date: 2019-10-24 Vulnerable App: Tags: ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "# Exploit Title: ",
+            "destaque": false
+          },
+          {
+            "texto": "Wordpress",
+            "destaque": true
+          },
+          {
+            "texto": " Sliced Invoices 3.8.2 - 'post' ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": "\n# Date: 2019-10-22\n# Exploit Author: Lucian Ioan Nitescu\n# Contact: https://twitter.com/LucianNitescu\n# Webiste: https://nitesculucian.github.io",
+            "destaque": false
+          }
+        ],
+        "cves": [],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 6,
+        "id": 24745,
+        "url": "https://www.exploit-db.com/exploits/42172",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin WP Jobs < 1.5 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          }
+        ],
+        "escore": 17.85682,
+        "trecho": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin WP Jobs < 1.5 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 42172 CVE: 2017-9603 EDB Verified: Author: Dimitrios Tsagkarakis Type: webapps Exploit: / Platform: PHP Date: 2017-06-11 Vulnerable App: Tags: Advisory/Source: Link",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "# Exploit Title: ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin WP Jobs < 1.5 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": "\n# Date: 11-06-2017\n# Exploit Author: Dimitrios Tsagkarakis\n# Website: dtsa.eu \n# Software Link: https://en-gb.",
+            "destaque": false
+          },
+          {
+            "texto": "wordpress",
+            "destaque": true
+          },
+          {
+            "texto": ".org/plugins/wp-jobs/",
+            "destaque": false
+          }
+        ],
+        "cves": [
+          "CVE-2017-9603"
+        ],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 7,
+        "id": 13442,
+        "url": "https://www.exploit-db.com/exploits/47210",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin JoomSport 3.3 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          }
+        ],
+        "escore": 17.792999,
+        "trecho": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin JoomSport 3.3 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 47210 CVE: 2019-14348 EDB Verified: Author: Pablo Santiago Type: webapps Exploit: / Platform: PHP Date: 2019-08-07 Vulnerable App: Tags: ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " (SQLi …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "# Exploit Title: JoomSport 3.3 – for Sports - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL injection",
+            "destaque": true
+          },
+          {
+            "texto": "\n# Google Dork: intext:powered by JoomSport - sport ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " plugin\n# Date:29/07/2019.\n# Exploit Author: Pablo Santiago\n# Vendor Homepage: https://beardev.com/",
+            "destaque": false
+          }
+        ],
+        "cves": [
+          "CVE-2019-14348"
+        ],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 8,
+        "id": 19066,
+        "url": "https://www.exploit-db.com/exploits/50695",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "Wordpress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Download Monitor ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " V 4.4.4 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " (Authenticated)",
+            "destaque": false
+          }
+        ],
+        "escore": 17.78929,
+        "trecho": [
+          {
+            "texto": "Wordpress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Download Monitor ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " V 4.4.4 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " (Authenticated) EDB-ID: 50695 CVE: 2021-24786 EDB Verified: Author: Ron Jost Type: webapps Exploit: / Platform: PHP Date: 2022-02-02 Vulnerable App …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "# Exploit Title: ",
+            "destaque": false
+          },
+          {
+            "texto": "Wordpress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Download Monitor ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " V 4.4.4 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " (Authenticated)\n# Date 28.01.2022\n# Exploit Author: Ron Jost (Hacker5preme)\n# Vendor Homepage: https://www.download-monitor.com/\n# Software Link: https://downloads.",
+            "destaque": false
+          },
+          {
+            "texto": "wordpress",
+            "destaque": true
+          },
+          {
+            "texto": ".org/plugin/download-monitor.4.4.4.zip",
+            "destaque": false
+          }
+        ],
+        "cves": [
+          "CVE-2021-24786"
+        ],
+        "cwes": [
+          "CWE-89"
+        ],
+        "explicacao": null
+      },
+      {
+        "posicao": 9,
+        "id": 8043,
+        "url": "https://www.exploit-db.com/exploits/36600",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Business Intelligence - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " (Metasploit)",
+            "destaque": false
+          }
+        ],
+        "escore": 17.769216,
+        "trecho": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin Business Intelligence - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " (Metasploit) EDB-ID: 36600 CVE: EDB Verified: Author: Jagriti Sahu Type: webapps Exploit: / Platform: PHP Date: 2015-04-02 Vulnerable App: Tags: ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Core …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "##################################################################################################\n#Exploit Title : ",
+            "destaque": false
+          },
+          {
+            "texto": "Wordpress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin 'Business Intelligence' Remote ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " vulnerability\n#Author        : Jagriti Sahu AKA Incredible\n#Vendor Link   : https://www.wpbusinessintelligence.com\n#Download Link : https://downloads.",
+            "destaque": false
+          },
+          {
+            "texto": "wordpress",
+            "destaque": true
+          },
+          {
+            "texto": ".org/plugin/wp-business-intelligence-lite.1.6.1.zip",
+            "destaque": false
+          }
+        ],
+        "cves": [],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 10,
+        "id": 27856,
+        "url": "https://www.exploit-db.com/exploits/38187",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin CP Reservation Calendar 1.1.6 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          }
+        ],
+        "escore": 17.76891,
+        "trecho": [
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": " Plugin CP Reservation Calendar 1.1.6 - ",
+            "destaque": false
+          },
+          {
+            "texto": "SQL Injection",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 38187 CVE: 2015-7235 EDB Verified: Author: i0akiN SEC-LABORATORY Type: webapps Exploit: / Platform: PHP Date: 2015-09-15 Vulnerable App: Tags …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "# Exploit Title: ",
+            "destaque": false
+          },
+          {
+            "texto": "WordPress",
+            "destaque": true
+          },
+          {
+            "texto": ": cp-reservation-calendar 1.1.6  SQLi ",
+            "destaque": false
+          },
+          {
+            "texto": "injection",
+            "destaque": true
+          },
+          {
+            "texto": "]\n# Date: 2015-09-15\n# Google Dork: Index of /wp-content/plugins/cp-reservation-calendar/\n# Exploit Author: Joaquin Ramirez Martinez [ i0akiN SEC-LABORATORY ]\n# Software Link: https://downloads.",
+            "destaque": false
+          },
+          {
+            "texto": "wordpress",
+            "destaque": true
+          },
+          {
+            "texto": ".org/plugin/cp-reservation-calendar.zip",
+            "destaque": false
+          }
+        ],
+        "cves": [
+          "CVE-2015-7235"
+        ],
+        "cwes": [],
+        "explicacao": null
+      }
+    ]
+  }
+}

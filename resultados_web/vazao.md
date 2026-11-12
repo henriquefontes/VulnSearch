@@ -1,0 +1,7 @@
+Vazão com clientes simultâneos (cada cliente faz as 20 consultas, sem cache). O lock serializa o ranqueamento: mais clientes aumentam a latência, não a vazão.
+
+| clientes | requisições | segundos | req/s | mediana ms | p95 ms | máx. ms | erros |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 20 | 1.8 | 11.4 | 59.1 | 229.7 | 245.2 | 0 |
+| 4 | 80 | 6.6 | 12.0 | 351.8 | 516.2 | 519.2 | 0 |
+| 8 | 160 | 13.8 | 11.6 | 598.4 | 1269.3 | 1400.1 | 0 |

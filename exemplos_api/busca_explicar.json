@@ -1,0 +1,170 @@
+{
+  "requisicao": "GET /api/busca?q=CVE-2021-44228&explicar=True&por_pagina=2",
+  "status": 200,
+  "resposta": {
+    "consulta": "CVE-2021-44228",
+    "modelo": "bm25f",
+    "parametros": {
+      "k1": 1.2,
+      "b": 0.75,
+      "peso_titulo": 2.0,
+      "peso_codigo": 1.0
+    },
+    "total": 6,
+    "pagina": 1,
+    "por_pagina": 2,
+    "paginas": 3,
+    "tempo_ms": {
+      "ranqueamento": 0.19,
+      "trechos": 0.4,
+      "total": 0.67
+    },
+    "cache": false,
+    "avisos": [],
+    "filtros": {
+      "site": [],
+      "cve": [],
+      "cwe": []
+    },
+    "facetas": {
+      "sites": {
+        "cwe.mitre.org": 3,
+        "www.exploit-db.com": 3
+      }
+    },
+    "resultados": [
+      {
+        "posicao": 1,
+        "id": 38157,
+        "url": "https://www.exploit-db.com/exploits/50590",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "Apache Log4j2 2.14.1 - Information Disclosure",
+            "destaque": false
+          }
+        ],
+        "escore": 24.913623,
+        "trecho": [
+          {
+            "texto": "… Log4j2 2.14.1 - Information Disclosure EDB-ID: 50590 CVE: ",
+            "destaque": false
+          },
+          {
+            "texto": "2021-44228",
+            "destaque": true
+          },
+          {
+            "texto": " EDB Verified: Author: leonjza Type: remote Exploit: / Platform: Java Date: 2021-12-14 Vulnerable App: Tags: Advisory/Source: Link",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "# Vendor Homepage: https://logging.apache.org/log4j/2.x/\n# Version: <= 2.14.1\n# CVE: ",
+            "destaque": false
+          },
+          {
+            "texto": "CVE-2021-44228",
+            "destaque": true
+          },
+          {
+            "texto": "\n\n#!/usr/bin/env python3",
+            "destaque": false
+          }
+        ],
+        "cves": [
+          "CVE-2021-44228"
+        ],
+        "cwes": [],
+        "explicacao": [
+          {
+            "palavra": "cve-2021-44228",
+            "campos": {
+              "corpo": {
+                "tf": 2,
+                "len/avg": 0.25885654952213594,
+                "w·tf/B": 4.503060156665151
+              },
+              "codigo": {
+                "tf": 2,
+                "len/avg": 0.7401766748021752,
+                "w·tf/B": 2.4840631633217662
+              }
+            },
+            "tf~": 6.987123319986917,
+            "n": 6,
+            "idf": 13.269272811845505,
+            "parcela": 24.913622542910105
+          }
+        ]
+      },
+      {
+        "posicao": 2,
+        "id": 38165,
+        "url": "https://www.exploit-db.com/exploits/50592",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "Apache Log4j 2 - Remote Code Execution (RCE)",
+            "destaque": false
+          }
+        ],
+        "escore": 24.573104,
+        "trecho": [
+          {
+            "texto": "… Log4j 2 - Remote Code Execution (RCE) EDB-ID: 50592 CVE: ",
+            "destaque": false
+          },
+          {
+            "texto": "2021-44228",
+            "destaque": true
+          },
+          {
+            "texto": " EDB Verified: Author: kozmer Type: remote Exploit: / Platform: Java Date: 2021-12-14 Vulnerable App: Tags: Advisory/Source: Link",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "# Version: versions 2.0-beta-9 and 2.14.1.\n# Tested on: Linux\n# CVE: ",
+            "destaque": false
+          },
+          {
+            "texto": "CVE-2021-44228",
+            "destaque": true
+          },
+          {
+            "texto": "\n# Github repo: https://github.com/kozmer/log4j-shell-poc",
+            "destaque": false
+          }
+        ],
+        "cves": [
+          "CVE-2021-44228"
+        ],
+        "cwes": [],
+        "explicacao": [
+          {
+            "palavra": "cve-2021-44228",
+            "campos": {
+              "corpo": {
+                "tf": 2,
+                "len/avg": 0.27503508386726944,
+                "w·tf/B": 4.383308849162962
+              },
+              "codigo": {
+                "tf": 2,
+                "len/avg": 0.9998078776558613,
+                "w·tf/B": 2.0002882250470617
+              }
+            },
+            "tf~": 6.383597074210023,
+            "n": 6,
+            "idf": 13.269272811845505,
+            "parcela": 24.573104107896405
+          }
+        ]
+      }
+    ]
+  }
+}

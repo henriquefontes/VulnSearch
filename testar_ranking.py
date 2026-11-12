@@ -7,6 +7,8 @@
 #   preparar_ranking.py e pelos mesmos métodos do Ranqueador do índice real.
 # Teste 13: recurso do IDF (padrão 'limitado+recurso'): consulta só com termos de
 #   n > N/2 passa a usar log(1 + ·); com algum termo raro, nada muda.
+# Teste 14: filtro 'permitidos' do Ranqueador.ranquear (usado pelo servidor Web):
+#   sem ele, nada muda; com ele, top-k = top-k dos positivos restritos ao conjunto.
 # Teste 12: métricas de avaliação (avaliar.py), com qrels inventado só no teste.
 # Teste 11: consistência com o índice real. Para documentos sorteados, recalcula
 #   BM25, BM25F e cosseno "na força bruta" a partir dos campos
@@ -399,6 +401,33 @@ def teste_13_indice(pasta):
                "anterior", iguais)
 
 
+def teste_14(pasta):
+    r = Ranqueador.abre(pasta)
+    rnd = random.Random(14)
+    consultas = CONSULTAS_11 + ['"denial of service" -wordpress', "codigo:strcpy",
+                                "vulnerability"]
+    sem_param = com_todos = filtro_ok = True
+    for consulta in consultas:
+        for m in ("tfidf", "vetorial", "bm25", "bm25f"):
+            base = r.ranquear(consulta, m, 20)
+            # sem o parâmetro: positivos = antes; top = top-k dos positivos
+            sem_param &= base.top == top_k(base.positivos, 20) and                 base.n_positivos == len(base.positivos)
+            todos = r.ranquear(consulta, m, 20, permitidos=set(range(r.N)))
+            com_todos &= todos.top == base.top and todos.n_positivos == base.n_positivos
+            for frac in (0.5, 0.05):
+                perm = {d for d in range(r.N) if rnd.random() < frac}
+                res = r.ranquear(consulta, m, 20, permitidos=perm)
+                esperado = {d: s for d, s in base.positivos.items() if d in perm}
+                filtro_ok &= (res.top == top_k(esperado, 20)
+                              and res.n_positivos == len(esperado)
+                              and res.positivos == base.positivos
+                              and all(d in perm for d, _ in res.top))
+    verdadeiro("T14 sem 'permitidos': top-k = top-k dos positivos", sem_param)
+    verdadeiro("T14 permitidos = todos os documentos: idêntico a sem o parâmetro", com_todos)
+    verdadeiro(f"T14 {len(consultas)} consultas × 4 modelos × 2 subconjuntos: top-k e total "
+               "= positivos restritos aos permitidos (frase e negação incluídas)", filtro_ok)
+
+
 def main():
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -417,6 +446,7 @@ def main():
     if not args.sem_indice:
         teste_11(args.indice, args.docs)
         teste_13_indice(args.indice)
+        teste_14(args.indice)
     print(f"\n{N_OK} verificações OK, {len(FALHAS)} falhas")
     for f in FALHAS:
         print("  FALHA:", f)

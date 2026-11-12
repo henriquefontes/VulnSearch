@@ -1,0 +1,7 @@
+{
+  "requisicao": "GET /api/documento/999999",
+  "status": 404,
+  "resposta": {
+    "erro": "O documento 999999 não existe."
+  }
+}

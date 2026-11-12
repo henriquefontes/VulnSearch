@@ -1,0 +1,196 @@
+{
+  "requisicao": "GET /api/busca?q=log4j&site=www.exploit-db.com&cve=CVE-2021-44228",
+  "status": 200,
+  "resposta": {
+    "consulta": "log4j",
+    "modelo": "bm25f",
+    "parametros": {
+      "k1": 1.2,
+      "b": 0.75,
+      "peso_titulo": 2.0,
+      "peso_codigo": 1.0
+    },
+    "total": 3,
+    "pagina": 1,
+    "por_pagina": 10,
+    "paginas": 1,
+    "tempo_ms": {
+      "ranqueamento": 0.22,
+      "trechos": 1.54,
+      "total": 2.38
+    },
+    "cache": false,
+    "avisos": [],
+    "filtros": {
+      "site": [
+        "www.exploit-db.com"
+      ],
+      "cve": [
+        "CVE-2021-44228"
+      ],
+      "cwe": []
+    },
+    "facetas": {
+      "sites": {
+        "www.exploit-db.com": 3,
+        "cwe.mitre.org": 2
+      }
+    },
+    "resultados": [
+      {
+        "posicao": 1,
+        "id": 38165,
+        "url": "https://www.exploit-db.com/exploits/50592",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "Apache ",
+            "destaque": false
+          },
+          {
+            "texto": "Log4j",
+            "destaque": true
+          },
+          {
+            "texto": " 2 - Remote Code Execution (RCE)",
+            "destaque": false
+          }
+        ],
+        "escore": 22.926011,
+        "trecho": [
+          {
+            "texto": "Apache ",
+            "destaque": false
+          },
+          {
+            "texto": "Log4j",
+            "destaque": true
+          },
+          {
+            "texto": " 2 - Remote Code Execution (RCE) EDB-ID: 50592 CVE: 2021-44228 EDB Verified: Author: kozmer Type: remote Exploit: / Platform: Java Date: 2021-12-14 Vulnerable App: Tags: Advisory/Source: Link",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "# Exploit Title: Apache ",
+            "destaque": false
+          },
+          {
+            "texto": "Log4j",
+            "destaque": true
+          },
+          {
+            "texto": " 2 - Remote Code Execution (RCE)\n# Date: 11/12/2021\n# Exploit Authors: kozmer, z9fr, svmorris\n# Vendor Homepage: https://logging.apache.org/",
+            "destaque": false
+          },
+          {
+            "texto": "log4j",
+            "destaque": true
+          },
+          {
+            "texto": "/2.x/\n# Software Link: https://github.com/apache/logging-log4j2",
+            "destaque": false
+          }
+        ],
+        "cves": [
+          "CVE-2021-44228"
+        ],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 2,
+        "id": 11826,
+        "url": "https://www.exploit-db.com/exploits/51183",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "AD Manager Plus 7122 - Remote Code Execution (RCE)",
+            "destaque": false
+          }
+        ],
+        "escore": 22.583271,
+        "trecho": [
+          {
+            "texto": "… github.com/channyein1337/research/blob/main/Ad-Manager-Plus-",
+            "destaque": false
+          },
+          {
+            "texto": "Log4j",
+            "destaque": true
+          },
+          {
+            "texto": "-poc.md ### Description …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "# Tested on: Windows\n# CVE : CVE-2021-44228\n# Github Repo: https://github.com/channyein1337/research/blob/main/Ad-Manager-Plus-",
+            "destaque": false
+          },
+          {
+            "texto": "Log4j",
+            "destaque": true
+          },
+          {
+            "texto": "-poc.md\n\n### Description",
+            "destaque": false
+          }
+        ],
+        "cves": [
+          "CVE-2021-44228"
+        ],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 3,
+        "id": 38157,
+        "url": "https://www.exploit-db.com/exploits/50590",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "Apache Log4j2 2.14.1 - Information Disclosure",
+            "destaque": false
+          }
+        ],
+        "escore": 17.689683,
+        "trecho": [
+          {
+            "texto": "… leonjza # Vendor Homepage: https://logging.apache.org/",
+            "destaque": false
+          },
+          {
+            "texto": "log4j",
+            "destaque": true
+          },
+          {
+            "texto": "/2.x/ # Version: <= 2.14.1 # CVE: CVE-2021-44228 …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "# Date: 12/12/2021\n# Exploit Author: leonjza\n# Vendor Homepage: https://logging.apache.org/",
+            "destaque": false
+          },
+          {
+            "texto": "log4j",
+            "destaque": true
+          },
+          {
+            "texto": "/2.x/\n# Version: <= 2.14.1\n# CVE: CVE-2021-44228",
+            "destaque": false
+          }
+        ],
+        "cves": [
+          "CVE-2021-44228"
+        ],
+        "cwes": [],
+        "explicacao": null
+      }
+    ]
+  }
+}

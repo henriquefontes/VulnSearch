@@ -1,0 +1,43 @@
+{
+  "requisicao": "GET /api/estatisticas",
+  "status": 200,
+  "resposta": {
+    "documentos": 64180,
+    "vocabulario": {
+      "total": 821068,
+      "texto": 261881,
+      "codigo": 559187
+    },
+    "postings": 11238559,
+    "ocorrencias": 28740582,
+    "indice_mb": {
+      "vocabulario": 21.26,
+      "ocorrencias": 59.99,
+      "documentos": 8.5,
+      "total": 89.75,
+      "documentos_ranking.bin": 4.41,
+      "colecao.json": 0.0,
+      "textos.bin": 88.67,
+      "textos_idx.bin": 0.73,
+      "metadados.tsv": 1.26
+    },
+    "data_indexacao": "2026-10-15T20:58:40",
+    "tempo_indexacao_s": 214.79,
+    "medias_tamanho": {
+      "titulo": 7.58,
+      "corpo": 123.62,
+      "texto": 131.2,
+      "codigo": 439.08
+    },
+    "docs_com_campo": {
+      "titulo": 64180,
+      "corpo": 64179,
+      "texto": 64180,
+      "codigo": 46279
+    },
+    "textos": {
+      "razao_compressao": 2.71,
+      "docs_com_cve": 44497
+    }
+  }
+}

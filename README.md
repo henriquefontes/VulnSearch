@@ -7,9 +7,67 @@ Sociais (PUC Minas). O projeto é feito em etapas:
 1. **Coleta** (concluída): coletor sobre o Katana; ver [Etapa 1](#etapa-1--coleta).
 2. **Representação e indexação** (concluída): limpeza do HTML, análise léxica e índice
    invertido; ver [Etapa 2](#etapa-2--indexação).
-3. **Ranqueamento** (atual): Jaccard, TF-IDF, modelo vetorial, BM1/BM15/BM11/BM25 e
+3. **Ranqueamento** (concluída): Jaccard, TF-IDF, modelo vetorial, BM1/BM15/BM11/BM25 e
    BM25F; ver [Etapa 3](#etapa-3--ranqueamento).
-4. Interface de busca e avaliação (próximas etapas).
+4. **Interface Web** (atual): backend (API JSON) pronto; ver
+   [Interface Web — backend](#interface-web--backend). Frontend e avaliação em andamento.
+
+## Interface Web — backend
+
+Servidor HTTP que recebe a consulta, ranqueia com o `Ranqueador` (BM25F por padrão), monta
+trechos com destaque e devolve **JSON**. O contrato da API está em **[API.md](API.md)**, e
+há respostas reais em [`exemplos_api/`](exemplos_api/). O frontend fica em `web/` (por
+enquanto só a página de teste `web/teste.html`, que **não** é a interface final).
+
+### Instalação e execução
+
+```
+pip install -r requirements.txt               # selectolax, snowballstemmer, fastapi, uvicorn (Python 3.9+)
+
+# armazenamento dos textos para os trechos (~20 s; o indexar.py já chama no final, salvo --sem-textos)
+python preparar_textos.py
+
+# servidor local (carga ~0,9 s, ~320 MB)
+python servidor.py                            # http://127.0.0.1:8000/  (página de teste)
+                                              # http://127.0.0.1:8000/docs  (documentação automática)
+python servidor.py --porta 8080 --cors http://localhost:3000   # outra porta / origem do frontend
+
+# testes e medições
+python testar_api.py                          # indice_teste (~10 s)
+python testar_api.py --indice indice          # índice completo
+python testar_api.py --indice indice --gravar-exemplos   # regrava exemplos_api/*.json
+python medir_api.py                           # latência e vazão -> resultados_web/ (~40 s)
+```
+
+**Na VPS**: `python servidor.py --host 0.0.0.0 --porta 8000`. O servidor **não tem
+autenticação** (é uma demonstração): limite o acesso pelo firewall da VPS (ex.:
+`sudo ufw allow from <seu IP> to any port 8000`) e não deixe a porta aberta para a internet
+inteira.
+
+### Rotas
+
+| Rota | Resposta |
+|---|---|
+| `GET /api/busca?q=...` | Busca ranqueada: `modelo`, `pagina`, `por_pagina`, filtros `site`/`cve`/`cwe` (podem repetir), `k1`, `b`, `peso_titulo`, `peso_codigo`, `explicar`. Resultados com título e trechos em segmentos `{texto, destaque}`, facetas por site, avisos e tempos |
+| `GET /api/documento/{id}` | Documento completo (texto, código até 20 KB, CVEs/CWEs) |
+| `GET /api/modelos`, `/api/sites` | Listas para o seletor de modelo e os filtros |
+| `GET /api/estatisticas`, `/api/saude` | Números do índice; situação do servidor |
+| `GET /`, `/static/...` | Arquivos de `web/` (`index.html`, ou `teste.html` enquanto ele não existir) |
+
+Detalhes, erros e exemplos: [API.md](API.md).
+
+### Arquivos
+
+| Arquivo | Função |
+|---|---|
+| `servidor.py` | App FastAPI: carga única do índice, lock, cache de consultas, filtros, facetas, paginação, registro |
+| `trechos.py` | Trechos com destaque (módulo separado, para o integrante dos *snippets* revisar ou substituir) |
+| `textos.py`, `preparar_textos.py` | Armazenamento próprio dos textos: `indice/textos.bin` (JSON + zlib por documento), `textos_idx.bin` (deslocamentos) e `metadados.tsv` (CVEs/CWEs) |
+| `cliente_api.py` | Sobe o servidor numa thread e faz requisições (usado nos testes e nas medições) |
+| `testar_api.py`, `medir_api.py` | Testes da API e dos trechos; latência e vazão |
+| `API.md`, `exemplos_api/` | Contrato da API e respostas reais |
+| `web/teste.html` | Página mínima de teste (não é a interface final) |
+| `logs/consultas.tsv` | Registro das consultas (data, consulta, modelo, filtros, total, ms, página; sem IP), fora do Git |
 
 ## Etapa 3 — ranqueamento
 

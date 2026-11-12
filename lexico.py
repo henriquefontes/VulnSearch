@@ -109,6 +109,51 @@ def tokens(texto):
     return TOKEN.findall(texto)
 
 
+_ANO_CVE = re.compile(r"\d{4}-")
+
+
+def tokens_com_posicao(texto):
+    """Os mesmos tokens de tokens(texto), cada um com o início e o fim no texto
+    ORIGINAL: [(token, inicio, fim)]. A limpeza de tokens() (apóstrofo removido,
+    'CVE-' inserido nos anos da ficha do exploit-db) é refeita guardando, para
+    cada caractere do texto limpo, a sua posição no original; os caracteres
+    inseridos apontam para o início do ano. Usada pelos trechos com destaque."""
+    # 1. apóstrofos dentro de palavra removidos
+    limpo, mapa, ult = [], [], 0
+    for m in APOSTROFO.finditer(texto):
+        limpo.append(texto[ult:m.start()])
+        mapa.extend(range(ult, m.start()))
+        ult = m.end()
+    limpo.append(texto[ult:])
+    mapa.extend(range(ult, len(texto)))
+    s1 = "".join(limpo)
+    # 2. CVE da ficha sem prefixo: 'CVE:\n2006-0660' -> 'CVE:\nCVE-2006-0660'
+    limpo, mapa2, ult = [], [], 0
+    for m in CVE_FICHA.finditer(s1):
+        a, b = m.start(2), m.end(2)
+        limpo.append(s1[ult:a])
+        mapa2.extend(mapa[ult:a])
+        u = a
+        for ano in _ANO_CVE.finditer(s1, a, b):
+            limpo.append(s1[u:ano.start()])
+            mapa2.extend(mapa[u:ano.start()])
+            limpo.append("CVE-")
+            mapa2.extend([mapa[ano.start()]] * 4)
+            u = ano.start()
+        limpo.append(s1[u:b])
+        mapa2.extend(mapa[u:b])
+        ult = b
+    limpo.append(s1[ult:])
+    mapa2.extend(mapa[ult:])
+    s2 = "".join(limpo)
+    return [(m.group(), mapa2[m.start()], mapa2[m.end() - 1] + 1) for m in TOKEN.finditer(s2)]
+
+
+def tokens_codigo_com_posicao(codigo):
+    """tokens_codigo() com início e fim de cada token: [(token, inicio, fim)]."""
+    return [(m.group(), m.start(), m.end()) for m in TOKEN_CODIGO.finditer(codigo)]
+
+
 def eh_numero(token):
     """Número ou versão (começa com dígito e não tem letras)."""
     return token[0].isdigit() and not any(c.isalpha() for c in token)

@@ -1,0 +1,201 @@
+{
+  "requisicao": "GET /api/busca?q=buffer overflow&modelo=bm25&k1=1.5&b=0.5&por_pagina=3",
+  "status": 200,
+  "resposta": {
+    "consulta": "buffer overflow",
+    "modelo": "bm25",
+    "parametros": {
+      "k1": 1.5,
+      "b": 0.5,
+      "peso_codigo": 1.0
+    },
+    "total": 9077,
+    "pagina": 1,
+    "por_pagina": 3,
+    "paginas": 167,
+    "tempo_ms": {
+      "ranqueamento": 35.0,
+      "trechos": 1.32,
+      "total": 39.19
+    },
+    "cache": false,
+    "avisos": [],
+    "filtros": {
+      "site": [],
+      "cve": [],
+      "cwe": []
+    },
+    "facetas": {
+      "sites": {
+        "www.exploit-db.com": 7172,
+        "www.rapid7.com": 947,
+        "github.com": 724,
+        "cwe.mitre.org": 234
+      }
+    },
+    "resultados": [
+      {
+        "posicao": 1,
+        "id": 33564,
+        "url": "https://www.exploit-db.com/exploits/45395",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "InduSoft Web Studio 8.1 SP1 - 'Tag Name' ",
+            "destaque": false
+          },
+          {
+            "texto": "Buffer Overflow",
+            "destaque": true
+          },
+          {
+            "texto": " (SEH)",
+            "destaque": false
+          }
+        ],
+        "escore": 25.878972,
+        "trecho": [
+          {
+            "texto": "… Web Studio 8.1 SP1 - 'Tag Name' ",
+            "destaque": false
+          },
+          {
+            "texto": "Buffer Overflow",
+            "destaque": true
+          },
+          {
+            "texto": " (SEH) EDB-ID: 45395 CVE: N/A EDB Verified: Author: Luis Martínez Type: local Exploit: / Platform: Windows_x86-64 Date: 2018-09-13 Vulnerable App: Tags: ",
+            "destaque": false
+          },
+          {
+            "texto": "Buffer Overflow",
+            "destaque": true
+          },
+          {
+            "texto": " …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "# Exploit Title: InduSoft Web Studio 8.1 SP1 - 'Tag Name' ",
+            "destaque": false
+          },
+          {
+            "texto": "Buffer Overflow",
+            "destaque": true
+          },
+          {
+            "texto": " (SEH)\n# Discovery by: Luis Martinez\n# Discovery Date: 2018-09-11\n# Vendor Homepage: http://www.indusoft.com/\n# Software Link: http://www.indusoft.com/Products-Downloads",
+            "destaque": false
+          }
+        ],
+        "cves": [],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 2,
+        "id": 43123,
+        "url": "https://www.exploit-db.com/exploits/48397",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "Internet Download Manager 6.37.11.1 - Stack ",
+            "destaque": false
+          },
+          {
+            "texto": "Buffer Overflow",
+            "destaque": true
+          },
+          {
+            "texto": " (PoC)",
+            "destaque": false
+          }
+        ],
+        "escore": 25.724352,
+        "trecho": [
+          {
+            "texto": "Internet Download Manager 6.37.11.1 - Stack ",
+            "destaque": false
+          },
+          {
+            "texto": "Buffer Overflow",
+            "destaque": true
+          },
+          {
+            "texto": " (PoC) EDB-ID: 48397 CVE: N/A EDB Verified: Author: Vulnerability-Lab Type: local Exploit: / Platform: Windows Date: 2020-04-29 Vulnerable App: Tags: Advisory …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "# Title: Internet Download Manager 6.37.11.1 - Stack ",
+            "destaque": false
+          },
+          {
+            "texto": "Buffer Overflow",
+            "destaque": true
+          },
+          {
+            "texto": " (PoC)\n# Author: Vulnerability Laboratory\n# Date: 2020-04-28\n# Vendor: https://www.internetdownloadmanager.com\n# Software: https://www.internetdownloadmanager.com/download.html",
+            "destaque": false
+          }
+        ],
+        "cves": [],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 3,
+        "id": 13492,
+        "url": "https://www.exploit-db.com/exploits/47178",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "pdfresurrect 0.15 - ",
+            "destaque": false
+          },
+          {
+            "texto": "Buffer Overflow",
+            "destaque": true
+          }
+        ],
+        "escore": 25.419511,
+        "trecho": [
+          {
+            "texto": "pdfresurrect 0.15 - ",
+            "destaque": false
+          },
+          {
+            "texto": "Buffer Overflow",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 47178 CVE: 2019-14267 EDB Verified: Author: j0lama Type: dos Exploit: / Platform: Linux Date: 2019-07-26 Vulnerable App: Tags: Advisory/Source: Link",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "# Exploit Title: pdfresurrect 0.15 ",
+            "destaque": false
+          },
+          {
+            "texto": "Buffer Overflow",
+            "destaque": true
+          },
+          {
+            "texto": "\n# Date: 2019-07-26\n# Exploit Author: j0lama\n# Vendor Homepage: https://github.com/enferex/pdfresurrect\n# Software Link: https://github.com/enferex/pdfresurrect",
+            "destaque": false
+          }
+        ],
+        "cves": [
+          "CVE-2019-14267"
+        ],
+        "cwes": [],
+        "explicacao": null
+      }
+    ]
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "requisicao": "GET /api/busca?q=\"denial of service\" -wordpress&por_pagina=3",
+  "status": 200,
+  "resposta": {
+    "consulta": "\"denial of service\" -wordpress",
+    "modelo": "bm25f",
+    "parametros": {
+      "k1": 1.2,
+      "b": 0.75,
+      "peso_titulo": 2.0,
+      "peso_codigo": 1.0
+    },
+    "total": 4980,
+    "pagina": 1,
+    "por_pagina": 3,
+    "paginas": 167,
+    "tempo_ms": {
+      "ranqueamento": 103.7,
+      "trechos": 1.33,
+      "total": 106.69
+    },
+    "cache": false,
+    "avisos": [],
+    "filtros": {
+      "site": [],
+      "cve": [],
+      "cwe": []
+    },
+    "facetas": {
+      "sites": {
+        "www.exploit-db.com": 3120,
+        "github.com": 1127,
+        "www.rapid7.com": 570,
+        "cwe.mitre.org": 141,
+        "www.drupal.org": 20,
+        "developer.joomla.org": 2
+      }
+    },
+    "resultados": [
+      {
+        "posicao": 1,
+        "id": 15199,
+        "url": "https://www.exploit-db.com/exploits/11717",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "PHP (Multiple Functions) - Local ",
+            "destaque": false
+          },
+          {
+            "texto": "Denial of Service",
+            "destaque": true
+          }
+        ],
+        "escore": 11.754176,
+        "trecho": [
+          {
+            "texto": "PHP (Multiple Functions) - Local ",
+            "destaque": false
+          },
+          {
+            "texto": "Denial of Service",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 11717 CVE: N/A EDB Verified: Author: Yakir Wizman Type: dos Exploit: / Platform: Multiple Date: 2010-03-13 Vulnerable App: Tags: Advisory/Source: Link",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "// ==================================================================================\n//\n// PHP 4.4.6 com_invoke() Local ",
+            "destaque": false
+          },
+          {
+            "texto": "Denial",
+            "destaque": true
+          },
+          {
+            "texto": " of ",
+            "destaque": false
+          },
+          {
+            "texto": "Service",
+            "destaque": true
+          },
+          {
+            "texto": "\n//\n// Tested on WIN XP, Apache, PHP 4.4.6. Local ",
+            "destaque": false
+          },
+          {
+            "texto": "Denial",
+            "destaque": true
+          },
+          {
+            "texto": " of ",
+            "destaque": false
+          },
+          {
+            "texto": "Service",
+            "destaque": true
+          },
+          {
+            "texto": ".",
+            "destaque": false
+          }
+        ],
+        "cves": [],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 2,
+        "id": 40393,
+        "url": "https://www.exploit-db.com/exploits/46261",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "Sricam gSOAP 2.8 - ",
+            "destaque": false
+          },
+          {
+            "texto": "Denial of Service",
+            "destaque": true
+          }
+        ],
+        "escore": 11.236371,
+        "trecho": [
+          {
+            "texto": "Sricam gSOAP 2.8 - ",
+            "destaque": false
+          },
+          {
+            "texto": "Denial of Service",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 46261 CVE: 2019-6973 EDB Verified: Author: Andrew Watson Type: dos Exploit: / Platform: Hardware Date: 2019-01-28 Vulnerable App: Tags: ",
+            "destaque": false
+          },
+          {
+            "texto": "Denial of Service",
+            "destaque": true
+          },
+          {
+            "texto": " (DoS) Advisory/Source …",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "#######################################################################################\n#\n#     Exploit Title: Sricam gSOAP 2.8 - ",
+            "destaque": false
+          },
+          {
+            "texto": "Denial",
+            "destaque": true
+          },
+          {
+            "texto": " of ",
+            "destaque": false
+          },
+          {
+            "texto": "Service",
+            "destaque": true
+          },
+          {
+            "texto": "\n#              Date: 25/01/2019           \n#     Vendor Status: Informed (24/10/2018)",
+            "destaque": false
+          }
+        ],
+        "cves": [
+          "CVE-2019-6973"
+        ],
+        "cwes": [],
+        "explicacao": null
+      },
+      {
+        "posicao": 3,
+        "id": 13364,
+        "url": "https://www.exploit-db.com/exploits/18691",
+        "site": "www.exploit-db.com",
+        "titulo": [
+          {
+            "texto": "FoxPlayer 2.6.0 - ",
+            "destaque": false
+          },
+          {
+            "texto": "Denial of Service",
+            "destaque": true
+          }
+        ],
+        "escore": 11.153555,
+        "trecho": [
+          {
+            "texto": "FoxPlayer 2.6.0 - ",
+            "destaque": false
+          },
+          {
+            "texto": "Denial of Service",
+            "destaque": true
+          },
+          {
+            "texto": " EDB-ID: 18691 CVE: EDB Verified: Author: Ahmed Elhady Mohamed Type: dos Exploit: / Platform: Windows Date: 2012-04-01 Vulnerable App: Tags: Advisory/Source: Link",
+            "destaque": false
+          }
+        ],
+        "trecho_codigo": [
+          {
+            "texto": "Denial",
+            "destaque": true
+          },
+          {
+            "texto": " of ",
+            "destaque": false
+          },
+          {
+            "texto": "Service",
+            "destaque": true
+          },
+          {
+            "texto": " in FoxPlayer version 2.6.0\n===================================================================================\n# Exploit Title:",
+            "destaque": false
+          },
+          {
+            "texto": "Denial",
+            "destaque": true
+          },
+          {
+            "texto": " of ",
+            "destaque": false
+          },
+          {
+            "texto": "Service",
+            "destaque": true
+          },
+          {
+            "texto": " in FoxPlayer version 2.6.0\n# Download link :http://www.foxmediatools.com/installers/fox-player-setup.exe\n# Author: Ahmed Elhady Mohamed",
+            "destaque": false
+          }
+        ],
+        "cves": [],
+        "cwes": [],
+        "explicacao": null
+      }
+    ]
+  }
+}

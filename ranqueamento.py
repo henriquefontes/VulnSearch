@@ -318,8 +318,11 @@ class ProcessadorConsulta:
 # ============================================================ resultado
 class Resultado:
     def __init__(self, modelo, consulta, top, n_candidatos, n_positivos, postings, ms,
-                 avisos, detalhes=None, params=None, recurso=False):
+                 avisos, detalhes=None, params=None, recurso=False, positivos=None):
         self.modelo = modelo
+        # doc -> escore > 0 depois das frases e negações, ANTES de 'permitidos'
+        # (usado pelo servidor para as facetas e o cache de paginação)
+        self.positivos = positivos if positivos is not None else {}
         self.recurso = recurso          # o recurso do IDF (log1p) foi usado
         self.consulta = consulta
         self.top = top                  # [(doc, escore)]
@@ -412,7 +415,12 @@ class Ranqueador:
         return consulta, _Prep(self.ind, consulta)
 
     def ranquear(self, consulta, modelo=MODELO_PADRAO, k=10, explicar=False, prep=None,
-                 **params):
+                 permitidos=None, **params):
+        """Top-k da consulta. 'permitidos' (conjunto de ids, opcional) restringe
+        os documentos antes do top-k, junto com frases e negações; sem ele, o
+        comportamento é o de sempre. n_positivos conta os documentos que restam
+        depois de todos os filtros; Resultado.positivos guarda os escores > 0
+        filtrados só por frase e negação."""
         t0 = time.perf_counter()
         if prep is None:
             consulta, q = self.prepara(consulta)
@@ -424,16 +432,19 @@ class Ranqueador:
         recurso = q.recurso
         n_candidatos = len(escores)
         # filtros: frases (D11) e termos negados
-        permitidos = None
+        permitidos_frase = None
         for frase in consulta.frases:
             docs = self.buscador._item(frase)
             if docs is not None:
-                permitidos = set(docs) if permitidos is None else permitidos & set(docs)
+                permitidos_frase = (set(docs) if permitidos_frase is None
+                                    else permitidos_frase & set(docs))
         excluidos = set()
         for parte in consulta.negados:
             excluidos.update(self.buscador._item(parte) or [])
-        filtrados = {d: s for d, s in escores.items()
-                     if s > 0 and d not in excluidos and (permitidos is None or d in permitidos)}
+        positivos = {d: s for d, s in escores.items()
+                     if s > 0 and d not in excluidos and (permitidos_frase is None
+                                                          or d in permitidos_frase)}
+        filtrados = positivos if permitidos is None else             {d: s for d, s in positivos.items() if d in permitidos}
         top = top_k(filtrados, k)
         ms = (time.perf_counter() - t0) * 1000
         detalhes = None
@@ -442,7 +453,7 @@ class Ranqueador:
             metodo(q, alvo={d for d, _ in top}, detalhes=detalhes, **params)
         avisos = q.avisos + ([AVISO_RECURSO] if recurso else [])
         return Resultado(modelo, consulta, top, n_candidatos, len(filtrados), q.postings(), ms,
-                         avisos, detalhes, params, recurso)
+                         avisos, detalhes, params, recurso, positivos)
 
     def _campos(self, q, alpha):
         """(nome, termos {termo: f_q}, peso) dos dois 'campos' dos modelos sem campos."""

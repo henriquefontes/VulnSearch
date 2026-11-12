@@ -1,0 +1,36 @@
+{
+  "requisicao": "GET /api/busca?q=the of and",
+  "status": 200,
+  "resposta": {
+    "consulta": "the of and",
+    "modelo": "bm25f",
+    "parametros": {
+      "k1": 1.2,
+      "b": 0.75,
+      "peso_titulo": 2.0,
+      "peso_codigo": 1.0
+    },
+    "total": 0,
+    "pagina": 1,
+    "por_pagina": 10,
+    "paginas": 0,
+    "tempo_ms": {
+      "ranqueamento": 0.04,
+      "trechos": 0.0,
+      "total": 0.12
+    },
+    "cache": false,
+    "avisos": [
+      "A consulta não tem termos indexáveis (só stopwords ou sinais)."
+    ],
+    "filtros": {
+      "site": [],
+      "cve": [],
+      "cwe": []
+    },
+    "facetas": {
+      "sites": {}
+    },
+    "resultados": []
+  }
+}
