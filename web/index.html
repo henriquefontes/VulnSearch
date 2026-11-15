@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VulnSearch</title>
+<meta name="description" content="Buscador vertical de vulnerabilidades de software e hardware">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d93025' d='M12 1 3 5v6c0 5.6 3.8 10.7 9 12 5.2-1.3 9-6.4 9-12V5z'/%3E%3Cpath fill='%23fff' d='M12 7a3 3 0 0 0-3 3v4a3 3 0 0 0 6 0v-4a3 3 0 0 0-3-3zm-4.5 3h2v1h-2zm7 0h2v1h-2zm-7 3h2v1h-2zm7 0h2v1h-2z'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/static/estilo.css?v=11">
+</head>
+<body>
+<div id="carregando" class="carregando" hidden></div>
+
+<!-- ===================== página inicial ===================== -->
+<section id="inicio" class="inicio" hidden>
+  <header class="topo-inicio">
+    <a href="#" data-acao="sobre">Sobre</a>
+    <a href="#" data-acao="sintaxe">Sintaxe</a>
+    <a href="/docs" target="_blank" rel="noopener">API</a>
+  </header>
+
+  <main class="centro">
+    <h1 class="logo logo-grande" aria-label="VulnSearch"></h1>
+    <p class="slogan">Buscador de vulnerabilidades: exploits, avisos de segurança e CWEs</p>
+
+    <form class="busca busca-grande" data-form>
+      <div class="caixa">
+        <svg class="ico-lupa" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 9.5 16a6.5 6.5 0 0 0 4.2-1.6l.3.3v.8l5 5 1.5-1.5zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+        <input type="search" name="q" maxlength="200" autocomplete="off" spellcheck="false"
+               aria-label="Pesquisar" placeholder="CVE, produto, tipo de falha, código…">
+        <button type="button" class="limpar" aria-label="Limpar" hidden>×</button>
+        <ul class="sugestoes" role="listbox" hidden></ul>
+      </div>
+      <div class="botoes">
+        <button type="submit">Pesquisar no VulnSearch</button>
+        <button type="button" data-acao="sorte">Estou com sorte</button>
+      </div>
+    </form>
+
+    <p class="experimente">Experimente:
+      <a href="?q=log4j">log4j</a>
+      <a href="?q=CVE-2021-44228">CVE-2021-44228</a>
+      <a href="?q=%22use-after-free%22%20chrome">"use-after-free" chrome</a>
+      <a href="?q=sql%20injection%20wordpress">sql injection wordpress</a>
+      <a href="?q=codigo%3Astrcpy">codigo:strcpy</a>
+    </p>
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape-linha rodape-links">
+      <span id="rodape-fontes">Exploit Database · GitHub Advisories · Rapid7 · CWE · Drupal · Joomla</span>
+      <span><a href="#" data-acao="sobre">Sobre o índice</a> · <a href="#" data-acao="sintaxe">Como pesquisar</a></span>
+    </div>
+  </footer>
+</section>
+
+<!-- ===================== página de resultados ===================== -->
+<section id="resultados" class="resultados" hidden>
+  <header class="topo">
+    <div class="topo-linha">
+      <a href="./" class="logo logo-pequeno" aria-label="VulnSearch: página inicial"></a>
+      <form class="busca busca-topo" data-form>
+        <div class="caixa">
+          <input type="search" name="q" maxlength="200" autocomplete="off" spellcheck="false" aria-label="Pesquisar">
+          <button type="button" class="limpar" aria-label="Limpar" hidden>×</button>
+          <span class="divisor"></span>
+          <button type="submit" class="lupa" aria-label="Pesquisar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 9.5 16a6.5 6.5 0 0 0 4.2-1.6l.3.3v.8l5 5 1.5-1.5zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+          </button>
+          <ul class="sugestoes" role="listbox" hidden></ul>
+        </div>
+      </form>
+      <nav class="topo-links">
+        <a href="#" data-acao="sintaxe">Sintaxe</a>
+        <a href="#" data-acao="sobre">Sobre</a>
+      </nav>
+    </div>
+    <nav class="abas" id="abas" aria-label="Fontes"></nav>
+    <div class="ferramentas" id="ferramentas" hidden>
+      <label>Modelo <select id="modelo"></select></label>
+      <span id="parametros" class="parametros"></span>
+      <label class="chk"><input type="checkbox" id="explicar"> Explicar score</label>
+      <label>Por página
+        <select id="por-pagina"><option>10</option><option>20</option><option>50</option></select>
+      </label>
+      <button type="button" class="link" id="restaurar">Restaurar padrões</button>
+    </div>
+  </header>
+
+  <main class="conteudo">
+    <div class="coluna">
+      <div id="filtros-ativos" class="filtros-ativos"></div>
+      <p id="estatistica" class="estatistica"></p>
+      <div id="avisos"></div>
+      <div id="lista"></div>
+      <nav id="paginacao" class="paginacao" aria-label="Páginas"></nav>
+    </div>
+    <aside id="painel" class="painel" hidden></aside>
+  </main>
+
+</section>
+
+<!-- ===================== visualização "em cache" ===================== -->
+<section id="cache" class="cache" hidden>
+  <div class="cache-faixa">
+    <div class="cache-faixa-interna">
+      <a href="#" id="cache-voltar" class="link">‹ Voltar aos resultados</a>
+      <p>Esta é a cópia indexada pelo VulnSearch de <a id="cache-url" target="_blank" rel="noopener noreferrer"></a>.
+        Os termos da pesquisa estão <mark>destacados</mark>.</p>
+    </div>
+  </div>
+  <article class="cache-doc" id="cache-doc"></article>
+</section>
+
+<!-- ===================== janelas ===================== -->
+<dialog id="janela" class="janela">
+  <form method="dialog"><button class="fechar" aria-label="Fechar">×</button></form>
+  <div id="janela-corpo"></div>
+</dialog>
+
+<template id="tpl-sintaxe">
+  <h2>Como pesquisar</h2>
+  <table class="tabela">
+    <tr><td><code>sql injection</code></td><td>Palavras soltas: documentos com qualquer uma delas, ordenados por relevância</td></tr>
+    <tr><td><code>"denial of service"</code></td><td>Frase exata (as palavras em sequência)</td></tr>
+    <tr><td><code>-wordpress</code> ou <code>NOT wordpress</code></td><td>Exclui documentos com a palavra</td></tr>
+    <tr><td><code>codigo:strcpy</code></td><td>Procura só no código dos exploits e exemplos</td></tr>
+    <tr><td><code>CVE-2021-44228</code>, <code>CWE-79</code>, <code>GHSA-…</code></td><td>Identificadores são termos inteiros</td></tr>
+  </table>
+  <p>As abas filtram por fonte. Clique num CVE ou CWE de um resultado para filtrar por ele.
+    Em <b>Ferramentas</b>, escolha o modelo de ranqueamento (Jaccard, TF-IDF, vetorial, BM1,
+    BM15, BM11, BM25, BM25F) e ajuste os parâmetros.</p>
+  <p>Atalho: <kbd>/</kbd> leva à caixa de pesquisa.</p>
+</template>
+<noscript><p style="padding:16px">O VulnSearch precisa de JavaScript.</p></noscript>
+<script src="/static/app.js?v=11"></script>
+</body>
+</html>

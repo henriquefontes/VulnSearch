@@ -172,7 +172,7 @@ Arquivos: `documento.json`, `erro_404.json`.
 
 ```json
 {"padrao": "bm25f", "modelos": [
-  {"id": "bm25f", "nome": "BM25F", "aula": "09",
+  {"id": "bm25f", "nome": "BM25F",
    "descricao": "BM25 com campos: título, corpo e código, com pesos por campo. Padrão.",
    "parametros": {"k1": 1.2, "b": 0.75, "peso_titulo": 2.0, "peso_codigo": 1.0}}, ...]}
 ```
@@ -207,6 +207,6 @@ depois da carga.
 
 ## `GET /` e `/static/...`
 
-Arquivos da pasta `web/`. `/` devolve `web/index.html` quando existir; senão, a página de
-teste `web/teste.html`. Arquivos auxiliares (CSS, JS, imagens) ficam em `web/` e são
+Arquivos da pasta `web/`. `/` devolve a interface de busca `web/index.html` (sem ela, a
+página de teste `web/teste.html`, que continua acessível em `/static/teste.html`). Arquivos auxiliares (CSS, JS, imagens) ficam em `web/` e são
 acessados como `/static/arquivo.css`.

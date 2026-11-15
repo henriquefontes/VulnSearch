@@ -9,15 +9,15 @@ Sociais (PUC Minas). O projeto é feito em etapas:
    invertido; ver [Etapa 2](#etapa-2--indexação).
 3. **Ranqueamento** (concluída): Jaccard, TF-IDF, modelo vetorial, BM1/BM15/BM11/BM25 e
    BM25F; ver [Etapa 3](#etapa-3--ranqueamento).
-4. **Interface Web** (atual): backend (API JSON) pronto; ver
-   [Interface Web — backend](#interface-web--backend). Frontend e avaliação em andamento.
+4. **Interface Web** (atual): backend (API JSON) e frontend prontos; ver
+   [Interface Web — backend](#interface-web--backend). Avaliação em andamento.
 
 ## Interface Web — backend
 
 Servidor HTTP que recebe a consulta, ranqueia com o `Ranqueador` (BM25F por padrão), monta
 trechos com destaque e devolve **JSON**. O contrato da API está em **[API.md](API.md)**, e
-há respostas reais em [`exemplos_api/`](exemplos_api/). O frontend fica em `web/` (por
-enquanto só a página de teste `web/teste.html`, que **não** é a interface final).
+há respostas reais em [`exemplos_api/`](exemplos_api/). O frontend fica em `web/`
+(`index.html`, `estilo.css`, `app.js`) e é servido pelo próprio servidor em `/`.
 
 ### Instalação e execução
 
@@ -28,7 +28,7 @@ pip install -r requirements.txt               # selectolax, snowballstemmer, fas
 python preparar_textos.py
 
 # servidor local (carga ~0,9 s, ~320 MB)
-python servidor.py                            # http://127.0.0.1:8000/  (página de teste)
+python servidor.py                            # http://127.0.0.1:8000/  (interface de busca)
                                               # http://127.0.0.1:8000/docs  (documentação automática)
 python servidor.py --porta 8080 --cors http://localhost:3000   # outra porta / origem do frontend
 
@@ -52,7 +52,7 @@ inteira.
 | `GET /api/documento/{id}` | Documento completo (texto, código até 20 KB, CVEs/CWEs) |
 | `GET /api/modelos`, `/api/sites` | Listas para o seletor de modelo e os filtros |
 | `GET /api/estatisticas`, `/api/saude` | Números do índice; situação do servidor |
-| `GET /`, `/static/...` | Arquivos de `web/` (`index.html`, ou `teste.html` enquanto ele não existir) |
+| `GET /`, `/static/...` | Interface de busca (`web/index.html`) e seus arquivos (`/static/estilo.css`, `/static/app.js`) |
 
 Detalhes, erros e exemplos: [API.md](API.md).
 
@@ -66,7 +66,8 @@ Detalhes, erros e exemplos: [API.md](API.md).
 | `cliente_api.py` | Sobe o servidor numa thread e faz requisições (usado nos testes e nas medições) |
 | `testar_api.py`, `medir_api.py` | Testes da API e dos trechos; latência e vazão |
 | `API.md`, `exemplos_api/` | Contrato da API e respostas reais |
-| `web/teste.html` | Página mínima de teste (não é a interface final) |
+| `web/index.html`, `web/estilo.css`, `web/app.js` | Interface de busca (sem bibliotecas): página inicial, resultados com abas por fonte, ferramentas (modelo, parâmetros, explicação do escore), filtros por CVE/CWE, painel lateral de CVE/CWE, paginação, cópia em cache, histórico de consultas, modo escuro e layout para celular |
+| `web/teste.html` | Página mínima de teste da API (aberta direto em `/static/teste.html`) |
 | `logs/consultas.tsv` | Registro das consultas (data, consulta, modelo, filtros, total, ms, página; sem IP), fora do Git |
 
 ## Etapa 3 — ranqueamento

@@ -60,20 +60,20 @@ SITES = {
     "developer.joomla.org": "Joomla Security Centre",
 }
 MODELOS_INFO = [
-    {"id": "jaccard", "nome": "Jaccard", "aula": "07",
+    {"id": "jaccard", "nome": "Jaccard",
      "descricao": "Similaridade de conjuntos de termos: |q ∩ d| / |q ∪ d|."},
-    {"id": "tfidf", "nome": "TF-IDF", "aula": "07",
+    {"id": "tfidf", "nome": "TF-IDF",
      "descricao": "Soma de w_q·w_d com w = (1 + log tf)·log(N/n), sem normalização."},
-    {"id": "vetorial", "nome": "Modelo vetorial (cosseno)", "aula": "08",
+    {"id": "vetorial", "nome": "Modelo vetorial (cosseno)",
      "descricao": "Cosseno entre os vetores TF-IDF da consulta e do documento."},
-    {"id": "bm1", "nome": "BM1", "aula": "09", "descricao": "Só o IDF dos termos em comum."},
-    {"id": "bm15", "nome": "BM15", "aula": "09",
+    {"id": "bm1", "nome": "BM1", "descricao": "Só o IDF dos termos em comum."},
+    {"id": "bm15", "nome": "BM15",
      "descricao": "TF saturado por K1, sem normalização pelo tamanho."},
-    {"id": "bm11", "nome": "BM11", "aula": "09",
+    {"id": "bm11", "nome": "BM11",
      "descricao": "TF saturado e normalizado pelo tamanho do documento."},
-    {"id": "bm25", "nome": "BM25", "aula": "09",
+    {"id": "bm25", "nome": "BM25",
      "descricao": "Normalização parcial do tamanho, controlada por b."},
-    {"id": "bm25f", "nome": "BM25F", "aula": "09",
+    {"id": "bm25f", "nome": "BM25F",
      "descricao": "BM25 com campos: título, corpo e código, com pesos por campo. Padrão."},
 ]
 PARAMETROS = ("k1", "b", "peso_titulo", "peso_codigo")
@@ -371,7 +371,7 @@ def cria_app(pasta="indice", cors=None, pasta_web="web", pasta_logs="logs"):
     motor = Motor(pasta, pasta_logs)
     app = FastAPI(title="VulnSearch API",
                   description="Busca vertical sobre vulnerabilidades de software e hardware "
-                              "(PUC Minas). Contrato completo em API.md.",
+                              "(coleta, índice e ranqueamento próprios). Contrato completo em API.md.",
                   version="1.0")
     app.state.motor = motor
     app.add_middleware(CORSMiddleware, allow_origins=CORS_PADRAO if cors is None else cors,

@@ -1,12 +1,4 @@
 <!doctype html>
-<!--
-  PÁGINA MÍNIMA DE TESTE DO BACKEND. NÃO É A INTERFACE FINAL.
-  Serve para testar a API sozinha e de referência para o frontend:
-  - os textos da API são sempre inseridos com textContent (nunca innerHTML),
-    porque os documentos contêm <script>, código etc.;
-  - só os segmentos com destaque viram <mark>.
-  A interface final fica em web/index.html (quando existir, é ela que / serve).
--->
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
@@ -68,7 +60,6 @@ function el(tag, props = {}, ...filhos) {
   return e;
 }
 
-// segmentos {texto, destaque} -> nós de texto e <mark>, sem innerHTML
 function segmentos(segs) {
   const frag = document.createDocumentFragment();
   for (const s of segs || []) {
@@ -91,7 +82,7 @@ async function api(caminho, params = {}) {
 async function inicia() {
   const m = await api("/api/modelos");
   for (const x of m.modelos) {
-    $("modelo").append(el("option", { value: x.id, textContent: `${x.nome} (aula ${x.aula})`,
+    $("modelo").append(el("option", { value: x.id, textContent: x.nome,
                                       selected: x.id === m.padrao }));
   }
   const s = await api("/api/sites");
@@ -128,7 +119,7 @@ async function busca() {
     const div = el("div", { className: "res" },
       el("a", { className: "tit", href: x.url, target: "_blank", rel: "noopener" }, segmentos(x.titulo)),
       el("div", { className: "meta", textContent:
-        `${x.posicao}. ${x.site} · escore ${x.escore.toFixed(4)} · ${x.url}` +
+        `${x.posicao}. ${x.site} · score ${x.escore.toFixed(4)} · ${x.url}` +
         (x.cves.length ? " · " + x.cves.slice(0, 3).join(", ") : "") }),
       el("div", { className: "trecho" }, segmentos(x.trecho)));
     if (x.trecho_codigo) div.append(el("pre", {}, segmentos(x.trecho_codigo)));
