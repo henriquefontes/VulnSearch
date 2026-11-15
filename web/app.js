@@ -66,10 +66,20 @@ function le(chave, padrao) {
 }
 
 // ---------------------------------------------------------------- logo
-const ESCUDO = '<svg class="escudo" viewBox="0 0 24 26" aria-hidden="true"><path fill="var(--critico)" d="M12 0 1 4.5v7C1 18.3 5.7 24.4 12 26c6.3-1.6 11-7.7 11-14.5v-7z"/><path fill="#fff" d="M12 7.5a3.4 3.4 0 0 0-3.4 3.4v4.6a3.4 3.4 0 0 0 6.8 0v-4.6A3.4 3.4 0 0 0 12 7.5zM5.8 11h2.3v1.3H5.8zm10.1 0h2.3v1.3h-2.3zM5.8 14.6h2.3v1.3H5.8zm10.1 0h2.3v1.3h-2.3zM10 4.6l1 2h2l1-2-.9-.4-.7 1.3h-.8l-.7-1.3z"/></svg>';
+let nLogo = 0;
+function escudo() {
+  const id = "grad-escudo-" + (++nLogo);
+  return `<svg class="escudo" viewBox="0 0 24 26" aria-hidden="true"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1">` +
+    `<stop offset="0" style="stop-color:var(--alto)"/><stop offset="1" style="stop-color:var(--critico)"/></linearGradient></defs>` +
+    `<path fill="url(#${id})" d="M12 0 1 4.5v7C1 18.3 5.7 24.4 12 26c6.3-1.6 11-7.7 11-14.5v-7z"/>` +
+    `<circle cx="10.8" cy="11.4" r="4.6" fill="none" stroke="#fff" stroke-width="2.2"/>` +
+    `<path d="M14.3 15l3.6 3.8" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>` +
+    `<circle cx="10.8" cy="11.4" r="1.5" fill="#fff"/></svg>`;
+}
 function desenhaLogo(alvo) {
-  alvo.insertAdjacentHTML("beforeend", ESCUDO);
-  "VulnSearch".split("").forEach((c, i) => alvo.append(el("span", { class: "l" + ((i % 5) + 1), textContent: c })));
+  alvo.insertAdjacentHTML("beforeend", escudo());
+  alvo.append(el("span", { class: "marca" }, el("span", { class: "vuln", textContent: "Vuln" }),
+    el("span", { class: "search", textContent: "Search" })));
 }
 
 // ---------------------------------------------------------------- estado <-> URL
@@ -353,19 +363,19 @@ function desenhaPaginacao(r) {
     return el("a", { class: "letra", href: urlDoEstado({ ...estado, pagina, doc: "" }), onclick: vai(pagina) }, ...filhos);
   };
   const pag = el("div", { class: "pag" });
-  const v = letra("V", "l1", r.pagina > 1 ? "‹ Anterior" : " ", r.pagina > 1 ? r.pagina - 1 : 0);
+  const v = letra("V", "pv", r.pagina > 1 ? "‹ Anterior" : " ", r.pagina > 1 ? r.pagina - 1 : 0);
   v.classList.add("seta-esq");
   pag.append(v);
   for (let p = ini; p <= fim; p++) {
     const atual = p === r.pagina;
-    const a = letra("u", atual ? "l1" : "l2", String(p), atual ? 0 : p);
+    const a = letra("u", atual ? "pv" : "pv apagado", String(p), atual ? 0 : p);
     if (atual) a.classList.add("atual");
     pag.append(a);
   }
   "lnSearch".split("").forEach((c, i) => {
     const ultima = i === 7;
     const tem = ultima && r.pagina < r.paginas;
-    const l = letra(c, "l" + (((i + 2) % 5) + 1), tem ? "Próxima ›" : " ", tem ? r.pagina + 1 : 0);
+    const l = letra(c, i < 2 ? "pv" : "ps", tem ? "Próxima ›" : " ", tem ? r.pagina + 1 : 0);
     if (ultima) l.classList.add("seta-dir");
     pag.append(l);
   });
