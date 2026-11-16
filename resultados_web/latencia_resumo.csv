@@ -1,6 +1,6 @@
 parte,média ms,mediana ms,p95 ms,máx. ms
-cliente,79.8,60.9,233.5,247.0
-ranqueamento,68.5,52.7,223.0,230.9
-trechos,5.1,4.0,12.1,13.0
-servidor,76.5,58.1,230.5,243.2
-resto,3.3,2.6,4.1,24.7
+cliente,80.0,61.9,212.4,242.9
+ranqueamento,67.9,52.0,200.6,225.7
+trechos,6.2,5.4,13.4,15.5
+servidor,77.0,59.1,209.0,239.3
+resto,3.0,2.8,3.7,17.2
