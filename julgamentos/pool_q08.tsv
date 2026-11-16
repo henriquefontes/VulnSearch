@@ -1,31 +1,31 @@
-url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
-https://www.exploit-db.com/exploits/44130	Joomla! Component Timetable Responsive Schedule For Joomla! 1.5 - 'alias' SQL Injection	www.exploit-db.com			29746	vetorial:2 bm25:1 bm25f:1	1
-https://www.exploit-db.com/exploits/40912	Joomla! Component DT Register - 'cat' SQL Injection	www.exploit-db.com			25672	tfidf:2 bm25:8 bm25f:8	2
-https://www.exploit-db.com/exploits/40966	Joomla! Component Blog Calendar - SQL Injection	www.exploit-db.com			25963	bm25:2 bm25f:2	2
-https://www.exploit-db.com/exploits/44893	Joomla! Component Ek Rishta 2.10 - SQL Injection	www.exploit-db.com			19482	bm25:3 bm25f:3	3
-https://www.exploit-db.com/exploits/15502	Joomla! Component JSupport 1.5.6 - SQL Injection	www.exploit-db.com			2316	bm25:4 bm25f:4	4
-https://www.exploit-db.com/exploits/14502	Joomla! Component com_beamospetition - SQL Injection	www.exploit-db.com			2435	bm25:6 bm25f:7	6
-https://www.exploit-db.com/exploits/18042	Joomla! Component Techfolio 1.0 - SQL Injection	www.exploit-db.com			2768	bm25:7 bm25f:6	6
-https://www.exploit-db.com/exploits/36913	Joomla! 2.5.1 - 'redirect.php' Blind SQL Injection	www.exploit-db.com			40435	tfidf:6 bm25f:9	6
-https://www.exploit-db.com/exploits/17579	Joomla! Component com_virtuemart 1.1.7/1.5 - Blind SQL Injection (Metasploit)	www.exploit-db.com			5757	tfidf:1	1
-https://www.exploit-db.com/exploits/36302	Joomla! Component Content - 'year' SQL Injection	www.exploit-db.com			8934	vetorial:1	1
-https://www.exploit-db.com/exploits/35960	Joomla! Component Controller - 'Itemid' SQL Injection	www.exploit-db.com			23989	vetorial:3	3
-https://www.exploit-db.com/exploits/9648	Joomla! Component Hotel Booking System - Cross-Site Scripting / SQL Injection	www.exploit-db.com			18516	tfidf:3	3
-https://www.exploit-db.com/exploits/17132	Joomla! Component com_virtuemart 1.1.7 - Blind SQL Injection	www.exploit-db.com			25609	tfidf:4	4
-https://www.exploit-db.com/exploits/35135	Joomla! Component Classified - SQL Injection	www.exploit-db.com			8281	vetorial:4	4
-https://www.exploit-db.com/exploits/14128	Joomla! Component com_wmtpic 1.0 - SQL Injection	www.exploit-db.com			4981	bm25f:5	5
-https://www.exploit-db.com/exploits/20390	Joomla! Component com_fireboard - SQL Injection	www.exploit-db.com			9823	tfidf:5	5
-https://www.exploit-db.com/exploits/39989	Joomla! Component com_publisher - SQL Injection	www.exploit-db.com			38094	vetorial:5	5
-https://www.exploit-db.com/exploits/45447	Joomla! Component CW Article Attachments 1.0.6 - 'id' SQL Injection	www.exploit-db.com			33767	bm25:5	5
-https://www.exploit-db.com/exploits/30848	Joomla! Component Content 1.5 RC3 - 'view' SQL Injection	www.exploit-db.com			30025	vetorial:6	6
-https://www.exploit-db.com/exploits/12723	Joomla! Component Q-Personel 1.0 - SQL Injection	www.exploit-db.com			17548	tfidf:7	7
-https://www.exploit-db.com/exploits/35026	Joomla! Component com_storedirectory - 'id' SQL Injection	www.exploit-db.com			7225	vetorial:7	7
-https://www.exploit-db.com/exploits/36863	Joomla! Component Machine - Multiple SQL Injections	www.exploit-db.com			40735	vetorial:8	8
-https://www.exploit-db.com/exploits/38797	Joomla! 3.4.4 Component Content History - SQL Injection / Remote Code Execution (Metasploit)	www.exploit-db.com			41088	tfidf:8	8
-https://www.exploit-db.com/exploits/14702	Joomla! Component com_zina - SQL Injection	www.exploit-db.com			3662	bm25:9	9
-https://www.exploit-db.com/exploits/22152	Joomla! Component com_commedia - 'task' SQL Injection	www.exploit-db.com			28913	tfidf:9	9
-https://www.exploit-db.com/exploits/35089	Joomla! Component Jeformcr - 'id' SQL Injection	www.exploit-db.com			7820	vetorial:9	9
-https://www.exploit-db.com/exploits/11337	Joomla! Component com_photoblog - Blind SQL Injection	www.exploit-db.com			37537	bm25:10	10
-https://www.exploit-db.com/exploits/14530	Joomla! Component CamelcityDB 2.2 - SQL Injection	www.exploit-db.com			2565	bm25f:10	10
-https://www.exploit-db.com/exploits/31175	Joomla! Component JV Comment 3.0.2 - 'id' SQL Injection	www.exploit-db.com			5085	tfidf:10	10
-https://www.exploit-db.com/exploits/39098	Joomla! Component com_wire_immogest - 'index.php' SQL Injection	www.exploit-db.com			34230	vetorial:10	10
+url	titulo	site	relevante	observacao	doc	modelos	melhor_pos	avaliador
+https://www.exploit-db.com/exploits/44130	Joomla! Component Timetable Responsive Schedule For Joomla! 1.5 - 'alias' SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente Timetable Responsive Schedule (CVE-2018-6583)	29746	vetorial:2 bm25:1 bm25f:1	1	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/40912	Joomla! Component DT Register - 'cat' SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: extensão DT Register	25672	tfidf:2 bm25:8 bm25f:8	2	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/40966	Joomla! Component Blog Calendar - SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente Blog Calendar	25963	bm25:2 bm25f:2	2	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/44893	Joomla! Component Ek Rishta 2.10 - SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente Ek Rishta (CVE-2018-12254)	19482	bm25:3 bm25f:3	3	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/15502	Joomla! Component JSupport 1.5.6 - SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente JSupport	2316	bm25:4 bm25f:4	4	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/14502	Joomla! Component com_beamospetition - SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente com_beamospetition	2435	bm25:6 bm25f:7	6	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/18042	Joomla! Component Techfolio 1.0 - SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente Techfolio	2768	bm25:7 bm25f:6	6	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/36913	Joomla! 2.5.1 - 'redirect.php' Blind SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: núcleo 2.5.1, cega (redirect.php)	40435	tfidf:6 bm25f:9	6	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/17579	Joomla! Component com_virtuemart 1.1.7/1.5 - Blind SQL Injection (Metasploit)	www.exploit-db.com	2	SQL injection no Joomla: VirtueMart, cega (Metasploit)	5757	tfidf:1	1	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/36302	Joomla! Component Content - 'year' SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente Content (year), cega	8934	vetorial:1	1	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/35960	Joomla! Component Controller - 'Itemid' SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente Controller	23989	vetorial:3	3	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/9648	Joomla! Component Hotel Booking System - Cross-Site Scripting / SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente Hotel Booking System (junto de XSS)	18516	tfidf:3	3	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/17132	Joomla! Component com_virtuemart 1.1.7 - Blind SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: VirtueMart 1.1.7, cega	25609	tfidf:4	4	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/35135	Joomla! Component Classified - SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente Classified	8281	vetorial:4	4	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/14128	Joomla! Component com_wmtpic 1.0 - SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente com_wmtpic	4981	bm25f:5	5	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/20390	Joomla! Component com_fireboard - SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente com_fireboard	9823	tfidf:5	5	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/39989	Joomla! Component com_publisher - SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente com_publisher	38094	vetorial:5	5	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/45447	Joomla! Component CW Article Attachments 1.0.6 - 'id' SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente CW Article Attachments (CVE-2018-14592)	33767	bm25:5	5	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/30848	Joomla! Component Content 1.5 RC3 - 'view' SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: núcleo, com_content 1.5 RC3 (validade contestada no bug tracker)	30025	vetorial:6	6	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/12723	Joomla! Component Q-Personel 1.0 - SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente Q-Personel	17548	tfidf:7	7	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/35026	Joomla! Component com_storedirectory - 'id' SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente com_storedirectory	7225	vetorial:7	7	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/36863	Joomla! Component Machine - Multiple SQL Injections	www.exploit-db.com	2	SQL injection no Joomla: componente Machine, várias	40735	vetorial:8	8	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/38797	Joomla! 3.4.4 Component Content History - SQL Injection / Remote Code Execution (Metasploit)	www.exploit-db.com	2	SQL injection no Joomla: Content History do núcleo 3.4.4, levando a RCE (Metasploit)	41088	tfidf:8	8	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/14702	Joomla! Component com_zina - SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente com_zina	3662	bm25:9	9	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/22152	Joomla! Component com_commedia - 'task' SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente com_commedia (task)	28913	tfidf:9	9	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/35089	Joomla! Component Jeformcr - 'id' SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente Jeformcr	7820	vetorial:9	9	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/11337	Joomla! Component com_photoblog - Blind SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente com_photoblog, cega	37537	bm25:10	10	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/14530	Joomla! Component CamelcityDB 2.2 - SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente CamelcityDB	2565	bm25f:10	10	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/31175	Joomla! Component JV Comment 3.0.2 - 'id' SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: extensão JV Comment (CVE-2014-0794)	5085	tfidf:10	10	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/39098	Joomla! Component com_wire_immogest - 'index.php' SQL Injection	www.exploit-db.com	2	SQL injection no Joomla: componente com_wire_immogest	34230	vetorial:10	10	Claude Code (modelo de linguagem), texto completo

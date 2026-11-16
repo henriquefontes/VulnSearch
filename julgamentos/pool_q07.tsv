@@ -1,27 +1,27 @@
-url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
-https://www.exploit-db.com/exploits/11060	Drupal 6.15 - Multiple Persistent Cross-Site Scripting Vulnerabilities	www.exploit-db.com			32833	tfidf:5 vetorial:5 bm25:5 bm25f:5	5
-https://www.exploit-db.com/exploits/22940	Drupal 4.1/4.2 - Cross-Site Scripting	www.exploit-db.com			41702	vetorial:1 bm25:2 bm25f:2	1
-https://www.exploit-db.com/exploits/50841	Drupal avatar_uploader v7.x-1.0-beta8 - Cross Site Scripting (XSS)	www.exploit-db.com			18547	vetorial:4 bm25:1 bm25f:1	1
-https://www.exploit-db.com/exploits/18389	Drupal Module CKEditor 3.0 < 3.6.2 - Persistent EventHandler Cross-Site Scripting	www.exploit-db.com			5103	tfidf:3 bm25:3 bm25f:3	3
-https://www.exploit-db.com/exploits/25493	Drupal Module CKEditor < 4.1WYSIWYG (Drupal 6.x/7.x) - Persistent Cross-Site Scripting	www.exploit-db.com			21107	tfidf:6 vetorial:3 bm25:6	3
-https://www.exploit-db.com/exploits/18564	Drupal 7.12 - Multiple Vulnerabilities	www.exploit-db.com			6401	tfidf:2 bm25:9	2
-https://www.exploit-db.com/exploits/33706	Drupal < 5.22/6.16 - Multiple Vulnerabilities	www.exploit-db.com			39553	vetorial:2 bm25:7	2
-https://www.exploit-db.com/exploits/35327	CiviCRM 3.3.3 - Multiple Cross-Site Scripting Vulnerabilities	www.exploit-db.com			42589	bm25:8 bm25f:8	8
-https://www.exploit-db.com/exploits/44449	Drupal < 7.58 / < 8.3.9 / < 8.4.6 / < 8.5.1 - 'Drupalgeddon2' Remote Code Execution	www.exploit-db.com			7394	tfidf:1	1
-https://www.drupal.org/sa-core-2024-005	Drupal core - Critical - Cross Site Scripting - SA-CORE-2024-005	www.drupal.org			2077	bm25f:4	4
-https://www.exploit-db.com/exploits/35397	Drupal Module Cumulus 5.x-1.1/6.x-1.4 - 'tagcloud' Cross-Site Scripting	www.exploit-db.com			13031	bm25:4	4
-https://www.exploit-db.com/exploits/46510	Drupal < 8.5.11 / < 8.6.10 - RESTful Web Services unserialize() Remote Command Execution (Metasploit)	www.exploit-db.com			9667	tfidf:4	4
-https://www.drupal.org/psa-2012-001-0	localizations - Cross Site Scripting - PSA-2012-001	www.drupal.org			1587	bm25f:6	6
-https://www.exploit-db.com/exploits/4510	Drupal 5.2 - PHP Zend Hash ation Vector	www.exploit-db.com			35572	vetorial:6	6
-https://www.drupal.org/sa-core-2021-002	Drupal core - Critical - Cross-site scripting - SA-CORE-2021-002	www.drupal.org			1612	bm25f:7	7
-https://www.exploit-db.com/exploits/3312	Drupal < 5.1 - Post Comments Remote Command Execution	www.exploit-db.com			10281	vetorial:7	7
-https://www.exploit-db.com/exploits/46452	Drupal < 8.6.10 / < 8.5.11 - REST Module Remote Code Execution	www.exploit-db.com			10078	tfidf:7	7
-https://www.exploit-db.com/exploits/40144	Drupal Module Coder < 7.x-1.3/7.x-2.6 - Remote Code Execution	www.exploit-db.com			34014	vetorial:8	8
-https://www.exploit-db.com/exploits/46459	Drupal < 8.6.9 - REST Module Remote Code Execution	www.exploit-db.com			10023	tfidf:8	8
-https://www.drupal.org/sa-core-2025-001	Drupal core - Critical - Cross site scripting - SA-CORE-2025-001	www.drupal.org			2234	bm25f:9	9
-https://www.exploit-db.com/exploits/40130	Drupal Module RESTWS 7.x - PHP Remote Code Execution (Metasploit)	www.exploit-db.com			34036	vetorial:9	9
-https://www.exploit-db.com/exploits/41564	Drupal 7.x Module Services - Remote Code Execution	www.exploit-db.com			38478	tfidf:9	9
-https://www.drupal.org/sa-core-2020-009	Drupal core - Critical - Cross-site scripting - SA-CORE-2020-009	www.drupal.org			1595	bm25f:10	10
-https://www.exploit-db.com/exploits/35415	Drupal < 7.34 - Denial of Service	www.exploit-db.com			12948	vetorial:10	10
-https://www.exploit-db.com/exploits/51723	Drupal 10.1.2 - web-cache-poisoning-External-service-interaction	www.exploit-db.com			41308	tfidf:10	10
-https://www.exploit-db.com/exploits/52526	HAX CMS 24.x - Stored Cross-Site Scripting (XSS)	www.exploit-db.com			22605	bm25:10	10
+url	titulo	site	relevante	observacao	doc	modelos	melhor_pos	avaliador
+https://www.exploit-db.com/exploits/11060	Drupal 6.15 - Multiple Persistent Cross-Site Scripting Vulnerabilities	www.exploit-db.com	2	Várias XSS persistentes no Drupal 6.15	32833	tfidf:5 vetorial:5 bm25:5 bm25f:5	5	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/22940	Drupal 4.1/4.2 - Cross-Site Scripting	www.exploit-db.com	2	XSS no Drupal 4.1/4.2	41702	vetorial:1 bm25:2 bm25f:2	1	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/50841	Drupal avatar_uploader v7.x-1.0-beta8 - Cross Site Scripting (XSS)	www.exploit-db.com	2	XSS no módulo avatar_uploader do Drupal	18547	vetorial:4 bm25:1 bm25f:1	1	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/18389	Drupal Module CKEditor 3.0 < 3.6.2 - Persistent EventHandler Cross-Site Scripting	www.exploit-db.com	2	XSS persistente no módulo CKEditor do Drupal	5103	tfidf:3 bm25:3 bm25f:3	3	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/25493	Drupal Module CKEditor < 4.1WYSIWYG (Drupal 6.x/7.x) - Persistent Cross-Site Scripting	www.exploit-db.com	2	XSS persistente no CKEditor/wysiwyg do Drupal 6/7	21107	tfidf:6 vetorial:3 bm25:6	3	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/18564	Drupal 7.12 - Multiple Vulnerabilities	www.exploit-db.com	1	Drupal 7.12, mas as falhas são CSRF, não XSS	6401	tfidf:2 bm25:9	2	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/33706	Drupal < 5.22/6.16 - Multiple Vulnerabilities	www.exploit-db.com	1	Várias falhas no Drupal (XSS, phishing, bypass); XSS é parte	39553	vetorial:2 bm25:7	2	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/35327	CiviCRM 3.3.3 - Multiple Cross-Site Scripting Vulnerabilities	www.exploit-db.com	2	Várias XSS no CiviCRM rodando como módulo do Drupal	42589	bm25:8 bm25f:8	8	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/44449	Drupal < 7.58 / < 8.3.9 / < 8.4.6 / < 8.5.1 - 'Drupalgeddon2' Remote Code Execution	www.exploit-db.com	1	Drupal, mas a falha é RCE (Drupalgeddon2), não XSS	7394	tfidf:1	1	Claude Code (modelo de linguagem), texto completo
+https://www.drupal.org/sa-core-2024-005	Drupal core - Critical - Cross Site Scripting - SA-CORE-2024-005	www.drupal.org	2	Aviso de XSS refletido no módulo Overlay do Drupal 7 (SA-CORE-2024-005)	2077	bm25f:4	4	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/35397	Drupal Module Cumulus 5.x-1.1/6.x-1.4 - 'tagcloud' Cross-Site Scripting	www.exploit-db.com	2	XSS no módulo Cumulus do Drupal	13031	bm25:4	4	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/46510	Drupal < 8.5.11 / < 8.6.10 - RESTful Web Services unserialize() Remote Command Execution (Metasploit)	www.exploit-db.com	1	Drupal, mas a falha é RCE no módulo REST, não XSS	9667	tfidf:4	4	Claude Code (modelo de linguagem), texto completo
+https://www.drupal.org/psa-2012-001-0	localizations - Cross Site Scripting - PSA-2012-001	www.drupal.org	2	PSA do Drupal sobre riscos de XSS nas traduções da interface	1587	bm25f:6	6	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/4510	Drupal 5.2 - PHP Zend Hash ation Vector	www.exploit-db.com	1	Drupal 5.2, mas a falha é de hash do PHP/Zend (execução via menu), não XSS	35572	vetorial:6	6	Claude Code (modelo de linguagem), texto completo
+https://www.drupal.org/sa-core-2021-002	Drupal core - Critical - Cross-site scripting - SA-CORE-2021-002	www.drupal.org	2	Aviso de XSS no núcleo do Drupal (SA-CORE-2021-002)	1612	bm25f:7	7	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/3312	Drupal < 5.1 - Post Comments Remote Command Execution	www.exploit-db.com	1	Drupal, mas a falha é execução remota de comandos, não XSS	10281	vetorial:7	7	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/46452	Drupal < 8.6.10 / < 8.5.11 - REST Module Remote Code Execution	www.exploit-db.com	1	Drupal, mas a falha é RCE no módulo REST, não XSS	10078	tfidf:7	7	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/40144	Drupal Module Coder < 7.x-1.3/7.x-2.6 - Remote Code Execution	www.exploit-db.com	1	Módulo Coder do Drupal, mas a falha é RCE, não XSS	34014	vetorial:8	8	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/46459	Drupal < 8.6.9 - REST Module Remote Code Execution	www.exploit-db.com	1	Drupal, mas a falha é RCE no módulo REST, não XSS	10023	tfidf:8	8	Claude Code (modelo de linguagem), texto completo
+https://www.drupal.org/sa-core-2025-001	Drupal core - Critical - Cross site scripting - SA-CORE-2025-001	www.drupal.org	2	Aviso de XSS no núcleo do Drupal (SA-CORE-2025-001)	2234	bm25f:9	9	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/40130	Drupal Module RESTWS 7.x - PHP Remote Code Execution (Metasploit)	www.exploit-db.com	1	Módulo RESTWS do Drupal, mas a falha é RCE, não XSS	34036	vetorial:9	9	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/41564	Drupal 7.x Module Services - Remote Code Execution	www.exploit-db.com	1	Módulo Services do Drupal, mas a falha é RCE, não XSS	38478	tfidf:9	9	Claude Code (modelo de linguagem), texto completo
+https://www.drupal.org/sa-core-2020-009	Drupal core - Critical - Cross-site scripting - SA-CORE-2020-009	www.drupal.org	2	Aviso de XSS refletido no núcleo do Drupal 8/9 (SA-CORE-2020-009)	1595	bm25f:10	10	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/35415	Drupal < 7.34 - Denial of Service	www.exploit-db.com	1	Drupal, mas a falha é negação de serviço, não XSS	12948	vetorial:10	10	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/51723	Drupal 10.1.2 - web-cache-poisoning-External-service-interaction	www.exploit-db.com	1	Drupal 10, mas a falha é web cache poisoning, não XSS	41308	tfidf:10	10	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/52526	HAX CMS 24.x - Stored Cross-Site Scripting (XSS)	www.exploit-db.com	1	XSS armazenado, mas no HAX CMS, não no Drupal (mesma classe de falha)	22605	bm25:10	10	Claude Code (modelo de linguagem), texto completo

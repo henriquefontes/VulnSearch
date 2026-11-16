@@ -1,20 +1,20 @@
-url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
-https://www.exploit-db.com/exploits/16975	SmarterMail 8.0 - Multiple Cross-Site Scripting Vulnerabilities	www.exploit-db.com			26105	tfidf:9 vetorial:1 bm25:1 bm25f:1	1
-https://www.exploit-db.com/exploits/16955	SmarterMail 7.3/7.4 - Multiple Vulnerabilities	www.exploit-db.com			26194	tfidf:10 vetorial:4 bm25:3 bm25f:2	2
-https://www.exploit-db.com/exploits/26624	OpenX 2.8.10 - Multiple Vulnerabilities	www.exploit-db.com			5811	tfidf:4 vetorial:2 bm25:6 bm25f:6	2
-https://github.com/advisories/GHSA-75mw-h36v-2jv7	Dosage Vulnerable to Stored Cross-Site Scripting (XSS) in HTML/RSS Output Handlers	github.com			50645	tfidf:6 bm25:2 bm25f:7	2
-https://www.exploit-db.com/exploits/51713	SPA-Cart eCommerce CMS 1.9.0.3 - Reflected XSS	www.exploit-db.com			41273	vetorial:7 bm25:4 bm25f:3	3
-https://www.exploit-db.com/exploits/47184	WordPress Theme Real Estate 2.8.9 - Cross-Site Scripting	www.exploit-db.com			13475	vetorial:6 bm25:8 bm25f:9	6
-https://www.exploit-db.com/exploits/51074	Webgrind 1.1 - Reflected Cross-Site Scripting (XSS) & Remote Command Execution (RCE)	www.exploit-db.com			11836	vetorial:9 bm25:9 bm25f:10	9
-https://www.exploit-db.com/exploits/51103	Online shopping system advanced 1.0 - Multiple Vulnerabilities	www.exploit-db.com			11699	tfidf:2 vetorial:3	2
-https://www.exploit-db.com/exploits/50759	Fortinet Fortimail 7.0.1 - Reflected Cross-Site Scripting (XSS)	www.exploit-db.com			18569	bm25:5 bm25f:4	4
-https://www.exploit-db.com/exploits/31425	D-Link DIR-100 - Multiple Vulnerabilities	www.exploit-db.com			3119	tfidf:7 vetorial:8	7
-https://www.exploit-db.com/exploits/49122	Best Support System 3.0.4 - 'ticket_body' Persistent XSS (Authenticated)	www.exploit-db.com			37272	bm25:7 bm25f:8	7
-https://www.exploit-db.com/exploits/44039	Dell EMC Isilon OneFS - Multiple Vulnerabilities	www.exploit-db.com			29872	tfidf:1	1
-https://www.exploit-db.com/exploits/40065	OpenFire 3.10.2 < 4.0.1 - Multiple Vulnerabilities	www.exploit-db.com			34286	tfidf:3	3
-https://cwe.mitre.org/data/definitions/79.html	CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')	cwe.mitre.org			735	bm25f:5	5
-https://www.exploit-db.com/exploits/44166	Trend Micro Email Encryption Gateway 5.5 (Build 1111.00) - Multiple Vulnerabilities	www.exploit-db.com			29970	tfidf:5	5
-https://www.exploit-db.com/exploits/51702	Academy LMS 6.1 - Arbitrary File Upload	www.exploit-db.com			41214	vetorial:5	5
-https://www.exploit-db.com/exploits/45533	D-Link Central WiFiManager Software Controller 1.03 - Multiple Vulnerabilities	www.exploit-db.com			16890	tfidf:8	8
-https://www.exploit-db.com/exploits/47289	Neo Billing 3.5 - Persistent Cross-Site Scripting	www.exploit-db.com			13760	vetorial:10	10
-https://www.exploit-db.com/exploits/48682	WordPress Theme NexosReal Estate 1.7 - 'search_order' SQL Injection	www.exploit-db.com			43779	bm25:10	10
+url	titulo	site	relevante	observacao	doc	modelos	melhor_pos	avaliador
+https://www.exploit-db.com/exploits/16975	SmarterMail 8.0 - Multiple Cross-Site Scripting Vulnerabilities	www.exploit-db.com	2	Várias XSS no SmarterMail 8.0, classificadas como CWE-79	26105	tfidf:9 vetorial:1 bm25:1 bm25f:1	1	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/16955	SmarterMail 7.3/7.4 - Multiple Vulnerabilities	www.exploit-db.com	2	SmarterMail 7.x: XSS armazenado/refletido é a falha central (CWE-79), junto de outras	26194	tfidf:10 vetorial:4 bm25:3 bm25f:2	2	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/26624	OpenX 2.8.10 - Multiple Vulnerabilities	www.exploit-db.com	1	OpenX: inclusão de arquivo PHP e XSS; XSS é parte	5811	tfidf:4 vetorial:2 bm25:6 bm25f:6	2	Claude Code (modelo de linguagem), texto completo
+https://github.com/advisories/GHSA-75mw-h36v-2jv7	Dosage Vulnerable to Stored Cross-Site Scripting (XSS) in HTML/RSS Output Handlers	github.com	2	Aviso de XSS armazenado no Dosage, classificado como CWE-79	50645	tfidf:6 bm25:2 bm25f:7	2	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/51713	SPA-Cart eCommerce CMS 1.9.0.3 - Reflected XSS	www.exploit-db.com	2	XSS refletido no SPA-Cart (CVE-2023-4547, CWE-79)	41273	vetorial:7 bm25:4 bm25f:3	3	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/47184	WordPress Theme Real Estate 2.8.9 - Cross-Site Scripting	www.exploit-db.com	2	XSS persistente em tema WordPress, CWE-79	13475	vetorial:6 bm25:8 bm25f:9	6	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/51074	Webgrind 1.1 - Reflected Cross-Site Scripting (XSS) & Remote Command Execution (RCE)	www.exploit-db.com	2	XSS refletido no Webgrind (CWE-79) é a falha principal, com RCE	11836	vetorial:9 bm25:9 bm25f:10	9	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/51103	Online shopping system advanced 1.0 - Multiple Vulnerabilities	www.exploit-db.com	1	Várias falhas (XSS, upload, SQL injection) num sistema de loja	11699	tfidf:2 vetorial:3	2	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/50759	Fortinet Fortimail 7.0.1 - Reflected Cross-Site Scripting (XSS)	www.exploit-db.com	2	XSS refletido no Fortimail (CWE-79), com payload	18569	bm25:5 bm25f:4	4	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/31425	D-Link DIR-100 - Multiple Vulnerabilities	www.exploit-db.com	1	Várias falhas no D-Link DIR-100; XSS (CVE-2013-7054) é só uma delas	3119	tfidf:7 vetorial:8	7	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/49122	Best Support System 3.0.4 - 'ticket_body' Persistent XSS (Authenticated)	www.exploit-db.com	2	XSS persistente no Best Support System (CWE-79)	37272	bm25:7 bm25f:8	7	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/44039	Dell EMC Isilon OneFS - Multiple Vulnerabilities	www.exploit-db.com	1	Várias falhas no Dell EMC Isilon; XSS junto de CSRF e privilégios	29872	tfidf:1	1	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/40065	OpenFire 3.10.2 < 4.0.1 - Multiple Vulnerabilities	www.exploit-db.com	1	Várias falhas no OpenFire; XSS é uma delas (junto de CWE-200 e CWE-312)	34286	tfidf:3	3	Claude Code (modelo de linguagem), texto completo
+https://cwe.mitre.org/data/definitions/79.html	CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')	cwe.mitre.org	2	Definição do CWE-79 (Cross-site Scripting)	735	bm25f:5	5	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/44166	Trend Micro Email Encryption Gateway 5.5 (Build 1111.00) - Multiple Vulnerabilities	www.exploit-db.com	1	Várias falhas no Trend Micro Email Encryption Gateway; XSS é uma delas	29970	tfidf:5	5	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/51702	Academy LMS 6.1 - Arbitrary File Upload	www.exploit-db.com	1	Falha principal é upload de arquivo; marca CWE-79 porque o upload permite XSS armazenado	41214	vetorial:5	5	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/45533	D-Link Central WiFiManager Software Controller 1.03 - Multiple Vulnerabilities	www.exploit-db.com	1	Várias falhas no D-Link WiFiManager; XSS junto de upload e autorização	16890	tfidf:8	8	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/47289	Neo Billing 3.5 - Persistent Cross-Site Scripting	www.exploit-db.com	2	XSS armazenado no Neo Billing (CWE-79)	13760	vetorial:10	10	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/48682	WordPress Theme NexosReal Estate 1.7 - 'search_order' SQL Injection	www.exploit-db.com	1	Exploit de SQL injection; o CWE-79 aparece só na classificação	43779	bm25:10	10	Claude Code (modelo de linguagem), texto completo

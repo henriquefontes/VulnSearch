@@ -1,31 +1,31 @@
-url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
-https://cwe.mitre.org/data/definitions/416.html	CWE-416: Use After Free	cwe.mitre.org			1090	tfidf:1 bm25f:2	1
-https://www.exploit-db.com/exploits/46246	Lua 5.3.5 - 'debug.upvaluejoin' Use After Free	www.exploit-db.com			37480	bm25:1 bm25f:1	1
-https://www.exploit-db.com/exploits/38123	PHP Session Deserializer - Use-After-Free	www.exploit-db.com			28208	bm25:2 bm25f:3	2
-https://www.exploit-db.com/exploits/40308	Adobe Flash - Stage.align Setter Use-After-Free	www.exploit-db.com			8500	bm25:3 bm25f:5	3
-https://www.exploit-db.com/exploits/39072	Adobe Flash Sound.setTransform - Use-After-Free	www.exploit-db.com			34432	bm25:4 bm25f:4	4
-https://www.exploit-db.com/exploits/37865	Adobe Flash - attachMovie Use-After-Free	www.exploit-db.com			9232	bm25:5 bm25f:6	5
-https://www.exploit-db.com/exploits/39055	Adobe Flash MovieClip.attachMovie - Use-After-Free	www.exploit-db.com			34555	bm25:6 bm25f:7	6
-https://www.exploit-db.com/exploits/38121	PHP GMP - 'unserialize()' Use-After-Free	www.exploit-db.com			28220	bm25:7 bm25f:9	7
-https://www.exploit-db.com/exploits/39831	Adobe Flash - SetNative Use-After-Free	www.exploit-db.com			37932	bm25:8 bm25f:10	8
-https://www.exploit-db.com/exploits/38265	Microsoft Windows Kernel - Bitmap Handling Use-After-Free (MS15-061) (2)	www.exploit-db.com			20133	vetorial:10 bm25:9	9
-https://www.rapid7.com/db/vulnerabilities/cve-2026-56960/	CVE-2026-56960: Use After Free	www.rapid7.com			59691	vetorial:1	1
-https://cwe.mitre.org/data/definitions/1000.html	CWE-1000: Research Concepts	cwe.mitre.org			4	tfidf:2	2
-https://www.rapid7.com/db/vulnerabilities/cve-2026-91816/	CVE-2026-91816: Use After Free	www.rapid7.com			62909	vetorial:2	2
-https://cwe.mitre.org/data/definitions/415.html	CWE-415: Double Free	cwe.mitre.org			1088	tfidf:3	3
-https://www.rapid7.com/db/vulnerabilities/cve-2026-84593/	CVE-2026-84593: Use After Free	www.rapid7.com			63765	vetorial:3	3
-https://github.com/advisories/GHSA-xphw-cqx3-667j	thin-vec: Use-After-Free and Double Free in IntoIter::drop When Element Drop Panics	github.com			45600	tfidf:4	4
-https://www.rapid7.com/db/vulnerabilities/cve-2026-56914/	CVE-2026-56914: Use After Free	www.rapid7.com			61800	vetorial:4	4
-https://www.exploit-db.com/exploits/46356	Android - binder Use-After-Free via fdget() Optimization	www.exploit-db.com			40504	tfidf:5	5
-https://www.rapid7.com/db/vulnerabilities/cve-2026-91806/	CVE-2026-91806: Use After Free	www.rapid7.com			62900	vetorial:5	5
-https://cwe.mitre.org/data/definitions/672.html	CWE-672: Operation on a Resource after Expiration or Release	cwe.mitre.org			860	tfidf:6	6
-https://www.rapid7.com/db/vulnerabilities/cve-2026-97504/	CVE-2026-97504: Undefined Security Weakness	www.rapid7.com			54739	vetorial:6	6
-https://cwe.mitre.org/data/definitions/1400.html	CWE-1400: Comprehensive Categorization for Software Assurance Trends	cwe.mitre.org			568	tfidf:7	7
-https://www.rapid7.com/db/vulnerabilities/cve-2026-91809/	CVE-2026-91809: Use After Free	www.rapid7.com			62902	vetorial:7	7
-https://cwe.mitre.org/data/definitions/888.html	CWE-888: Software Fault Pattern (SFP) Clusters	cwe.mitre.org			395	tfidf:8	8
-https://www.exploit-db.com/exploits/38125	PHP 5.4/5.5/5.6 - 'Unserialize()' Use-After-Free	www.exploit-db.com			28195	bm25f:8	8
-https://www.rapid7.com/db/vulnerabilities/cve-2026-58751/	CVE-2026-58751: Use After Free	www.rapid7.com			60319	vetorial:8	8
-https://cwe.mitre.org/data/definitions/763.html	CWE-763: Release of Invalid Pointer or Reference	cwe.mitre.org			1144	tfidf:9	9
-https://www.rapid7.com/db/vulnerabilities/cve-2026-91792/	CVE-2026-91792: Use After Free	www.rapid7.com			56064	vetorial:9	9
-https://cwe.mitre.org/data/definitions/1305.html	CWE-1305: CISQ Quality Measures (2020)	cwe.mitre.org			1372	tfidf:10	10
-https://www.exploit-db.com/exploits/39054	Adobe Flash TextField.tabIndex Setter - Use-After-Free	www.exploit-db.com			34562	bm25:10	10
+url	titulo	site	relevante	observacao	doc	modelos	melhor_pos	avaliador
+https://cwe.mitre.org/data/definitions/416.html	CWE-416: Use After Free	cwe.mitre.org	2	Definição do CWE-416 (Use After Free)	1090	tfidf:1 bm25f:2	1	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/46246	Lua 5.3.5 - 'debug.upvaluejoin' Use After Free	www.exploit-db.com	2	Use-after-free no Lua 5.3.5 (debug.upvaluejoin)	37480	bm25:1 bm25f:1	1	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/38123	PHP Session Deserializer - Use-After-Free	www.exploit-db.com	2	Use-after-free no desserializador de sessão do PHP	28208	bm25:2 bm25f:3	2	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/40308	Adobe Flash - Stage.align Setter Use-After-Free	www.exploit-db.com	2	Use-after-free no Flash (Stage.align)	8500	bm25:3 bm25f:5	3	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/39072	Adobe Flash Sound.setTransform - Use-After-Free	www.exploit-db.com	2	Use-after-free no Flash (Sound.setTransform)	34432	bm25:4 bm25f:4	4	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/37865	Adobe Flash - attachMovie Use-After-Free	www.exploit-db.com	2	Use-after-free no Flash (attachMovie/initObject)	9232	bm25:5 bm25f:6	5	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/39055	Adobe Flash MovieClip.attachMovie - Use-After-Free	www.exploit-db.com	2	Use-after-free no Flash (MovieClip.attachMovie)	34555	bm25:6 bm25f:7	6	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/38121	PHP GMP - 'unserialize()' Use-After-Free	www.exploit-db.com	2	Use-after-free no unserialize() com GMP do PHP	28220	bm25:7 bm25f:9	7	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/39831	Adobe Flash - SetNative Use-After-Free	www.exploit-db.com	2	Use-after-free no Flash (SetNative)	37932	bm25:8 bm25f:10	8	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/38265	Microsoft Windows Kernel - Bitmap Handling Use-After-Free (MS15-061) (2)	www.exploit-db.com	2	Use-after-free no tratamento de bitmaps do kernel do Windows (MS15-061)	20133	vetorial:10 bm25:9	9	Claude Code (modelo de linguagem), texto completo
+https://www.rapid7.com/db/vulnerabilities/cve-2026-56960/	CVE-2026-56960: Use After Free	www.rapid7.com	2	Use-after-free com escalada remota (Rapid7)	59691	vetorial:1	1	Claude Code (modelo de linguagem), texto completo
+https://cwe.mitre.org/data/definitions/1000.html	CWE-1000: Research Concepts	cwe.mitre.org	1	Visão CWE-1000: lista o use-after-free entre centenas de fraquezas	4	tfidf:2	2	Claude Code (modelo de linguagem), texto completo
+https://www.rapid7.com/db/vulnerabilities/cve-2026-91816/	CVE-2026-91816: Use After Free	www.rapid7.com	2	Use-after-free nas anotações do Foxit PDF (Rapid7)	62909	vetorial:2	2	Claude Code (modelo de linguagem), texto completo
+https://cwe.mitre.org/data/definitions/415.html	CWE-415: Double Free	cwe.mitre.org	1	CWE-415 (double free): fraqueza vizinha do use-after-free, não ela	1088	tfidf:3	3	Claude Code (modelo de linguagem), texto completo
+https://www.rapid7.com/db/vulnerabilities/cve-2026-84593/	CVE-2026-84593: Use After Free	www.rapid7.com	2	Use-after-free no iOS/iPadOS (Rapid7)	63765	vetorial:3	3	Claude Code (modelo de linguagem), texto completo
+https://github.com/advisories/GHSA-xphw-cqx3-667j	thin-vec: Use-After-Free and Double Free in IntoIter::drop When Element Drop Panics	github.com	2	Use-after-free e double free no thin-vec (Rust)	45600	tfidf:4	4	Claude Code (modelo de linguagem), texto completo
+https://www.rapid7.com/db/vulnerabilities/cve-2026-56914/	CVE-2026-56914: Use After Free	www.rapid7.com	2	Use-after-free por lock incorreto, escalada local (Rapid7)	61800	vetorial:4	4	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/46356	Android - binder Use-After-Free via fdget() Optimization	www.exploit-db.com	2	Use-after-free no binder do Android (CVE-2019-2000)	40504	tfidf:5	5	Claude Code (modelo de linguagem), texto completo
+https://www.rapid7.com/db/vulnerabilities/cve-2026-91806/	CVE-2026-91806: Use After Free	www.rapid7.com	2	Use-after-free nos campos de formulário do Foxit PDF (Rapid7)	62900	vetorial:5	5	Claude Code (modelo de linguagem), texto completo
+https://cwe.mitre.org/data/definitions/672.html	CWE-672: Operation on a Resource after Expiration or Release	cwe.mitre.org	1	CWE-672 (operação após liberar o recurso), classe-mãe do use-after-free; trata do tema só em parte	860	tfidf:6	6	Claude Code (modelo de linguagem), texto completo
+https://www.rapid7.com/db/vulnerabilities/cve-2026-97504/	CVE-2026-97504: Undefined Security Weakness	www.rapid7.com	2	Use-after-free no watchdog lenovo_se10 do kernel Linux (Rapid7)	54739	vetorial:6	6	Claude Code (modelo de linguagem), texto completo
+https://cwe.mitre.org/data/definitions/1400.html	CWE-1400: Comprehensive Categorization for Software Assurance Trends	cwe.mitre.org	1	Visão CWE-1400: lista o CWE-416 entre centenas de fraquezas	568	tfidf:7	7	Claude Code (modelo de linguagem), texto completo
+https://www.rapid7.com/db/vulnerabilities/cve-2026-91809/	CVE-2026-91809: Use After Free	www.rapid7.com	2	Use-after-free nos campos de formulário malformados do Foxit PDF (Rapid7)	62902	vetorial:7	7	Claude Code (modelo de linguagem), texto completo
+https://cwe.mitre.org/data/definitions/888.html	CWE-888: Software Fault Pattern (SFP) Clusters	cwe.mitre.org	1	Visão CWE-888 (SFP): lista o CWE-416 entre outras	395	tfidf:8	8	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/38125	PHP 5.4/5.5/5.6 - 'Unserialize()' Use-After-Free	www.exploit-db.com	2	Use-after-free no unserialize() do PHP 5.4-5.6	28195	bm25f:8	8	Claude Code (modelo de linguagem), texto completo
+https://www.rapid7.com/db/vulnerabilities/cve-2026-58751/	CVE-2026-58751: Use After Free	www.rapid7.com	2	Use-after-free no arm-smmu-v3 (Rapid7)	60319	vetorial:8	8	Claude Code (modelo de linguagem), texto completo
+https://cwe.mitre.org/data/definitions/763.html	CWE-763: Release of Invalid Pointer or Reference	cwe.mitre.org	1	CWE-763 (liberação de ponteiro inválido): fraqueza vizinha, não o use-after-free	1144	tfidf:9	9	Claude Code (modelo de linguagem), texto completo
+https://www.rapid7.com/db/vulnerabilities/cve-2026-91792/	CVE-2026-91792: Use After Free	www.rapid7.com	2	Use-after-free em zoom/layout reentrante do Foxit PDF (Rapid7)	56064	vetorial:9	9	Claude Code (modelo de linguagem), texto completo
+https://cwe.mitre.org/data/definitions/1305.html	CWE-1305: CISQ Quality Measures (2020)	cwe.mitre.org	1	Visão CWE-1305 (CISQ): lista o CWE-416 entre outras	1372	tfidf:10	10	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/39054	Adobe Flash TextField.tabIndex Setter - Use-After-Free	www.exploit-db.com	2	Use-after-free no Flash (TextField.tabIndex)	34562	bm25:10	10	Claude Code (modelo de linguagem), texto completo

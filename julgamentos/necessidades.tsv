@@ -1,0 +1,21 @@
+id	consulta	necessidade
+q01	CVE-2021-44228	Documentos sobre a vulnerabilidade CVE-2021-44228 (Log4Shell, execução remota de código via JNDI no Apache Log4j 2): exploits, avisos ou fichas desse CVE, ou a definição da fraqueza que o explica citando-o.
+q02	MS17-010	Documentos sobre o boletim MS17-010 da Microsoft (falhas no SMBv1 do Windows exploradas pelo EternalBlue, CVE-2017-0143 a 0148): exploits ou avisos dessas falhas.
+q03	CWE-79	Documentos sobre a fraqueza CWE-79 (Cross-Site Scripting, neutralização incorreta de entrada na geração de páginas web): a definição do CWE ou vulnerabilidades/exploits classificados como XSS.
+q04	SA-CORE-2018-002	Documentos sobre o aviso SA-CORE-2018-002 do Drupal (Drupalgeddon 2, execução remota de código, CVE-2018-7600): o aviso ou exploits dessa falha.
+q05	sql injection wordpress plugin	Vulnerabilidades ou exploits de injeção de SQL em plugins do WordPress.
+q06	remote code execution apache struts	Vulnerabilidades ou exploits de execução remota de código no framework Apache Struts.
+q07	cross site scripting drupal	Vulnerabilidades ou exploits de cross-site scripting (XSS) no Drupal (núcleo ou módulos).
+q08	joomla sql injection	Vulnerabilidades ou exploits de injeção de SQL no Joomla (núcleo ou extensões/componentes).
+q09	buffer overflow windows smb	Vulnerabilidades ou exploits de estouro de buffer (ou corrupção de memória equivalente) no protocolo/serviço SMB do Windows.
+q10	openssh vulnerability	Vulnerabilidades ou exploits do OpenSSH (servidor sshd ou cliente ssh).
+q11	privilege escalation linux kernel	Vulnerabilidades ou exploits de escalada de privilégios local no kernel do Linux.
+q12	log4j	Documentos sobre vulnerabilidades da biblioteca Apache Log4j (Log4Shell e outras falhas do Log4j 1.x/2.x).
+q13	path traversal	Documentos sobre a falha de travessia de diretórios (path traversal / directory traversal): a definição da fraqueza ou vulnerabilidades e exploits desse tipo, em qualquer produto.
+q14	java deserialization	Documentos sobre a desserialização insegura de dados em Java (ObjectInputStream, gadgets, bibliotecas como Commons Collections, Jackson, XStream): vulnerabilidades, exploits ou a definição da fraqueza aplicada a Java.
+q15	denial of service	Documentos sobre vulnerabilidades ou exploits de negação de serviço (DoS: travar, esgotar recursos ou derrubar um serviço/sistema), em qualquer produto.
+q16	csrf token bypass	Vulnerabilidades ou exploits que contornam a proteção anti-CSRF (token ausente, previsível, não validado ou reutilizável), ou ataques CSRF que superam essa proteção.
+q17	use after free	Documentos sobre a falha use-after-free (uso de memória já liberada): a definição da fraqueza ou vulnerabilidades e exploits desse tipo, em qualquer produto.
+q18	strcpy stack overflow	Exploits ou vulnerabilidades de estouro de buffer na pilha (stack overflow) causados por cópia sem limite de tamanho, como strcpy/strcat/sprintf.
+q19	codigo:shellcode	Exploits cujo código contém shellcode (código de máquina injetado para executar comandos ou abrir um shell), não apenas a palavra em comentários.
+q20	codigo:system	Exploits cujo código executa comandos do sistema operacional via system() ou equivalente (os.system, exec, popen, Runtime.exec, passthru), como parte do ataque ou do payload.

@@ -1,33 +1,33 @@
-url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
-https://www.exploit-db.com/exploits/39498	WordPress Plugin Ocim MP3 - SQL Injection	www.exploit-db.com			22278	bm25:1 bm25f:2	1
-https://www.exploit-db.com/exploits/46377	WordPress Plugin Booking Calendar 8.4.3 - (Authenticated) SQL Injection	www.exploit-db.com			40625	bm25:2 bm25f:1	1
-https://www.exploit-db.com/exploits/36230	WordPress Plugin Calculated Fields Form 1.0.10 - SQL Injection	www.exploit-db.com			23947	bm25:3 bm25f:6	3
-https://www.exploit-db.com/exploits/36600	WordPress Plugin Business Intelligence - SQL Injection (Metasploit)	www.exploit-db.com			8043	bm25:4 bm25f:3	3
-https://www.exploit-db.com/exploits/17763	WordPress Plugin Donation 1.0 - SQL Injection	www.exploit-db.com			4320	bm25:6 bm25f:4	4
-https://www.exploit-db.com/exploits/18055	WordPress Plugin Glossary - SQL Injection	www.exploit-db.com			2872	bm25:5 bm25f:5	5
-https://www.exploit-db.com/exploits/18353	WordPress Plugin wp-autoyoutube - Blind SQL Injection	www.exploit-db.com			4843	bm25:7 bm25f:10	7
-https://www.exploit-db.com/exploits/42173	WordPress Plugin Event List < 0.7.8 - SQL Injection	www.exploit-db.com			24751	bm25:10 bm25f:8	8
-https://www.exploit-db.com/exploits/17872	Multiple WordPress Plugins - 'timthumb.php' File Upload	www.exploit-db.com			3413	tfidf:1	1
-https://www.exploit-db.com/exploits/38023	WordPress Plugin Tagged Albums - 'id' SQL Injection	www.exploit-db.com			9891	vetorial:1	1
-https://www.exploit-db.com/exploits/25724	WordPress Plugin Spider Catalog 1.4.6 - Multiple Vulnerabilities	www.exploit-db.com			21162	tfidf:2	2
-https://www.exploit-db.com/exploits/38018	WordPress Plugin PHP Event Calendar - 'cid' SQL Injection	www.exploit-db.com			9851	vetorial:2	2
-https://www.exploit-db.com/exploits/19187	WordPress Plugin Automatic 2.0.3 - SQL Injection	www.exploit-db.com			41377	vetorial:3	3
-https://www.exploit-db.com/exploits/9110	WordPress Core / MU / Plugins - '/admin.php' Privileges Unchecked / Multiple Information Disclosures	www.exploit-db.com			23458	tfidf:3	3
-https://www.exploit-db.com/exploits/38870	WordPress Plugin Easy Career Openings - 'jobid' SQL Injection	www.exploit-db.com			41378	vetorial:4	4
-https://www.exploit-db.com/exploits/52171	LearnPress WordPress LMS Plugin 4.2.7 - SQL Injection	www.exploit-db.com			36034	tfidf:4	4
-https://www.exploit-db.com/exploits/25723	WordPress Plugin Spider Event Calendar 1.3.0 - Multiple Vulnerabilities	www.exploit-db.com			21160	tfidf:5	5
-https://www.exploit-db.com/exploits/38624	WordPress Plugin WP Feed - 'nid' SQL Injection	www.exploit-db.com			34268	vetorial:5	5
-https://www.exploit-db.com/exploits/38159	WordPress Plugin Shopping Cart for WordPress - '/wp-content/plugins/levelfourstorefront/scripts/administration/backup.php?reqID' SQL Injection	www.exploit-db.com			28024	vetorial:6	6
-https://www.exploit-db.com/exploits/39423	WordPress Plugin Booking Calendar Contact Form 1.0.23 - Multiple Vulnerabilities	www.exploit-db.com			21616	tfidf:6	6
-https://www.exploit-db.com/exploits/34781	WordPress Plugin All In One WP Security 3.8.2 - SQL Injection	www.exploit-db.com			24528	tfidf:7	7
-https://www.exploit-db.com/exploits/35204	WordPress Plugin Another WordPress Classifieds Plugin - SQL Injection	www.exploit-db.com			8859	bm25f:7	7
-https://www.exploit-db.com/exploits/38060	WordPress Plugin Ads Box - 'count' SQL Injection	www.exploit-db.com			28437	vetorial:7	7
-https://www.exploit-db.com/exploits/18126	WordPress Plugin jetpack - 'sharedaddy.php' ID SQL Injection	www.exploit-db.com			3446	bm25:8	8
-https://www.exploit-db.com/exploits/19018	WordPress Plugin NewsLetter 1.5 - Remote File Disclosure	www.exploit-db.com			41045	vetorial:8	8
-https://www.exploit-db.com/exploits/36860	WordPress Plugin TheCartPress 1.3.9 - Multiple Vulnerabilities	www.exploit-db.com			40760	tfidf:8	8
-https://www.exploit-db.com/exploits/17751	WordPress Plugin Event Registration 5.4.3 - SQL Injection	www.exploit-db.com			4432	vetorial:9	9
-https://www.exploit-db.com/exploits/35212	WordPress Plugin / Joomla! Component XCloner - Multiple Vulnerabilities	www.exploit-db.com			8926	tfidf:9	9
-https://www.exploit-db.com/exploits/37560	WordPress Plugin CP Multi View Event Calendar 1.1.7 - SQL Injection	www.exploit-db.com			15850	bm25f:9	9
-https://www.exploit-db.com/exploits/50695	Wordpress Plugin Download Monitor WordPress V 4.4.4 - SQL Injection (Authenticated)	www.exploit-db.com			19066	bm25:9	9
-https://www.exploit-db.com/exploits/38086	WordPress Plugin Contact Form Generator 2.0.1 - Multiple Cross-Site Request Forgery Vulnerabilities	www.exploit-db.com			28349	tfidf:10	10
-https://www.exploit-db.com/exploits/39300	WordPress Plugin Spider Facebook - 'facebook.php' SQL Injection	www.exploit-db.com			22270	vetorial:10	10
+url	titulo	site	relevante	observacao	doc	modelos	melhor_pos	avaliador
+https://www.exploit-db.com/exploits/39498	WordPress Plugin Ocim MP3 - SQL Injection	www.exploit-db.com	2	SQL injection em plugin WordPress (Ocim MP3)	22278	bm25:1 bm25f:2	1	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/46377	WordPress Plugin Booking Calendar 8.4.3 - (Authenticated) SQL Injection	www.exploit-db.com	2	SQL injection autenticada no plugin Booking Calendar (CVE-2018-20556)	40625	bm25:2 bm25f:1	1	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/36230	WordPress Plugin Calculated Fields Form 1.0.10 - SQL Injection	www.exploit-db.com	2	SQL injection em plugin WordPress (Calculated Fields Form)	23947	bm25:3 bm25f:6	3	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/36600	WordPress Plugin Business Intelligence - SQL Injection (Metasploit)	www.exploit-db.com	2	SQL injection em plugin WordPress (Business Intelligence)	8043	bm25:4 bm25f:3	3	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/17763	WordPress Plugin Donation 1.0 - SQL Injection	www.exploit-db.com	2	SQL injection em plugin WordPress (Donation)	4320	bm25:6 bm25f:4	4	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/18055	WordPress Plugin Glossary - SQL Injection	www.exploit-db.com	2	SQL injection em plugin WordPress (WP Glossary)	2872	bm25:5 bm25f:5	5	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/18353	WordPress Plugin wp-autoyoutube - Blind SQL Injection	www.exploit-db.com	2	SQL injection cega no plugin wp-autoyoutube	4843	bm25:7 bm25f:10	7	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/42173	WordPress Plugin Event List < 0.7.8 - SQL Injection	www.exploit-db.com	2	SQL injection em plugin WordPress (Event List, CVE-2017-9429)	24751	bm25:10 bm25f:8	8	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/17872	Multiple WordPress Plugins - 'timthumb.php' File Upload	www.exploit-db.com	1	Plugins WordPress com upload de arquivo via timthumb.php, não SQL injection	3413	tfidf:1	1	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/38023	WordPress Plugin Tagged Albums - 'id' SQL Injection	www.exploit-db.com	2	SQL injection em plugin WordPress (Tagged Albums, id)	9891	vetorial:1	1	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/25724	WordPress Plugin Spider Catalog 1.4.6 - Multiple Vulnerabilities	www.exploit-db.com	2	Várias falhas no plugin Spider Catalog; a principal é SQL injection	21162	tfidf:2	2	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/38018	WordPress Plugin PHP Event Calendar - 'cid' SQL Injection	www.exploit-db.com	2	SQL injection em plugin WordPress (PHP Event Calendar, cid)	9851	vetorial:2	2	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/19187	WordPress Plugin Automatic 2.0.3 - SQL Injection	www.exploit-db.com	2	SQL injection em plugin WordPress (Automatic)	41377	vetorial:3	3	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/9110	WordPress Core / MU / Plugins - '/admin.php' Privileges Unchecked / Multiple Information Disclosures	www.exploit-db.com	1	Núcleo do WordPress: privilégios em admin.php e vazamento de informação; sem SQL injection	23458	tfidf:3	3	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/38870	WordPress Plugin Easy Career Openings - 'jobid' SQL Injection	www.exploit-db.com	2	SQL injection em plugin WordPress (Easy Career Openings, jobid)	41378	vetorial:4	4	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/52171	LearnPress WordPress LMS Plugin 4.2.7 - SQL Injection	www.exploit-db.com	2	SQL injection em plugin WordPress (LearnPress, CVE-2024-8522)	36034	tfidf:4	4	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/25723	WordPress Plugin Spider Event Calendar 1.3.0 - Multiple Vulnerabilities	www.exploit-db.com	2	Várias falhas no plugin Spider Event Calendar; SQL injections são as principais	21160	tfidf:5	5	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/38624	WordPress Plugin WP Feed - 'nid' SQL Injection	www.exploit-db.com	2	SQL injection em plugin WordPress (WP Feed, nid)	34268	vetorial:5	5	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/38159	WordPress Plugin Shopping Cart for WordPress - '/wp-content/plugins/levelfourstorefront/scripts/administration/backup.php?reqID' SQL Injection	www.exploit-db.com	2	SQL injections no plugin Shopping Cart for WordPress	28024	vetorial:6	6	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/39423	WordPress Plugin Booking Calendar Contact Form 1.0.23 - Multiple Vulnerabilities	www.exploit-db.com	2	SQL injection cega sem autenticação no plugin Booking Calendar Contact Form	21616	tfidf:6	6	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/34781	WordPress Plugin All In One WP Security 3.8.2 - SQL Injection	www.exploit-db.com	2	SQL injection em plugin WordPress (All In One WP Security, CVE-2014-6242)	24528	tfidf:7	7	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/35204	WordPress Plugin Another WordPress Classifieds Plugin - SQL Injection	www.exploit-db.com	2	SQL injection em plugin WordPress (Another WordPress Classifieds), junto de XSS	8859	bm25f:7	7	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/38060	WordPress Plugin Ads Box - 'count' SQL Injection	www.exploit-db.com	2	SQL injection em plugin WordPress (Ads Box, count)	28437	vetorial:7	7	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/18126	WordPress Plugin jetpack - 'sharedaddy.php' ID SQL Injection	www.exploit-db.com	2	SQL injection em plugin WordPress (Jetpack, sharedaddy.php)	3446	bm25:8	8	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/19018	WordPress Plugin NewsLetter 1.5 - Remote File Disclosure	www.exploit-db.com	1	Plugin WordPress NewsLetter, mas a falha é revelação de arquivo, não SQL injection	41045	vetorial:8	8	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/36860	WordPress Plugin TheCartPress 1.3.9 - Multiple Vulnerabilities	www.exploit-db.com	1	Plugin WordPress TheCartPress, mas as falhas são XSS e inclusão de arquivo; sem SQL injection	40760	tfidf:8	8	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/17751	WordPress Plugin Event Registration 5.4.3 - SQL Injection	www.exploit-db.com	2	SQL injection em plugin WordPress (Event Registration)	4432	vetorial:9	9	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/35212	WordPress Plugin / Joomla! Component XCloner - Multiple Vulnerabilities	www.exploit-db.com	1	Plugin WordPress XCloner, mas as falhas são execução de comandos e senha do MySQL exposta, não SQL injection	8926	tfidf:9	9	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/37560	WordPress Plugin CP Multi View Event Calendar 1.1.7 - SQL Injection	www.exploit-db.com	2	SQL injection em plugin WordPress (CP Multi View Event Calendar)	15850	bm25f:9	9	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/50695	Wordpress Plugin Download Monitor WordPress V 4.4.4 - SQL Injection (Authenticated)	www.exploit-db.com	2	SQL injection em plugin WordPress (Download Monitor, CVE-2021-24786)	19066	bm25:9	9	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/38086	WordPress Plugin Contact Form Generator 2.0.1 - Multiple Cross-Site Request Forgery Vulnerabilities	www.exploit-db.com	1	Plugin WordPress, mas a falha é CSRF, não SQL injection	28349	tfidf:10	10	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/39300	WordPress Plugin Spider Facebook - 'facebook.php' SQL Injection	www.exploit-db.com	2	SQL injection em plugin WordPress (Spider Facebook)	22270	vetorial:10	10	Claude Code (modelo de linguagem), texto completo

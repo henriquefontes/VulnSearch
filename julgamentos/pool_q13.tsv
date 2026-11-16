@@ -1,31 +1,31 @@
-url	titulo	site	relevante	observacao	doc	modelos	melhor_pos
-https://www.exploit-db.com/exploits/45196	Oracle GlassFish Server Open Source Edition 4.1 - Path Traversal (Metasploit)	www.exploit-db.com			12916	vetorial:4 bm25:1 bm25f:2	1
-https://www.exploit-db.com/exploits/46772	Spring Cloud Config 2.1.x - Path Traversal (Metasploit)	www.exploit-db.com			15122	vetorial:5 bm25:2 bm25f:7	2
-https://github.com/advisories/GHSA-59xm-4m8c-g3xj	MineAdmin Vulnerable to Path Traversal via Unsanitized identifier in Plugin Install/Uninstall	github.com			47741	bm25:4 bm25f:1	1
-https://www.exploit-db.com/exploits/45198	Oracle Glassfish OSE 4.1 - Path Traversal (Metasploit)	www.exploit-db.com			12926	bm25:3 bm25f:3	3
-https://github.com/advisories/GHSA-693f-pf34-72c5	PraisonAI Has Path Traversal in FileTools	github.com			49948	bm25:6 bm25f:4	4
-https://github.com/advisories/GHSA-p4gq-832x-fm9v	Natural Language Toolkit (NLTK): URL-Encoded Path Traversal in nltk.data.load() Allows Arbitrary Local File Read	github.com			48464	tfidf:5 bm25f:8	5
-https://github.com/advisories/GHSA-xjvp-7243-rg9h	Wish has SCP Path Traversal that allows arbitrary file read/write	github.com			53489	tfidf:6 bm25f:5	5
-https://www.exploit-db.com/exploits/52408	Ghost CMS 5.42.1 - Path Traversal	www.exploit-db.com			21516	bm25:5 bm25f:10	5
-https://github.com/advisories/GHSA-9mqq-jqxf-grvw	PraisonAI MCP `tools/call` path-traversal => RCE via Python `.pth` injection	github.com			44247	tfidf:1	1
-https://www.exploit-db.com/exploits/40204	PHP Power Browse 1.2 - Directory Traversal	www.exploit-db.com			33869	vetorial:1	1
-https://github.com/advisories/GHSA-g72f-jw3w-mgh7	@openhop/server: Path Traversal in Flow ID File Operations	github.com			49627	tfidf:2	2
-https://www.exploit-db.com/exploits/47956	Pachev FTP Server 1.0 - Path Traversal	www.exploit-db.com			10503	vetorial:2	2
-https://github.com/advisories/GHSA-5hxf-c7j4-279c	Tina: Path Traversal in Media Upload Handle	github.com			48862	tfidf:3	3
-https://www.exploit-db.com/exploits/23068	file sharing for net 1.5 - Directory Traversal	www.exploit-db.com			16811	vetorial:3	3
-https://github.com/advisories/GHSA-m4q3-457p-hh2x	Dagu: Path Traversal via `dagRunId` in Inline DAG Execution	github.com			48804	tfidf:4	4
-https://www.exploit-db.com/exploits/45195	cgit 1.2.1 - Directory Traversal (Metasploit)	www.exploit-db.com			12912	bm25f:6	6
-https://www.rapid7.com/db/vulnerabilities/cve-2026-27557/	CVE-2026-27557: Path Traversal: '.../...//'	www.rapid7.com			58420	vetorial:6	6
-https://cwe.mitre.org/data/definitions/1000.html	CWE-1000: Research Concepts	cwe.mitre.org			4	tfidf:7	7
-https://www.exploit-db.com/exploits/52540	Repetier-Server 1.4.10 - Path Traversal	www.exploit-db.com			22724	bm25:7	7
-https://www.rapid7.com/db/vulnerabilities/cve-2026-85310/	CVE-2026-85310: Path Traversal: '.../...//'	www.rapid7.com			61148	vetorial:7	7
-https://github.com/advisories/GHSA-p462-prxw-mjx4	NASA AMMOS Instrument Toolkit: Path traversal resulting in arbitrary file append (can be triggered over the network by unauthenticated attacker)	github.com			46131	tfidf:8	8
-https://www.exploit-db.com/exploits/24414	Keene Digital Media Server 1.0.2 - Directory Traversal	www.exploit-db.com			29926	vetorial:8	8
-https://www.exploit-db.com/exploits/52135	YesWiki 4.5.1 - Unauthenticated Path Traversal	www.exploit-db.com			35850	bm25:8	8
-https://github.com/advisories/GHSA-ph9p-34f9-6g65	tmp has Path Traversal via unsanitized prefix/postfix that enables directory escape	github.com			47745	tfidf:9	9
-https://www.exploit-db.com/exploits/15371	Yaws 1.89 - Directory Traversal	www.exploit-db.com			25858	bm25f:9	9
-https://www.exploit-db.com/exploits/39210	Seo Panel - 'file' Directory Traversal	www.exploit-db.com			34873	vetorial:9	9
-https://www.exploit-db.com/exploits/47930	Citrix Application Delivery Controller (ADC) and Gateway 13.0 - Path Traversal	www.exploit-db.com			10277	bm25:9	9
-https://github.com/advisories/GHSA-g3vg-vx23-3858	compliance-trestle Remote Fetching Mechanism has an Arbitrary File Write via Cache Path Traversal	github.com			53447	tfidf:10	10
-https://www.exploit-db.com/exploits/26024	sap internet graphics server 6.40 - Directory Traversal	www.exploit-db.com			19721	vetorial:10	10
-https://www.exploit-db.com/exploits/44241	Parallels Remote Application Server 15.5 - Path Traversal	www.exploit-db.com			30344	bm25:10	10
+url	titulo	site	relevante	observacao	doc	modelos	melhor_pos	avaliador
+https://www.exploit-db.com/exploits/45196	Oracle GlassFish Server Open Source Edition 4.1 - Path Traversal (Metasploit)	www.exploit-db.com	2	Oracle GlassFish: path traversal (Metasploit)	12916	vetorial:4 bm25:1 bm25f:2	1	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/46772	Spring Cloud Config 2.1.x - Path Traversal (Metasploit)	www.exploit-db.com	2	Spring Cloud Config: directory traversal (Metasploit)	15122	vetorial:5 bm25:2 bm25f:7	2	Claude Code (modelo de linguagem), texto completo
+https://github.com/advisories/GHSA-59xm-4m8c-g3xj	MineAdmin Vulnerable to Path Traversal via Unsanitized identifier in Plugin Install/Uninstall	github.com	2	MineAdmin: path traversal na instalação de plugins	47741	bm25:4 bm25f:1	1	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/45198	Oracle Glassfish OSE 4.1 - Path Traversal (Metasploit)	www.exploit-db.com	2	Oracle GlassFish: path traversal (Metasploit)	12926	bm25:3 bm25f:3	3	Claude Code (modelo de linguagem), texto completo
+https://github.com/advisories/GHSA-693f-pf34-72c5	PraisonAI Has Path Traversal in FileTools	github.com	2	PraisonAI FileTools: validação de caminho falha (CWE-22)	49948	bm25:6 bm25f:4	4	Claude Code (modelo de linguagem), texto completo
+https://github.com/advisories/GHSA-p4gq-832x-fm9v	Natural Language Toolkit (NLTK): URL-Encoded Path Traversal in nltk.data.load() Allows Arbitrary Local File Read	github.com	2	NLTK: path traversal com URL codificada em nltk.data.load	48464	tfidf:5 bm25f:8	5	Claude Code (modelo de linguagem), texto completo
+https://github.com/advisories/GHSA-xjvp-7243-rg9h	Wish has SCP Path Traversal that allows arbitrary file read/write	github.com	2	Wish (Go): path traversal no SCP, leitura/escrita arbitrária	53489	tfidf:6 bm25f:5	5	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/52408	Ghost CMS 5.42.1 - Path Traversal	www.exploit-db.com	2	Ghost CMS: path traversal (CVE-2023-32235)	21516	bm25:5 bm25f:10	5	Claude Code (modelo de linguagem), texto completo
+https://github.com/advisories/GHSA-9mqq-jqxf-grvw	PraisonAI MCP `tools/call` path-traversal => RCE via Python `.pth` injection	github.com	2	PraisonAI MCP: path traversal que leva a RCE (CWE-22)	44247	tfidf:1	1	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/40204	PHP Power Browse 1.2 - Directory Traversal	www.exploit-db.com	2	PHP Power Browse: path traversal	33869	vetorial:1	1	Claude Code (modelo de linguagem), texto completo
+https://github.com/advisories/GHSA-g72f-jw3w-mgh7	@openhop/server: Path Traversal in Flow ID File Operations	github.com	2	@openhop/server: path traversal em flow ID	49627	tfidf:2	2	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/47956	Pachev FTP Server 1.0 - Path Traversal	www.exploit-db.com	2	Pachev FTP Server: path traversal	10503	vetorial:2	2	Claude Code (modelo de linguagem), texto completo
+https://github.com/advisories/GHSA-5hxf-c7j4-279c	Tina: Path Traversal in Media Upload Handle	github.com	2	TinaCMS: path traversal no upload de mídia (CWE-22)	48862	tfidf:3	3	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/23068	file sharing for net 1.5 - Directory Traversal	www.exploit-db.com	2	File Sharing for Net: directory traversal	16811	vetorial:3	3	Claude Code (modelo de linguagem), texto completo
+https://github.com/advisories/GHSA-m4q3-457p-hh2x	Dagu: Path Traversal via `dagRunId` in Inline DAG Execution	github.com	2	Dagu: path traversal via dagRunId	48804	tfidf:4	4	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/45195	cgit 1.2.1 - Directory Traversal (Metasploit)	www.exploit-db.com	2	cgit: directory traversal (Metasploit)	12912	bm25f:6	6	Claude Code (modelo de linguagem), texto completo
+https://www.rapid7.com/db/vulnerabilities/cve-2026-27557/	CVE-2026-27557: Path Traversal: '.../...//'	www.rapid7.com	2	Path traversal que lê as chaves privadas SSH (Rapid7, CVE-2026-27557)	58420	vetorial:6	6	Claude Code (modelo de linguagem), texto completo
+https://cwe.mitre.org/data/definitions/1000.html	CWE-1000: Research Concepts	cwe.mitre.org	1	CWE-1000 (visão de pesquisa) lista o path traversal entre centenas de fraquezas; não trata do tema	4	tfidf:7	7	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/52540	Repetier-Server 1.4.10 - Path Traversal	www.exploit-db.com	2	Repetier-Server: path traversal (CVE-2026-26335)	22724	bm25:7	7	Claude Code (modelo de linguagem), texto completo
+https://www.rapid7.com/db/vulnerabilities/cve-2026-85310/	CVE-2026-85310: Path Traversal: '.../...//'	www.rapid7.com	2	Groundhogg: path traversal em import_contacts (Rapid7)	61148	vetorial:7	7	Claude Code (modelo de linguagem), texto completo
+https://github.com/advisories/GHSA-p462-prxw-mjx4	NASA AMMOS Instrument Toolkit: Path traversal resulting in arbitrary file append (can be triggered over the network by unauthenticated attacker)	github.com	2	NASA AIT-Core: path traversal com append em arquivo	46131	tfidf:8	8	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/24414	Keene Digital Media Server 1.0.2 - Directory Traversal	www.exploit-db.com	2	Keene DMS: directory traversal com codificação hex	29926	vetorial:8	8	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/52135	YesWiki 4.5.1 - Unauthenticated Path Traversal	www.exploit-db.com	2	YesWiki: path traversal sem autenticação	35850	bm25:8	8	Claude Code (modelo de linguagem), texto completo
+https://github.com/advisories/GHSA-ph9p-34f9-6g65	tmp has Path Traversal via unsanitized prefix/postfix that enables directory escape	github.com	2	tmp (npm): path traversal via prefix/postfix	47745	tfidf:9	9	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/15371	Yaws 1.89 - Directory Traversal	www.exploit-db.com	2	Yaws: directory traversal	25858	bm25f:9	9	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/39210	Seo Panel - 'file' Directory Traversal	www.exploit-db.com	2	Seo Panel: directory traversal no parâmetro file	34873	vetorial:9	9	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/47930	Citrix Application Delivery Controller (ADC) and Gateway 13.0 - Path Traversal	www.exploit-db.com	2	Citrix ADC/Gateway: path traversal (CVE-2019-19781)	10277	bm25:9	9	Claude Code (modelo de linguagem), texto completo
+https://github.com/advisories/GHSA-g3vg-vx23-3858	compliance-trestle Remote Fetching Mechanism has an Arbitrary File Write via Cache Path Traversal	github.com	2	compliance-trestle: escrita arbitrária por path traversal no cache	53447	tfidf:10	10	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/26024	sap internet graphics server 6.40 - Directory Traversal	www.exploit-db.com	2	SAP Internet Graphics Server: directory traversal	19721	vetorial:10	10	Claude Code (modelo de linguagem), texto completo
+https://www.exploit-db.com/exploits/44241	Parallels Remote Application Server 15.5 - Path Traversal	www.exploit-db.com	2	Parallels RAS: path traversal	30344	bm25:10	10	Claude Code (modelo de linguagem), texto completo
