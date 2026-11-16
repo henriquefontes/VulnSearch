@@ -18,11 +18,13 @@ def porta_livre():
 class ServidorTeste:
     """with ServidorTeste("indice") as srv: srv.get("/api/busca", q="...")"""
 
-    def __init__(self, indice="indice", pasta_logs=None, pasta_web="web"):
+    def __init__(self, indice="indice", pasta_logs=None, pasta_web="web",
+                 pasta_julgamentos="julgamentos"):
         import uvicorn
         from servidor import cria_app
         t = time.perf_counter()
-        self.app = cria_app(indice, pasta_web=pasta_web, pasta_logs=pasta_logs)
+        self.app = cria_app(indice, pasta_web=pasta_web, pasta_logs=pasta_logs,
+                            pasta_julgamentos=pasta_julgamentos)
         self.carga_s = time.perf_counter() - t
         self.porta = porta_livre()
         self.base = f"http://127.0.0.1:{self.porta}"
@@ -44,6 +46,22 @@ class ServidorTeste:
 
     def get(self, caminho, **params):
         return requisita(self.base, caminho, **params)
+
+    def post(self, caminho, dados):
+        return envia(self.base, caminho, dados)
+
+
+def envia(base, caminho, dados):
+    """POST com corpo JSON -> (status, json, ms)."""
+    req = urllib.request.Request(base + caminho, data=json.dumps(dados).encode("utf-8"),
+                                 headers={"Content-Type": "application/json"}, method="POST")
+    t = time.perf_counter()
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            corpo, status = r.read(), r.status
+    except urllib.error.HTTPError as e:
+        corpo, status = e.read(), e.code
+    return status, json.loads(corpo.decode("utf-8")), (time.perf_counter() - t) * 1000
 
 
 def requisita(base, caminho, **params):

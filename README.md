@@ -10,7 +10,11 @@ Sociais (PUC Minas). O projeto é feito em etapas:
 3. **Ranqueamento** (concluída): Jaccard, TF-IDF, modelo vetorial, BM1/BM15/BM11/BM25 e
    BM25F; ver [Etapa 3](#etapa-3--ranqueamento).
 4. **Interface Web** (atual): backend (API JSON) e frontend prontos; ver
-   [Interface Web — backend](#interface-web--backend). Avaliação em andamento.
+   [Interface Web — backend](#interface-web--backend). Avaliação em andamento: julgamento
+   de relevância pela página `/julgar`; ver [Julgamento de relevância](#julgamento-de-relevância)
+   e o guia do grupo em **[JULGAMENTO.md](JULGAMENTO.md)**.
+
+Licença: [MIT](LICENSE) (ver [Licença](#licença)).
 
 ## Interface Web — backend
 
@@ -36,6 +40,7 @@ python servidor.py --porta 8080 --cors http://localhost:3000   # outra porta / o
 python testar_api.py                          # indice_teste (~10 s)
 python testar_api.py --indice indice          # índice completo
 python testar_api.py --indice indice --gravar-exemplos   # regrava exemplos_api/*.json
+python testar_julgamento.py                   # ferramenta de julgamento (cópia temporária dos pools)
 python medir_api.py                           # latência e vazão -> resultados_web/ (~40 s)
 ```
 
@@ -53,6 +58,7 @@ inteira.
 | `GET /api/modelos`, `/api/sites` | Listas para o seletor de modelo e os filtros |
 | `GET /api/estatisticas`, `/api/saude` | Números do índice; situação do servidor |
 | `GET /`, `/static/...` | Interface de busca (`web/index.html`) e seus arquivos (`/static/estilo.css`, `/static/app.js`) |
+| `GET /julgar` | Página de julgamento de relevância (ver abaixo); usa `GET /api/julgamento`, `GET /api/julgamento/{qXX}?avaliador=` e `POST /api/julgamento/{qXX}`, que não fazem parte do contrato da busca |
 
 Detalhes, erros e exemplos: [API.md](API.md).
 
@@ -69,6 +75,53 @@ Detalhes, erros e exemplos: [API.md](API.md).
 | `web/index.html`, `web/estilo.css`, `web/app.js` | Interface de busca (sem bibliotecas): página inicial, resultados com abas por fonte, ferramentas (modelo, parâmetros, explicação do escore), filtros por CVE/CWE, painel lateral de CVE/CWE, paginação, cópia em cache, histórico de consultas, modo escuro e layout para celular |
 | `web/teste.html` | Página mínima de teste da API (aberta direto em `/static/teste.html`) |
 | `logs/consultas.tsv` | Registro das consultas (data, consulta, modelo, filtros, total, ms, página; sem IP), fora do Git |
+| `julgamento.py`, `web/julgar.html`, `web/julgar.css`, `web/julgar.js` | Ferramenta de julgamento de relevância (`/julgar`) |
+| `testar_julgamento.py` | Testes da ferramenta, numa cópia temporária de `julgamentos/` |
+
+## Julgamento de relevância
+
+A avaliação (P@10, MAP, nDCG@10 no `avaliar.py`) precisa dos julgamentos dos 447 documentos
+dos pools (`julgamentos/pool_q01.tsv` … `pool_q20.tsv`, gerados pelo `pool.py`). A página
+**`/julgar`** do próprio servidor serve para o grupo julgar. O passo a passo para os
+integrantes está em **[JULGAMENTO.md](JULGAMENTO.md)**.
+
+```
+python servidor.py                            # http://127.0.0.1:8000/julgar
+python servidor.py --julgamentos outra_pasta  # outra pasta de pools (ex.: uma cópia para treinar)
+```
+
+- **Na página:** nome do avaliador (gravado em cada julgamento); consulta; para cada
+  documento, título e trecho com os termos destacados, site, URL e botão para a cópia em
+  cache.
+- **Notas:** 0 (não serve), 1 (relacionado) e 2 (trata do assunto pedido), com atalhos `0`,
+  `1`, `2`, setas e `c` (cópia em cache); campo de observação; progresso "x de 447".
+- **Sem viés:** a ordem dos documentos é aleatória, fixa por (consulta, avaliador), e a
+  página não recebe modelo, posição nem score.
+- **Gravação:** cada clique grava em `julgamentos/pool_qXX.tsv` (colunas `relevante`,
+  `observacao` e `avaliador`; as outras não mudam), de forma atômica (arquivo temporário +
+  troca) e com lock. Julgamentos já feitos nunca são apagados por outra pessoa: se o
+  documento já foi julgado por outro avaliador, o novo julgamento vai para
+  `julgamentos/segunda_avaliacao/pool_qXX.tsv`, usado para medir a concordância. O
+  `avaliar.py --juntar` lê só o principal.
+- **`pool.py`:** se for rodado de novo, mantém `relevante`, `observacao` e `avaliador`.
+
+**Testes** (`python testar_julgamento.py [--com-pool]`): trabalham numa cópia temporária de
+`julgamentos/` e conferem, pelo hash, que os arquivos reais não mudam. Cobrem 40 casos:
+- resumo e total (447);
+- documentos sem modelo, posição ou score;
+- ordem aleatória e fixa por avaliador;
+- gravação das notas 0/1/2, com a coluna `avaliador` e as demais linhas e colunas intactas;
+- observação sem tabulação nem quebra de linha;
+- segunda avaliação sem mostrar a nota da outra pessoa;
+- mudar e desfazer;
+- erros 400/404;
+- 15 gravações simultâneas;
+- **retomada** (servidor reiniciado: mesmo progresso, mesmas notas e mesma ordem);
+- `avaliar.py --juntar` lendo o que foi gravado;
+- com `--com-pool`, o `pool.py` regerado mantendo os julgamentos.
+
+Também foi testada no Chrome a página com o teclado (`2`, `1`, `↓`, `0`): a gravação e a
+retomada ao recarregar.
 
 ## Etapa 3 — ranqueamento
 
@@ -421,3 +474,11 @@ Sites avaliados e **não** incluídos: NVD e CVE.org (listagens montadas por Jav
 CVE Details e VulDB (bloqueiam acesso automatizado), VulnDB (conteúdo atrás de *login*),
 WPScan (listagem não existe mais), MITRE ATT&CK e anúncios do WordPress (não
 documentam vulnerabilidades).
+
+## Licença
+
+Código distribuído sob a licença **MIT** (arquivo [LICENSE](LICENSE)), © 2026 Grupo
+VulnSearch. O corpus coletado (`corpus.jsonl.gz`, publicado como anexo da release) contém
+páginas de terceiros (Exploit Database, GitHub Advisory Database, Rapid7, MITRE CWE, Drupal e
+Joomla), que continuam sob os termos de uso de cada site; a licença MIT vale só para o código
+e a documentação deste repositório.

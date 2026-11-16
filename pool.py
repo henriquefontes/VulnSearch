@@ -25,7 +25,8 @@ import sys
 from avaliar import le_consultas
 from ranqueamento import MODELOS, Ranqueador
 
-COLUNAS = ["url", "titulo", "site", "relevante", "observacao", "doc", "modelos", "melhor_pos"]
+COLUNAS = ["url", "titulo", "site", "relevante", "observacao", "doc", "modelos", "melhor_pos",
+           "avaliador"]  # avaliador: gravado pela ferramenta /julgar (julgamento.py)
 MODELOS_PADRAO = ("tfidf", "vetorial", "bm25", "bm25f")
 COMBINACOES = [(MODELOS, 10, "8 modelos, top-10"), (MODELOS_PADRAO, 10, "4 modelos, top-10"),
                (MODELOS_PADRAO, 5, "4 modelos, top-5"), (MODELOS, 5, "8 modelos, top-5")]
@@ -96,6 +97,7 @@ def main():
             linhas.append({"url": doc["url"], "titulo": doc["titulo"], "site": doc["site"],
                            "relevante": velho.get("relevante", ""),
                            "observacao": velho.get("observacao", ""), "doc": d,
+                           "avaliador": velho.get("avaliador", ""),
                            "modelos": " ".join(f"{m}:{i}" for m, i in lst),
                            "melhor_pos": min(i for _, i in lst), "_n": len(lst)})
         # documentos que saíram do pool: ficam só se já foram julgados

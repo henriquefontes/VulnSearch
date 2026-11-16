@@ -6,6 +6,9 @@
 #
 # Rotas: /api/busca, /api/documento/{id}, /api/modelos, /api/sites,
 #        /api/estatisticas, /api/saude; / e /static/... servem a pasta web/.
+#   Julgamento de relevância (ferramenta do grupo, julgamento.py): /julgar (página),
+#        GET /api/julgamento, GET /api/julgamento/{qXX}, POST /api/julgamento/{qXX};
+#        gravam em julgamentos/pool_qXX.tsv. Não mexem na busca.
 #
 # Decisões (PLANO_BACKEND.md, seção 1):
 #   - um processo; o índice, as estatísticas e os textos são carregados uma vez;
@@ -36,8 +39,10 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
+import julgamento
 import trechos
 from indice import pico_memoria_mb, tamanho_mb
 from ranqueamento import B, K1, MODELOS, PESOS_BM25F, Ranqueador, top_k
@@ -367,7 +372,15 @@ def mensagem_validacao(erros):
     return " ".join(partes) or "Parâmetros inválidos."
 
 
-def cria_app(pasta="indice", cors=None, pasta_web="web", pasta_logs="logs"):
+class JulgamentoEntrada(BaseModel):
+    url: str
+    relevante: str = ""
+    observacao: str = ""
+    avaliador: str
+
+
+def cria_app(pasta="indice", cors=None, pasta_web="web", pasta_logs="logs",
+             pasta_julgamentos="julgamentos", consultas="consultas.tsv"):
     motor = Motor(pasta, pasta_logs)
     app = FastAPI(title="VulnSearch API",
                   description="Busca vertical sobre vulnerabilidades de software e hardware "
@@ -389,6 +402,10 @@ def cria_app(pasta="indice", cors=None, pasta_web="web", pasta_logs="logs"):
     @app.exception_handler(ErroConsulta)
     def _consulta(request: Request, exc: ErroConsulta):
         return JSONResponse({"erro": str(exc)}, status_code=400)
+
+    @app.exception_handler(julgamento.ErroJulgamento)
+    def _julgamento(request: Request, exc: julgamento.ErroJulgamento):
+        return JSONResponse({"erro": str(exc)}, status_code=404 if exc.nao_existe else 400)
 
     @app.exception_handler(Exception)
     def _interno(request: Request, exc: Exception):
@@ -439,8 +456,58 @@ def cria_app(pasta="indice", cors=None, pasta_web="web", pasta_logs="logs"):
         return {"ok": True, "documentos": motor.N, "carregado_em_s": motor.carregado_em_s,
                 "memoria_mb": round(motor.memoria_mb or 0, 1)}
 
+    # ------------------------------------------------ julgamento de relevância
+    julg = julgamento.Julgamentos(pasta_julgamentos, consultas)
+    app.state.julgamentos = julg
+    por_url = {d["url"]: i for i, d in enumerate(motor.r.ind.documentos)}
+
+    @app.get("/api/julgamento", summary="Consultas a julgar e progresso", include_in_schema=False)
+    def julgamento_resumo(avaliador: str = ""):
+        return julg.resumo(avaliador)
+
+    @app.get("/api/julgamento/{cid}", summary="Documentos do pool de uma consulta",
+             include_in_schema=False)
+    def julgamento_documentos(cid: str, avaliador: str = ""):
+        dados = julg.documentos(cid, avaliador)
+        proc = motor.r.proc
+        dest = trechos.Destaque.de_consulta(proc.analisa(dados["consulta"]), proc.stopwords,
+                                            proc.stemming)
+        for doc in dados["documentos"]:
+            d = por_url.get(doc["url"])
+            doc["id"] = d
+            doc["nome_site"] = SITES.get(doc["site"], doc["site"])
+            if d is None:  # índice reconstruído sem esse documento
+                doc.update(titulo=[{"texto": doc["titulo"] or doc["url"], "destaque": False}],
+                           trecho=[], trecho_codigo=None)
+                continue
+            with motor.lock:
+                campos = motor.textos.campos(d)
+            g = trechos.gera(campos, dest)
+            doc.update(titulo=g["titulo"] or [{"texto": doc["titulo"] or doc["url"],
+                                                "destaque": False}],
+                       trecho=g["trecho"], trecho_codigo=g["trecho_codigo"])
+        for doc in dados["documentos"]:
+            doc.pop("doc", None)  # id antigo do pool.py; vale o 'id' achado pela URL
+        return dados
+
+    @app.post("/api/julgamento/{cid}", summary="Grava um julgamento", include_in_schema=False)
+    def julgamento_grava(cid: str, entrada: JulgamentoEntrada):
+        onde = julg.julga(cid, entrada.url, entrada.relevante, entrada.observacao,
+                          entrada.avaliador)
+        r = julg.resumo(entrada.avaliador)
+        c = next(x for x in r["consultas"] if x["id"] == cid)
+        return {"ok": True, "arquivo": onde, "julgados": r["julgados"], "total": r["total"],
+                "consulta": c}
+
     if pasta_web and os.path.isdir(pasta_web):
         app.mount("/static", StaticFiles(directory=pasta_web), name="static")
+
+        @app.get("/julgar", include_in_schema=False)
+        def julgar():
+            caminho = os.path.join(pasta_web, "julgar.html")
+            if os.path.exists(caminho):
+                return FileResponse(caminho)
+            return JSONResponse({"erro": "A pasta web/ não tem julgar.html."}, status_code=404)
 
         @app.get("/", include_in_schema=False)
         def raiz():
@@ -466,16 +533,19 @@ def main():
                    help=f"origens permitidas (padrão: {' '.join(CORS_PADRAO)})")
     p.add_argument("--web", default="web", help="pasta do frontend (padrão: web)")
     p.add_argument("--logs", default="logs", help="pasta do registro das consultas")
+    p.add_argument("--julgamentos", default="julgamentos",
+                   help="pasta dos pools de julgamento (padrão: julgamentos)")
     a = p.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
     try:
-        app = cria_app(a.indice, a.cors, a.web, a.logs)
+        app = cria_app(a.indice, a.cors, a.web, a.logs, a.julgamentos)
     except RuntimeError as e:
         sys.exit(str(e))
     m = app.state.motor
     print(f"Índice carregado: {m.N} documentos em {m.carregado_em_s} s; "
           f"pico de memória {m.memoria_mb or 0:.0f} MB")
-    print(f"Interface: http://{a.host}:{a.porta}/   API: http://{a.host}:{a.porta}/docs")
+    print(f"Interface: http://{a.host}:{a.porta}/   API: http://{a.host}:{a.porta}/docs   "
+          f"Julgamento: http://{a.host}:{a.porta}/julgar")
     import uvicorn
     try:
         uvicorn.run(app, host=a.host, port=a.porta, log_level="warning")

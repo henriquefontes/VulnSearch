@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Julgamento de relevância - VulnSearch</title>
+<link rel="stylesheet" href="/static/estilo.css?v=13">
+<link rel="stylesheet" href="/static/julgar.css?v=1">
+</head>
+<body class="julgar">
+<div id="carregando" class="carregando" hidden></div>
+
+<!-- ===================== topo ===================== -->
+<header class="j-topo">
+  <div class="j-linha">
+    <a href="/" class="logo logo-pequeno" aria-label="VulnSearch: página inicial"></a>
+    <h1>Julgamento de relevância</h1>
+    <label class="j-campo">Avaliador
+      <input id="avaliador" type="text" maxlength="60" autocomplete="name" placeholder="seu nome">
+    </label>
+    <label class="j-campo">Consulta
+      <select id="consulta" disabled><option>carregando…</option></select>
+    </label>
+  </div>
+  <div class="j-progresso" aria-live="polite">
+    <div class="j-barra"><i id="barra"></i></div>
+    <span id="progresso"></span>
+  </div>
+</header>
+
+<main class="j-conteudo">
+  <!-- ===================== critério ===================== -->
+  <details class="j-criterio" open>
+    <summary>Critério de relevância</summary>
+    <p id="pergunta"></p>
+    <dl id="criterio"></dl>
+    <p class="j-dica">Julgue cada documento pelo que ele <b>é</b>, sem pensar em qual modelo o
+      trouxe (a ordem é aleatória e não mostra posição nem score). Na dúvida entre dois valores,
+      abra a cópia em cache. Atalhos: <kbd>0</kbd> <kbd>1</kbd> <kbd>2</kbd> julgam o documento
+      atual e passam ao próximo sem julgamento; <kbd>↑</kbd> <kbd>↓</kbd> (ou <kbd>←</kbd>
+      <kbd>→</kbd>) mudam o documento atual; <kbd>c</kbd> abre a cópia em cache.</p>
+  </details>
+
+  <div id="aviso" class="aviso" hidden></div>
+  <ol id="lista" class="j-lista"></ol>
+</main>
+
+<script src="/static/julgar.js?v=1"></script>
+</body>
+</html>
