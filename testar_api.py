@@ -106,6 +106,8 @@ def testes_trechos(pasta):
     vizinhos = all(a["destaque"] != b["destaque"] for a, b in zip(g["trecho"], g["trecho"][1:]))
     verdadeiro("trechos: segmentos vizinhos de mesmo tipo unidos", vizinhos)
 
+    testes_trechos_exploitdb(pasta)
+
     # posições: tokens_com_posicao == tokens() em documentos reais
     tx = Textos(pasta)
     rnd = random.Random(5)
@@ -117,6 +119,84 @@ def testes_trechos(pasta):
                 iguais = False
     verdadeiro("lexico: tokens_com_posicao = tokens em 300 documentos reais", iguais)
     tx.fecha()
+
+
+FICHA = ("{t}\nEDB-ID:\n12345\nCVE:\n2020-1111\n2020-2222\nEDB Verified:\nAuthor:\nfulano\n"
+         "Type:\nwebapps\nExploit:\n/\nPlatform:\nPHP\nDate:\n2020-01-01\nVulnerable App:\n"
+         "Tags:\nAdvisory/Source:\nLink")
+
+
+def testes_trechos_exploitdb(pasta):
+    """Exploit-db: título + ficha fora da janela do trecho; separadores fora do
+    trecho de código; outros sites sem mudança."""
+    tit = "WordPress Plugin X 1.0 - SQL Injection"
+    ficha = trechos.ficha_exploitdb(FICHA.format(t=tit), tit)
+    verdadeiro("ficha: pares rótulo/valor, vários CVEs, sem rótulos vazios nem '/', 'Link'",
+               ficha is not None and ficha[0] == [
+                   ("EDB-ID", ["12345"]), ("CVE", ["2020-1111", "2020-2222"]), ("Author", ["fulano"]),
+                   ("Type", ["webapps"]), ("Platform", ["PHP"]), ("Date", ["2020-01-01"])],
+               str(ficha))
+    verdadeiro("ficha: texto de outro site não é reconhecido",
+               trechos.ficha_exploitdb("Advisory X\nPackage: npm\nEDB-ID:\n1", "Advisory X") is None)
+
+    codigo = ("# Exploit Title: X\n#####################\n\n# Date: 2020\n"
+              "======================\n---- \n   \n"
+              "Blind SQL injection in the id parameter\n* * * ~~~ ***\n\n"
+              "payload = \"1 OR 1=1\"\nsend(payload)\nprint('ok')\n")
+    d = destaque("sql injection")
+    g = trechos.gera({"titulo": tit, "texto": FICHA.format(t=tit), "codigo": codigo}, d)
+    tr = texto(g["trecho"])
+    verdadeiro("exploit-db: trecho sem a ficha e sem repetir o título",
+               "EDB-ID" not in tr and "Author" not in tr and not tr.lstrip("… ").startswith(tit), tr)
+    verdadeiro("exploit-db: trecho vem do código, com destaque",
+               "SQL injection" in destacados(g["trecho"]) and "Blind" in tr, tr)
+    linhas = texto(g["trecho_codigo"]).split("\n")
+    verdadeiro("exploit-db: trecho_codigo sem linhas vazias ou só de separadores",
+               not any(trechos.SEPARADOR.match(x) for x in linhas), repr(linhas))
+    verdadeiro("exploit-db: trecho_codigo com 5 linhas úteis em volta do casamento",
+               len(linhas) == 5 and any("SQL injection" in x for x in linhas)
+               and linhas[0] == "# Exploit Title: X" and linhas[-1] == "send(payload)", repr(linhas))
+    verdadeiro("exploit-db: separadores também fora do trecho em linha", "####" not in tr
+               and "~~~" not in tr and "====" not in tr, tr)
+
+    g = trechos.gera({"titulo": tit, "texto": FICHA.format(t=tit), "codigo": "print('nada')\n"},
+                     destaque("wordpress"))
+    verdadeiro("exploit-db sem casamento no código: linha curta Type/Platform/Date",
+               texto(g["trecho"]) == "Type: webapps · Platform: PHP · Date: 2020-01-01"
+               and g["trecho_codigo"] is None, str(g))
+    g = trechos.gera({"titulo": tit, "texto": FICHA.format(t=tit)}, destaque("php"))
+    verdadeiro("exploit-db sem código: linha curta com o termo destacado",
+               destacados(g["trecho"]) == ["PHP"], str(g["trecho"]))
+
+    # outros sites: o mesmo código mantém o comportamento anterior (linhas vazias e
+    # separadores no meio continuam; o trecho vem do texto)
+    g = trechos.gera({"titulo": "Advisory", "texto": "A SQL injection in X.", "codigo": codigo}, d)
+    linhas = texto(g["trecho_codigo"]).split("\n")
+    verdadeiro("outros sites: trecho do texto e trecho_codigo como antes",
+               texto(g["trecho"]).startswith("A SQL injection in X")
+               and destacados(g["trecho"]) == ["SQL injection"]
+               and any(trechos.SEPARADOR.match(x) for x in linhas), repr(linhas))
+
+    # documentos reais do exploit-db: nenhum trecho com a ficha ou começando pelo título
+    tx = Textos(pasta)
+    vistos = ruins = 0
+    for doc in range(len(tx)):
+        c = tx.campos(doc)
+        if not trechos.ficha_exploitdb(c["texto"], c["titulo"]):
+            continue
+        palavras = [w for w in lexico.tokens(c["titulo"]) if len(w) > 3]
+        if not palavras:
+            continue
+        g = trechos.gera(c, destaque(max(palavras, key=len)))
+        tr = texto(g["trecho"])
+        if "EDB-ID:" in tr or (c["titulo"] and tr.lstrip("… ").startswith(c["titulo"])):
+            ruins += 1
+        vistos += 1
+        if vistos == 300:
+            break
+    tx.fecha()
+    verdadeiro(f"exploit-db reais: {vistos} trechos sem ficha nem título no início",
+               vistos > 0 and ruins == 0, f"{ruins} de {vistos}")
 
 
 # ================================================================== API

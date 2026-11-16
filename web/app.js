@@ -478,6 +478,45 @@ function destacaTexto(texto, termos) {
   return frag;
 }
 
+const ROTULOS_FICHA = ["EDB-ID", "CVE", "EDB Verified", "Author", "Type", "Exploit", "Platform", "Date",
+  "Vulnerable App", "Tags", "Advisory/Source"];
+const VALORES_SEM_INFORMACAO = new Set(["/", "Link", "N/A"]);
+
+function fichaExploitDb(texto, titulo) {
+  const linhas = (texto || "").split("\n").map((l) => l.trim());
+  const rotulos = new Set(ROTULOS_FICHA.map((r) => r + ":"));
+  let k = linhas[0] && linhas[0] === (titulo || "").trim() ? 1 : 0;
+  if (linhas[k] !== "EDB-ID:") return null;
+  const pares = [];
+  while (k < linhas.length && rotulos.has(linhas[k])) {
+    const rotulo = linhas[k].slice(0, -1);
+    k++;
+    const valores = [];
+    while (k < linhas.length && !rotulos.has(linhas[k])) {
+      if (rotulo === "Advisory/Source" && valores.length) break;
+      if (linhas[k]) valores.push(linhas[k]);
+      k++;
+    }
+    const uteis = valores.filter((v) => !VALORES_SEM_INFORMACAO.has(v));
+    if (uteis.length) pares.push([rotulo, uteis]);
+    if (rotulo === "Advisory/Source") break;
+  }
+  return { pares, resto: linhas.slice(k).join("\n").trim() };
+}
+
+function desenhaFicha(pares, termos) {
+  const dl = el("dl", { class: "ficha" });
+  for (const [rotulo, valores] of pares) {
+    const dd = el("dd");
+    valores.forEach((v, i) => {
+      if (i) dd.append(", ");
+      dd.append(destacaTexto(rotulo === "CVE" && /^\d{4}-\d+$/.test(v) ? "CVE-" + v : v, termos));
+    });
+    dl.append(el("dt", { textContent: rotulo }), dd);
+  }
+  return dl;
+}
+
 async function abreDocumento() {
   const doc = $("#cache-doc");
   doc.replaceChildren();
@@ -507,7 +546,10 @@ async function abreDocumento() {
   }
   if (d.descricao) doc.append(el("h2", { textContent: "Descrição" }), el("div", { class: "texto" }, destacaTexto(d.descricao, termos)));
   if (d.palavras_chave) doc.append(el("p", { class: "meta", textContent: "Palavras-chave: " + d.palavras_chave }));
-  doc.append(el("h2", { textContent: "Texto" }), el("div", { class: "texto" }, destacaTexto(d.texto, termos)));
+  const ficha = d.site === "www.exploit-db.com" ? fichaExploitDb(d.texto, d.titulo) : null;
+  if (ficha && ficha.pares.length) doc.append(desenhaFicha(ficha.pares, termos));
+  const corpo = ficha ? ficha.resto : d.texto;
+  if (corpo) doc.append(el("h2", { textContent: "Texto" }), el("div", { class: "texto" }, destacaTexto(corpo, termos)));
   if (d.codigo) {
     doc.append(el("h2", { textContent: "Código" }), el("pre", {}, destacaTexto(d.codigo, termos)));
     if (d.codigo_truncado) {
@@ -669,6 +711,10 @@ async function inicia() {
   for (const a of $$("[data-acao=sobre]")) a.addEventListener("click", (ev) => { ev.preventDefault(); janelaSobre(); });
   for (const a of $$("[data-acao=sintaxe]")) a.addEventListener("click", (ev) => { ev.preventDefault(); janelaSintaxe(); });
   iniciaFormularios();
+  const topo = $(".topo");
+  const alturaTopo = () => document.documentElement.style.setProperty("--altura-topo", topo.offsetHeight + "px");
+  if ("ResizeObserver" in window) new ResizeObserver(alturaTopo).observe(topo);
+  window.addEventListener("resize", alturaTopo);
   try {
     [modelos, { sites }] = await Promise.all([api("/api/modelos"), api("/api/sites")]);
   } catch (err) {

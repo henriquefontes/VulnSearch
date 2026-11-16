@@ -26,8 +26,13 @@
 # aparecem no campo, entra uma segunda janela, separada por " … ".
 # Ordem de busca do trecho: texto -> descrição -> palavras-chave -> código.
 # Sem casamento: os primeiros ~220 caracteres, sem destaque.
+# Exploit-db: o campo texto é só o título + a ficha (EDB-ID, CVE, Author...),
+# que não entram na escolha da janela; o trecho vem do texto que sobra, senão
+# do código, senão de uma linha curta com Type, Platform e Date.
 # trecho_codigo: até 5 linhas em volta da primeira linha com casamento, cada
-# uma cortada em 120 caracteres, preservando as quebras de linha.
+# uma cortada em 120 caracteres, preservando as quebras de linha. No exploit-db,
+# linhas vazias ou só de separadores (= - # * ~ : | + _) não entram (nos outros sites o
+# trecho de código continua como antes).
 import re
 
 import lexico
@@ -39,6 +44,15 @@ LINHAS_CODIGO = 5
 LARGURA_LINHA = 120
 RET = "…"
 ESPACOS = re.compile(r"\s+")
+SEPARADOR = re.compile(r"^[\s=\-#*~:|+_]*$")   # linha vazia ou só de separadores
+
+# ficha do exploit-db: rótulos na ordem da página, cada um seguido dos valores
+# (um por linha; CVE e Tags podem ter vários). Valores sem informação: "/" (ícone
+# de download em Exploit), "Link" (texto do link em Advisory/Source) e "N/A".
+ROTULOS_FICHA = ("EDB-ID", "CVE", "EDB Verified", "Author", "Type", "Exploit", "Platform",
+                 "Date", "Vulnerable App", "Tags", "Advisory/Source")
+VALORES_SEM_INFORMACAO = {"/", "Link", "N/A"}
+CAMPOS_LINHA_FICHA = ("Type", "Platform", "Date")
 
 
 class Destaque:
@@ -249,6 +263,54 @@ def inicio_sem_destaque(texto):
     return [{"texto": t[:corte].rstrip() + " " + RET, "destaque": False}]
 
 
+# ---------------------------------------------------------- ficha (exploit-db)
+def ficha_exploitdb(texto, titulo=""):
+    """Reconhece o prefixo título + ficha do exploit-db no campo texto.
+    Devolve (pares, fim): pares = [(rótulo, [valores])] só com os rótulos que têm
+    valor informativo, e fim = deslocamento no texto onde a ficha termina.
+    None quando o texto não começa assim (os outros sites)."""
+    linhas, pos = [], 0
+    for linha in texto.split("\n"):
+        linhas.append((linha.strip(), pos + len(linha)))
+        pos += len(linha) + 1
+    rotulos = {r + ":" for r in ROTULOS_FICHA}
+    k = 0
+    if linhas and linhas[0][0] and linhas[0][0] == titulo.strip():
+        k = 1
+    if k >= len(linhas) or linhas[k][0] != "EDB-ID:":
+        return None
+    pares, fim = [], linhas[k][1]
+    while k < len(linhas) and linhas[k][0] in rotulos:
+        rotulo = linhas[k][0][:-1]
+        fim = linhas[k][1]
+        k += 1
+        valores = []
+        while k < len(linhas) and linhas[k][0] not in rotulos:
+            if rotulo == "Advisory/Source" and valores:
+                break  # último rótulo: só um valor (o texto do link)
+            if linhas[k][0]:
+                valores.append(linhas[k][0])
+            fim = linhas[k][1]
+            k += 1
+        valores = [v for v in valores if v not in VALORES_SEM_INFORMACAO]
+        if valores:
+            pares.append((rotulo, valores))
+        if rotulo == "Advisory/Source":
+            break
+    return pares, fim
+
+
+def linha_ficha(pares, d):
+    """'Type: webapps · Platform: PHP · Date: 2011-07-01', com destaque."""
+    valores = dict(pares)
+    partes = [f"{r}: {', '.join(valores[r])}" for r in CAMPOS_LINHA_FICHA if r in valores]
+    texto = " · ".join(partes)
+    if not texto:
+        return []
+    toks, marcas = casamentos_texto(texto, d)
+    return segmentos(texto, 0, len(texto), intervalos(toks, marcas))
+
+
 # ----------------------------------------------------------------- código
 def _linhas(codigo):
     """[(início, fim)] de cada linha (sem a quebra)."""
@@ -277,23 +339,28 @@ def primeira_linha_com_casamento(codigo, d, linhas=None):
     return None
 
 
-def trecho_codigo(codigo, d):
+def trecho_codigo(codigo, d, sem_separadores=False):
     """Até LINHAS_CODIGO linhas em volta da primeira linha com casamento, cada
-    uma cortada em LARGURA_LINHA caracteres; quebras de linha preservadas."""
+    uma cortada em LARGURA_LINHA caracteres; quebras de linha preservadas.
+    sem_separadores: só linhas úteis (não vazias e não só de separadores)."""
     linhas = _linhas(codigo)
     achado = primeira_linha_com_casamento(codigo, d, linhas)
     if achado is None:
         return None
     n = achado[0]
-    ini = max(0, min(n - LINHAS_CODIGO // 2, len(linhas) - LINHAS_CODIGO))
-    fim = min(len(linhas), ini + LINHAS_CODIGO)
-    vazia = lambda k: not codigo[linhas[k][0]:linhas[k][1]].strip()
-    while ini < n and vazia(ini):
-        ini += 1
-    while fim - 1 > n and vazia(fim - 1):
-        fim -= 1
+    if sem_separadores:
+        escolhidas = linhas_em_volta(codigo, linhas, n)
+    else:
+        ini = max(0, min(n - LINHAS_CODIGO // 2, len(linhas) - LINHAS_CODIGO))
+        fim = min(len(linhas), ini + LINHAS_CODIGO)
+        vazia = lambda k: not codigo[linhas[k][0]:linhas[k][1]].strip()
+        while ini < n and vazia(ini):
+            ini += 1
+        while fim - 1 > n and vazia(fim - 1):
+            fim -= 1
+        escolhidas = list(range(ini, fim))
     saida = []
-    for k in range(ini, fim):
+    for pos, k in enumerate(escolhidas):
         a, b = linhas[k]
         toks, marcas = casamentos_codigo(codigo, d, a, b)
         ivs = intervalos(toks, marcas)
@@ -302,7 +369,7 @@ def trecho_codigo(codigo, d):
         if ivs and ivs[0][0] >= a + LARGURA_LINHA:
             comeco = max(a, ivs[0][0] - LARGURA_LINHA // 3)
         corte = min(b, comeco + LARGURA_LINHA)
-        if k > ini:
+        if pos:
             saida.append({"texto": "\n", "destaque": False})
         if comeco > a:
             saida.append({"texto": RET, "destaque": False})
@@ -312,14 +379,40 @@ def trecho_codigo(codigo, d):
     return junta(saida)
 
 
-def trecho_de_codigo_em_linha(codigo, d):
+def linhas_em_volta(codigo, linhas, n, total=LINHAS_CODIGO):
+    """Índices de até 'total' linhas úteis (não vazias e não só de separadores)
+    em volta da linha n, que sempre entra: metade antes e metade depois,
+    completando de um lado quando o outro acaba."""
+    util = lambda k: not SEPARADOR.match(codigo[linhas[k][0]:linhas[k][1]])
+    antes, k = [], n - 1
+    while k >= 0 and len(antes) < total - 1:
+        if util(k):
+            antes.append(k)
+        k -= 1
+    depois, k = [], n + 1
+    while k < len(linhas) and len(depois) < total - 1:
+        if util(k):
+            depois.append(k)
+        k += 1
+    n_antes = min(len(antes), max(total // 2, total - 1 - len(depois)))
+    n_depois = min(len(depois), total - 1 - n_antes)
+    return sorted(antes[:n_antes]) + [n] + depois[:n_depois]
+
+
+def trecho_de_codigo_em_linha(codigo, d, sem_separadores=False):
     """Trecho de uma linha (espaços colapsados) em volta do primeiro casamento
-    no código, para quando o texto não casa."""
+    no código, para quando o texto não casa. sem_separadores: só com as linhas
+    úteis (usado no exploit-db, cujo trecho sempre vem do código)."""
     achado = primeira_linha_com_casamento(codigo, d)
     if achado is None:
         return None
     n = achado[0]
     linhas = _linhas(codigo)
+    if sem_separadores:
+        pedaco = "\n".join(codigo[linhas[k][0]:linhas[k][1]]
+                           for k in linhas_em_volta(codigo, linhas, n))
+        toks, marcas = casamentos_codigo(pedaco, d)
+        return trecho_de_campo(pedaco, toks, marcas)
     a = linhas[max(0, n - 2)][0]
     b = linhas[min(len(linhas) - 1, n + 2)][1]
     toks, marcas = casamentos_codigo(codigo, d, a, b)
@@ -332,7 +425,24 @@ def titulo(texto, d):
     return segmentos(texto, 0, len(texto), intervalos(toks, marcas))
 
 
+def trecho_exploitdb(campos, d, ficha):
+    """Trecho de um exploit (texto = título + ficha): o texto depois da ficha,
+    senão o código, senão a linha curta com Type, Platform e Date."""
+    pares, fim = ficha
+    resto = (campos.get("texto") or "")[fim:]
+    if resto.strip():
+        t = trecho_de_campo(resto, *casamentos_texto(resto, d))
+        if t:
+            return t
+    codigo = campos.get("codigo") or ""
+    t = trecho_de_codigo_em_linha(codigo, d, sem_separadores=True) if codigo else None
+    return t or linha_ficha(pares, d)
+
+
 def trecho(campos, d):
+    ficha = ficha_exploitdb(campos.get("texto") or "", campos.get("titulo") or "")
+    if ficha:
+        return trecho_exploitdb(campos, d, ficha)
     for nome in ("texto", "descricao", "palavras_chave"):
         texto = campos.get(nome) or ""
         if texto:
@@ -351,6 +461,7 @@ def trecho(campos, d):
 
 def gera(campos, d):
     codigo = campos.get("codigo") or ""
+    exploit = ficha_exploitdb(campos.get("texto") or "", campos.get("titulo") or "") is not None
     return {"titulo": titulo(campos.get("titulo") or "", d),
             "trecho": trecho(campos, d),
-            "trecho_codigo": trecho_codigo(codigo, d) if codigo else None}
+            "trecho_codigo": trecho_codigo(codigo, d, sem_separadores=exploit) if codigo else None}
