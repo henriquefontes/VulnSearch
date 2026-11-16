@@ -1,0 +1,10 @@
+Teste pareado por consulta: calibração por validação cruzada × padrões.
+
+| medida | valor |
+|---|---:|
+| nDCG@10 padrão (K1=1,2 b=0,75 título=2 código=1) | 0.9083 |
+| nDCG@10 com calibração (validação cruzada) | 0.9083 |
+| diferença média | +0.0000 |
+| consultas melhores / piores / iguais | 0 / 0 / 20 |
+| p (permutação, 20.000 sorteios, bilateral) | 1.0000 |
+| p (Wilcoxon, aproximação normal) | 1.0000 |

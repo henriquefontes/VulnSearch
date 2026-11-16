@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="338" viewBox="0 0 980 338" font-family="Arial, sans-serif" font-size="12">
+<rect width="980" height="338" fill="#ffffff"/>
+<text x="16" y="24" font-size="15" fill="#202124">Métricas por modelo (20 consultas, julgamentos do Claude Code; padrões do BM25F)</text>
+<text x="16" y="42" fill="#5f6368">Barra tracejada: modelo fora do pool (documentos não julgados contam como não relevantes; métrica subestimada)</text>
+<text x="106" y="56" font-weight="bold" fill="#202124">P@10</text>
+<line x1="106" y1="60" x2="106" y2="268" stroke="#e3e3e3"/>
+<text x="106" y="282" text-anchor="middle" fill="#5f6368">0</text>
+<line x1="221.0" y1="60" x2="221.0" y2="268" stroke="#e3e3e3"/>
+<text x="221.0" y="282" text-anchor="middle" fill="#5f6368">0.5</text>
+<line x1="336" y1="60" x2="336" y2="268" stroke="#e3e3e3"/>
+<text x="336" y="282" text-anchor="middle" fill="#5f6368">1</text>
+<rect x="106" y="65" width="202.4" height="16" rx="3" fill="#2a6fb0"/>
+<text x="312.4" y="77" fill="#202124">0.880</text>
+<text x="98" y="77" text-anchor="end" fill="#202124">bm25</text>
+<rect x="106" y="91" width="198.9" height="16" rx="3" fill="#2a6fb0"/>
+<text x="308.9" y="103" fill="#202124">0.865</text>
+<text x="98" y="103" text-anchor="end" fill="#202124">bm25f</text>
+<rect x="106" y="117" width="198.9" height="16" rx="3" fill="#2a6fb0"/>
+<text x="308.9" y="129" fill="#202124">0.865</text>
+<text x="98" y="129" text-anchor="end" fill="#202124">tfidf</text>
+<rect x="106" y="143" width="202.4" height="16" rx="3" fill="#2a6fb0"/>
+<text x="312.4" y="155" fill="#202124">0.880</text>
+<text x="98" y="155" text-anchor="end" fill="#202124">vetorial</text>
+<rect x="106" y="169" width="172.5" height="16" rx="3" fill="#ffffff" stroke="#2a6fb0" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="282.5" y="181" fill="#202124">0.750</text>
+<text x="98" y="181" text-anchor="end" fill="#202124">bm15 *</text>
+<rect x="106" y="195" width="172.5" height="16" rx="3" fill="#ffffff" stroke="#2a6fb0" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="282.5" y="207" fill="#202124">0.750</text>
+<text x="98" y="207" text-anchor="end" fill="#202124">bm11 *</text>
+<rect x="106" y="221" width="101.2" height="16" rx="3" fill="#ffffff" stroke="#2a6fb0" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="211.2" y="233" fill="#202124">0.440</text>
+<text x="98" y="233" text-anchor="end" fill="#202124">bm1 *</text>
+<rect x="106" y="247" width="72.5" height="16" rx="3" fill="#ffffff" stroke="#2a6fb0" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="182.4" y="259" fill="#202124">0.315</text>
+<text x="98" y="259" text-anchor="end" fill="#202124">jaccard *</text>
+<text x="396" y="56" font-weight="bold" fill="#202124">MAP</text>
+<line x1="396" y1="60" x2="396" y2="268" stroke="#e3e3e3"/>
+<text x="396" y="282" text-anchor="middle" fill="#5f6368">0</text>
+<line x1="511.0" y1="60" x2="511.0" y2="268" stroke="#e3e3e3"/>
+<text x="511.0" y="282" text-anchor="middle" fill="#5f6368">0.5</text>
+<line x1="626" y1="60" x2="626" y2="268" stroke="#e3e3e3"/>
+<text x="626" y="282" text-anchor="middle" fill="#5f6368">1</text>
+<rect x="396" y="65" width="152.2" height="16" rx="3" fill="#2a6fb0"/>
+<text x="552.2" y="77" fill="#202124">0.662</text>
+<rect x="396" y="91" width="149.3" height="16" rx="3" fill="#2a6fb0"/>
+<text x="549.3" y="103" fill="#202124">0.649</text>
+<rect x="396" y="117" width="152.6" height="16" rx="3" fill="#2a6fb0"/>
+<text x="552.6" y="129" fill="#202124">0.663</text>
+<rect x="396" y="143" width="141.9" height="16" rx="3" fill="#2a6fb0"/>
+<text x="541.9" y="155" fill="#202124">0.617</text>
+<rect x="396" y="169" width="147.5" height="16" rx="3" fill="#ffffff" stroke="#2a6fb0" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="547.5" y="181" fill="#202124">0.641</text>
+<rect x="396" y="195" width="138.3" height="16" rx="3" fill="#ffffff" stroke="#2a6fb0" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="538.3" y="207" fill="#202124">0.602</text>
+<rect x="396" y="221" width="97.8" height="16" rx="3" fill="#ffffff" stroke="#2a6fb0" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="497.8" y="233" fill="#202124">0.425</text>
+<rect x="396" y="247" width="66.8" height="16" rx="3" fill="#ffffff" stroke="#2a6fb0" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="466.8" y="259" fill="#202124">0.291</text>
+<text x="686" y="56" font-weight="bold" fill="#202124">nDCG@10</text>
+<line x1="686" y1="60" x2="686" y2="268" stroke="#e3e3e3"/>
+<text x="686" y="282" text-anchor="middle" fill="#5f6368">0</text>
+<line x1="801.0" y1="60" x2="801.0" y2="268" stroke="#e3e3e3"/>
+<text x="801.0" y="282" text-anchor="middle" fill="#5f6368">0.5</text>
+<line x1="916" y1="60" x2="916" y2="268" stroke="#e3e3e3"/>
+<text x="916" y="282" text-anchor="middle" fill="#5f6368">1</text>
+<rect x="686" y="65" width="210.0" height="16" rx="3" fill="#2a6fb0"/>
+<text x="900.0" y="77" fill="#202124">0.913</text>
+<rect x="686" y="91" width="208.9" height="16" rx="3" fill="#2a6fb0"/>
+<text x="898.9" y="103" fill="#202124">0.908</text>
+<rect x="686" y="117" width="196.3" height="16" rx="3" fill="#2a6fb0"/>
+<text x="886.3" y="129" fill="#202124">0.854</text>
+<rect x="686" y="143" width="194.8" height="16" rx="3" fill="#2a6fb0"/>
+<text x="884.8" y="155" fill="#202124">0.847</text>
+<rect x="686" y="169" width="192.0" height="16" rx="3" fill="#ffffff" stroke="#2a6fb0" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="882.0" y="181" fill="#202124">0.835</text>
+<rect x="686" y="195" width="183.0" height="16" rx="3" fill="#ffffff" stroke="#2a6fb0" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="873.0" y="207" fill="#202124">0.796</text>
+<rect x="686" y="221" width="110.2" height="16" rx="3" fill="#ffffff" stroke="#2a6fb0" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="800.2" y="233" fill="#202124">0.479</text>
+<rect x="686" y="247" width="86.2" height="16" rx="3" fill="#ffffff" stroke="#2a6fb0" stroke-width="2" stroke-dasharray="4 3"/>
+<text x="776.2" y="259" fill="#202124">0.375</text>
+<text x="16" y="322" fill="#5f6368">* fora do pool (jaccard, bm1, bm15, bm11). Fonte: resultados_avaliacao/modelos_resumo.csv</text>
+</svg>
