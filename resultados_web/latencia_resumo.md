@@ -2,8 +2,8 @@ Resumo da latência (20 consultas × 3 repetições, sem cache). Meta: p95 ponta
 
 | parte | média ms | mediana ms | p95 ms | máx. ms |
 |---|---:|---:|---:|---:|
-| cliente | 79.8 | 61.7 | 218.3 | 301.0 |
-| ranqueamento | 68.4 | 53.4 | 201.5 | 283.1 |
-| trechos | 5.6 | 4.1 | 13.6 | 22.7 |
-| servidor | 77.1 | 58.7 | 214.6 | 296.3 |
-| resto | 2.7 | 2.7 | 3.6 | 4.8 |
+| cliente | 79.8 | 60.9 | 233.5 | 247.0 |
+| ranqueamento | 68.5 | 52.7 | 223.0 | 230.9 |
+| trechos | 5.1 | 4.0 | 12.1 | 13.0 |
+| servidor | 76.5 | 58.1 | 230.5 | 243.2 |
+| resto | 3.3 | 2.6 | 4.1 | 24.7 |
